@@ -1,0 +1,120 @@
+{
+ "val": {
+  "n": 300,
+  "seen_L0": 0.897,
+  "seen_L1": 0.965,
+  "seen_L2": 0.969,
+  "best_ref": 0.822,
+  "best_ref_median": 0.909,
+  "new_zones_per_route": 0.56
+ },
+ "eval_all": {
+  "n": 3051,
+  "seen_L0": 0.812,
+  "seen_L1": 0.926,
+  "seen_L2": 0.932,
+  "best_ref": 0.718,
+  "best_ref_median": 0.812,
+  "new_zones_per_route": 1.19
+ },
+ "eval_by_where": {
+  "before": {
+   "n": 1524,
+   "seen_L0": 0.878,
+   "seen_L1": 0.959,
+   "seen_L2": 0.962,
+   "best_ref": 0.783,
+   "best_ref_median": 0.857,
+   "new_zones_per_route": 0.7
+  },
+  "inside": {
+   "n": 36,
+   "seen_L0": 0.924,
+   "seen_L1": 0.972,
+   "seen_L2": 0.972,
+   "best_ref": 0.843,
+   "best_ref_median": 0.923,
+   "new_zones_per_route": 0.39
+  },
+  "after": {
+   "n": 1491,
+   "seen_L0": 0.743,
+   "seen_L1": 0.892,
+   "seen_L2": 0.9,
+   "best_ref": 0.649,
+   "best_ref_median": 0.737,
+   "new_zones_per_route": 1.71
+  }
+ },
+ "eval_by_gap": {
+  "0-0": {
+   "n": 36,
+   "seen_L0": 0.924,
+   "seen_L1": 0.972,
+   "seen_L2": 0.972,
+   "best_ref": 0.843,
+   "best_ref_median": 0.923,
+   "new_zones_per_route": 0.39
+  },
+  "1-7": {
+   "n": 470,
+   "seen_L0": 0.856,
+   "seen_L1": 0.945,
+   "seen_L2": 0.949,
+   "best_ref": 0.765,
+   "best_ref_median": 0.848,
+   "new_zones_per_route": 1.03
+  },
+  "8-14": {
+   "n": 538,
+   "seen_L0": 0.824,
+   "seen_L1": 0.923,
+   "seen_L2": 0.927,
+   "best_ref": 0.712,
+   "best_ref_median": 0.8,
+   "new_zones_per_route": 1.24
+  },
+  "15-21": {
+   "n": 541,
+   "seen_L0": 0.821,
+   "seen_L1": 0.945,
+   "seen_L2": 0.949,
+   "best_ref": 0.725,
+   "best_ref_median": 0.818,
+   "new_zones_per_route": 0.82
+  },
+  "22-28": {
+   "n": 502,
+   "seen_L0": 0.776,
+   "seen_L1": 0.908,
+   "seen_L2": 0.918,
+   "best_ref": 0.692,
+   "best_ref_median": 0.795,
+   "new_zones_per_route": 1.47
+  },
+  "29-38": {
+   "n": 677,
+   "seen_L0": 0.768,
+   "seen_L1": 0.904,
+   "seen_L2": 0.91,
+   "best_ref": 0.68,
+   "best_ref_median": 0.792,
+   "new_zones_per_route": 1.48
+  },
+  "39-48": {
+   "n": 287,
+   "seen_L0": 0.857,
+   "seen_L1": 0.946,
+   "seen_L2": 0.949,
+   "best_ref": 0.757,
+   "best_ref_median": 0.84,
+   "new_zones_per_route": 0.98
+  }
+ },
+ "eval_no_station_history": [
+  {
+   "route_id": "RouteID_11f5aa13-f99a-4ad4-b221-c9007fe3f8f3",
+   "station": "DBO6"
+  }
+ ]
+}
