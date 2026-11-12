@@ -15,7 +15,7 @@ Status: agreed (review 2c added four tightenings, all adopted below; see 'Final 
   - **B, both informed:** our final model (v0-hist or v1, by the rule in item 3), against new "informed" Opus fair-fight runs whose README states the same facts about the test that we know.
 - The mixed case (a hardened model against blind Opus) is never a headline.
 
-## 1. Primary comparison: the Hyde claim
+## 1. Primary comparison: the specialist-model claim
 
 **Specialist as the model against frontier as the model.**
 - **Arms:** our final model against Opus 5.5 picking the zone order, with the same inside-zone solver ("swap the brain").
@@ -23,7 +23,7 @@ Status: agreed (review 2c added four tightenings, all adopted below; see 'Final 
 - **Prompt:** developed on validation routes only, then frozen before any evaluation call.
 - **Routes:** a 500-route sample of the evaluation set, drawn with a fixed seed and stratified by station and by before/after the training dates.
 - **Win:** the paired mean difference (ours minus Opus) is below 0, with a 95% bootstrap interval that excludes 0.
-- **Also reported:** cost and latency per route for both arms. Hyde reports accuracy, cost and latency together.
+- **Also reported:** cost and latency per route for both arms. Accuracy, cost and latency are reported together.
 
 ## 2. Secondary comparisons (Holm-corrected together; descriptive beyond that)
 
@@ -59,7 +59,7 @@ Status: agreed (review 2c added four tightenings, all adopted below; see 'Final 
   - Adopted instead: **both informed runs get the same brief, reading list included.**
   - Reason: v0-hist's history idea came from that literature review. An "informed" opponent without it still knows less than we did when we designed v0-hist.
   - Two identical runs also give a second measurement of Opus's run-to-run spread.
-  - **Reading list (review 2c):** sections 1–3 of the literature review, plus its sources, plus the published eval-score table and its sources. Sections 4–5 (our plan and the Hyde framing) and every mention of v0, our features, our results or Opus scores are left out. These runs are labelled **"informed + literature"** everywhere.
+  - **Reading list (review 2c):** sections 1–3 of the literature review, plus its sources, plus the published eval-score table and its sources. Sections 4–5 (our plan and framing) and every mention of v0, our features, our results or Opus scores are left out. These runs are labelled **"informed + literature"** everywhere.
   - **The README is word for word the blind one,** except for three additions: the test facts, the reading list, and the `predict.py <input_dir> <output_path>` interface. Any blind-against-informed difference is then attributable to those additions.
 - **What we cannot equalise, stated in the write-up:** our side had a night of iteration and many validation looks. Opus gets one 3-hour session per run.
 

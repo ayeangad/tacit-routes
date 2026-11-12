@@ -1,6 +1,6 @@
 {
  "version": "A",
- "input_dir": "/home/angad/Downloads/projects/companies/hyde-main/tacit-routes/data/processed/routes",
+ "input_dir": "<repo>/data/processed/routes",
  "history_rule": "competition: all same-station TRAIN routes, any date",
  "k_ref": 8,
  "top_next": 3,

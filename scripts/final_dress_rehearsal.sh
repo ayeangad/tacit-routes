@@ -5,7 +5,7 @@
 # under runs/final/dress/; the real eval folder, real predictions and results/ are not touched.
 #   sh scripts/final_dress_rehearsal.sh
 set -eu
-TR=/home/angad/Downloads/projects/companies/hyde-main/tacit-routes
+TR="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$TR"
 D="$TR/runs/final/dress"
 export TR_EVAL_DIR="$D/eval_frozen" TR_FINAL_DIR="$D" TR_RESULTS_DIR="$D/results" TR_PREREG_DOC="$D/PREREGISTRATION.md"

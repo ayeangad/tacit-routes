@@ -5,7 +5,7 @@
 #   sh scripts/test_final_sandbox.sh [run]
 set -u
 RUN=${1:-3}
-TR=/home/angad/Downloads/projects/companies/hyde-main/tacit-routes
+TR="$(cd "$(dirname "$0")/.." && pwd)"
 SRC="$TR/opus_arena_run$RUN"
 T="$TR/runs/final/opus/sandbox_test"
 COPY="$T/arena"

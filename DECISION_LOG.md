@@ -12,9 +12,9 @@ A running record of every important choice in tacit-routes. For each one: what t
 ## Part 1: framing the project
 
 ### D1. What is the project trying to prove?
-- **Problem:** Hyde's pitch is that small specialist models trained on a company's own data beat frontier models on narrow tasks. Angad: "my absolute main goal is to beat a frontier model at a small task, that is what Hyde is all about."
+- **Problem:** the claim being tested is that small specialist models trained on a company's own data beat frontier models on narrow tasks. Angad: "my absolute main goal is to beat a frontier model at a small task."
 - **Task chosen:** predict the order real Amazon drivers visit their stops (2021 Last Mile Routing Challenge, public, CC-BY-NC). Drivers deviate from the shortest route because of habits, unwritten "tacit" knowledge that a model can learn from history.
-- **Alternatives considered:** Catan (felt like copying), wildfire, PII redaction (in `../reports/`).
+- **Alternatives considered:** a board-game agent (felt like copying), wildfire, PII redaction.
 - **Why this one:** real data, an official metric, a published leaderboard to calibrate against, and a clean story: learned habits versus a general reasoner.
 
 ### D2. The headline: frontier as the model, or frontier as an engineer?
@@ -25,8 +25,8 @@ A running record of every important choice in tacit-routes. For each one: what t
   - Lead with (b) as the "fair fight".
   - Lead with the reframe from review 1: improve on the 2021 winner.
   - Lead with (a).
-- **Decision:** (a) is the primary claim, because it is literally Hyde's thesis. (b) is a key secondary. The 2021-winner comparison is a reference point, not the goal. Angad rejected the reframe on 2026-11-11.
-- **Why:** a small model beating the frontier model used as the model is what Hyde sells. The engineer fight is a robustness story: Opus building a small model is itself evidence *for* "use specialists".
+- **Decision:** (a) is the primary claim, because it is literally the specialist-model thesis. (b) is a key secondary. The 2021-winner comparison is a reference point, not the goal. Angad rejected the reframe on 2026-11-11.
+- **Why:** a small model beating the frontier model used as the model is the specialist-model claim. The engineer fight is a robustness story: Opus building a small model is itself evidence *for* "use specialists".
 
 ### D3. What does "fair" mean when Opus is the model?
 - **Problem:** Opus ordering 150 stops directly scored 0.069, barely better than the shortest route (0.078, p = 0.20). Critics would say "Opus never saw the history" and "LLMs can't hand-solve a 150-stop TSP".
@@ -236,7 +236,7 @@ A running record of every important choice in tacit-routes. For each one: what t
 
 ## Part 8: defending each decision: the number, its sample size, and "what if it had gone the other way"
 
-This follows Hyde's own published grading standard: their Catan hackathon rubric (`../research_notes/Hyde final project ideas/hyde_signals.md`, around line 213), checked against the official problem statement. To defend a decision they pick, it asks for "the number behind it, its sample size, and what you would have concluded if that number had come out the other way".
+To defend a decision, the standard used here asks for "the number behind it, its sample size, and what you would have concluded if that number had come out the other way".
 
 | Decision | The number (n) | If it had come out the other way |
 |---|---|---|
