@@ -6,18 +6,25 @@ Data: Amazon Last Mile Routing Research Challenge (2021). Metric: the challenge'
 
 ## Result
 
-The test was pre-registered, locked by hash, and scored once. Each difference below is our model minus the opponent, with a 95% paired bootstrap interval, so negative means we were better.
+The test was pre-registered, locked by hash, and scored once. Each difference below is my model minus the opponent, with a 95% paired bootstrap interval, so negative means mine was better.
 
 | Comparison | Routes | Difference | Outcome |
 |---|---|---|---|
-| Opus 5.5 as the model: it picks the zone order, with the same history and the same in-zone solver | 500 | −0.0023 [−0.0042, −0.0005]; better on 149 routes, worse on 94 | Win |
-| Cost per route | 500 | $0.51 and 211 s for Opus (max effort) vs 2.3 CPU-seconds for ours | About 8,000× cheaper |
-| Opus 5.5 as an engineer: it wrote its own program in a 3-hour sandbox (runs 5 and 6) | 3,052 | +0.0015 [+0.0010, +0.0020] and +0.0010 [+0.0005, +0.0015] | Loss |
+| **Primary.** Opus 5.5 as the model: it picks the zone order, given history drawn from the same training routes (summarised in its prompt), and uses the same in-zone solver | 500 | −0.0023 [−0.0042, −0.0005]; better on 149 routes, worse on 94, tied on 257 | Win |
+| Cost per route, for the same comparison | 500 | Opus (max effort): $0.51 and 211 s. Mine: 2.3 CPU-seconds | About 8,000× cheaper (assumptions below) |
+| Design B. Opus 5.5 as an engineer: told the test facts, it wrote its own program in a sandbox with a 3-hour limit (it used about 1.5). My final model against runs 5 and 6 | 3,052 | +0.0015 [+0.0010, +0.0020] and +0.0010 [+0.0005, +0.0015] | Loss |
+| Design A. Opus 5.5 as an engineer, not told the test facts (runs 2, 3, 4). My earlier model (v0-hist), frozen before the test | 3,052 | −0.0009 [−0.0016, −0.0002], +0.0032 [+0.0026, +0.0038], +0.0031 [+0.0026, +0.0037] | Loss (a win had to hold against all three) |
 | The 2021 winner's code, run locally | 3,052 | +0.0011 [+0.0005, +0.0017] | Reference |
 
-Mean scores: ours 0.0259, Opus as the model 0.0284 (0.0324 at default effort), Opus's programs 0.0240–0.0281, 2021 winner 0.0248.
+Mean scores: mine 0.0259, Opus as the model 0.0284 (0.0324 at default effort), Opus's programs 0.0240–0.0281, 2021 winner 0.0248.
 
-So a model with about 147k weights beats a frontier model used directly on this task, at a fraction of the cost. A frontier model given three hours to write its own program beats it.
+So a model with about 147k weights beats a frontier model used directly on this task, at a fraction of the cost. A frontier model given time to write its own program beats it.
+
+**Cost assumptions.** Opus's $0.51 is the per-call cost reported by the `claude` CLI at list price, for the answering call only; it is $0.52 with retries. Mine is inference only, priced at $0.10 per CPU-hour. Training is extra and happens once: about 2.4 CPU-hours across 5 seeds. Each Opus engineer run cost $2.74 (run 5) and $3.47 (run 6), also once.
+
+Two post-hoc checks. They are descriptive and were computed after the test (`scripts/readme_posthoc.py`):
+- **Opus as the model is not a weak opponent.** On the same 500 routes it beats both rule baselines: −0.0035 [−0.0058, −0.0011] against R2 and −0.0062 [−0.0084, −0.0040] against R4. It is level with my earlier v0-hist (+0.0006 [−0.0013, +0.0026]).
+- **The size of the win depends on a few routes; its direction doesn't.** About half the mean gap comes from my 5 biggest wins, and without them the mean is −0.0012. Dropping the 25 most negative and the 25 most positive differences still leaves −0.0017 [−0.0025, −0.0009].
 
 Full tables: `results/final_test.md`. Breakdowns, which are descriptive only (no claims): `results/final_descriptive.md`.
 
@@ -27,7 +34,7 @@ A route's stops are grouped into zones. My model decides the zone order, then a 
 
 To find which half the gap came from, I took each Opus program's zone order and ran it through my in-zone solver. With my solver, every Opus zone order still beat mine, by +0.0010 to +0.0023. Opus's own in-zone ordering was never better than mine. **The gap is entirely in the zone order.**
 
-My model picks the next zone one step at a time, using a beam search. The one Opus program I've inspected in detail (run 2) does it differently. It scores every pair of zones with a 513-weight network, then solves for the best tour over all zones at once. Many of my worst routes are ones where my zone order runs the driver's route backwards (15% of routes, against 11–13% for Opus's programs). That is the kind of error that choosing the whole tour at once should prevent. This is the next thing I'd build. It hasn't been tested.
+My model picks the next zone one step at a time, using a beam search. All five Opus programs do it differently, according to their own design notes (`APPROACH.md` in each sandbox). They score every pair of zones (run 2 with a 513-weight network) and then solve for the best tour over all zones at once with an ATSP solver (Held–Karp or OR-Tools). Run 3's notes say it tried a sequential model with beam search, like mine, and dropped it because it was worse. Run 5, the strongest, adds a step-by-step re-ranking on top of the tour. Many of my worst routes are ones where my zone order runs the driver's route backwards (15% of routes, against 11–13% for Opus's programs). That is the kind of error that choosing the whole tour at once should prevent. This is the next thing I'd build. It hasn't been tested.
 
 ## Caveats
 
@@ -42,7 +49,7 @@ My model picks the next zone one step at a time, using a beam search. The one Op
 1. Every arm, comparison, win rule and fallback was written down before scoring, in `PREREGISTRATION.md`, with the plan and amendments in `docs/plan.md`.
 2. `runs/final/LOCK_RECORD.json` holds the sha256 of the pre-registration, the config, the scoring scripts and every prediction file. `final_score.py` refuses to run unless the hashes match.
 3. All predictions were made and hashed before the answer files were opened. The scorer ran once. Its output hash is in the lock record.
-4. Anything known about the test (dates, quality, that it is out of time) was also given to Opus in its brief (`runs/opus_informed_brief/`).
+4. For design B, anything I knew about the test (dates, quality, that it is out of time) was also given to Opus runs 5 and 6 in their brief (`runs/opus_informed_brief/`). Runs 2–4 were blind by design, and they are compared only with my model that was frozen before I knew those facts.
 
 To check the hashes:
 
