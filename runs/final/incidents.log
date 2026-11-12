@@ -1,0 +1,84 @@
+2026-11-11T17:18:20+00:00 [smoke_opus_run3_rep1] batch 0 (2 routes): exit 124, 2 routes missing/invalid; re-running those routes one by one
+2026-11-11T17:18:30+00:00 [smoke_opus_run3_rep1] batch 1 (1 routes): exit 124, 1 routes missing/invalid; re-running those routes one by one
+2026-11-11T~20:20Z (~01:50 IST 12 Nov) HARNESS FIXES BEFORE THE LOCK (found while building the results page; no answers opened)
+  1. final_predict.py zone-rich-collect wrote the same arm names for every zone_rich run, so the descriptive DEFAULT-effort
+     run (launch.sh loops max, then default) would have OVERWRITTEN the primary max-effort arms opus_model_{repaired,strict}_{exact,greedy}.
+     Fix: arm names now follow the effort recorded in each OK call (max -> opus_model_*, default -> opus_model_default_*);
+     mixed efforts refuse. Effective for every collect after 02:00 IST; the max run was still in progress, nothing had been collected.
+     Backup: runs/final/final_predict_before_effort_names.py.
+  2. final_score.py computed the "excluding DBO6" view but decided wins and claims from the all-routes view only, contrary to
+     PREREGISTRATION.md section 6. Fix: a win now needs BOTH views, each with its own Holm over the secondary family.
+  3. final_score.py did not compute the pre-registered non-inferiority fallback. Fix: computed from PREREG_CONFIG "non_inferiority"
+     (margin 0.002 in both views; cost ratio >= 100 with FINAL's CPU time at $0.10/CPU-hour).
+     Also: optional descriptive arms (opus_model_default_*) are scored if present, skipped with a note if not.
+  Backups: runs/final/final_score_before_both_views.py, runs/final/PREREG_CONFIG_before_both_views.json,
+  runs/final/PREREGISTRATION_before_both_views_fix.md. Self-test (--test-fake, 3 val routes) passes, including a temporary
+  variant exercising non-inferiority and a missing optional arm (selftest folder restored afterwards).
+2026-11-11T20:59Z (02:29 IST 12 Nov) OPUS-MODEL max run: SAFEGUARD FALSE POSITIVE on RouteID_0c9079d4-...-cdc09a37161b
+  The call ran 1,100 s, produced 131,992 thinking tokens over several iterations, cost $2.71, and ended with
+  "API Error: Opus 5.5's safeguards flagged this message ... This sometimes happens with safe, normal conversations."
+  zone_rich.py stops the whole run on any error and retries the failed route FIRST on resume, so this route could have
+  blocked every resume (16 x 20 min) and killed the arm. Action (no answers opened, no prompt/command/parsing change):
+  - launch.sh stopped by TaskStop during its 20-min wait (no calls in flight). Downtime 2 min.
+  - NEW scripts/zone_rich_resilient.py: imports the frozen zone_rich.py unchanged (sha256 asserted against
+    runs/zone_rich/FROZEN.json) and uses its one_call. Safeguard refusals are recorded and the run continues; refused
+    routes are retried at the END, at most 3 attempts per route in total. Every other error still stops the run.
+  - NEW runs/final/zone_rich/launch2.sh (no rebuild of the max folder; same 20-min/16-resume loop; same collects).
+  - REFUSAL RULE in final_predict.py zone-rich-collect: a route with only safeguard refusals has no Opus answer.
+    STRICT: absent (invalid score), as before. REPAIRED (primary): treated as an empty zone list, so the fallback
+    (cheapest insertion of all zones) answers for it, like any invalid list. Chosen because it is the kinder view to
+    Opus and the primary comparison must not be won on Opus's refusals. Per-route cost includes refused attempts
+    (cost_usd_all_attempts). Backup: runs/final/final_predict_before_refusal_rule.py. Tested on a /tmp copy.
+2026-11-11T21:2xZ (~02:55 IST 12 Nov) OPUS-MODEL concurrency raised 3 -> 5 (Angad: "maximize and use my laptop hardware ...
+  without breaking anything"). scripts/zone_rich_resilient.py now allows up to 6 parallel calls, re-reading
+  runs/final/zone_rich/<run>/WORKERS every 30 s (tested with a fake call: concurrency honoured, refusals retried last, a
+  rerun calls nothing new). Handover: waited for one in-flight call to finish, then stopped launch2.sh; 3 calls in
+  flight (about 6, 2 and 0.5 min old) were lost and are simply called again (no record was written for them).
+  launch3.sh = launch2.sh with --workers 5. Concurrency changes no answer (independent calls, same frozen inputs).
+  CPU work was NOT parallelised further: several Opus-built programs, jpt and the shortest-route reference use
+  time-limited search, so extra CPU load would quietly weaken them (D17); CPU package already ~87 C.
+  Sleep/idle/lid suspend blocked with systemd-inhibit for 16 h so the laptop cannot sleep mid-run.
+2026-11-11T21:25Z (~02:55-03:05 IST 12 Nov) REVIEW CHECK-IN 1, both points adopted (before any final-test score):
+  1. LOAD RULE (D17) for time-limited arms, fixed now and written into PREREGISTRATION.md section 8: flag an arm repeat if
+     load1 > 8.0 in > 20% of its logged minutes, an Opus-built 300-route batch takes > 1.5x the repeat's median s/route,
+     or mean clock < 2000 MHz; flagged repeats are re-run in full after the OPUS-MODEL arm finishes and the re-run is scored.
+     Logger runs/final/load_logger_final.sh -> runs/final/load_log.txt (load 1/5/15, mean/max MHz, package temp, step), every
+     60 s from 21:24:45Z until OVERNIGHT DONE. Checker: scripts/final_load_check.py (inputs only). Opus run 2 rep 1 batches 1-3
+     ran before the logger (load ~5.1 at step start, 141 s per batch each).
+     Observation at logger start: load 5.13, every thread at 2300 MHz (no turbo), package 87 C.
+  2. Non-inferiority cost: the deciding Opus cost now counts only the answering call on answered routes (refused attempts are
+     never charged to Opus); the all-attempts mean and the number of refused routes are reported beside it. Self-test passes.
+     Backup runs/final/final_score_before_cost_views.py.
+2026-11-12T03:17:54+00:00 [opus_run2_rep2] validity: 2552 missing, 0 invalid, sha ok True
+        RouteID_00092558-dece-4fb7-8d0d-7d0df3a4864e RouteID_0034b931-97a7-485f-a6b3-b22798489094 RouteID_0085d8a2-71a3-4205-9c46-e62139eca47b RouteID_008bf177-673c-4647-89dd-bf8c13b7c51d RouteID_00a56062-bfba-45dd-8e15-b75ffe9db1e7 RouteID_00ae3f5e-a708-4c37-b9c4-ebd3964dbdac RouteID_00c53fe0-4fcc-4f6e-aad8-2d7a068ddda3 RouteID_00da9f9b-3f95-4d97-ad4d-12d6677afb24 RouteID_00eac154-7941-45ac-9dc4-160fc5716fa1 RouteID_01042d97-3322-4c48-992b-06f0c8378b92
+2026-11-12T03:17:55+00:00 [opus_run3_rep2] validity: 2552 missing, 0 invalid, sha ok True
+        RouteID_00092558-dece-4fb7-8d0d-7d0df3a4864e RouteID_0034b931-97a7-485f-a6b3-b22798489094 RouteID_0085d8a2-71a3-4205-9c46-e62139eca47b RouteID_008bf177-673c-4647-89dd-bf8c13b7c51d RouteID_00a56062-bfba-45dd-8e15-b75ffe9db1e7 RouteID_00ae3f5e-a708-4c37-b9c4-ebd3964dbdac RouteID_00c53fe0-4fcc-4f6e-aad8-2d7a068ddda3 RouteID_00da9f9b-3f95-4d97-ad4d-12d6677afb24 RouteID_00eac154-7941-45ac-9dc4-160fc5716fa1 RouteID_01042d97-3322-4c48-992b-06f0c8378b92
+2026-11-12T03:17:55+00:00 [opus_run4_rep2] validity: 2552 missing, 0 invalid, sha ok True
+        RouteID_00092558-dece-4fb7-8d0d-7d0df3a4864e RouteID_0034b931-97a7-485f-a6b3-b22798489094 RouteID_0085d8a2-71a3-4205-9c46-e62139eca47b RouteID_008bf177-673c-4647-89dd-bf8c13b7c51d RouteID_00a56062-bfba-45dd-8e15-b75ffe9db1e7 RouteID_00ae3f5e-a708-4c37-b9c4-ebd3964dbdac RouteID_00c53fe0-4fcc-4f6e-aad8-2d7a068ddda3 RouteID_00da9f9b-3f95-4d97-ad4d-12d6677afb24 RouteID_00eac154-7941-45ac-9dc4-160fc5716fa1 RouteID_01042d97-3322-4c48-992b-06f0c8378b92
+2026-11-12T03:17:56+00:00 [opus_run5_rep2] validity: 2552 missing, 0 invalid, sha ok True
+        RouteID_00092558-dece-4fb7-8d0d-7d0df3a4864e RouteID_0034b931-97a7-485f-a6b3-b22798489094 RouteID_0085d8a2-71a3-4205-9c46-e62139eca47b RouteID_008bf177-673c-4647-89dd-bf8c13b7c51d RouteID_00a56062-bfba-45dd-8e15-b75ffe9db1e7 RouteID_00ae3f5e-a708-4c37-b9c4-ebd3964dbdac RouteID_00c53fe0-4fcc-4f6e-aad8-2d7a068ddda3 RouteID_00da9f9b-3f95-4d97-ad4d-12d6677afb24 RouteID_00eac154-7941-45ac-9dc4-160fc5716fa1 RouteID_01042d97-3322-4c48-992b-06f0c8378b92
+2026-11-12T03:17:56+00:00 [opus_run6_rep2] validity: 2552 missing, 0 invalid, sha ok True
+        RouteID_00092558-dece-4fb7-8d0d-7d0df3a4864e RouteID_0034b931-97a7-485f-a6b3-b22798489094 RouteID_0085d8a2-71a3-4205-9c46-e62139eca47b RouteID_008bf177-673c-4647-89dd-bf8c13b7c51d RouteID_00a56062-bfba-45dd-8e15-b75ffe9db1e7 RouteID_00ae3f5e-a708-4c37-b9c4-ebd3964dbdac RouteID_00c53fe0-4fcc-4f6e-aad8-2d7a068ddda3 RouteID_00da9f9b-3f95-4d97-ad4d-12d6677afb24 RouteID_00eac154-7941-45ac-9dc4-160fc5716fa1 RouteID_01042d97-3322-4c48-992b-06f0c8378b92
+2026-11-12T03:25Z (08:55 IST) The 5 "opus_runN_rep2 validity: 2552 missing" INCIDENT lines above are a CHECKER bug, not a harness failure:
+  final_validity_check.py expected all 3,052 routes for repeat 2, but under option B repeat 2 runs on the 500 sample only.
+  Fixed (rep2 arms expect the sample; backup runs/final/final_validity_check_before_optionB.py) and re-run: see below/validity.json.
+2026-11-12T06:21:59+00:00 [prereg] check-in 1.2 (pre-lock review), before any answer was opened. Accepted all 5 points:
+    (1) section 6.3 same-solver comparison had no arm: added scripts/final_samesolver.py (inputs only) -> samesolver_run2..6 on all 3,052, 4 workers; config arms + reference comparisons samesolver_zone_runN (v1_exact - samesolver) and opus_own_solver_runN (opus_runN_rep1 - samesolver).
+    (2) section 7 tau per arm, medians/CIs per arm, period/gap breakdown and error analysis had no code: added scripts/final_descriptive.py (self-tested on score_selftest), gated on results/final_test.json + its sha in LOCK_RECORD.json; after-opening rule in section 8.
+    (3) wording sections 1 and 9: history 'drawn from the same training routes (summarised in Opus's prompt)'.
+    (4) crash rule in section 8. (5) LOCK_RECORD.json with hashes of doc, config, final_score, final_common, final_descriptive, final_pilot_score, MANIFEST.
+    Precheck: no_history_ids() = 1 route (DBO6), not in the 500 sample -> primary views identical.
+    Backups: runs/final/PREREGISTRATION_before_1_2.md, runs/final/PREREG_CONFIG_before_1_2.json (local backups, not in repo). final_score.py unchanged.
+2026-11-12T06:24:35Z [lock] Go-ahead from Angad at check-in 1.3: lock after samesolver finishes, validity passes with the 5 new arms, load check flags nothing, PREREGISTRATION sha256 still 039b7ddf4ecb; stop and show the diff if the doc or comparison list changes. Pre-lock hashes: runs/final/prelock_hashes_1155.txt. Load logger restarted for the samesolver build (descriptive rows in load_check.md).
+2026-11-12T06:27:26Z [prereg] Wording-only edit before the lock: reviewer/assistant names removed from PREREGISTRATION.md (16), PREREG_CONFIG.json NOTE (3; all other config keys identical), and comments in final_score.py, final_common.py, final_descriptive.py, final_samesolver.py. No rule, arm, comparison or code path changed; final_score and final_descriptive self-tests re-run and pass. PREREGISTRATION sha256 039b7ddf4ecb -> a8eccd3f611b. Backups runs/final/*_before_scrub.*; earlier backup renamed to PREREGISTRATION_before_prelock_review.md. The relayed go-ahead was tied to 039b7ddf4ecb, so the lock now waits for Angad's own 'lock it' on the new hash.
+2026-11-12T06:28:23Z [lock] Angad typed ';pcl ot' (= 'lock it', hands shifted one key) for PREREGISTRATION sha256 a8eccd3f611b. Lock proceeds when the conditions hold.
+2026-11-12T07:56:19Z [samesolver] Another local session's manim/piper renders (final_series) pushed load to 11-15 from ~06:45Z; samesolver_run6 and _run2 were built under it, run3 was cut. Angad paused the renders (~07:53Z). Under-load copies kept in runs/final/samesolver_underload/; runs 3,4,6,2 rebuilt on the quiet machine (descriptive arms, before the lock). run5 (06:17-06:44Z) ran before the renders and is kept.
+2026-11-12T09:30:03Z [samesolver] check-in 2: load >8 from 08:32Z to 09:07Z (peak 16.19, MHz 1700-1900), cause unknown (renders were paused; no manim/piper process at 09:29Z). Runs 4 (71% of minutes >8) and 6 (61%) were built under it; run3 clean; run2 started 09:18Z, so far clean. A 14:50 IST status note wrongly said all three were built on a quiet machine. Queued: after run2, rebuild runs 4 and 6 (copies of the loaded builds kept in runs/final/samesolver_underload2/).
+2026-11-12T09:30:46Z [samesolver] Angad: 'skip'. Runs 4 and 6 are NOT rebuilt again; they stay as built under load (08:32-09:07Z, 71% / 61% of minutes > 8) and this is disclosed in results. Queued rebuild cancelled before it started.
+2026-11-12T09:45:31Z [lock] LOCKED. Conditions held: samesolver done (runs 4,6 under load, disclosed per Angad's 'skip'), validity 0 missing/invalid in every arm, load check 0 deciding flags, PREREGISTRATION sha256 a8eccd3f611b, config rules unchanged. LOCK_RECORD.json written. Running final_score.py once.
+2026-11-12T11:03:04Z [harness] Second systemd-inhibit (sleep 21600, until ~22:3x IST) started at the review agent's check-in 3: the first one ends ~18:48 IST and scoring + follow-ups may run past it. No algorithm or locked file touched.
+2026-11-12T11:30:42Z [deviation] PREREGISTRATION section 4 lists 'v0-hist-past, v1-past' on all 3,052; only v0past was built and configured, v1-past never was (missed in harness and in both pre-lock reviews; found by the review agent at check-in 3.2, during scoring). No claim rests on it. Reported as a deviation in the results; may be built later as a named descriptive script under the after-opening rule.
+2026-11-12T12:34:00Z [decision] Angad: v2 one-change experiment cancelled ('lets leave it lets not do it, extra time for no reason'). No EXPLORATORY_V2.md, nothing built. The diagnosis goes in the write-up as 'what I would do next and why', from the registered same-solver comparisons and final_descriptive.py output; gaps stated as the scorer reports them, with intervals.
+2026-11-12T12:40:42Z [samesolver] The video-rendering session reports its renders overlapping final_samesolver.py also filled memory and swap (load ~14.7). Consistent with the load_log episodes (renders ~06:45-07:53Z; second episode 08:32-09:07Z). Runs 6 and 2 were rebuilt clean; runs 4 and 6 (second build) kept under load per Angad's 'skip', disclosed.
+2026-11-12T12:45:00Z [score] final_score.py ran once, exit 0. results/final_test.json sha256 logged in LOCK_RECORD.json. PRIMARY HOLDS (-0.0023 [-0.0042,-0.0005], both views); engineer claims B and A do not hold.
+2026-11-12T12:47:02Z [score] final_pilot_score.py and final_descriptive.py ran once, exit 0. Guide data rebuilt.
