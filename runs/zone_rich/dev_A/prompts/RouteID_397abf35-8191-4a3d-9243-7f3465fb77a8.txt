@@ -1,0 +1,91 @@
+A delivery van leaves the station and must deliver to every zone below. All stops in a zone are delivered together, so you only choose the order of the zones. The order of stops inside each zone is decided separately.
+
+Station: DLA7 at 33.965477 -117.653303
+
+Zones (19). Each line: zone ID, centroid latitude, centroid longitude, number of stops. Lines are sorted by zone ID.
+E-5.1D 33.902746 -117.910943 10
+E-5.1E 33.901439 -117.911688 8
+E-5.1G 33.898480 -117.912261 4
+E-5.1H 33.900327 -117.905738 9
+E-5.1J 33.893310 -117.918517 14
+E-5.2D 33.905609 -117.913061 9
+E-5.2E 33.901675 -117.921649 12
+E-5.2G 33.897514 -117.917519 6
+E-5.2H 33.899918 -117.905690 2
+E-5.2J 33.894099 -117.912584 3
+E-5.3D 33.909212 -117.910571 5
+E-5.3E 33.900577 -117.924405 12
+E-5.3G 33.897595 -117.922368 9
+E-5.3H 33.897516 -117.908308 7
+E-5.3J 33.897149 -117.910040 2
+E-6.1J 33.890186 -117.913779 10
+E-6.2J 33.890793 -117.915907 4
+E-6.3H 33.887655 -117.918569 9
+E-6.3J 33.889350 -117.920648 8
+
+Travel times in seconds. Each number is the mean driving time over all pairs of stops (one stop in the first zone, one in the second).
+
+From the station to each zone, in the zone order above:
+E-5.1D:2217 E-5.1E:2286 E-5.1G:2260 E-5.1H:2204 E-5.1J:2382 E-5.2D:2293 E-5.2E:2368 E-5.2G:2354 E-5.2H:2155 E-5.2J:2379 E-5.3D:2258 E-5.3E:2412 E-5.3G:2357 E-5.3H:2389 E-5.3J:2360 E-6.1J:2404 E-6.2J:2360 E-6.3H:2403 E-6.3J:2402
+
+From each zone back to the station, in the zone order above:
+E-5.1D:2339 E-5.1E:2410 E-5.1G:2401 E-5.1H:2352 E-5.1J:2499 E-5.2D:2428 E-5.2E:2524 E-5.2G:2475 E-5.2H:2319 E-5.2J:2426 E-5.3D:2424 E-5.3E:2568 E-5.3G:2500 E-5.3H:2367 E-5.3J:2393 E-6.1J:2503 E-6.2J:2459 E-6.3H:2504 E-6.3J:2519
+
+Zone-to-zone matrix. Row = from, column = to; columns are in the zone order above. The diagonal is the mean time between stops inside the same zone.
+E-5.1D | 56 116 169 220 302 103 263 248 184 300 198 306 252 221 269 324 280 322 322
+E-5.1E | 108 51 197 263 361 151 260 246 242 359 247 304 249 264 299 383 339 378 381
+E-5.1G | 193 189 92 202 237 233 255 241 184 238 327 299 244 208 210 261 217 258 259
+E-5.1H | 208 231 188 70 309 275 296 282 119 307 357 339 285 335 288 331 287 326 329
+E-5.1J | 305 344 244 301 65 382 408 395 277 192 441 452 527 296 261 192 153 204 208
+E-5.2D | 116 168 240 312 399 51 308 293 273 397 142 351 297 313 357 421 377 418 419
+E-5.2E | 290 278 260 325 418 322 99 240 309 415 416 136 196 326 355 440 396 437 438
+E-5.2G | 242 229 211 277 369 274 230 31 260 367 368 286 200 277 306 391 348 387 389
+E-5.2H | 159 182 139 160 260 226 246 233 69 258 308 290 235 272 239 282 238 276 280
+E-5.2J | 231 270 170 227 273 309 335 321 203 22 367 379 324 216 169 295 251 294 293
+E-5.3D | 205 263 316 372 449 143 404 390 328 448 70 448 393 373 428 472 428 466 470
+E-5.3E | 334 322 304 369 462 367 148 296 352 460 460 77 236 370 399 484 440 481 482
+E-5.3G | 267 255 236 302 394 299 207 194 285 392 393 250 41 303 331 417 372 414 415
+E-5.3H | 281 299 231 168 297 342 364 349 157 242 417 407 353 55 79 320 275 317 318
+E-5.3J | 250 290 189 194 255 328 354 341 197 200 387 398 343 92 13 277 233 271 275
+E-6.1J | 308 347 247 304 194 386 412 398 281 195 444 456 402 300 264 50 103 195 231
+E-6.2J | 264 303 203 260 153 342 367 354 237 151 400 411 357 255 220 106 69 148 171
+E-6.3H | 309 349 248 303 216 386 414 414 282 194 445 457 413 301 265 185 138 77 159
+E-6.3J | 324 363 263 320 228 402 435 464 297 211 461 475 431 316 280 223 168 161 79
+
+History of this station: 9 past routes driven by this station's drivers. Each past route was reduced to the zones of THIS route that it visits, kept in its driver's order.
+
+Usual FIRST zone (how many past routes started with each of this route's zones):
+E-5.3D (6), E-5.1J (1), E-5.1E (1), E-5.2H (1)
+
+Usual NEXT zone. For each zone of this route: the zones its drivers most often went to next, with counts ("seen in N past routes" = how many past routes visited it).
+E-5.1D: seen in 5; next: E-5.1E (4), E-5.2G (1)
+E-5.1E: seen in 6; next: E-5.2E (5), E-5.1G (1)
+E-5.1G: seen in 5; next: E-5.1H (4), E-6.2J (1)
+E-5.1H: seen in 6; next: E-5.2H (6)
+E-5.1J: seen in 7; next: E-6.1J (5), E-5.1D (1)
+E-5.2D: seen in 5; next: E-5.1D (4), E-5.1E (1)
+E-5.2E: seen in 6; next: E-5.3E (6)
+E-5.2G: seen in 6; next: E-5.1G (4), E-5.2E (1), E-5.1H (1)
+E-5.2H: seen in 7; next: E-5.3H (5)
+E-5.2J: seen in 6; next: E-5.1J (5), E-5.3J (1)
+E-5.3D: seen in 6; next: E-5.2D (5)
+E-5.3E: seen in 6; next: E-5.3G (6)
+E-5.3G: seen in 6; next: E-5.2G (5), E-5.2J (1)
+E-5.3H: seen in 6; next: E-5.3J (5), E-5.1H (1)
+E-5.3J: seen in 6; next: E-5.2J (5), E-5.3H (1)
+E-6.1J: seen in 6; next: E-6.2J (5), E-5.1J (1)
+E-6.2J: seen in 6; next: E-6.3J (4), E-6.1J (1)
+E-6.3H: seen in 4; next: it was always the last of these zones
+E-6.3J: seen in 4; next: E-6.3H (4)
+
+The 8 most similar past routes (most zones in common with this route), reduced to this route's zones in driver order:
+2018-07-25: shares 19 of 19 zones: E-5.3D E-5.2D E-5.1D E-5.1E E-5.2E E-5.3E E-5.3G E-5.2G E-5.1G E-5.1H E-5.2H E-5.3H E-5.3J E-5.2J E-5.1J E-6.1J E-6.2J E-6.3J E-6.3H
+2018-08-16: shares 17 of 19 zones: E-5.3D E-5.2D E-5.1E E-5.1G E-6.2J E-6.1J E-5.1J E-5.1D E-5.2G E-5.2E E-5.3E E-5.3G E-5.2J E-5.3J E-5.3H E-5.1H E-5.2H
+2018-08-07: shares 17 of 19 zones: E-5.3D E-5.2D E-5.1D E-5.1E E-5.2E E-5.3E E-5.3G E-5.2G E-5.1G E-5.1H E-5.2H E-5.3H E-5.3J E-5.2J E-5.1J E-6.1J E-6.2J
+2018-07-19: shares 16 of 19 zones: E-5.1E E-5.2E E-5.3E E-5.3G E-5.2G E-5.1G E-5.1H E-5.2H E-5.3H E-5.3J E-5.2J E-5.1J E-6.1J E-6.2J E-6.3J E-6.3H
+2018-08-12: shares 14 of 19 zones: E-5.3D E-5.2D E-5.1D E-5.1E E-5.2E E-5.3E E-5.3G E-5.2G E-5.1H E-5.2H E-5.3H E-5.3J E-5.2J E-5.1J
+2018-07-29: shares 11 of 19 zones: E-5.3D E-5.2D E-5.1D E-5.1E E-5.2E E-5.3E E-5.3G E-5.2G E-5.1G E-5.1H E-5.2H
+2018-07-26: shares 9 of 19 zones: E-5.2H E-5.3H E-5.3J E-5.2J E-5.1J E-6.1J E-6.2J E-6.3J E-6.3H
+2018-08-11: shares 5 of 19 zones: E-5.1J E-6.1J E-6.2J E-6.3J E-6.3H
+
+Output the order in which to visit the zones as a JSON list of zone IDs, starting with the first zone after leaving the station. Include each of the 19 zones exactly once and nothing else. Do not include the station.

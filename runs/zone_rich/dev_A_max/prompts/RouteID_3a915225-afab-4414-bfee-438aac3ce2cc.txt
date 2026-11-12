@@ -1,0 +1,90 @@
+A delivery van leaves the station and must deliver to every zone below. All stops in a zone are delivered together, so you only choose the order of the zones. The order of stops inside each zone is decided separately.
+
+Station: DLA9 at 33.688122 -117.847178
+
+Zones (20). Each line: zone ID, centroid latitude, centroid longitude, number of stops. Lines are sorted by zone ID.
+H-12.1A 33.689648 -117.761870 3
+H-12.1B 33.690841 -117.759072 3
+H-12.1C 33.688430 -117.759424 8
+H-12.1E 33.686759 -117.751644 7
+H-12.2A 33.690369 -117.761421 6
+H-12.2B 33.691889 -117.757985 5
+H-12.2C 33.689950 -117.757092 8
+H-12.2D 33.687915 -117.753498 6
+H-12.2E 33.685948 -117.751084 4
+H-12.2G 33.681756 -117.750984 6
+H-12.3A 33.692543 -117.760141 6
+H-12.3B 33.692161 -117.759085 6
+H-12.3C 33.691067 -117.756418 3
+H-12.3D 33.689247 -117.754645 5
+H-12.3E 33.683131 -117.751656 2
+H-12.3G 33.682490 -117.751167 7
+H-13.1A 33.689155 -117.762565 4
+H-13.2A 33.688066 -117.763221 4
+H-13.3A 33.687847 -117.762130 4
+H-13.3B 33.686647 -117.763511 8
+
+Travel times in seconds. Each number is the mean driving time over all pairs of stops (one stop in the first zone, one in the second).
+
+From the station to each zone, in the zone order above:
+H-12.1A:1153 H-12.1B:1093 H-12.1C:1136 H-12.1E:1192 H-12.2A:1161 H-12.2B:1138 H-12.2C:1147 H-12.2D:1171 H-12.2E:1180 H-12.2G:1183 H-12.3A:1140 H-12.3B:1119 H-12.3C:1173 H-12.3D:1163 H-12.3E:1151 H-12.3G:1177 H-13.1A:1172 H-13.2A:1185 H-13.3A:1161 H-13.3B:1199
+
+From each zone back to the station, in the zone order above:
+H-12.1A:1228 H-12.1B:1134 H-12.1C:1197 H-12.1E:1153 H-12.2A:1242 H-12.2B:1186 H-12.2C:1178 H-12.2D:1172 H-12.2E:1157 H-12.2G:1120 H-12.3A:1168 H-12.3B:1141 H-12.3C:1208 H-12.3D:1182 H-12.3E:1025 H-12.3G:1143 H-13.1A:1263 H-13.2A:1270 H-13.3A:1230 H-13.3B:1268
+
+Zone-to-zone matrix. Row = from, column = to; columns are in the zone order above. The diagonal is the mean time between stops inside the same zone.
+H-12.1A | 22 223 202 300 58 224 235 259 337 390 264 225 261 252 285 358 195 211 189 220
+H-12.1B | 210 22 192 267 218 110 202 226 303 357 104 90 225 218 252 324 230 243 221 255
+H-12.1C | 238 207 117 258 242 231 172 215 287 341 253 221 197 189 240 308 212 228 208 222
+H-12.1E | 295 243 236 98 305 269 211 183 102 294 291 262 235 195 190 262 314 328 305 331
+H-12.2A | 59 236 209 314 32 253 248 272 349 404 276 234 268 265 307 371 209 224 202 233
+H-12.2B | 234 120 225 272 238 64 243 265 311 394 132 74 266 260 305 366 247 262 239 270
+H-12.2C | 217 165 144 225 227 192 70 158 255 308 213 183 113 116 211 275 235 249 227 248
+H-12.2D | 273 222 219 234 283 246 170 70 257 310 268 240 191 119 208 278 291 304 282 310
+H-12.2E | 304 251 243 127 313 277 219 191 53 295 299 272 245 203 190 262 321 336 313 341
+H-12.2G | 395 342 335 273 404 367 310 286 242 68 389 364 335 298 140 87 419 431 410 427
+H-12.3A | 242 111 225 302 252 134 235 259 337 390 29 99 259 252 288 358 260 275 252 280
+H-12.3B | 203 86 191 255 213 80 203 226 298 358 110 31 225 219 261 325 223 236 213 246
+H-12.3C | 244 193 174 255 257 230 99 183 284 338 241 207 19 141 245 306 265 279 257 268
+H-12.3D | 244 192 170 223 253 220 106 117 248 301 239 211 124 41 200 269 262 276 253 272
+H-12.3E | 330 280 259 201 327 300 230 204 185 160 318 283 251 212 74 156 336 351 332 332
+H-12.3G | 379 327 320 264 388 358 295 267 227 91 374 345 319 278 118 55 398 412 389 413
+H-13.1A | 234 250 225 330 247 264 264 290 368 422 292 254 283 281 319 389 47 120 90 216
+H-13.2A | 247 264 241 341 256 264 277 300 378 431 305 268 301 293 331 398 124 113 109 186
+H-13.3A | 208 225 200 302 217 223 237 261 338 392 265 231 263 253 287 359 85 95 33 189
+H-13.3B | 252 270 240 339 262 279 275 302 375 431 307 272 297 289 332 397 231 205 226 107
+
+History of this station: 4 past routes driven by this station's drivers. Each past route was reduced to the zones of THIS route that it visits, kept in its driver's order.
+
+Usual FIRST zone (how many past routes started with each of this route's zones):
+H-13.3B (2), H-13.3A (1), H-12.2G (1)
+
+Usual NEXT zone. For each zone of this route: the zones its drivers most often went to next, with counts ("seen in N past routes" = how many past routes visited it).
+H-12.1A: never seen at this station; its group H-12.1 seen in 4; group next: H-12.2 (6)
+H-12.1B: never seen at this station; its group H-12.1 seen in 4; group next: H-12.2 (6)
+H-12.1C: seen in 1; next: it was always the last of these zones
+H-12.1E: seen in 1; next: H-12.2D (1)
+H-12.2A: never seen at this station; its group H-12.2 seen in 4; group next: H-12.3 (6), H-12.1 (4)
+H-12.2B: never seen at this station; its group H-12.2 seen in 4; group next: H-12.3 (6), H-12.1 (4)
+H-12.2C: seen in 1; next: H-12.1C (1)
+H-12.2D: seen in 1; next: H-12.3D (1)
+H-12.2E: seen in 1; next: H-12.1E (1)
+H-12.2G: seen in 1; next: H-12.3E (1)
+H-12.3A: never seen at this station; its group H-12.3 seen in 4; group next: H-12.2 (6)
+H-12.3B: never seen at this station; its group H-12.3 seen in 4; group next: H-12.2 (6)
+H-12.3C: seen in 1; next: H-12.2C (1)
+H-12.3D: seen in 1; next: H-12.3C (1)
+H-12.3E: seen in 1; next: H-12.3G (1)
+H-12.3G: seen in 1; next: H-12.2E (1)
+H-13.1A: never seen at this station; its group H-13.1 seen in 9; group next: H-13.2 (23), H-13.3 (1)
+H-13.2A: seen in 2; next: H-13.3B (1), H-13.3A (1)
+H-13.3A: seen in 2; next: H-13.2A (1)
+H-13.3B: seen in 3; next: H-13.2A (1)
+
+The 4 most similar past routes (most zones in common with this route), reduced to this route's zones in driver order:
+2018-07-21: shares 10 of 20 zones: H-12.2G H-12.3E H-12.3G H-12.2E H-12.1E H-12.2D H-12.3D H-12.3C H-12.2C H-12.1C
+2018-07-29: shares 3 of 20 zones: H-13.3A H-13.2A H-13.3B
+2018-07-21: shares 3 of 20 zones: H-13.3B H-13.2A H-13.3A
+2018-07-31: shares 1 of 20 zones: H-13.3B
+
+Output the order in which to visit the zones as a JSON list of zone IDs, starting with the first zone after leaving the station. Include each of the 20 zones exactly once and nothing else. Do not include the station.

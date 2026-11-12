@@ -1,0 +1,373 @@
+{
+ "summary": {
+  "n": 40,
+  "valid": 40,
+  "mean_strict": 0.03348441510211203,
+  "mean_fallback": 0.03348441510211203,
+  "mean_cost_usd": 0.0427033,
+  "mean_wall_s": 5.56136896304979,
+  "solver": "greedy"
+ },
+ "per_route": {
+  "RouteID_09cbff70-3e09-4f9d-825e-3148b3930a4c": {
+   "valid": true,
+   "inserted": [],
+   "solver_cpu_s": 0.18422099000000003,
+   "cost_usd": 0.030680000000000002,
+   "wall_s": 4.2242332469977555,
+   "score_fallback": 0.006498732885474146,
+   "score_strict": 0.006498732885474146
+  },
+  "RouteID_0e5d65a8-587c-48b0-86d7-226e83a1a5f4": {
+   "valid": true,
+   "inserted": [],
+   "solver_cpu_s": 0.15094494999999997,
+   "cost_usd": 0.037368,
+   "wall_s": 4.183354075998068,
+   "score_fallback": 0.012160559093356015,
+   "score_strict": 0.012160559093356015
+  },
+  "RouteID_1c1779ec-f46f-4ece-a647-da835f52ec85": {
+   "valid": true,
+   "inserted": [],
+   "solver_cpu_s": 0.26227162999999987,
+   "cost_usd": 0.038088000000000004,
+   "wall_s": 4.563600506997318,
+   "score_fallback": 0.030656941849032157,
+   "score_strict": 0.030656941849032157
+  },
+  "RouteID_20a66e8d-4f4b-461f-88d0-c02c7e9a49de": {
+   "valid": true,
+   "inserted": [],
+   "solver_cpu_s": 0.1660320129999997,
+   "cost_usd": 0.051872,
+   "wall_s": 5.886808081995696,
+   "score_fallback": 0.01995861920933419,
+   "score_strict": 0.01995861920933419
+  },
+  "RouteID_261881f3-9a40-41c2-9ad6-b39b026be2ea": {
+   "valid": true,
+   "inserted": [],
+   "solver_cpu_s": 0.21028198899999984,
+   "cost_usd": 0.030324,
+   "wall_s": 3.9569839910036535,
+   "score_fallback": 0.0041175307627723656,
+   "score_strict": 0.0041175307627723656
+  },
+  "RouteID_2a769750-b77d-48a2-ac37-0996bf4c7ee9": {
+   "valid": true,
+   "inserted": [],
+   "solver_cpu_s": 0.1816508419999998,
+   "cost_usd": 0.038076,
+   "wall_s": 6.648020070999337,
+   "score_fallback": 0.018860105009386386,
+   "score_strict": 0.018860105009386386
+  },
+  "RouteID_3007fbad-e3e0-4c16-9f05-d710912b1560": {
+   "valid": true,
+   "inserted": [],
+   "solver_cpu_s": 0.19663240100000046,
+   "cost_usd": 0.046956,
+   "wall_s": 3.3848575779993553,
+   "score_fallback": 0.003983511629338095,
+   "score_strict": 0.003983511629338095
+  },
+  "RouteID_36e2ac14-d135-4292-8095-c25ec5a7d54a": {
+   "valid": true,
+   "inserted": [],
+   "solver_cpu_s": 0.18527278900000077,
+   "cost_usd": 0.037792,
+   "wall_s": 3.1705343249996076,
+   "score_fallback": 0.020869968151717766,
+   "score_strict": 0.020869968151717766
+  },
+  "RouteID_397abf35-8191-4a3d-9243-7f3465fb77a8": {
+   "valid": true,
+   "inserted": [],
+   "solver_cpu_s": 0.1502549369999997,
+   "cost_usd": 0.03794,
+   "wall_s": 3.339411695000308,
+   "score_fallback": 0.010159890939550009,
+   "score_strict": 0.010159890939550009
+  },
+  "RouteID_3a915225-afab-4414-bfee-438aac3ce2cc": {
+   "valid": true,
+   "inserted": [],
+   "solver_cpu_s": 0.1019449330000004,
+   "cost_usd": 0.042415999999999995,
+   "wall_s": 6.496381974997348,
+   "score_fallback": 0.0944763268912367,
+   "score_strict": 0.0944763268912367
+  },
+  "RouteID_4a17ea28-88d4-4437-9fd8-69b7d5c9fc9b": {
+   "valid": true,
+   "inserted": [],
+   "solver_cpu_s": 0.08578962799999967,
+   "cost_usd": 0.058548,
+   "wall_s": 7.377840893001121,
+   "score_fallback": 0.0133778879532361,
+   "score_strict": 0.0133778879532361
+  },
+  "RouteID_4eaa27f5-8816-4888-a7db-addf9f5d3ee0": {
+   "valid": true,
+   "inserted": [],
+   "solver_cpu_s": 0.07382242400000028,
+   "cost_usd": 0.031672,
+   "wall_s": 3.307827463002468,
+   "score_fallback": 0.012092602122413391,
+   "score_strict": 0.012092602122413391
+  },
+  "RouteID_539bdbc0-be18-4c91-83ac-2a50726555c2": {
+   "valid": true,
+   "inserted": [],
+   "solver_cpu_s": 0.031043631999999377,
+   "cost_usd": 0.02882,
+   "wall_s": 5.175823492005293,
+   "score_fallback": 0.003876813598189341,
+   "score_strict": 0.003876813598189341
+  },
+  "RouteID_59f3a83d-63b5-42fe-a18e-9eb145ef1ca1": {
+   "valid": true,
+   "inserted": [],
+   "solver_cpu_s": 0.12823894599999974,
+   "cost_usd": 0.058427999999999994,
+   "wall_s": 5.8443486639953335,
+   "score_fallback": 0.0035295094216610617,
+   "score_strict": 0.0035295094216610617
+  },
+  "RouteID_5b0122f2-b384-4c27-adcc-8d7eb50f347f": {
+   "valid": true,
+   "inserted": [],
+   "solver_cpu_s": 0.1592541090000008,
+   "cost_usd": 0.039924,
+   "wall_s": 6.682667568005854,
+   "score_fallback": 0.08795917802163161,
+   "score_strict": 0.08795917802163161
+  },
+  "RouteID_5b0cb784-87d6-4821-8d44-6b1807fae6e6": {
+   "valid": true,
+   "inserted": [],
+   "solver_cpu_s": 0.08085686400000025,
+   "cost_usd": 0.050944,
+   "wall_s": 6.021677707998606,
+   "score_fallback": 0.020873766665101993,
+   "score_strict": 0.020873766665101993
+  },
+  "RouteID_5b68580f-14e4-43c5-a125-f2ca7c64fc7d": {
+   "valid": true,
+   "inserted": [],
+   "solver_cpu_s": 0.11644787799999978,
+   "cost_usd": 0.051812,
+   "wall_s": 8.284129965999455,
+   "score_fallback": 0.008944623823396038,
+   "score_strict": 0.008944623823396038
+  },
+  "RouteID_6189a279-1ff6-4b08-93c3-abc0a756142f": {
+   "valid": true,
+   "inserted": [],
+   "solver_cpu_s": 0.13127033099999963,
+   "cost_usd": 0.039196,
+   "wall_s": 4.633035528000619,
+   "score_fallback": 0.001439852358134205,
+   "score_strict": 0.001439852358134205
+  },
+  "RouteID_655348b1-861c-476d-9816-611f68b6bf33": {
+   "valid": true,
+   "inserted": [],
+   "solver_cpu_s": 0.15560011599999957,
+   "cost_usd": 0.031232000000000003,
+   "wall_s": 3.7441064559970982,
+   "score_fallback": 0.009499084235086618,
+   "score_strict": 0.009499084235086618
+  },
+  "RouteID_68a10d5b-cee8-4b55-9dab-18492bf8e95f": {
+   "valid": true,
+   "inserted": [],
+   "solver_cpu_s": 0.08123171700000054,
+   "cost_usd": 0.054716,
+   "wall_s": 6.700100396999915,
+   "score_fallback": 0.011704691084493863,
+   "score_strict": 0.011704691084493863
+  },
+  "RouteID_70784950-d1f4-4ed0-9a77-98065c99b44a": {
+   "valid": true,
+   "inserted": [],
+   "solver_cpu_s": 0.10077219399999926,
+   "cost_usd": 0.049472,
+   "wall_s": 10.294714700998156,
+   "score_fallback": 0.050785204468237255,
+   "score_strict": 0.050785204468237255
+  },
+  "RouteID_7969ac51-06d2-4b83-8b92-cf4dbf33f529": {
+   "valid": true,
+   "inserted": [],
+   "solver_cpu_s": 0.13795125499999994,
+   "cost_usd": 0.057800000000000004,
+   "wall_s": 9.574502745002974,
+   "score_fallback": 0.1439770880032251,
+   "score_strict": 0.1439770880032251
+  },
+  "RouteID_7c5d2dfa-664f-4c04-aea8-878e08c92f34": {
+   "valid": true,
+   "inserted": [],
+   "solver_cpu_s": 0.13537190799999976,
+   "cost_usd": 0.028764,
+   "wall_s": 3.7574251369951526,
+   "score_fallback": 0.0075881894416937835,
+   "score_strict": 0.0075881894416937835
+  },
+  "RouteID_88c1ade9-7157-479c-9af7-b496e5fbc6f1": {
+   "valid": true,
+   "inserted": [],
+   "solver_cpu_s": 0.15355162,
+   "cost_usd": 0.0488,
+   "wall_s": 4.4501187529967865,
+   "score_fallback": 0.005847695648122346,
+   "score_strict": 0.005847695648122346
+  },
+  "RouteID_903821b9-3d78-4eca-a8ea-d8f6828bb194": {
+   "valid": true,
+   "inserted": [],
+   "solver_cpu_s": 0.06522021299999992,
+   "cost_usd": 0.049056,
+   "wall_s": 8.797618977994716,
+   "score_fallback": 0.18066895691908325,
+   "score_strict": 0.18066895691908325
+  },
+  "RouteID_9503e8df-e3ce-439a-90d2-c32719e8f1b5": {
+   "valid": true,
+   "inserted": [],
+   "solver_cpu_s": 0.19194694399999968,
+   "cost_usd": 0.034644,
+   "wall_s": 4.514751336006157,
+   "score_fallback": 0.00853249969056888,
+   "score_strict": 0.00853249969056888
+  },
+  "RouteID_9ea87ee2-867b-4cc0-ab72-f76d8389182a": {
+   "valid": true,
+   "inserted": [],
+   "solver_cpu_s": 0.09825352100000018,
+   "cost_usd": 0.06386800000000001,
+   "wall_s": 5.667244802003552,
+   "score_fallback": 0.007829361252478942,
+   "score_strict": 0.007829361252478942
+  },
+  "RouteID_a2b555c0-3b82-4253-8f57-8bdfe9615587": {
+   "valid": true,
+   "inserted": [],
+   "solver_cpu_s": 0.06292805300000026,
+   "cost_usd": 0.050028,
+   "wall_s": 7.981722753997019,
+   "score_fallback": 0.03487718542401246,
+   "score_strict": 0.03487718542401246
+  },
+  "RouteID_b461278a-5ab7-4341-9287-38a2736898c5": {
+   "valid": true,
+   "inserted": [],
+   "solver_cpu_s": 0.15168065400000064,
+   "cost_usd": 0.051935999999999996,
+   "wall_s": 5.847004379997088,
+   "score_fallback": 0.03130100232099987,
+   "score_strict": 0.03130100232099987
+  },
+  "RouteID_bcac0be6-69fc-4225-9e4b-a69c64019387": {
+   "valid": true,
+   "inserted": [],
+   "solver_cpu_s": 0.09205135699999989,
+   "cost_usd": 0.047492,
+   "wall_s": 6.351740835998498,
+   "score_fallback": 0.07179905831124661,
+   "score_strict": 0.07179905831124661
+  },
+  "RouteID_c081aa9c-dae4-43b8-93d9-45f0bdefd93e": {
+   "valid": true,
+   "inserted": [],
+   "solver_cpu_s": 0.07051106800000007,
+   "cost_usd": 0.029824,
+   "wall_s": 5.342560670003877,
+   "score_fallback": 0.021397984787358087,
+   "score_strict": 0.021397984787358087
+  },
+  "RouteID_c1c2246c-e2b1-47fa-91a4-870cf3ab9741": {
+   "valid": true,
+   "inserted": [],
+   "solver_cpu_s": 0.12962435800000005,
+   "cost_usd": 0.045864,
+   "wall_s": 4.086776241005282,
+   "score_fallback": 0.002768023595206432,
+   "score_strict": 0.002768023595206432
+  },
+  "RouteID_d4f29f26-b6a8-4d59-8bd7-3381a44fb7e7": {
+   "valid": true,
+   "inserted": [],
+   "solver_cpu_s": 0.19724454300000005,
+   "cost_usd": 0.036767999999999995,
+   "wall_s": 7.244721324001148,
+   "score_fallback": 0.11222476609018472,
+   "score_strict": 0.11222476609018472
+  },
+  "RouteID_dc53c3cb-27bc-4677-98cc-153fccb04bb8": {
+   "valid": true,
+   "inserted": [],
+   "solver_cpu_s": 0.0991199009999999,
+   "cost_usd": 0.030695999999999998,
+   "wall_s": 3.7850590640009614,
+   "score_fallback": 0.007538133455642194,
+   "score_strict": 0.007538133455642194
+  },
+  "RouteID_e0899330-23af-4657-a36d-b4b6e76518ac": {
+   "valid": true,
+   "inserted": [],
+   "solver_cpu_s": 0.12309368200000037,
+   "cost_usd": 0.0475,
+   "wall_s": 5.24365519300045,
+   "score_fallback": 0.00768862703637531,
+   "score_strict": 0.00768862703637531
+  },
+  "RouteID_e59479d1-089a-434f-a597-dad05c35473d": {
+   "valid": true,
+   "inserted": [],
+   "solver_cpu_s": 0.05928062200000106,
+   "cost_usd": 0.032852,
+   "wall_s": 4.173982737003826,
+   "score_fallback": 0.01820015568883026,
+   "score_strict": 0.01820015568883026
+  },
+  "RouteID_e7407307-44d1-493f-9ff0-0d9614dd31a7": {
+   "valid": true,
+   "inserted": [],
+   "solver_cpu_s": 0.11400257599999897,
+   "cost_usd": 0.050412,
+   "wall_s": 6.601241837000998,
+   "score_fallback": 0.0022878490584434673,
+   "score_strict": 0.0022878490584434673
+  },
+  "RouteID_ed87eeb4-5688-444b-9f28-6807f8c11644": {
+   "valid": true,
+   "inserted": [],
+   "solver_cpu_s": 0.1921721939999994,
+   "cost_usd": 0.049864,
+   "wall_s": 5.387805254998966,
+   "score_fallback": 0.05831013811353123,
+   "score_strict": 0.05831013811353123
+  },
+  "RouteID_ee701ca4-4b94-463b-98f7-383291c95d4f": {
+   "valid": true,
+   "inserted": [],
+   "solver_cpu_s": 0.16532977800000026,
+   "cost_usd": 0.02162,
+   "wall_s": 3.5226429279937292,
+   "score_fallback": 0.014851303216355872,
+   "score_strict": 0.014851303216355872
+  },
+  "RouteID_f698c039-b7a1-4489-9638-a73f56d0f237": {
+   "valid": true,
+   "inserted": [],
+   "solver_cpu_s": 0.2330430089999993,
+   "cost_usd": 0.044068,
+   "wall_s": 6.203725168998062,
+   "score_fallback": 0.15586318585834325,
+   "score_strict": 0.15586318585834325
+  }
+ }
+}

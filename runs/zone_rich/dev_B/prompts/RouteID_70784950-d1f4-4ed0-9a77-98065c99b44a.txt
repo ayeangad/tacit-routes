@@ -1,0 +1,97 @@
+A delivery van leaves the station and must deliver to every zone below. All stops in a zone are delivered together, so you only choose the order of the zones. The order of stops inside each zone is decided separately.
+
+How to read this: drivers at a station are creatures of habit. The history below counts what this station's drivers actually did with these same zones, and it is the strongest evidence you have: follow the usual first zone and the usual next-zone moves wherever they are consistent, and use the most similar past routes to settle the overall sweep. Zone IDs are hierarchical (e.g. `A-2.3B` = area A-2, row 3, column B); drivers usually finish one area before moving to the next and sweep neighbouring rows and columns in order. Fall back on travel times only where the history is silent or contradictory.
+
+Station: DLA8 at 33.918699 -118.324843
+
+Zones (22). Each line: zone ID, centroid latitude, centroid longitude, number of stops. Lines are sorted by zone ID.
+A-14.1A 33.775338 -118.152848 1
+A-14.1B 33.778243 -118.150538 6
+A-14.1C 33.777761 -118.148545 6
+A-14.1D 33.782545 -118.141986 10
+A-14.1E 33.779841 -118.140475 4
+A-14.1G 33.774813 -118.144936 6
+A-14.1H 33.774252 -118.141871 7
+A-14.2A 33.775210 -118.156321 7
+A-14.2B 33.779708 -118.151549 9
+A-14.2C 33.780971 -118.149432 2
+A-14.2D 33.781700 -118.144034 6
+A-14.2E 33.779260 -118.143123 8
+A-14.2G 33.778140 -118.146436 7
+A-14.2H 33.772613 -118.142240 3
+A-14.3A 33.777225 -118.155355 6
+A-14.3B 33.777040 -118.153033 7
+A-14.3C 33.781803 -118.147763 5
+A-14.3D 33.782970 -118.146195 7
+A-14.3E 33.777607 -118.143697 7
+A-14.3G 33.779269 -118.144803 3
+A-14.3H 33.771935 -118.140050 9
+A-14.3J 33.771538 -118.143340 5
+
+Travel times in seconds. Each number is the mean driving time over all pairs of stops (one stop in the first zone, one in the second).
+
+From the station to each zone, in the zone order above:
+A-14.1A:2093 A-14.1B:2097 A-14.1C:2123 A-14.1D:1970 A-14.1E:2007 A-14.1G:2138 A-14.1H:2111 A-14.2A:2182 A-14.2B:2067 A-14.2C:2050 A-14.2D:2010 A-14.2E:2047 A-14.2G:2069 A-14.2H:2112 A-14.3A:2124 A-14.3B:2075 A-14.3C:2034 A-14.3D:1966 A-14.3E:2094 A-14.3G:2075 A-14.3H:2156 A-14.3J:2156
+
+From each zone back to the station, in the zone order above:
+A-14.1A:2126 A-14.1B:2128 A-14.1C:2162 A-14.1D:2051 A-14.1E:2102 A-14.1G:2195 A-14.1H:2182 A-14.2A:2222 A-14.2B:2090 A-14.2C:2115 A-14.2D:2080 A-14.2E:2124 A-14.2G:2121 A-14.2H:2194 A-14.3A:2152 A-14.3B:2129 A-14.3C:2077 A-14.3D:2023 A-14.3E:2165 A-14.3G:2116 A-14.3H:2226 A-14.3J:2235
+
+Zone-to-zone matrix. Row = from, column = to; columns are in the zone order above. The diagonal is the mean time between stops inside the same zone.
+A-14.1A | 0 116 158 280 240 124 170 72 128 189 271 258 159 197 76 46 200 249 199 238 248 212
+A-14.1B | 111 47 85 234 205 190 227 189 77 88 186 154 118 257 148 113 137 188 156 134 300 252
+A-14.1C | 137 82 50 230 191 168 207 214 112 105 178 138 91 248 175 140 157 193 125 117 294 250
+A-14.1D | 272 241 246 71 93 225 207 344 239 198 96 115 194 208 332 290 150 133 162 145 253 253
+A-14.1E | 253 211 205 105 39 203 174 326 224 203 126 93 160 175 300 262 183 178 131 115 217 221
+A-14.1G | 129 163 144 242 202 43 94 217 200 214 217 173 110 110 208 165 223 211 137 155 166 120
+A-14.1H | 180 217 198 196 150 93 69 265 255 261 214 160 168 81 257 228 266 263 170 184 134 126
+A-14.2A | 81 193 222 367 324 205 250 57 198 255 336 300 236 280 104 130 291 330 281 280 318 275
+A-14.2B | 120 78 115 226 223 223 260 205 54 93 179 171 142 293 146 106 124 174 179 151 330 286
+A-14.2C | 187 88 114 193 212 237 276 268 97 41 142 162 131 292 201 161 81 137 176 142 339 307
+A-14.2D | 266 186 183 89 116 216 232 347 183 151 38 84 131 230 282 242 101 90 114 81 276 276
+A-14.2E | 208 150 144 109 89 149 161 284 165 149 85 35 100 174 246 208 151 148 60 57 220 216
+A-14.2G | 156 113 89 189 159 133 184 228 139 122 136 107 57 195 201 161 127 131 93 86 249 208
+A-14.2H | 205 254 224 209 163 112 84 294 293 290 229 168 189 14 285 256 281 276 187 200 75 63
+A-14.3A | 119 148 176 333 295 227 271 100 153 202 283 244 208 297 43 94 239 281 248 224 355 312
+A-14.3B | 68 99 128 282 245 188 230 120 99 149 231 194 159 259 89 47 194 242 197 173 299 249
+A-14.3C | 217 144 159 149 171 241 278 299 134 81 99 146 118 284 240 196 54 92 174 114 332 314
+A-14.3D | 249 191 196 135 170 239 282 333 179 137 91 151 136 286 282 242 86 52 182 122 335 312
+A-14.3E | 191 159 125 156 121 130 156 263 185 173 112 64 95 185 248 209 178 179 38 65 229 205
+A-14.3G | 211 134 118 138 118 161 197 290 144 128 75 63 77 193 232 195 119 124 66 11 241 241
+A-14.3H | 276 284 279 240 194 161 124 320 316 315 255 200 230 80 344 295 317 313 223 223 44 79
+A-14.3J | 229 247 239 249 205 117 107 273 273 298 275 217 194 58 304 247 309 295 216 235 77 29
+
+History of this station: 3 past routes driven by this station's drivers. Each past route was reduced to the zones of THIS route that it visits, kept in its driver's order.
+
+Usual FIRST zone (how many past routes started with each of this route's zones):
+A-14.1A (1), A-14.3D (1), A-14.3B (1)
+
+Usual NEXT zone. For each zone of this route: the zones its drivers most often went to next, with counts ("seen in N past routes" = how many past routes visited it).
+A-14.1A: seen in 2; next: A-14.2A (2)
+A-14.1B: seen in 1; next: A-14.1C (1)
+A-14.1C: seen in 1; next: A-14.1A (1)
+A-14.1D: seen in 1; next: A-14.1E (1)
+A-14.1E: seen in 1; next: A-14.2E (1)
+A-14.1G: seen in 1; next: A-14.1H (1)
+A-14.1H: seen in 1; next: A-14.2H (1)
+A-14.2A: seen in 2; next: A-14.3A (1)
+A-14.2B: seen in 1; next: A-14.1B (1)
+A-14.2C: never seen at this station; its group A-14.2 seen in 3; group next: A-14.1 (4), A-14.3 (3)
+A-14.2D: seen in 1; next: A-14.1D (1)
+A-14.2E: seen in 1; next: A-14.3E (1)
+A-14.2G: seen in 1; next: A-14.1G (1)
+A-14.2H: seen in 1; next: A-14.3H (1)
+A-14.3A: seen in 1; next: it was always the last of these zones
+A-14.3B: seen in 1; next: A-14.2B (1)
+A-14.3C: never seen at this station; its group A-14.3 seen in 2; group next: A-14.2 (4)
+A-14.3D: seen in 1; next: A-14.2D (1)
+A-14.3E: seen in 1; next: A-14.3G (1)
+A-14.3G: seen in 1; next: A-14.2G (1)
+A-14.3H: seen in 1; next: A-14.3J (1)
+A-14.3J: seen in 1; next: it was always the last of these zones
+
+The 3 most similar past routes (most zones in common with this route), reduced to this route's zones in driver order:
+2018-08-12: shares 13 of 22 zones: A-14.3D A-14.2D A-14.1D A-14.1E A-14.2E A-14.3E A-14.3G A-14.2G A-14.1G A-14.1H A-14.2H A-14.3H A-14.3J
+2018-07-25: shares 7 of 22 zones: A-14.3B A-14.2B A-14.1B A-14.1C A-14.1A A-14.2A A-14.3A
+2018-07-24: shares 2 of 22 zones: A-14.1A A-14.2A
+
+Output the order in which to visit the zones as a JSON list of zone IDs, starting with the first zone after leaving the station. Include each of the 22 zones exactly once and nothing else. Do not include the station.

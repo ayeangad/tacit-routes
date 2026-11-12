@@ -1,0 +1,76 @@
+A delivery van leaves the station and must deliver to every zone below. All stops in a zone are delivered together, so you only choose the order of the zones. The order of stops inside each zone is decided separately.
+
+Station: DLA8 at 33.918699 -118.324843
+
+Zones (14). Each line: zone ID, centroid latitude, centroid longitude, number of stops. Lines are sorted by zone ID.
+A-18.1D 33.783368 -118.178174 14
+A-18.1E 33.776967 -118.178955 13
+A-18.1G 33.772353 -118.182528 9
+A-18.1H 33.770600 -118.182982 2
+A-18.2D 33.785733 -118.175617 17
+A-18.2E 33.777642 -118.174847 15
+A-18.2G 33.772334 -118.178282 5
+A-18.2H 33.769095 -118.179008 7
+A-18.3C 33.794594 -118.177896 11
+A-18.3D 33.789951 -118.177638 11
+A-18.3E 33.774851 -118.172997 10
+A-18.3G 33.774221 -118.174691 5
+A-18.3H 33.767976 -118.178709 7
+A-18.3J 33.767392 -118.182536 2
+
+Travel times in seconds. Each number is the mean driving time over all pairs of stops (one stop in the first zone, one in the second).
+
+From the station to each zone, in the zone order above:
+A-18.1D:1951 A-18.1E:2004 A-18.1G:1977 A-18.1H:1969 A-18.2D:1921 A-18.2E:2099 A-18.2G:2054 A-18.2H:2011 A-18.3C:1774 A-18.3D:1836 A-18.3E:2130 A-18.3G:2085 A-18.3H:2033 A-18.3J:1911
+
+From each zone back to the station, in the zone order above:
+A-18.1D:2014 A-18.1E:2026 A-18.1G:2061 A-18.1H:2051 A-18.2D:1984 A-18.2E:2121 A-18.2G:2110 A-18.2H:2124 A-18.3C:1833 A-18.3D:1893 A-18.3E:2139 A-18.3G:2084 A-18.3H:2078 A-18.3J:2010
+
+Zone-to-zone matrix. Row = from, column = to; columns are in the zone order above. The diagonal is the mean time between stops inside the same zone.
+A-18.1D | 115 196 309 349 172 227 327 387 290 204 307 295 434 378
+A-18.1E | 184 79 164 207 236 151 166 248 355 274 183 146 287 229
+A-18.1G | 329 172 61 124 367 277 120 177 489 408 250 205 230 169
+A-18.1H | 341 195 105 65 385 297 141 137 512 427 268 223 190 137
+A-18.2D | 159 249 354 402 100 278 389 445 255 172 360 360 497 422
+A-18.2E | 226 154 288 312 266 73 216 325 427 342 146 155 337 338
+A-18.2G | 305 164 117 174 363 212 49 158 486 402 186 133 186 193
+A-18.2H | 389 252 204 175 444 286 160 51 574 489 262 210 87 155
+A-18.3C | 294 375 486 524 264 442 509 560 77 156 512 487 611 556
+A-18.3D | 216 299 409 449 184 364 437 484 154 108 430 409 537 479
+A-18.3E | 308 191 251 283 338 144 184 280 498 414 102 114 290 310
+A-18.3G | 295 150 195 231 337 145 129 234 466 384 111 37 245 260
+A-18.3H | 422 283 236 192 477 357 213 131 599 516 326 276 100 126
+A-18.3J | 363 221 171 144 417 331 177 109 536 453 297 254 137 16
+
+History of this station: 8 past routes driven by this station's drivers. Each past route was reduced to the zones of THIS route that it visits, kept in its driver's order.
+
+Usual FIRST zone (how many past routes started with each of this route's zones):
+A-18.3C (6), A-18.1D (1), A-18.2D (1)
+
+Usual NEXT zone. For each zone of this route: the zones its drivers most often went to next, with counts ("seen in N past routes" = how many past routes visited it).
+A-18.1D: seen in 6; next: A-18.1E (5), A-18.3E (1)
+A-18.1E: seen in 6; next: A-18.2E (5), A-18.2G (1)
+A-18.1G: seen in 5; next: A-18.1H (3), A-18.2G (1)
+A-18.1H: seen in 4; next: A-18.2H (3)
+A-18.2D: seen in 6; next: A-18.1D (5)
+A-18.2E: seen in 6; next: A-18.3E (5), A-18.1E (1)
+A-18.2G: seen in 5; next: A-18.1G (4), A-18.1H (1)
+A-18.2H: seen in 3; next: A-18.3H (3)
+A-18.3C: seen in 6; next: A-18.3D (6)
+A-18.3D: seen in 6; next: A-18.2D (5)
+A-18.3E: seen in 6; next: A-18.3G (5)
+A-18.3G: seen in 5; next: A-18.2G (3), A-18.2E (1), A-18.1G (1)
+A-18.3H: seen in 3; next: A-18.3J (3)
+A-18.3J: seen in 3; next: it was always the last of these zones
+
+The 8 most similar past routes (most zones in common with this route), reduced to this route's zones in driver order:
+2018-08-13: shares 14 of 14 zones: A-18.3C A-18.3D A-18.2D A-18.1D A-18.3E A-18.3G A-18.2E A-18.1E A-18.2G A-18.1G A-18.1H A-18.2H A-18.3H A-18.3J
+2018-08-01: shares 12 of 14 zones: A-18.2D A-18.1D A-18.1E A-18.2E A-18.3E A-18.3G A-18.1G A-18.2G A-18.1H A-18.2H A-18.3H A-18.3J
+2018-07-26: shares 11 of 14 zones: A-18.1D A-18.1E A-18.2E A-18.3E A-18.3G A-18.2G A-18.1G A-18.1H A-18.2H A-18.3H A-18.3J
+2018-07-30: shares 11 of 14 zones: A-18.3C A-18.3D A-18.2D A-18.1D A-18.1E A-18.2E A-18.3E A-18.3G A-18.2G A-18.1G A-18.1H
+2018-08-04: shares 10 of 14 zones: A-18.3C A-18.3D A-18.2D A-18.1D A-18.1E A-18.2E A-18.3E A-18.3G A-18.2G A-18.1G
+2018-08-03: shares 7 of 14 zones: A-18.3C A-18.3D A-18.2D A-18.1D A-18.1E A-18.2E A-18.3E
+2018-07-21: shares 3 of 14 zones: A-18.3C A-18.3D A-18.2D
+2018-08-01: shares 2 of 14 zones: A-18.3C A-18.3D
+
+Output the order in which to visit the zones as a JSON list of zone IDs, starting with the first zone after leaving the station. Include each of the 14 zones exactly once and nothing else. Do not include the station.

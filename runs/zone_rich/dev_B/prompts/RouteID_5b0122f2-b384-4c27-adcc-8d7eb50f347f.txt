@@ -1,0 +1,83 @@
+A delivery van leaves the station and must deliver to every zone below. All stops in a zone are delivered together, so you only choose the order of the zones. The order of stops inside each zone is decided separately.
+
+How to read this: drivers at a station are creatures of habit. The history below counts what this station's drivers actually did with these same zones, and it is the strongest evidence you have: follow the usual first zone and the usual next-zone moves wherever they are consistent, and use the most similar past routes to settle the overall sweep. Zone IDs are hierarchical (e.g. `A-2.3B` = area A-2, row 3, column B); drivers usually finish one area before moving to the next and sweep neighbouring rows and columns in order. Fall back on travel times only where the history is silent or contradictory.
+
+Station: DSE5 at 47.464945 -122.231073
+
+Zones (16). Each line: zone ID, centroid latitude, centroid longitude, number of stops. Lines are sorted by zone ID.
+B-8.1A 47.468246 -122.340407 1
+B-8.1B 47.482861 -122.343137 15
+B-8.2A 47.471408 -122.336400 1
+B-8.2B 47.478579 -122.346894 13
+B-8.3A 47.475325 -122.338817 8
+B-8.3B 47.479151 -122.341324 13
+B-9.1A 47.466841 -122.345757 5
+B-9.1B 47.470789 -122.364345 16
+B-9.1C 47.465554 -122.362917 11
+B-9.2A 47.472672 -122.347831 12
+B-9.2B 47.469524 -122.358884 10
+B-9.2C 47.460697 -122.358876 8
+B-9.3A 47.476047 -122.354614 12
+B-9.3B 47.467857 -122.353118 14
+B-9.3C 47.455765 -122.359267 8
+B-9.3D 47.453314 -122.353914 8
+
+Travel times in seconds. Each number is the mean driving time over all pairs of stops (one stop in the first zone, one in the second).
+
+From the station to each zone, in the zone order above:
+B-8.1A:947 B-8.1B:1069 B-8.2A:855 B-8.2B:1068 B-8.3A:945 B-8.3B:1011 B-9.1A:1016 B-9.1B:1209 B-9.1C:1186 B-9.2A:977 B-9.2B:1103 B-9.2C:1181 B-9.3A:1144 B-9.3B:1050 B-9.3C:1234 B-9.3D:1186
+
+From each zone back to the station, in the zone order above:
+B-8.1A:879 B-8.1B:1054 B-8.2A:808 B-8.2B:1020 B-8.3A:886 B-8.3B:980 B-9.1A:951 B-9.1B:1147 B-9.1C:1130 B-9.2A:937 B-9.2B:1052 B-9.2C:1119 B-9.3A:1105 B-9.3B:993 B-9.3C:1158 B-9.3D:1106
+
+Zone-to-zone matrix. Row = from, column = to; columns are in the zone order above. The diagonal is the mean time between stops inside the same zone.
+B-8.1A | 0 334 200 308 220 276 160 414 339 229 307 409 403 222 467 459
+B-8.1B | 376 58 361 149 195 132 377 449 484 272 361 557 384 379 624 655
+B-8.2A | 204 327 0 326 210 268 273 467 443 235 361 507 402 307 569 562
+B-8.2B | 314 142 333 71 182 147 290 361 396 179 272 467 295 288 532 557
+B-8.3A | 257 192 233 194 58 131 307 411 445 214 323 521 345 335 584 606
+B-8.3B | 309 129 296 174 127 76 345 462 492 245 371 564 390 370 624 634
+B-9.1A | 158 367 272 297 294 338 91 331 243 192 214 296 332 141 353 341
+B-9.1B | 410 443 468 368 397 446 327 128 186 288 141 283 338 219 348 457
+B-9.1C | 358 490 448 414 446 490 241 206 100 303 145 175 372 168 239 349
+B-9.2A | 231 269 257 186 199 237 201 296 298 92 200 371 223 170 435 473
+B-9.2B | 317 359 373 285 312 362 226 154 138 199 57 216 251 120 281 386
+B-9.2C | 411 549 507 474 502 544 295 295 170 363 206 75 431 230 136 220
+B-9.3A | 399 402 426 325 350 399 339 347 368 235 254 444 183 261 509 580
+B-9.3B | 223 383 314 301 321 366 143 228 170 171 119 245 258 69 309 374
+B-9.3C | 470 615 568 538 563 606 354 362 236 428 273 133 499 297 75 155
+B-9.3D | 450 654 556 574 568 608 355 477 350 471 386 217 585 380 159 89
+
+History of this station: 7 past routes driven by this station's drivers. Each past route was reduced to the zones of THIS route that it visits, kept in its driver's order.
+
+Usual FIRST zone (how many past routes started with each of this route's zones):
+B-9.3D (3), B-9.2B (1), B-8.2B (1), B-9.3C (1), B-9.3A (1)
+
+Usual NEXT zone. For each zone of this route: the zones its drivers most often went to next, with counts ("seen in N past routes" = how many past routes visited it).
+B-8.1A: seen in 1; next: B-8.2A (1)
+B-8.1B: seen in 1; next: it was always the last of these zones
+B-8.2A: seen in 1; next: B-8.3A (1)
+B-8.2B: seen in 1; next: B-8.1B (1)
+B-8.3A: seen in 1; next: B-8.3B (1)
+B-8.3B: seen in 1; next: B-9.3B (1)
+B-9.1A: seen in 1; next: B-8.1A (1)
+B-9.1B: seen in 4; next: B-9.2B (2)
+B-9.1C: seen in 5; next: B-9.1B (4), B-9.2C (1)
+B-9.2A: seen in 1; next: it was always the last of these zones
+B-9.2B: seen in 4; next: B-9.3D (1), B-9.3B (1), B-9.1A (1)
+B-9.2C: seen in 6; next: B-9.1C (3), B-9.2B (1), B-9.3D (1)
+B-9.3A: seen in 1; next: B-9.3C (1)
+B-9.3B: seen in 2; next: B-9.1C (1), B-9.2A (1)
+B-9.3C: seen in 6; next: B-9.2C (5), B-9.1C (1)
+B-9.3D: seen in 5; next: B-9.3C (4)
+
+The 7 most similar past routes (most zones in common with this route), reduced to this route's zones in driver order:
+2018-08-24: shares 13 of 16 zones: B-9.3A B-9.3C B-9.2C B-9.1C B-9.1B B-9.2B B-9.1A B-8.1A B-8.2A B-8.3A B-8.3B B-9.3B B-9.2A
+2018-08-23: shares 7 of 16 zones: B-9.3D B-9.3C B-9.2C B-9.2B B-9.3B B-9.1C B-9.1B
+2018-08-15: shares 6 of 16 zones: B-9.2B B-9.3D B-9.3C B-9.2C B-9.1C B-9.1B
+2018-08-14: shares 6 of 16 zones: B-9.3D B-9.3C B-9.2C B-9.1C B-9.1B B-9.2B
+2018-08-16: shares 4 of 16 zones: B-9.3C B-9.1C B-9.2C B-9.3D
+2018-08-25: shares 3 of 16 zones: B-9.3D B-9.3C B-9.2C
+2018-07-29: shares 2 of 16 zones: B-8.2B B-8.1B
+
+Output the order in which to visit the zones as a JSON list of zone IDs, starting with the first zone after leaving the station. Include each of the 16 zones exactly once and nothing else. Do not include the station.

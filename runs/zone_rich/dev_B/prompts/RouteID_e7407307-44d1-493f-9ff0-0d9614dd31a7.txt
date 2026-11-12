@@ -1,0 +1,112 @@
+A delivery van leaves the station and must deliver to every zone below. All stops in a zone are delivered together, so you only choose the order of the zones. The order of stops inside each zone is decided separately.
+
+How to read this: drivers at a station are creatures of habit. The history below counts what this station's drivers actually did with these same zones, and it is the strongest evidence you have: follow the usual first zone and the usual next-zone moves wherever they are consistent, and use the most similar past routes to settle the overall sweep. Zone IDs are hierarchical (e.g. `A-2.3B` = area A-2, row 3, column B); drivers usually finish one area before moving to the next and sweep neighbouring rows and columns in order. Fall back on travel times only where the history is silent or contradictory.
+
+Station: DLA9 at 33.688122 -117.847178
+
+Zones (26). Each line: zone ID, centroid latitude, centroid longitude, number of stops. Lines are sorted by zone ID.
+G-17.1A 33.645235 -117.617952 6
+G-17.1B 33.649613 -117.611312 8
+G-17.1C 33.652102 -117.610577 7
+G-17.2A 33.646608 -117.617044 4
+G-17.2B 33.648271 -117.612455 7
+G-17.2C 33.657742 -117.612960 6
+G-17.2D 33.663218 -117.611476 6
+G-17.3A 33.646461 -117.614739 5
+G-17.3B 33.645193 -117.613401 7
+G-17.3C 33.659806 -117.613883 6
+G-17.3D 33.662334 -117.613529 3
+G-18.1A 33.644102 -117.621789 8
+G-18.1B 33.636531 -117.612234 6
+G-18.1D 33.625833 -117.616365 4
+G-18.1E 33.623227 -117.619151 5
+G-18.2A 33.639520 -117.625220 8
+G-18.2C 33.629426 -117.610543 3
+G-18.2D 33.627505 -117.615470 9
+G-18.2E 33.621870 -117.619124 4
+G-18.2G 33.612008 -117.622472 7
+G-18.3A 33.635813 -117.625437 6
+G-18.3B 33.638212 -117.622098 10
+G-18.3C 33.629149 -117.610338 4
+G-18.3D 33.627199 -117.611654 1
+G-18.3E 33.619921 -117.619950 7
+G-18.3G 33.616344 -117.620914 8
+
+Travel times in seconds. Each number is the mean driving time over all pairs of stops (one stop in the first zone, one in the second).
+
+From the station to each zone, in the zone order above:
+G-17.1A:1930 G-17.1B:1852 G-17.1C:1857 G-17.2A:1866 G-17.2B:1897 G-17.2C:1806 G-17.2D:1852 G-17.3A:1894 G-17.3B:1872 G-17.3C:1786 G-17.3D:1816 G-18.1A:1988 G-18.1B:2000 G-18.1D:2063 G-18.1E:2064 G-18.2A:1943 G-18.2C:1953 G-18.2D:1997 G-18.2E:2073 G-18.2G:2147 G-18.3A:2026 G-18.3B:1971 G-18.3C:1941 G-18.3D:1980 G-18.3E:2053 G-18.3G:2110
+
+From each zone back to the station, in the zone order above:
+G-17.1A:1812 G-17.1B:1720 G-17.1C:1691 G-17.2A:1751 G-17.2B:1769 G-17.2C:1686 G-17.2D:1740 G-17.3A:1761 G-17.3B:1762 G-17.3C:1687 G-17.3D:1693 G-18.1A:1914 G-18.1B:1861 G-18.1D:2127 G-18.1E:2108 G-18.2A:1901 G-18.2C:2088 G-18.2D:2080 G-18.2E:2119 G-18.2G:2181 G-18.3A:1817 G-18.3B:1828 G-18.3C:2075 G-18.3D:2091 G-18.3E:2097 G-18.3G:2149
+
+Zone-to-zone matrix. Row = from, column = to; columns are in the zone order above. The diagonal is the mean time between stops inside the same zone.
+G-17.1A | 55 208 226 101 227 300 425 142 185 323 397 154 429 693 698 307 571 615 707 781 390 335 559 598 687 745
+G-17.1B | 331 79 143 281 114 217 343 256 198 240 316 349 518 787 790 397 669 712 800 873 478 422 657 695 778 836
+G-17.1C | 265 203 65 217 248 187 314 245 223 211 287 322 500 781 784 376 668 712 794 867 460 404 657 695 772 830
+G-17.2A | 100 156 174 42 176 248 373 86 131 271 346 213 427 691 696 304 569 613 706 779 388 332 557 596 684 742
+G-17.2B | 290 117 192 237 58 266 392 205 141 289 364 315 484 748 752 361 625 669 761 836 444 389 614 652 741 798
+G-17.2C | 317 255 260 269 300 82 224 297 275 116 199 374 551 789 790 428 680 724 799 873 512 456 668 706 779 837
+G-17.2D | 443 381 386 395 426 229 61 423 401 165 113 501 678 843 844 555 734 778 855 928 638 583 722 760 833 891
+G-17.3A | 142 166 184 89 186 258 384 52 108 282 356 256 438 702 707 315 579 623 715 790 399 343 568 606 695 753
+G-17.3B | 192 160 185 139 129 260 385 106 44 283 357 306 459 723 728 337 600 645 737 811 420 365 589 628 717 774
+G-17.3C | 332 270 276 285 315 117 161 313 291 71 141 389 565 790 791 444 680 724 800 874 527 471 668 707 780 837
+G-17.3D | 406 344 349 358 389 195 111 386 364 132 54 464 641 796 797 518 686 731 807 880 601 545 675 713 785 844
+G-18.1A | 145 265 283 200 284 356 482 251 260 380 454 60 444 708 713 321 585 629 721 796 405 349 574 612 701 759
+G-18.1B | 517 556 574 512 576 626 674 548 552 608 638 533 40 444 448 453 321 365 458 532 458 404 310 348 436 495
+G-18.1D | 735 775 793 731 794 867 902 766 771 841 865 751 517 49 154 671 319 147 219 305 676 623 308 236 210 268
+G-18.1E | 756 795 813 751 815 888 894 787 791 835 858 771 587 162 46 692 312 248 117 265 697 643 300 336 173 228
+G-18.2A | 299 338 356 293 358 429 556 330 334 454 528 314 331 594 599 65 472 516 607 682 184 157 461 498 587 645
+G-18.2C | 598 637 655 592 657 729 780 629 633 721 745 614 363 278 282 534 12 200 293 366 539 485 59 182 271 330
+G-18.2D | 639 679 697 635 698 771 821 670 675 763 785 655 403 166 239 575 223 77 268 345 580 527 212 140 250 308
+G-18.2E | 766 805 823 761 826 897 905 798 802 845 868 782 598 207 110 702 321 293 73 235 707 654 311 382 147 197
+G-18.2G | 829 868 886 823 888 959 968 860 864 908 933 844 662 303 269 765 386 357 242 92 769 716 374 361 173 153
+G-18.3A | 402 441 459 397 461 533 659 433 437 556 631 417 347 611 616 183 488 533 625 699 84 186 477 516 605 662
+G-18.3B | 331 371 389 326 391 463 588 362 367 486 561 347 283 548 553 155 425 470 562 636 175 82 414 452 541 599
+G-18.3C | 584 623 641 579 643 715 766 615 619 708 730 599 348 264 269 520 50 185 278 352 525 471 34 168 257 314
+G-18.3D | 650 689 707 645 709 782 832 681 685 774 796 665 412 264 285 586 233 147 293 368 591 537 222 0 273 330
+G-18.3E | 744 783 801 739 803 875 882 775 779 823 848 759 576 218 187 679 300 272 163 198 685 631 288 276 45 162
+G-18.3G | 797 836 854 791 856 928 936 828 832 876 901 813 631 271 237 733 354 325 210 178 737 684 343 329 141 67
+
+History of this station: 6 past routes driven by this station's drivers. Each past route was reduced to the zones of THIS route that it visits, kept in its driver's order.
+
+Usual FIRST zone (how many past routes started with each of this route's zones):
+G-18.2G (2), G-18.3G (1), G-17.3D (1), G-17.2C (1), G-18.2A (1)
+
+Usual NEXT zone. For each zone of this route: the zones its drivers most often went to next, with counts ("seen in N past routes" = how many past routes visited it).
+G-17.1A: seen in 2; next: G-17.2A (2)
+G-17.1B: seen in 3; next: G-17.3D (1), G-17.1C (1)
+G-17.1C: seen in 2; next: G-17.2C (1)
+G-17.2A: seen in 2; next: G-17.3A (2)
+G-17.2B: seen in 3; next: G-17.1B (3)
+G-17.2C: seen in 2; next: G-17.3C (2)
+G-17.2D: seen in 3; next: G-17.1C (1)
+G-17.3A: seen in 2; next: G-17.3B (2)
+G-17.3B: seen in 2; next: G-17.2B (2)
+G-17.3C: seen in 2; next: G-17.2B (1), G-17.3D (1)
+G-17.3D: seen in 3; next: G-17.2D (3)
+G-18.1A: seen in 2; next: G-17.1A (2)
+G-18.1B: seen in 2; next: G-18.3C (1), G-18.3B (1)
+G-18.1D: seen in 3; next: G-18.2D (3)
+G-18.1E: seen in 3; next: G-18.1D (3)
+G-18.2A: seen in 2; next: G-18.1A (2)
+G-18.2C: seen in 2; next: G-18.3D (1), G-18.1B (1)
+G-18.2D: seen in 3; next: G-18.3B (1), G-18.3D (1)
+G-18.2E: seen in 3; next: G-18.1E (3)
+G-18.2G: seen in 2; next: G-18.3G (2)
+G-18.3A: seen in 1; next: G-18.2A (1)
+G-18.3B: seen in 2; next: G-18.1B (1), G-18.3A (1)
+G-18.3C: seen in 2; next: G-18.2C (2)
+G-18.3D: seen in 2; next: G-18.3C (1)
+G-18.3E: seen in 3; next: G-18.2E (3)
+G-18.3G: seen in 3; next: G-18.3E (3)
+
+The 6 most similar past routes (most zones in common with this route), reduced to this route's zones in driver order:
+2018-08-23: shares 20 of 26 zones: G-18.3G G-18.3E G-18.2E G-18.1E G-18.1D G-18.2D G-18.3D G-18.3C G-18.2C G-18.1B G-18.3B G-18.3A G-18.2A G-18.1A G-17.1A G-17.2A G-17.3A G-17.3B G-17.2B G-17.1B
+2018-08-11: shares 13 of 26 zones: G-18.2A G-18.1A G-17.1A G-17.2A G-17.3A G-17.3B G-17.2B G-17.1B G-17.1C G-17.2C G-17.3C G-17.3D G-17.2D
+2018-07-31: shares 12 of 26 zones: G-18.2G G-18.3G G-18.3E G-18.2E G-18.1E G-18.1D G-18.2D G-18.3B G-18.1B G-18.3C G-18.2C G-18.3D
+2018-07-24: shares 7 of 26 zones: G-18.2G G-18.3G G-18.3E G-18.2E G-18.1E G-18.1D G-18.2D
+2018-08-08: shares 7 of 26 zones: G-17.2C G-17.3C G-17.2B G-17.1B G-17.3D G-17.2D G-17.1C
+2018-07-25: shares 2 of 26 zones: G-17.3D G-17.2D
+
+Output the order in which to visit the zones as a JSON list of zone IDs, starting with the first zone after leaving the station. Include each of the 26 zones exactly once and nothing else. Do not include the station.

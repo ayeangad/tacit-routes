@@ -1,0 +1,90 @@
+A delivery van leaves the station and must deliver to every zone below. All stops in a zone are delivered together, so you only choose the order of the zones. The order of stops inside each zone is decided separately.
+
+How to read this: drivers at a station are creatures of habit. The history below counts what this station's drivers actually did with these same zones, and it is the strongest evidence you have: follow the usual first zone and the usual next-zone moves wherever they are consistent, and use the most similar past routes to settle the overall sweep. Zone IDs are hierarchical (e.g. `A-2.3B` = area A-2, row 3, column B); drivers usually finish one area before moving to the next and sweep neighbouring rows and columns in order. Fall back on travel times only where the history is silent or contradictory.
+
+Station: DLA7 at 33.965477 -117.653303
+
+Zones (18). Each line: zone ID, centroid latitude, centroid longitude, number of stops. Lines are sorted by zone ID.
+C-15.1D 33.836973 -117.830821 8
+C-15.1E 33.833254 -117.828239 6
+C-15.1G 33.819852 -117.830233 8
+C-15.1H 33.822651 -117.820341 8
+C-15.2D 33.838388 -117.827925 13
+C-15.2E 33.832181 -117.831671 9
+C-15.2G 33.823502 -117.828171 8
+C-15.2H 33.819328 -117.823247 5
+C-15.2J 33.814616 -117.822957 5
+C-15.3E 33.829566 -117.828840 13
+C-15.3G 33.825444 -117.826970 8
+C-15.3H 33.816078 -117.829456 11
+C-15.3J 33.816263 -117.824466 8
+C-16.1J 33.813172 -117.819250 7
+C-16.2H 33.815623 -117.799391 3
+C-16.2J 33.814885 -117.812742 15
+C-16.3H 33.814023 -117.804393 9
+C-16.3J 33.813951 -117.809860 3
+
+Travel times in seconds. Each number is the mean driving time over all pairs of stops (one stop in the first zone, one in the second).
+
+From the station to each zone, in the zone order above:
+C-15.1D:1899 C-15.1E:1946 C-15.1G:2103 C-15.1H:2150 C-15.2D:1907 C-15.2E:1941 C-15.2G:2050 C-15.2H:2088 C-15.2J:2123 C-15.3E:1946 C-15.3G:1988 C-15.3H:2144 C-15.3J:2153 C-16.1J:2114 C-16.2H:2049 C-16.2J:2147 C-16.3H:2130 C-16.3J:2150
+
+From each zone back to the station, in the zone order above:
+C-15.1D:1920 C-15.1E:1897 C-15.1G:2132 C-15.1H:2076 C-15.2D:1943 C-15.2E:1889 C-15.2G:2090 C-15.2H:2050 C-15.2J:2100 C-15.3E:1922 C-15.3G:1963 C-15.3H:2212 C-15.3J:2122 C-16.1J:2170 C-16.2H:2172 C-16.2J:2174 C-16.3H:2247 C-16.3J:2204
+
+Zone-to-zone matrix. Row = from, column = to; columns are in the zone order above. The diagonal is the mean time between stops inside the same zone.
+C-15.1D | 82 266 446 438 129 261 372 405 508 266 308 511 460 555 748 600 709 623
+C-15.1E | 233 52 388 381 260 171 314 347 451 209 250 453 403 498 673 531 642 566
+C-15.1G | 437 384 66 265 463 367 169 195 259 292 234 154 180 306 466 326 439 367
+C-15.1H | 402 351 261 97 428 334 225 183 275 259 201 270 225 323 413 274 386 314
+C-15.2D | 131 289 468 461 87 284 393 428 531 292 339 534 483 578 743 634 740 658
+C-15.2E | 221 165 349 341 245 145 275 308 411 165 211 414 364 458 634 492 602 527
+C-15.2G | 386 333 164 232 412 317 66 198 302 241 184 295 254 349 524 383 493 417
+C-15.2H | 376 325 178 172 403 309 200 77 200 233 176 171 143 248 412 271 382 307
+C-15.2J | 479 428 260 264 506 421 302 187 92 336 279 249 155 143 362 218 287 231
+C-15.3E | 248 197 297 289 274 174 223 256 359 76 159 362 312 406 582 440 550 475
+C-15.3G | 289 238 235 227 316 222 160 193 297 146 82 300 249 344 519 377 488 412
+C-15.3H | 498 437 148 282 524 421 290 173 237 345 288 93 143 284 442 303 416 344
+C-15.3J | 434 383 178 218 461 366 255 130 152 291 234 151 77 200 398 255 352 286
+C-16.1J | 527 476 304 305 553 459 350 233 152 384 327 298 204 86 325 181 250 194
+C-16.2H | 688 637 449 387 713 620 511 396 353 545 487 436 396 329 47 266 148 208
+C-16.2J | 542 502 320 257 569 485 380 265 211 414 356 306 257 187 271 98 199 148
+C-16.3H | 646 600 419 357 673 582 475 357 276 510 452 409 331 252 147 190 83 134
+C-16.3J | 586 535 359 296 612 518 409 290 211 443 385 348 263 184 195 131 123 70
+
+History of this station: 16 past routes driven by this station's drivers. Each past route was reduced to the zones of THIS route that it visits, kept in its driver's order.
+
+Usual FIRST zone (how many past routes started with each of this route's zones):
+C-15.2D (8), C-15.3E (1), C-16.2H (1), C-16.1J (1), C-16.3H (1)
+
+Usual NEXT zone. For each zone of this route: the zones its drivers most often went to next, with counts ("seen in N past routes" = how many past routes visited it).
+C-15.1D: seen in 10; next: C-15.1E (9)
+C-15.1E: seen in 9; next: C-15.2E (9)
+C-15.1G: seen in 10; next: C-15.1H (6), C-15.2G (1), C-15.2D (1)
+C-15.1H: seen in 10; next: C-15.2H (7), C-15.2J (2), C-15.3G (1)
+C-15.2D: seen in 10; next: C-15.1D (10)
+C-15.2E: seen in 9; next: C-15.3E (8), C-15.3G (1)
+C-15.2G: seen in 9; next: C-15.1G (8), C-15.1H (1)
+C-15.2H: seen in 10; next: C-15.3H (8), C-15.3J (2)
+C-15.2J: seen in 11; next: C-16.1J (7), C-15.2H (2), C-15.1H (1)
+C-15.3E: seen in 9; next: C-15.3G (8), C-15.2D (1)
+C-15.3G: seen in 10; next: C-15.2G (7), C-15.1G (1), C-15.1H (1)
+C-15.3H: seen in 10; next: C-15.3J (8), C-15.2J (1), C-15.2H (1)
+C-15.3J: seen in 10; next: C-15.2J (6), C-16.1J (3), C-15.3H (1)
+C-16.1J: seen in 11; next: C-16.2J (11)
+C-16.2H: seen in 10; next: it was always the last of these zones
+C-16.2J: seen in 11; next: C-16.3J (11)
+C-16.3H: seen in 10; next: C-16.2H (9)
+C-16.3J: seen in 11; next: C-16.3H (9)
+
+The 8 most similar past routes (most zones in common with this route), reduced to this route's zones in driver order:
+2018-07-24: shares 18 of 18 zones: C-15.2D C-15.1D C-15.1E C-15.2E C-15.3E C-15.3G C-15.2G C-15.1G C-15.1H C-15.2J C-15.2H C-15.3H C-15.3J C-16.1J C-16.2J C-16.3J C-16.3H C-16.2H
+2018-08-14: shares 18 of 18 zones: C-15.2G C-15.1G C-15.2D C-15.1D C-15.1E C-15.2E C-15.3E C-15.3G C-15.1H C-15.2H C-15.3H C-15.3J C-15.2J C-16.1J C-16.2J C-16.3J C-16.3H C-16.2H
+2018-08-16: shares 18 of 18 zones: C-15.2D C-15.1D C-15.1E C-15.2E C-15.3E C-15.3G C-15.2G C-15.1G C-15.1H C-15.2H C-15.3H C-15.3J C-15.2J C-16.1J C-16.2J C-16.3J C-16.3H C-16.2H
+2018-08-05: shares 18 of 18 zones: C-15.2D C-15.1D C-15.1E C-15.2E C-15.3E C-15.3G C-15.2G C-15.1G C-15.1H C-15.2H C-15.3H C-15.3J C-15.2J C-16.1J C-16.2J C-16.3J C-16.3H C-16.2H
+2018-07-31: shares 17 of 18 zones: C-15.2D C-15.1D C-15.1E C-15.2E C-15.3E C-15.3G C-15.2G C-15.1G C-15.1H C-15.2H C-15.3H C-15.3J C-15.2J C-16.1J C-16.2J C-16.3J C-16.3H
+2018-08-01: shares 16 of 18 zones: C-15.3E C-15.2D C-15.1D C-15.1E C-15.2E C-15.3G C-15.1G C-15.2G C-15.1H C-15.2J C-15.2H C-15.3H C-15.3J C-16.1J C-16.2J C-16.3J
+2018-08-03: shares 16 of 18 zones: C-15.2D C-15.1D C-15.1E C-15.2E C-15.3E C-15.3G C-15.2G C-15.1G C-15.2J C-15.1H C-15.2H C-15.3H C-15.3J C-16.1J C-16.2J C-16.3J
+2018-08-02: shares 13 of 18 zones: C-15.2D C-15.1D C-15.1E C-15.2E C-15.3E C-15.3G C-15.2G C-15.1G C-15.1H C-15.2H C-15.3J C-15.3H C-15.2J
+
+Output the order in which to visit the zones as a JSON list of zone IDs, starting with the first zone after leaving the station. Include each of the 18 zones exactly once and nothing else. Do not include the station.

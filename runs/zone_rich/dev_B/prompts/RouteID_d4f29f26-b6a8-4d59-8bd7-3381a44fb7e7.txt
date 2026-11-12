@@ -1,0 +1,76 @@
+A delivery van leaves the station and must deliver to every zone below. All stops in a zone are delivered together, so you only choose the order of the zones. The order of stops inside each zone is decided separately.
+
+How to read this: drivers at a station are creatures of habit. The history below counts what this station's drivers actually did with these same zones, and it is the strongest evidence you have: follow the usual first zone and the usual next-zone moves wherever they are consistent, and use the most similar past routes to settle the overall sweep. Zone IDs are hierarchical (e.g. `A-2.3B` = area A-2, row 3, column B); drivers usually finish one area before moving to the next and sweep neighbouring rows and columns in order. Fall back on travel times only where the history is silent or contradictory.
+
+Station: DCH1 at 41.840375 -87.683736
+
+Zones (15). Each line: zone ID, centroid latitude, centroid longitude, number of stops. Lines are sorted by zone ID.
+C-7.1A 41.884327 -87.907103 11
+C-7.1B 41.887161 -87.876686 19
+C-7.1C 41.878455 -87.871574 7
+C-7.1D 41.876622 -87.906341 10
+C-7.1E 41.866450 -87.910513 14
+C-7.2A 41.885989 -87.896891 18
+C-7.2B 41.890210 -87.884698 1
+C-7.2C 41.874560 -87.873412 9
+C-7.2D 41.876925 -87.896924 17
+C-7.2E 41.866607 -87.891785 6
+C-7.3A 41.887003 -87.891069 12
+C-7.3B 41.884965 -87.886304 8
+C-7.3C 41.875279 -87.879670 14
+C-7.3D 41.881524 -87.884274 11
+C-7.3E 41.859240 -87.896547 6
+
+Travel times in seconds. Each number is the mean driving time over all pairs of stops (one stop in the first zone, one in the second).
+
+From the station to each zone, in the zone order above:
+C-7.1A:1956 C-7.1B:1981 C-7.1C:1777 C-7.1D:1855 C-7.1E:1918 C-7.2A:2019 C-7.2B:2032 C-7.2C:1775 C-7.2D:1824 C-7.2E:1893 C-7.3A:2038 C-7.3B:1931 C-7.3C:1771 C-7.3D:1878 C-7.3E:1981
+
+From each zone back to the station, in the zone order above:
+C-7.1A:2014 C-7.1B:1953 C-7.1C:1727 C-7.1D:1924 C-7.1E:1932 C-7.2A:2079 C-7.2B:2005 C-7.2C:1753 C-7.2D:1912 C-7.2E:1809 C-7.3A:2027 C-7.3B:1943 C-7.3C:1776 C-7.3D:1913 C-7.3E:1916
+
+Zone-to-zone matrix. Row = from, column = to; columns are in the zone order above. The diagonal is the mean time between stops inside the same zone.
+C-7.1A | 83 497 561 224 413 222 408 631 289 472 325 362 550 406 491
+C-7.1B | 472 157 277 457 646 373 269 350 392 611 319 276 354 261 699
+C-7.1C | 564 297 108 462 608 498 429 151 382 529 444 354 221 278 620
+C-7.1D | 250 456 475 95 310 312 464 545 201 379 401 357 455 329 398
+C-7.1E | 431 639 621 330 177 491 651 626 352 344 578 536 534 511 340
+C-7.2A | 233 376 467 313 495 121 289 543 332 560 189 231 470 338 573
+C-7.2B | 345 233 384 416 611 247 0 442 360 599 198 175 381 277 687
+C-7.2C | 568 360 170 463 589 545 482 114 399 482 497 409 185 332 555
+C-7.2D | 292 389 376 200 352 337 403 437 122 380 374 296 363 259 429
+C-7.2E | 465 626 503 358 335 523 648 477 350 108 610 543 388 490 249
+C-7.3A | 322 318 418 364 551 182 224 491 327 600 134 195 417 291 639
+C-7.3B | 407 279 333 343 530 258 215 404 280 538 211 126 333 215 609
+C-7.3C | 521 347 200 419 567 471 412 181 333 417 418 323 146 260 497
+C-7.3D | 411 254 273 344 535 360 301 337 277 505 318 233 286 172 585
+C-7.3E | 469 674 590 362 325 527 687 567 388 246 614 572 482 547 79
+
+History of this station: 3 past routes driven by this station's drivers. Each past route was reduced to the zones of THIS route that it visits, kept in its driver's order.
+
+Usual FIRST zone (how many past routes started with each of this route's zones):
+C-7.1C (2), C-7.1B (1)
+
+Usual NEXT zone. For each zone of this route: the zones its drivers most often went to next, with counts ("seen in N past routes" = how many past routes visited it).
+C-7.1A: seen in 3; next: C-7.2A (2), C-7.3A (1)
+C-7.1B: seen in 3; next: C-7.3C (1), C-7.3D (1), C-7.2A (1)
+C-7.1C: seen in 3; next: C-7.2C (1), C-7.1B (1)
+C-7.1D: seen in 1; next: C-7.1A (1)
+C-7.1E: never seen at this station; its group C-7.1 seen in 5; group next: C-7.2 (6), C-7.3 (3)
+C-7.2A: seen in 3; next: C-7.3A (2), C-7.1A (1)
+C-7.2B: seen in 3; next: C-7.1B (1), C-7.2C (1), C-7.1C (1)
+C-7.2C: seen in 2; next: C-7.1A (1)
+C-7.2D: seen in 1; next: C-7.1D (1)
+C-7.2E: never seen at this station; its group C-7.2 seen in 5; group next: C-7.1 (9), C-7.3 (3)
+C-7.3A: seen in 3; next: C-7.3B (3)
+C-7.3B: seen in 3; next: C-7.2B (3)
+C-7.3C: seen in 2; next: C-7.2D (1)
+C-7.3D: seen in 1; next: C-7.3C (1)
+C-7.3E: never seen at this station; its group C-7.3 seen in 5; group next: C-7.2 (7)
+
+The 3 most similar past routes (most zones in common with this route), reduced to this route's zones in driver order:
+2018-08-17: shares 12 of 15 zones: C-7.1C C-7.1B C-7.3D C-7.3C C-7.2D C-7.1D C-7.1A C-7.2A C-7.3A C-7.3B C-7.2B C-7.2C
+2018-08-03: shares 9 of 15 zones: C-7.1C C-7.2C C-7.1A C-7.2A C-7.3A C-7.3B C-7.2B C-7.1B C-7.3C
+2018-08-07: shares 7 of 15 zones: C-7.1B C-7.2A C-7.1A C-7.3A C-7.3B C-7.2B C-7.1C
+
+Output the order in which to visit the zones as a JSON list of zone IDs, starting with the first zone after leaving the station. Include each of the 15 zones exactly once and nothing else. Do not include the station.

@@ -1,0 +1,105 @@
+A delivery van leaves the station and must deliver to every zone below. All stops in a zone are delivered together, so you only choose the order of the zones. The order of stops inside each zone is decided separately.
+
+How to read this: drivers at a station are creatures of habit. The history below counts what this station's drivers actually did with these same zones, and it is the strongest evidence you have: follow the usual first zone and the usual next-zone moves wherever they are consistent, and use the most similar past routes to settle the overall sweep. Zone IDs are hierarchical (e.g. `A-2.3B` = area A-2, row 3, column B); drivers usually finish one area before moving to the next and sweep neighbouring rows and columns in order. Fall back on travel times only where the history is silent or contradictory.
+
+Station: DLA9 at 33.688122 -117.847178
+
+Zones (23). Each line: zone ID, centroid latitude, centroid longitude, number of stops. Lines are sorted by zone ID.
+C-10.1A 33.657398 -117.904829 3
+C-10.1B 33.659296 -117.900116 5
+C-10.1C 33.660251 -117.897259 6
+C-10.1D 33.656416 -117.891665 7
+C-10.1E 33.657526 -117.891070 5
+C-10.1G 33.659955 -117.885295 4
+C-10.1H 33.661232 -117.888172 6
+C-10.2A 33.656132 -117.904390 4
+C-10.2B 33.658270 -117.898170 7
+C-10.2C 33.663399 -117.893862 7
+C-10.2D 33.658372 -117.892002 3
+C-10.2E 33.657790 -117.888974 4
+C-10.2G 33.659688 -117.884413 1
+C-10.3A 33.654862 -117.901527 10
+C-10.3B 33.657322 -117.899984 5
+C-10.3C 33.662447 -117.891172 5
+C-10.3D 33.660279 -117.892924 7
+C-10.3E 33.655592 -117.886995 6
+C-10.3G 33.656467 -117.884442 5
+C-9.1A 33.658899 -117.904404 1
+C-9.2A 33.660134 -117.905663 4
+C-9.3A 33.661754 -117.906491 3
+C-9.3B 33.660479 -117.908929 5
+
+Travel times in seconds. Each number is the mean driving time over all pairs of stops (one stop in the first zone, one in the second).
+
+From the station to each zone, in the zone order above:
+C-10.1A:832 C-10.1B:879 C-10.1C:897 C-10.1D:943 C-10.1E:894 C-10.1G:811 C-10.1H:820 C-10.2A:860 C-10.2B:958 C-10.2C:788 C-10.2D:903 C-10.2E:851 C-10.2G:811 C-10.3A:877 C-10.3B:892 C-10.3C:834 C-10.3D:905 C-10.3E:823 C-10.3G:804 C-9.1A:780 C-9.2A:863 C-9.3A:885 C-9.3B:905
+
+From each zone back to the station, in the zone order above:
+C-10.1A:824 C-10.1B:719 C-10.1C:756 C-10.1D:830 C-10.1E:795 C-10.1G:886 C-10.1H:826 C-10.2A:823 C-10.2B:753 C-10.2C:745 C-10.2D:771 C-10.2E:795 C-10.2G:909 C-10.3A:800 C-10.3B:786 C-10.3C:795 C-10.3D:729 C-10.3E:817 C-10.3G:836 C-9.1A:783 C-9.2A:851 C-9.3A:901 C-9.3B:924
+
+Zone-to-zone matrix. Row = from, column = to; columns are in the zone order above. The diagonal is the mean time between stops inside the same zone.
+C-10.1A | 92 190 298 394 388 531 425 168 245 368 374 396 563 178 205 394 342 413 484 154 183 224 272
+C-10.1B | 310 127 144 274 264 428 325 279 114 239 231 269 459 203 138 266 201 299 380 255 338 390 457
+C-10.1C | 287 174 53 248 219 412 324 254 92 174 183 221 399 183 114 220 155 254 323 232 311 366 433
+C-10.1D | 389 303 263 67 106 272 215 358 224 281 139 125 289 276 270 240 189 159 228 339 419 473 529
+C-10.1E | 427 338 260 115 78 246 193 399 259 246 124 93 254 316 308 207 146 124 193 375 458 445 495
+C-10.1G | 500 468 403 283 248 117 111 498 402 310 266 210 244 438 445 222 277 191 172 446 529 552 577
+C-10.1H | 398 426 320 212 196 154 38 424 350 217 213 194 306 401 393 130 199 192 174 344 424 443 478
+C-10.2A | 221 188 270 364 371 524 426 106 210 350 344 387 539 129 174 381 327 404 461 207 226 251 252
+C-10.2B | 249 157 100 219 237 430 347 220 54 217 176 254 469 145 77 261 187 282 349 195 277 329 395
+C-10.2C | 354 297 167 280 242 347 206 349 218 57 244 255 485 305 236 170 192 281 359 301 372 351 409
+C-10.2D | 384 286 193 133 117 319 254 355 187 230 70 129 281 266 234 195 114 161 220 331 381 375 441
+C-10.2E | 434 364 239 147 107 238 184 412 280 246 136 58 230 346 324 206 134 100 181 387 451 410 461
+C-10.2G | 514 500 440 309 278 108 134 520 429 335 304 240 0 468 478 247 310 223 204 462 541 560 597
+C-10.3A | 193 170 199 283 309 480 395 134 144 314 260 334 456 61 110 318 258 356 372 156 230 275 305
+C-10.3B | 199 140 131 267 284 481 386 167 79 247 226 300 526 103 35 306 229 326 389 143 224 279 345
+C-10.3C | 385 354 242 266 230 263 121 387 273 190 241 243 417 329 316 54 130 263 283 333 415 394 445
+C-10.3D | 352 273 177 163 126 284 198 329 184 180 123 131 291 252 228 115 62 161 240 303 373 369 431
+C-10.3E | 439 361 265 178 131 193 193 422 293 268 150 87 180 338 333 226 157 51 119 383 455 446 485
+C-10.3G | 484 400 338 242 195 162 186 462 335 331 204 151 161 370 377 272 221 124 70 425 508 560 546
+C-9.1A  | 92 150 255 353 347 491 392 150 202 331 329 356 523 147 162 354 302 372 436 0 79 136 258
+C-9.2A  | 159 217 321 420 411 559 456 218 270 399 398 420 591 215 228 421 361 437 505 66 62 113 235
+C-9.3A  | 210 268 362 447 408 609 508 268 320 398 386 414 640 266 279 415 346 443 522 119 111 65 209
+C-9.3B  | 316 345 404 502 462 633 528 285 396 435 452 468 664 323 366 458 400 498 567 263 203 216 83
+
+History of this station: 12 past routes driven by this station's drivers. Each past route was reduced to the zones of THIS route that it visits, kept in its driver's order.
+
+Usual FIRST zone (how many past routes started with each of this route's zones):
+C-9.3B (5), C-10.3G (2), C-10.1D (2), C-10.1A (1), C-10.2E (1)
+
+Usual NEXT zone. For each zone of this route: the zones its drivers most often went to next, with counts ("seen in N past routes" = how many past routes visited it).
+C-10.1A: seen in 3; next: C-9.1A (1), C-10.2A (1), C-9.2A (1)
+C-10.1B: seen in 4; next: C-10.1C (4)
+C-10.1C: seen in 4; next: C-10.2C (3)
+C-10.1D: seen in 6; next: C-10.1E (5), C-10.2D (1)
+C-10.1E: seen in 6; next: C-10.3E (2), C-10.2E (2), C-10.2D (1)
+C-10.1G: seen in 6; next: C-10.1H (4), C-10.2G (1)
+C-10.1H: seen in 6; next: C-10.3C (2), C-10.2E (1), C-10.2C (1)
+C-10.2A: seen in 4; next: C-10.3A (3), C-10.1B (1)
+C-10.2B: seen in 4; next: C-10.1B (2), C-10.3A (1), C-10.3B (1)
+C-10.2C: seen in 5; next: C-10.3C (3), C-10.1D (1)
+C-10.2D: seen in 5; next: C-10.1D (2), C-10.2E (1), C-10.3D (1)
+C-10.2E: seen in 6; next: C-10.3E (4), C-10.2G (1), C-10.1D (1)
+C-10.2G: seen in 6; next: C-10.1G (4), C-10.3G (1), C-10.1H (1)
+C-10.3A: seen in 5; next: C-10.3B (3), C-10.1B (1), C-10.2A (1)
+C-10.3B: seen in 5; next: C-10.2B (3), C-10.3A (1), C-9.1A (1)
+C-10.3C: seen in 5; next: C-10.3D (4), C-10.2C (1)
+C-10.3D: seen in 5; next: C-10.2D (3), C-10.3B (1), C-10.1E (1)
+C-10.3E: seen in 6; next: C-10.3G (3), C-10.2E (1), C-10.2G (1)
+C-10.3G: seen in 6; next: C-10.2G (3), C-10.1G (2), C-10.1H (1)
+C-9.1A: seen in 3; next: C-10.1A (2), C-10.2A (1)
+C-9.2A: seen in 4; next: C-9.3A (1), C-9.1A (1), C-9.3B (1)
+C-9.3A: seen in 5; next: C-9.2A (2)
+C-9.3B: seen in 6; next: C-9.3A (4), C-9.2A (1)
+
+The 8 most similar past routes (most zones in common with this route), reduced to this route's zones in driver order:
+2018-08-18: shares 20 of 23 zones: C-10.1A C-9.1A C-10.2A C-10.3A C-10.3B C-10.2B C-10.1B C-10.1C C-10.2C C-10.3C C-10.3D C-10.2D C-10.1D C-10.1E C-10.3E C-10.2E C-10.2G C-10.3G C-10.1G C-10.1H
+2018-07-25: shares 18 of 23 zones: C-10.3G C-10.2G C-10.1G C-10.1H C-10.2E C-10.3E C-10.2B C-10.3B C-10.3A C-10.2A C-10.1B C-10.1C C-10.2C C-10.3C C-10.3D C-10.2D C-10.1D C-10.1E
+2018-08-17: shares 17 of 23 zones: C-10.3G C-10.1H C-10.3C C-10.3D C-10.3B C-10.2B C-10.3A C-10.1B C-10.1C C-10.2C C-10.1D C-10.1E C-10.2D C-10.2E C-10.3E C-10.2G C-10.1G
+2018-08-21: shares 12 of 23 zones: C-10.2E C-10.1D C-10.2D C-10.3D C-10.1E C-10.3E C-10.3G C-10.2G C-10.1G C-10.1H C-10.3C C-10.2C
+2018-07-19: shares 12 of 23 zones: C-10.1D C-10.1E C-10.2E C-10.3E C-10.3G C-10.1G C-10.2G C-10.1H C-10.2C C-10.3C C-10.3D C-10.2D
+2018-07-29: shares 11 of 23 zones: C-9.3B C-9.3A C-9.2A C-9.1A C-10.1A C-10.2A C-10.3A C-10.3B C-10.2B C-10.1B C-10.1C
+2018-07-21: shares 8 of 23 zones: C-10.1D C-10.1E C-10.2E C-10.3E C-10.3G C-10.2G C-10.1G C-10.1H
+2018-08-06: shares 8 of 23 zones: C-10.2A C-10.3A C-10.3B C-9.1A C-10.1A C-9.2A C-9.3B C-9.3A
+
+Output the order in which to visit the zones as a JSON list of zone IDs, starting with the first zone after leaving the station. Include each of the 23 zones exactly once and nothing else. Do not include the station.

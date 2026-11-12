@@ -1,0 +1,99 @@
+A delivery van leaves the station and must deliver to every zone below. All stops in a zone are delivered together, so you only choose the order of the zones. The order of stops inside each zone is decided separately.
+
+How to read this: drivers at a station are creatures of habit. The history below counts what this station's drivers actually did with these same zones, and it is the strongest evidence you have: follow the usual first zone and the usual next-zone moves wherever they are consistent, and use the most similar past routes to settle the overall sweep. Zone IDs are hierarchical (e.g. `A-2.3B` = area A-2, row 3, column B); drivers usually finish one area before moving to the next and sweep neighbouring rows and columns in order. Fall back on travel times only where the history is silent or contradictory.
+
+Station: DLA3 at 34.007369 -118.143927
+
+Zones (21). Each line: zone ID, centroid latitude, centroid longitude, number of stops. Lines are sorted by zone ID.
+P-3.1A 34.087547 -118.302165 3
+P-3.2A 34.088124 -118.301231 8
+P-3.3A 34.093039 -118.303044 6
+P-4.1A 34.087488 -118.298585 5
+P-4.1B 34.094472 -118.296124 1
+P-4.1C 34.095309 -118.294853 2
+P-4.1D 34.095257 -118.300385 9
+P-4.2A 34.087275 -118.297401 9
+P-4.2B 34.092724 -118.296648 5
+P-4.2C 34.095861 -118.296190 4
+P-4.2D 34.093557 -118.301241 4
+P-4.3A 34.083892 -118.295133 6
+P-4.3B 34.087279 -118.295295 5
+P-4.3C 34.094492 -118.298363 7
+P-4.3D 34.093296 -118.299426 4
+P-5.1B 34.103708 -118.298367 5
+P-5.1C 34.103663 -118.297265 5
+P-5.1D 34.099301 -118.301684 2
+P-5.2C 34.101419 -118.296705 2
+P-5.3C 34.100177 -118.298612 4
+P-5.3D 34.098946 -118.296755 3
+
+Travel times in seconds. Each number is the mean driving time over all pairs of stops (one stop in the first zone, one in the second).
+
+From the station to each zone, in the zone order above:
+P-3.1A:1565 P-3.2A:1520 P-3.3A:1566 P-4.1A:1468 P-4.1B:1649 P-4.1C:1706 P-4.1D:1662 P-4.2A:1453 P-4.2B:1617 P-4.2C:1687 P-4.2D:1605 P-4.3A:1427 P-4.3B:1502 P-4.3C:1642 P-4.3D:1627 P-5.1B:1847 P-5.1C:1885 P-5.1D:1780 P-5.2C:1826 P-5.3C:1782 P-5.3D:1761
+
+From each zone back to the station, in the zone order above:
+P-3.1A:1689 P-3.2A:1654 P-3.3A:1757 P-4.1A:1676 P-4.1B:1826 P-4.1C:1986 P-4.1D:1781 P-4.2A:1654 P-4.2B:1824 P-4.2C:1860 P-4.2D:1783 P-4.3A:1622 P-4.3B:1687 P-4.3C:1832 P-4.3D:1819 P-5.1B:2025 P-5.1C:2025 P-5.1D:1884 P-5.2C:1981 P-5.3C:1931 P-5.3D:1922
+
+Zone-to-zone matrix. Row = from, column = to; columns are in the zone order above. The diagonal is the mean time between stops inside the same zone.
+P-3.1A | 36 86 189 150 298 356 222 198 249 315 187 278 251 253 228 466 467 342 429 372 381
+P-3.2A | 82 66 167 122 261 309 171 169 205 258 165 249 225 206 181 409 411 288 372 316 325
+P-3.3A | 179 160 40 225 219 263 156 250 234 211 129 363 299 189 178 361 363 251 320 267 281
+P-4.1A | 146 134 234 67 257 316 217 128 202 277 207 199 177 216 200 430 438 339 391 340 344
+P-4.1B | 304 257 250 274 0 93 183 214 87 48 207 265 201 152 187 270 279 255 209 227 129
+P-4.1C | 439 392 361 414 174 86 257 368 223 153 310 417 341 245 295 323 290 287 239 240 170
+P-4.1D | 208 161 155 205 153 200 65 252 185 146 107 356 299 122 111 251 260 139 215 160 168
+P-4.2A | 204 194 264 125 212 271 258 68 173 247 237 142 110 212 205 429 445 380 381 351 323
+P-4.2B | 250 203 223 201 105 143 179 183 68 123 184 267 194 146 161 325 305 292 252 250 208
+P-4.2C | 308 261 215 286 32 84 145 256 121 29 166 306 242 119 149 245 228 219 165 178 107
+P-4.2D | 195 153 134 205 168 214 108 238 190 162 26 349 289 140 128 312 314 206 271 218 232
+P-4.3A | 270 242 370 181 256 323 365 138 255 303 352 54 109 336 318 526 535 488 457 482 391
+P-4.3B | 256 242 305 172 181 248 299 111 178 230 277 111 63 263 245 453 462 422 381 410 311
+P-4.3C | 240 193 182 209 127 171 120 207 148 117 137 323 256 50 117 218 244 201 206 139 156
+P-4.3D | 213 166 184 195 145 196 119 198 177 144 137 313 247 122 14 293 297 201 264 199 209
+P-5.1B | 452 404 358 426 270 341 240 427 324 254 309 543 478 220 291 15 106 171 120 94 158
+P-5.1C | 451 402 357 432 269 308 254 450 299 229 308 534 471 242 291 105 18 210 117 135 140
+P-5.1D | 310 265 234 309 238 290 124 362 276 213 185 459 403 191 204 189 210 16 188 168 191
+P-5.2C | 403 352 321 406 189 245 210 386 249 161 283 456 399 212 250 107 86 175 41 122 101
+P-5.3C | 357 309 263 336 210 259 153 344 244 177 215 466 401 140 193 95 135 139 116 40 121
+P-5.3D | 371 325 290 354 112 177 170 334 195 102 241 385 321 169 212 156 143 157 97 112 43
+
+History of this station: 8 past routes driven by this station's drivers. Each past route was reduced to the zones of THIS route that it visits, kept in its driver's order.
+
+Usual FIRST zone (how many past routes started with each of this route's zones):
+P-4.2A (2), P-5.1B (2), P-4.2D (1), P-4.1D (1), P-4.1A (1)
+
+Usual NEXT zone. For each zone of this route: the zones its drivers most often went to next, with counts ("seen in N past routes" = how many past routes visited it).
+P-3.1A: seen in 3; next: P-3.2A (3)
+P-3.2A: seen in 3; next: P-3.3A (3)
+P-3.3A: seen in 3; next: P-4.2A (1)
+P-4.1A: seen in 4; next: P-3.1A (2), P-5.1B (1), P-4.2A (1)
+P-4.1B: seen in 2; next: P-4.2B (2)
+P-4.1C: seen in 3; next: P-5.1B (1), P-4.3D (1), P-4.1B (1)
+P-4.1D: seen in 5; next: P-4.2D (3), P-5.1D (1)
+P-4.2A: seen in 4; next: P-4.1A (2), P-4.3A (1)
+P-4.2B: seen in 2; next: P-4.3B (2)
+P-4.2C: seen in 3; next: P-4.1C (2), P-4.1B (1)
+P-4.2D: seen in 4; next: P-4.3D (3), P-4.1C (1)
+P-4.3A: seen in 3; next: P-4.3B (1), P-4.1A (1)
+P-4.3B: seen in 3; next: P-4.3A (2)
+P-4.3C: seen in 3; next: P-4.2C (3)
+P-4.3D: seen in 4; next: P-4.3C (3)
+P-5.1B: seen in 5; next: P-5.1C (5)
+P-5.1C: seen in 5; next: P-5.2C (4)
+P-5.1D: seen in 5; next: P-4.1D (4), P-5.3C (1)
+P-5.2C: seen in 5; next: P-5.3C (4), P-5.1B (1)
+P-5.3C: seen in 5; next: P-5.3D (5)
+P-5.3D: seen in 5; next: P-5.1D (4), P-5.2C (1)
+
+The 8 most similar past routes (most zones in common with this route), reduced to this route's zones in driver order:
+2018-07-31: shares 18 of 21 zones: P-4.2A P-4.1A P-5.1B P-5.1C P-5.2C P-5.3C P-5.3D P-5.1D P-4.1D P-4.2D P-4.1C P-4.3D P-4.3C P-4.2C P-4.1B P-4.2B P-4.3B P-4.3A
+2018-08-10: shares 18 of 21 zones: P-5.1B P-5.1C P-5.2C P-5.3C P-5.3D P-5.1D P-4.1D P-4.2D P-4.3D P-4.3C P-4.2C P-4.1C P-4.1B P-4.2B P-4.3B P-4.3A P-4.1A P-4.2A
+2018-08-05: shares 12 of 21 zones: P-4.2D P-4.3D P-4.3C P-4.2C P-4.1C P-5.1B P-5.1C P-5.2C P-5.3C P-5.3D P-5.1D P-4.1D
+2018-07-22: shares 9 of 21 zones: P-5.1B P-5.1C P-5.2C P-5.3C P-5.3D P-5.1D P-4.1D P-4.2D P-4.3D
+2018-08-07: shares 7 of 21 zones: P-4.1D P-5.1D P-5.3C P-5.3D P-5.2C P-5.1B P-5.1C
+2018-07-24: shares 7 of 21 zones: P-4.1A P-3.1A P-3.2A P-3.3A P-4.2A P-4.3A P-4.3B
+2018-08-06: shares 5 of 21 zones: P-4.2A P-4.1A P-3.1A P-3.2A P-3.3A
+2018-07-31: shares 3 of 21 zones: P-3.1A P-3.2A P-3.3A
+
+Output the order in which to visit the zones as a JSON list of zone IDs, starting with the first zone after leaving the station. Include each of the 21 zones exactly once and nothing else. Do not include the station.

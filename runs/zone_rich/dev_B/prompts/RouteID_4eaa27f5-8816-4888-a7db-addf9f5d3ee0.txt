@@ -1,0 +1,83 @@
+A delivery van leaves the station and must deliver to every zone below. All stops in a zone are delivered together, so you only choose the order of the zones. The order of stops inside each zone is decided separately.
+
+How to read this: drivers at a station are creatures of habit. The history below counts what this station's drivers actually did with these same zones, and it is the strongest evidence you have: follow the usual first zone and the usual next-zone moves wherever they are consistent, and use the most similar past routes to settle the overall sweep. Zone IDs are hierarchical (e.g. `A-2.3B` = area A-2, row 3, column B); drivers usually finish one area before moving to the next and sweep neighbouring rows and columns in order. Fall back on travel times only where the history is silent or contradictory.
+
+Station: DLA9 at 33.688122 -117.847178
+
+Zones (16). Each line: zone ID, centroid latitude, centroid longitude, number of stops. Lines are sorted by zone ID.
+E-2.1B 33.420854 -117.613940 9
+E-2.1C 33.421718 -117.611797 2
+E-2.1D 33.412135 -117.610036 9
+E-2.1E 33.413970 -117.606177 7
+E-2.1G 33.410286 -117.602861 7
+E-2.1H 33.415254 -117.609050 6
+E-2.2B 33.421885 -117.614723 9
+E-2.2C 33.421096 -117.610344 6
+E-2.2D 33.414948 -117.611058 8
+E-2.2E 33.413046 -117.604534 10
+E-2.2G 33.407533 -117.605485 5
+E-2.2H 33.416638 -117.607158 7
+E-2.3C 33.418726 -117.613733 7
+E-2.3D 33.418906 -117.609470 7
+E-2.3E 33.409437 -117.606238 5
+E-2.3G 33.407284 -117.603748 1
+
+Travel times in seconds. Each number is the mean driving time over all pairs of stops (one stop in the first zone, one in the second).
+
+From the station to each zone, in the zone order above:
+E-2.1B:2407 E-2.1C:2370 E-2.1D:2365 E-2.1E:2338 E-2.1G:2303 E-2.1H:2309 E-2.2B:2412 E-2.2C:2330 E-2.2D:2343 E-2.2E:2348 E-2.2G:2345 E-2.2H:2296 E-2.3C:2382 E-2.3D:2314 E-2.3E:2405 E-2.3G:2476
+
+From each zone back to the station, in the zone order above:
+E-2.1B:2329 E-2.1C:2291 E-2.1D:2510 E-2.1E:2473 E-2.1G:2357 E-2.1H:2453 E-2.2B:2294 E-2.2C:2293 E-2.2D:2475 E-2.2E:2447 E-2.2G:2542 E-2.2H:2409 E-2.3C:2378 E-2.3D:2393 E-2.3E:2438 E-2.3G:2417
+
+Zone-to-zone matrix. Row = from, column = to; columns are in the zone order above. The diagonal is the mean time between stops inside the same zone.
+E-2.1B | 93 114 277 275 307 220 112 138 218 299 384 230 137 164 371 514
+E-2.1C | 109 6 247 250 274 191 96 98 189 276 333 205 115 141 340 464
+E-2.1D | 295 252 49 156 227 134 290 254 124 191 291 141 229 201 239 421
+E-2.1E | 290 241 157 79 165 147 279 237 170 118 225 126 247 196 180 356
+E-2.1G | 352 304 230 187 92 214 341 299 235 147 116 199 309 257 161 246
+E-2.1H | 238 191 115 119 186 69 228 194 100 151 255 99 175 144 203 386
+E-2.2B | 97 115 271 278 311 215 46 145 213 305 384 232 139 171 363 514
+E-2.2C | 140 90 231 222 234 175 138 77 181 246 294 179 112 110 323 428
+E-2.2D | 237 197 119 170 232 100 234 199 70 201 308 135 163 141 256 438
+E-2.2E | 306 258 177 120 138 164 296 251 188 73 191 138 263 212 157 321
+E-2.2G | 583 532 444 395 262 437 571 522 458 339 78 416 540 486 349 125
+E-2.2H | 247 199 145 131 185 110 236 189 140 149 253 72 203 151 241 384
+E-2.3C | 159 135 226 251 292 168 163 140 155 276 369 205 83 134 338 491
+E-2.3D | 178 132 196 191 205 141 169 118 137 216 272 146 127 61 293 401
+E-2.3E | 383 334 246 202 146 239 372 335 260 158 183 224 340 293 65 318
+E-2.3G | 455 407 318 268 136 311 444 394 333 214 75 289 410 358 225 0
+
+History of this station: 7 past routes driven by this station's drivers. Each past route was reduced to the zones of THIS route that it visits, kept in its driver's order.
+
+Usual FIRST zone (how many past routes started with each of this route's zones):
+E-2.2H (2), E-2.2D (1), E-2.1E (1), E-2.2E (1), E-2.1H (1)
+
+Usual NEXT zone. For each zone of this route: the zones its drivers most often went to next, with counts ("seen in N past routes" = how many past routes visited it).
+E-2.1B: seen in 6; next: E-2.2B (6)
+E-2.1C: seen in 6; next: E-2.1B (6)
+E-2.1D: seen in 5; next: E-2.2D (5)
+E-2.1E: seen in 5; next: E-2.1D (5)
+E-2.1G: seen in 4; next: E-2.2G (4)
+E-2.1H: seen in 3; next: E-2.1G (3)
+E-2.2B: seen in 6; next: it was always the last of these zones
+E-2.2C: seen in 6; next: E-2.1C (5), E-2.3C (1)
+E-2.2D: seen in 6; next: E-2.3D (6)
+E-2.2E: seen in 5; next: E-2.1E (3), E-2.3E (1)
+E-2.2G: seen in 4; next: E-2.3G (4)
+E-2.2H: seen in 2; next: E-2.1H (2)
+E-2.3C: seen in 6; next: E-2.2C (5), E-2.1C (1)
+E-2.3D: seen in 6; next: E-2.3C (5), E-2.2C (1)
+E-2.3E: seen in 5; next: E-2.2E (4), E-2.1E (1)
+E-2.3G: seen in 4; next: E-2.3E (4)
+
+The 7 most similar past routes (most zones in common with this route), reduced to this route's zones in driver order:
+2018-08-08: shares 16 of 16 zones: E-2.2H E-2.1H E-2.1G E-2.2G E-2.3G E-2.3E E-2.2E E-2.1E E-2.1D E-2.2D E-2.3D E-2.3C E-2.2C E-2.1C E-2.1B E-2.2B
+2018-07-21: shares 15 of 16 zones: E-2.1H E-2.1G E-2.2G E-2.3G E-2.3E E-2.2E E-2.1E E-2.1D E-2.2D E-2.3D E-2.3C E-2.2C E-2.1C E-2.1B E-2.2B
+2018-08-01: shares 14 of 16 zones: E-2.1G E-2.2G E-2.3G E-2.3E E-2.2E E-2.1E E-2.1D E-2.2D E-2.3D E-2.3C E-2.2C E-2.1C E-2.1B E-2.2B
+2018-07-27: shares 11 of 16 zones: E-2.2E E-2.3E E-2.1E E-2.1D E-2.2D E-2.3D E-2.3C E-2.2C E-2.1C E-2.1B E-2.2B
+2018-08-15: shares 9 of 16 zones: E-2.1E E-2.1D E-2.2D E-2.3D E-2.2C E-2.3C E-2.1C E-2.1B E-2.2B
+2018-08-15: shares 7 of 16 zones: E-2.2H E-2.1H E-2.1G E-2.2G E-2.3G E-2.3E E-2.2E
+2018-08-12: shares 7 of 16 zones: E-2.2D E-2.3D E-2.3C E-2.2C E-2.1C E-2.1B E-2.2B
+
+Output the order in which to visit the zones as a JSON list of zone IDs, starting with the first zone after leaving the station. Include each of the 16 zones exactly once and nothing else. Do not include the station.

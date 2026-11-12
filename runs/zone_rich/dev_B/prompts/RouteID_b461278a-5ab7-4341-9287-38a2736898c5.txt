@@ -1,0 +1,116 @@
+A delivery van leaves the station and must deliver to every zone below. All stops in a zone are delivered together, so you only choose the order of the zones. The order of stops inside each zone is decided separately.
+
+How to read this: drivers at a station are creatures of habit. The history below counts what this station's drivers actually did with these same zones, and it is the strongest evidence you have: follow the usual first zone and the usual next-zone moves wherever they are consistent, and use the most similar past routes to settle the overall sweep. Zone IDs are hierarchical (e.g. `A-2.3B` = area A-2, row 3, column B); drivers usually finish one area before moving to the next and sweep neighbouring rows and columns in order. Fall back on travel times only where the history is silent or contradictory.
+
+Station: DLA9 at 33.688122 -117.847178
+
+Zones (28). Each line: zone ID, centroid latitude, centroid longitude, number of stops. Lines are sorted by zone ID.
+H-25.1A 33.725860 -117.748742 4
+H-25.1B 33.724868 -117.757140 3
+H-25.1C 33.724726 -117.760684 5
+H-25.1D 33.730120 -117.760765 5
+H-25.1E 33.729073 -117.755306 5
+H-25.1G 33.728683 -117.761698 8
+H-25.1H 33.730568 -117.765312 4
+H-25.1J 33.727686 -117.774817 7
+H-25.2A 33.722988 -117.745768 6
+H-25.2B 33.723363 -117.754974 5
+H-25.2C 33.724160 -117.766000 5
+H-25.2D 33.730954 -117.759677 3
+H-25.2E 33.729472 -117.757025 6
+H-25.2G 33.727387 -117.759099 6
+H-25.2H 33.728944 -117.766868 9
+H-25.2J 33.726550 -117.773030 4
+H-25.3A 33.722353 -117.749802 5
+H-25.3B 33.724807 -117.749486 2
+H-25.3C 33.724125 -117.762963 2
+H-25.3D 33.726347 -117.764197 8
+H-25.3E 33.730146 -117.758449 4
+H-25.3G 33.726907 -117.757268 4
+H-25.3H 33.727263 -117.767046 11
+H-25.3J 33.726263 -117.768799 10
+J-1.1J 33.725198 -117.773503 6
+J-1.2J 33.726602 -117.775688 2
+J-1.3H 33.723156 -117.778020 5
+J-1.3J 33.725291 -117.774673 6
+
+Travel times in seconds. Each number is the mean driving time over all pairs of stops (one stop in the first zone, one in the second).
+
+From the station to each zone, in the zone order above:
+H-25.1A:1124 H-25.1B:1129 H-25.1C:1100 H-25.1D:1119 H-25.1E:1128 H-25.1G:1113 H-25.1H:1007 H-25.1J:985 H-25.2A:1143 H-25.2B:1143 H-25.2C:1146 H-25.2D:1126 H-25.2E:1126 H-25.2G:1068 H-25.2H:1032 H-25.2J:907 H-25.3A:1179 H-25.3B:1168 H-25.3C:1088 H-25.3D:1112 H-25.3E:1121 H-25.3G:1087 H-25.3H:1015 H-25.3J:1024 J-1.1J:895 J-1.2J:902 J-1.3H:890 J-1.3J:892
+
+From each zone back to the station, in the zone order above:
+H-25.1A:1145 H-25.1B:1127 H-25.1C:1089 H-25.1D:1075 H-25.1E:1120 H-25.1G:1026 H-25.1H:1000 H-25.1J:926 H-25.2A:1177 H-25.2B:1171 H-25.2C:1151 H-25.2D:1089 H-25.2E:1119 H-25.2G:1054 H-25.2H:977 H-25.2J:850 H-25.3A:1181 H-25.3B:1150 H-25.3C:1086 H-25.3D:1113 H-25.3E:1105 H-25.3G:1072 H-25.3H:974 H-25.3J:991 J-1.1J:872 J-1.2J:856 J-1.3H:910 J-1.3J:848
+
+Zone-to-zone matrix. Row = from, column = to; columns are in the zone order above. The diagonal is the mean time between stops inside the same zone.
+H-25.1A | 40 324 375 268 279 343 422 583 182 352 425 275 277 300 446 507 277 241 366 390 270 299 467 491 540 643 621 587
+H-25.1B | 338 105 203 273 308 326 321 482 327 185 321 281 306 212 345 406 335 254 262 269 301 164 366 390 439 525 520 477
+H-25.1C | 364 215 55 229 264 422 296 456 377 188 174 237 262 308 319 380 366 304 115 124 257 260 340 365 413 483 495 443
+H-25.1D | 284 281 237 39 182 202 282 442 302 299 283 95 181 159 306 366 357 323 225 249 175 185 326 351 400 469 481 429
+H-25.1E | 303 325 283 172 28 248 326 487 322 343 329 179 76 204 351 411 387 382 269 294 97 230 371 396 444 514 526 474
+H-25.1G | 355 302 400 219 253 48 233 394 374 357 517 226 252 148 256 317 389 344 459 465 246 188 278 302 351 419 431 380
+H-25.1H | 430 311 282 285 320 295 58 323 423 325 328 292 319 249 105 245 398 350 269 293 313 269 126 150 281 348 384 308
+H-25.1J | 602 479 450 453 487 463 363 62 591 493 496 460 486 418 327 115 561 518 437 462 481 437 310 319 198 274 310 216
+H-25.2A | 170 322 385 300 311 371 435 595 64 349 454 307 309 330 458 519 282 239 396 420 303 309 479 504 553 639 633 591
+H-25.2B | 342 177 185 290 325 357 338 499 331 38 303 298 323 243 362 423 341 258 244 251 318 195 383 407 456 576 537 512
+H-25.2C | 429 322 177 292 328 530 358 519 447 295 33 298 326 415 382 442 434 374 90 188 319 368 403 427 475 546 557 506
+H-25.2D | 297 294 251 84 198 215 295 456 316 312 297 22 195 173 319 380 370 337 238 263 188 199 340 364 413 483 494 443
+H-25.2E | 303 325 282 172 70 247 326 487 321 343 329 179 61 204 350 411 386 382 269 294 75 230 371 395 444 514 525 474
+H-25.2G | 298 190 287 162 196 150 261 422 318 244 405 170 195 61 285 345 331 278 347 353 190 76 306 330 379 448 460 408
+H-25.2H | 448 324 295 298 334 308 117 300 436 338 341 306 332 263 64 222 410 363 283 307 326 282 92 125 258 325 360 285
+H-25.2J | 539 416 387 390 425 400 287 93 528 430 433 397 423 355 251 41 498 455 374 399 418 374 234 243 127 198 234 143
+H-25.3A | 307 327 391 385 411 384 430 561 296 355 463 393 409 348 461 484 251 250 404 428 403 315 474 495 513 587 581 545
+H-25.3B | 259 238 301 302 337 293 351 512 248 265 371 310 335 258 375 435 257 14 312 336 330 225 396 420 469 556 550 508
+H-25.3C | 362 257 112 226 260 466 293 453 381 229 93 233 260 350 316 377 369 309 32 123 254 302 337 362 410 480 492 440
+H-25.3D | 390 266 121 253 288 474 320 481 409 239 164 261 287 359 344 404 396 336 106 43 281 312 365 389 438 507 519 467
+H-25.3E | 289 311 268 157 99 232 312 473 307 329 314 165 70 190 336 397 372 368 255 280 32 216 357 381 430 500 511 460
+H-25.3G | 309 146 244 183 219 190 278 439 310 200 361 191 216 80 302 363 308 243 303 309 211 49 323 347 396 466 477 426
+H-25.3H | 467 344 315 318 353 328 139 297 456 358 361 325 351 282 96 219 430 383 302 326 346 302 46 80 256 322 358 282
+H-25.3J | 493 370 341 344 379 354 165 315 482 384 387 352 377 309 129 237 456 409 328 353 372 328 82 46 273 339 375 300
+J-1.1J  | 603 494 465 468 503 477 392 287 612 508 511 475 501 432 357 220 569 533 452 476 496 452 340 349 145 194 262 167
+J-1.2J  | 621 584 555 616 625 569 493 410 641 599 602 623 626 523 457 332 659 623 543 567 619 542 441 450 226 54 315 174
+J-1.3H  | 653 530 501 504 538 514 428 345 642 544 547 512 537 469 393 267 598 569 488 513 532 488 376 385 291 315 49 303
+J-1.3J  | 601 524 495 518 544 508 426 323 616 539 541 525 542 463 391 251 600 563 483 507 537 483 374 383 172 154 270 144
+
+History of this station: 4 past routes driven by this station's drivers. Each past route was reduced to the zones of THIS route that it visits, kept in its driver's order.
+
+Usual FIRST zone (how many past routes started with each of this route's zones):
+H-25.1E (1), H-25.1C (1), H-25.1A (1), H-25.2E (1)
+
+Usual NEXT zone. For each zone of this route: the zones its drivers most often went to next, with counts ("seen in N past routes" = how many past routes visited it).
+H-25.1A: seen in 1; next: H-25.2A (1)
+H-25.1B: seen in 1; next: H-25.2B (1)
+H-25.1C: seen in 2; next: H-25.2C (2)
+H-25.1D: seen in 2; next: H-25.1E (2)
+H-25.1E: seen in 3; next: H-25.2E (2)
+H-25.1G: seen in 3; next: H-25.1H (3)
+H-25.1H: seen in 3; next: H-25.2H (3)
+H-25.1J: seen in 3; next: J-1.1J (3)
+H-25.2A: seen in 1; next: H-25.3A (1)
+H-25.2B: seen in 1; next: H-25.1C (1)
+H-25.2C: seen in 2; next: H-25.3C (2)
+H-25.2D: seen in 2; next: H-25.1D (2)
+H-25.2E: seen in 3; next: H-25.3E (3)
+H-25.2G: seen in 3; next: H-25.1G (3)
+H-25.2H: seen in 3; next: H-25.3H (3)
+H-25.2J: seen in 3; next: H-25.1J (3)
+H-25.3A: seen in 1; next: H-25.3B (1)
+H-25.3B: seen in 1; next: H-25.1B (1)
+H-25.3C: seen in 2; next: H-25.3D (2)
+H-25.3D: seen in 2; next: H-25.2D (2)
+H-25.3E: seen in 3; next: H-25.3G (2), H-25.2G (1)
+H-25.3G: seen in 3; next: H-25.2G (2)
+H-25.3H: seen in 3; next: H-25.3J (3)
+H-25.3J: seen in 3; next: H-25.2J (3)
+J-1.1J: seen in 3; next: J-1.2J (2), J-1.3J (1)
+J-1.2J: seen in 3; next: J-1.3J (2), J-1.3H (1)
+J-1.3H: seen in 3; next: H-25.3G (1)
+J-1.3J: seen in 3; next: J-1.3H (2), J-1.2J (1)
+
+The 4 most similar past routes (most zones in common with this route), reduced to this route's zones in driver order:
+2018-08-26: shares 22 of 28 zones: H-25.1C H-25.2C H-25.3C H-25.3D H-25.2D H-25.1D H-25.1E H-25.2E H-25.3E H-25.3G H-25.2G H-25.1G H-25.1H H-25.2H H-25.3H H-25.3J H-25.2J H-25.1J J-1.1J J-1.2J J-1.3J J-1.3H
+2018-08-23: shares 16 of 28 zones: H-25.1E H-25.2E H-25.3E H-25.2G H-25.1G H-25.1H H-25.2H H-25.3H H-25.3J H-25.2J H-25.1J J-1.1J J-1.3J J-1.2J J-1.3H H-25.3G
+2018-08-18: shares 15 of 28 zones: H-25.2E H-25.3E H-25.3G H-25.2G H-25.1G H-25.1H H-25.2H H-25.3H H-25.3J H-25.2J H-25.1J J-1.1J J-1.2J J-1.3J J-1.3H
+2018-08-18: shares 13 of 28 zones: H-25.1A H-25.2A H-25.3A H-25.3B H-25.1B H-25.2B H-25.1C H-25.2C H-25.3C H-25.3D H-25.2D H-25.1D H-25.1E
+
+Output the order in which to visit the zones as a JSON list of zone IDs, starting with the first zone after leaving the station. Include each of the 28 zones exactly once and nothing else. Do not include the station.

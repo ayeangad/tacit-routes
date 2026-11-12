@@ -1,0 +1,64 @@
+A delivery van leaves the station and must deliver to every zone below. All stops in a zone are delivered together, so you only choose the order of the zones. The order of stops inside each zone is decided separately.
+
+Station: DLA8 at 33.918699 -118.324843
+
+Zones (12). Each line: zone ID, centroid latitude, centroid longitude, number of stops. Lines are sorted by zone ID.
+J-6.1A 34.066438 -118.349153 7
+J-6.1B 34.064634 -118.347232 3
+J-6.1C 34.063799 -118.348287 3
+J-6.1D 34.056799 -118.353403 5
+J-6.1E 34.055721 -118.352585 9
+J-6.2B 34.066341 -118.347231 1
+J-6.2D 34.059061 -118.353482 8
+J-6.2E 34.055639 -118.355462 5
+J-6.3D 34.061832 -118.352830 1
+J-6.3E 34.057150 -118.356410 6
+J-7.3A 34.066610 -118.350874 1
+J-7.3B 34.066227 -118.350617 1
+
+Travel times in seconds. Each number is the mean driving time over all pairs of stops (one stop in the first zone, one in the second).
+
+From the station to each zone, in the zone order above:
+J-6.1A:2133 J-6.1B:2110 J-6.1C:2080 J-6.1D:1942 J-6.1E:1896 J-6.2B:2144 J-6.2D:1934 J-6.2E:1890 J-6.3D:1997 J-6.3E:1948 J-7.3A:2113 J-7.3B:2072
+
+From each zone back to the station, in the zone order above:
+J-6.1A:2337 J-6.1B:2349 J-6.1C:2406 J-6.1D:2104 J-6.1E:2117 J-6.2B:2383 J-6.2D:2139 J-6.2E:2168 J-6.3D:2204 J-6.3E:2148 J-7.3A:2296 J-7.3B:2256
+
+Zone-to-zone matrix. Row = from, column = to; columns are in the zone order above. The diagonal is the mean time between stops inside the same zone.
+J-6.1A | 36 151 263 308 333 131 246 347 233 329 112 78
+J-6.1B | 140 15 117 246 252 34 217 313 201 295 144 115
+J-6.1C | 143 128 58 303 310 221 259 335 198 352 147 118
+J-6.1D | 299 256 226 37 69 290 90 105 137 88 271 238
+J-6.1E | 310 254 228 74 58 288 122 118 184 129 296 262
+J-6.2B | 146 34 150 279 286 0 251 349 204 328 153 124
+J-6.2D | 252 218 188 93 128 252 52 102 70 97 222 189
+J-6.2E | 363 321 291 105 149 359 109 27 144 102 328 299
+J-6.3D | 240 224 206 158 197 270 74 140 0 137 212 171
+J-6.3E | 321 302 274 86 129 329 102 89 152 38 291 256
+J-7.3A | 118 199 267 257 288 262 204 303 192 288 0 40
+J-7.3B | 79 159 228 217 249 222 166 263 152 248 29 0
+
+History of this station: 2 past routes driven by this station's drivers. Each past route was reduced to the zones of THIS route that it visits, kept in its driver's order.
+
+Usual FIRST zone (how many past routes started with each of this route's zones):
+J-6.3E (1), J-6.1E (1)
+
+Usual NEXT zone. For each zone of this route: the zones its drivers most often went to next, with counts ("seen in N past routes" = how many past routes visited it).
+J-6.1A: never seen at this station; its group J-6.1 seen in 2; group next: J-6.2 (6)
+J-6.1B: seen in 1; next: J-6.2B (1)
+J-6.1C: seen in 1; next: J-6.1B (1)
+J-6.1D: seen in 2; next: J-6.2D (1)
+J-6.1E: seen in 2; next: J-6.1D (2)
+J-6.2B: seen in 1; next: J-6.3E (1)
+J-6.2D: seen in 1; next: J-6.3D (1)
+J-6.2E: seen in 2; next: J-6.1E (1)
+J-6.3D: seen in 1; next: J-6.1C (1)
+J-6.3E: seen in 2; next: J-6.2E (2)
+J-7.3A: never seen at this station; its group J-7.3 seen in 1; group next: always last
+J-7.3B: never seen at this station; its group J-7.3 seen in 1; group next: always last
+
+The 2 most similar past routes (most zones in common with this route), reduced to this route's zones in driver order:
+2018-07-24: shares 9 of 12 zones: J-6.1E J-6.1D J-6.2D J-6.3D J-6.1C J-6.1B J-6.2B J-6.3E J-6.2E
+2018-08-17: shares 4 of 12 zones: J-6.3E J-6.2E J-6.1E J-6.1D
+
+Output the order in which to visit the zones as a JSON list of zone IDs, starting with the first zone after leaving the station. Include each of the 12 zones exactly once and nothing else. Do not include the station.

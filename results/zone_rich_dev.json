@@ -1,0 +1,110 @@
+{
+ "caveat": "DEVELOPMENT on 40 val routes; used to choose and freeze the prompt; not a result. The primary comparison runs the frozen prompt on the eval sample.",
+ "routes": "runs/zone_rich/dev_val40.txt (seed 20261112)",
+ "A": {
+  "n": 40,
+  "valid": 40,
+  "mean_strict": 0.03188663507194552,
+  "mean_fallback": 0.03188663507194552,
+  "mean_cost_usd": 0.0407364,
+  "mean_wall_s": 5.194130611974833,
+  "solver": "greedy"
+ },
+ "B": {
+  "n": 40,
+  "valid": 40,
+  "mean_strict": 0.03348441510211203,
+  "mean_fallback": 0.03348441510211203,
+  "mean_cost_usd": 0.0427033,
+  "mean_wall_s": 5.56136896304979,
+  "solver": "greedy"
+ },
+ "B_minus_A": {
+  "mean": 0.0016,
+  "ci95": [
+   0.0002,
+   0.0033
+  ],
+  "B_better": 3,
+  "B_worse": 8
+ },
+ "same_40_reference_means_descriptive": {
+  "v0-hist": 0.0255,
+  "opus_run2": 0.0293,
+  "jpt": 0.0247
+ },
+ "frozen": {
+  "frozen_utc": "2026-11-11T17:13:51.795461+00:00",
+  "version": "A",
+  "system_prompt_sha256": "8130bb2daca43586c656381c89ba1d65e7dbd9fb7ad03e04548228000e8c9c82",
+  "template_sha256": "fa48f8bdc3001f81a0053cc1fd75b258e1f253cbfe84c457e726b80a605d616e",
+  "script": "scripts/zone_rich.py",
+  "script_sha256": "e6d2400ac9eb8a18343701e5382d69b2268885bebbe60e18ddb31c51237cbe37",
+  "k_ref": 8,
+  "top_next": 3,
+  "top_first": 5,
+  "effort": "max",
+  "effort_frozen_utc": "2026-11-11T18:02:20.388836+00:00",
+  "script_sha256_before_effort_change": "a43794560f4bec36b7b484b7d24e01eee4f442acf5ff7f3536ce9cc84dd4d2ab",
+  "run_command": "zone_rich.py run --out <dir> --workers 3 --effort max --i-have-approval",
+  "score_views": "strict and repaired (= fallback) per route; primary comparison uses REPAIRED",
+  "solver_options": "--solver greedy (v0_decode) | exact (scripts/exact_zone.stops_from_zone_order_exact)",
+  "effort_comparison_40_val": {
+   "default": {
+    "mean_repaired": 0.03188663507194552,
+    "mean_strict": 0.03188663507194552,
+    "cost_per_call": 0.0407364,
+    "wall_s": 5.194130611974833
+   },
+   "max": {
+    "mean_repaired": 0.03102839335889761,
+    "mean_strict": 0.03102839335889761,
+    "cost_per_call": 0.45124970500000006,
+    "wall_s": 196.13378963132453
+   },
+   "max_minus_default": {
+    "mean": -0.0009,
+    "ci95": [
+     -0.0046,
+     0.0026
+    ],
+    "max_better": 9,
+    "max_worse": 2,
+    "tied": 29
+   },
+   "rule": "freeze whichever scores better for Opus; ties -> max"
+  }
+ },
+ "calls": 120,
+ "total_cost_usd": {
+  "A": 1.629,
+  "B": 1.708,
+  "A_max": 18.05
+ },
+ "note_failed_launch": "3 local launch failures (relative system-prompt path) before any API call; runs/zone_rich/dev_A/failed_launch_relative_path.jsonl",
+ "effort": {
+  "default": {
+   "mean_repaired": 0.03188663507194552,
+   "mean_strict": 0.03188663507194552,
+   "cost_per_call": 0.0407364,
+   "wall_s": 5.194130611974833
+  },
+  "max": {
+   "mean_repaired": 0.03102839335889761,
+   "mean_strict": 0.03102839335889761,
+   "cost_per_call": 0.45124970500000006,
+   "wall_s": 196.13378963132453
+  },
+  "max_minus_default": {
+   "mean": -0.0009,
+   "ci95": [
+    -0.0046,
+    0.0026
+   ],
+   "max_better": 9,
+   "max_worse": 2,
+   "tied": 29
+  },
+  "rule": "freeze whichever scores better for Opus; ties -> max"
+ }
+}

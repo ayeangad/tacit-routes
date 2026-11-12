@@ -1,0 +1,60 @@
+A delivery van leaves the station and must deliver to every zone below. All stops in a zone are delivered together, so you only choose the order of the zones. The order of stops inside each zone is decided separately.
+
+Station: DLA3 at 34.007369 -118.143927
+
+Zones (10). Each line: zone ID, centroid latitude, centroid longitude, number of stops. Lines are sorted by zone ID.
+D-10.1A 34.034036 -118.197482 16
+D-9.1A 34.035559 -118.194644 15
+D-9.1B 34.043254 -118.218753 10
+D-9.1C 34.047873 -118.217127 4
+D-9.2A 34.036857 -118.202757 17
+D-9.2B 34.044866 -118.213039 13
+D-9.2C 34.051707 -118.222081 14
+D-9.3A 34.043471 -118.203501 16
+D-9.3B 34.041028 -118.207951 16
+D-9.3C 34.052402 -118.216419 9
+
+Travel times in seconds. Each number is the mean driving time over all pairs of stops (one stop in the first zone, one in the second).
+
+From the station to each zone, in the zone order above:
+D-10.1A:754 D-9.1A:762 D-9.1B:851 D-9.1C:887 D-9.2A:846 D-9.2B:887 D-9.2C:860 D-9.3A:973 D-9.3B:927 D-9.3C:931
+
+From each zone back to the station, in the zone order above:
+D-10.1A:939 D-9.1A:930 D-9.1B:999 D-9.1C:1069 D-9.2A:1014 D-9.2B:1075 D-9.2C:1110 D-9.3A:1143 D-9.3B:1105 D-9.3C:1092
+
+Zone-to-zone matrix. Row = from, column = to; columns are in the zone order above. The diagonal is the mean time between stops inside the same zone.
+D-10.1A | 101 149 412 475 160 371 463 295 251 510
+D-9.1A  | 146 130 472 483 198 393 518 276 277 560
+D-9.1B  | 397 454 90 169 340 204 262 379 278 284
+D-9.1C  | 477 499 172 47 415 206 180 351 311 160
+D-9.2A  | 158 193 376 408 88 297 486 213 175 490
+D-9.2B  | 391 401 229 183 301 76 285 259 208 286
+D-9.2C  | 536 571 246 185 487 288 92 419 404 169
+D-9.3A  | 299 272 384 331 213 249 413 87 160 394
+D-9.3B  | 264 282 303 295 172 196 394 163 73 393
+D-9.3C  | 524 578 283 178 490 285 176 386 426 98
+
+History of this station: 4 past routes driven by this station's drivers. Each past route was reduced to the zones of THIS route that it visits, kept in its driver's order.
+
+Usual FIRST zone (how many past routes started with each of this route's zones):
+D-9.3C (3), D-9.1A (1)
+
+Usual NEXT zone. For each zone of this route: the zones its drivers most often went to next, with counts ("seen in N past routes" = how many past routes visited it).
+D-10.1A: seen in 3; next: D-9.2B (1)
+D-9.1A: seen in 3; next: D-10.1A (3)
+D-9.1B: seen in 3; next: D-9.2B (2), D-9.3B (1)
+D-9.1C: seen in 3; next: D-9.1B (3)
+D-9.2A: seen in 3; next: D-9.1A (2)
+D-9.2B: seen in 3; next: D-9.3B (2)
+D-9.2C: seen in 3; next: D-9.1C (3)
+D-9.3A: seen in 3; next: D-9.2A (3)
+D-9.3B: seen in 3; next: D-9.3A (3)
+D-9.3C: seen in 3; next: D-9.2C (3)
+
+The 4 most similar past routes (most zones in common with this route), reduced to this route's zones in driver order:
+2018-08-07: shares 10 of 10 zones: D-9.3C D-9.2C D-9.1C D-9.1B D-9.3B D-9.3A D-9.2A D-9.1A D-10.1A D-9.2B
+2018-07-31: shares 10 of 10 zones: D-9.3C D-9.2C D-9.1C D-9.1B D-9.2B D-9.3B D-9.3A D-9.2A D-9.1A D-10.1A
+2018-07-22: shares 8 of 10 zones: D-9.3C D-9.2C D-9.1C D-9.1B D-9.2B D-9.3B D-9.3A D-9.2A
+2018-08-08: shares 2 of 10 zones: D-9.1A D-10.1A
+
+Output the order in which to visit the zones as a JSON list of zone IDs, starting with the first zone after leaving the station. Include each of the 10 zones exactly once and nothing else. Do not include the station.

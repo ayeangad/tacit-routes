@@ -1,0 +1,91 @@
+A delivery van leaves the station and must deliver to every zone below. All stops in a zone are delivered together, so you only choose the order of the zones. The order of stops inside each zone is decided separately.
+
+Station: DLA7 at 33.965477 -117.653303
+
+Zones (19). Each line: zone ID, centroid latitude, centroid longitude, number of stops. Lines are sorted by zone ID.
+G-3.1B 34.176822 -117.337434 5
+G-3.1C 34.178258 -117.341752 9
+G-3.1E 34.154132 -117.349661 11
+G-3.1G 34.146579 -117.328012 10
+G-3.1H 34.140131 -117.337054 13
+G-3.2A 34.169476 -117.326789 8
+G-3.2B 34.175896 -117.328155 5
+G-3.2C 34.175005 -117.340496 6
+G-3.2E 34.163562 -117.356873 12
+G-3.2G 34.150735 -117.339433 8
+G-3.2H 34.140442 -117.370996 7
+G-3.3A 34.173222 -117.330104 4
+G-3.3B 34.174364 -117.324413 6
+G-3.3C 34.175088 -117.337484 9
+G-3.3D 34.171333 -117.335583 6
+G-3.3E 34.168770 -117.350134 7
+G-3.3G 34.161726 -117.345396 8
+G-3.3H 34.144708 -117.376154 12
+G-3.3J 34.149779 -117.384579 15
+
+Travel times in seconds. Each number is the mean driving time over all pairs of stops (one stop in the first zone, one in the second).
+
+From the station to each zone, in the zone order above:
+G-3.1B:3159 G-3.1C:3164 G-3.1E:3099 G-3.1G:2959 G-3.1H:2850 G-3.2A:3067 G-3.2B:3124 G-3.2C:3112 G-3.2E:3288 G-3.2G:2928 G-3.2H:2678 G-3.3A:3074 G-3.3B:3172 G-3.3C:3124 G-3.3D:3036 G-3.3E:3213 G-3.3G:3187 G-3.3H:2716 G-3.3J:2772
+
+From each zone back to the station, in the zone order above:
+G-3.1B:3029 G-3.1C:3048 G-3.1E:2986 G-3.1G:2838 G-3.1H:2720 G-3.2A:2992 G-3.2B:3029 G-3.2C:2990 G-3.2E:3184 G-3.2G:2787 G-3.2H:2572 G-3.3A:3011 G-3.3B:3055 G-3.3C:3016 G-3.3D:2922 G-3.3E:3137 G-3.3G:3054 G-3.3H:2605 G-3.3J:2639
+
+Zone-to-zone matrix. Row = from, column = to; columns are in the zone order above. The diagonal is the mean time between stops inside the same zone.
+G-3.1B | 73 168 648 588 681 304 217 127 784 535 789 246 243 144 144 745 648 827 882
+G-3.1C | 176 64 679 619 712 369 307 105 807 566 820 301 333 194 175 753 679 858 913
+G-3.1E | 694 718 144 394 386 613 671 658 262 213 664 620 718 670 583 305 203 760 834
+G-3.1G | 634 658 407 114 273 552 610 596 501 260 590 559 654 610 522 413 346 633 691
+G-3.1H | 728 752 398 274 188 647 704 692 577 253 446 655 750 704 617 532 427 514 581
+G-3.2A | 331 380 611 551 649 71 212 331 747 498 752 150 195 344 256 710 611 790 845
+G-3.2B | 212 290 649 588 685 208 34 286 784 536 789 161 143 275 199 751 649 827 883
+G-3.2C | 136 106 610 549 642 330 305 41 745 497 750 257 351 112 102 709 610 788 844
+G-3.2E | 804 813 257 487 556 729 787 774 123 389 855 736 834 787 699 202 219 953 1029
+G-3.2G | 573 597 222 253 247 492 549 537 408 84 503 499 597 549 461 372 265 584 655
+G-3.2H | 908 932 695 603 466 827 884 870 894 532 80 833 931 884 796 858 759 166 244
+G-3.3A | 291 339 629 570 668 147 176 289 767 517 770 70 160 300 212 731 630 811 864
+G-3.3B | 238 315 674 615 710 191 127 312 809 561 815 155 67 301 225 777 674 853 908
+G-3.3C | 143 180 635 575 668 342 275 105 771 522 776 269 301 49 117 734 635 814 869
+G-3.3D | 143 171 541 481 574 253 203 106 677 428 682 180 269 114 30 641 541 720 776
+G-3.3E | 721 717 296 396 500 653 710 697 199 348 807 661 758 710 623 88 176 906 981
+G-3.3G | 679 702 202 340 416 597 655 642 227 259 724 604 702 655 567 190 86 823 898
+G-3.3H | 914 938 792 699 563 833 890 876 991 628 165 840 938 890 802 954 855 80 180
+G-3.3J | 964 988 894 768 652 882 940 927 1093 726 268 890 987 940 852 1056 958 177 89
+
+History of this station: 9 past routes driven by this station's drivers. Each past route was reduced to the zones of THIS route that it visits, kept in its driver's order.
+
+Usual FIRST zone (how many past routes started with each of this route's zones):
+G-3.1E (3), G-3.2A (2), G-3.3A (2), G-3.2H (1), G-3.3B (1)
+
+Usual NEXT zone. For each zone of this route: the zones its drivers most often went to next, with counts ("seen in N past routes" = how many past routes visited it).
+G-3.1B: seen in 4; next: G-3.1C (4)
+G-3.1C: seen in 4; next: G-3.2C (4)
+G-3.1E: seen in 6; next: G-3.2E (5)
+G-3.1G: seen in 5; next: G-3.1H (4)
+G-3.1H: seen in 4; next: G-3.2H (4)
+G-3.2A: seen in 4; next: G-3.3A (3), G-3.3B (1)
+G-3.2B: seen in 4; next: G-3.1B (4)
+G-3.2C: seen in 4; next: G-3.3C (3), G-3.3D (1)
+G-3.2E: seen in 5; next: G-3.3E (5)
+G-3.2G: seen in 5; next: G-3.1G (4), G-3.1E (1)
+G-3.2H: seen in 5; next: G-3.3H (5)
+G-3.3A: seen in 5; next: G-3.3B (3), G-3.2A (1)
+G-3.3B: seen in 5; next: G-3.2B (4), G-3.2A (1)
+G-3.3C: seen in 4; next: G-3.3D (3), G-3.1E (1)
+G-3.3D: seen in 4; next: G-3.3C (1), G-3.1E (1), G-3.2G (1)
+G-3.3E: seen in 5; next: G-3.3G (5)
+G-3.3G: seen in 5; next: G-3.2G (4), G-3.1G (1)
+G-3.3H: seen in 5; next: G-3.3J (5)
+G-3.3J: seen in 5; next: it was always the last of these zones
+
+The 8 most similar past routes (most zones in common with this route), reduced to this route's zones in driver order:
+2018-07-28: shares 18 of 19 zones: G-3.3A G-3.3B G-3.2B G-3.1B G-3.1C G-3.2C G-3.3C G-3.3D G-3.1E G-3.2E G-3.3E G-3.3G G-3.2G G-3.1G G-3.1H G-3.2H G-3.3H G-3.3J
+2018-07-31: shares 15 of 19 zones: G-3.3A G-3.2A G-3.3B G-3.2B G-3.1B G-3.1C G-3.2C G-3.3C G-3.3D G-3.2G G-3.1E G-3.2E G-3.3E G-3.3G G-3.1G
+2018-08-03: shares 10 of 19 zones: G-3.1E G-3.2E G-3.3E G-3.3G G-3.2G G-3.1G G-3.1H G-3.2H G-3.3H G-3.3J
+2018-08-12: shares 10 of 19 zones: G-3.2A G-3.3A G-3.3B G-3.2B G-3.1B G-3.1C G-3.2C G-3.3D G-3.3C G-3.1E
+2018-08-02: shares 10 of 19 zones: G-3.1E G-3.2E G-3.3E G-3.3G G-3.2G G-3.1G G-3.1H G-3.2H G-3.3H G-3.3J
+2018-07-27: shares 10 of 19 zones: G-3.1E G-3.2E G-3.3E G-3.3G G-3.2G G-3.1G G-3.1H G-3.2H G-3.3H G-3.3J
+2018-07-27: shares 9 of 19 zones: G-3.2A G-3.3A G-3.3B G-3.2B G-3.1B G-3.1C G-3.2C G-3.3C G-3.3D
+2018-08-13: shares 3 of 19 zones: G-3.2H G-3.3H G-3.3J
+
+Output the order in which to visit the zones as a JSON list of zone IDs, starting with the first zone after leaving the station. Include each of the 19 zones exactly once and nothing else. Do not include the station.

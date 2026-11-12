@@ -1,0 +1,67 @@
+A delivery van leaves the station and must deliver to every zone below. All stops in a zone are delivered together, so you only choose the order of the zones. The order of stops inside each zone is decided separately.
+
+Station: DSE4 at 47.937344 -122.244952
+
+Zones (11). Each line: zone ID, centroid latitude, centroid longitude, number of stops. Lines are sorted by zone ID.
+D-2.1D 47.674732 -122.314923 6
+D-2.1E 47.671946 -122.315535 11
+D-2.1G 47.679343 -122.312812 7
+D-2.1H 47.679370 -122.307849 10
+D-2.2D 47.674627 -122.312596 7
+D-2.2E 47.672299 -122.319369 8
+D-2.2G 47.678646 -122.314006 8
+D-2.2H 47.682592 -122.310768 10
+D-2.3E 47.674815 -122.318686 6
+D-2.3G 47.676040 -122.317889 2
+D-2.3H 47.683155 -122.307862 9
+
+Travel times in seconds. Each number is the mean driving time over all pairs of stops (one stop in the first zone, one in the second).
+
+From the station to each zone, in the zone order above:
+D-2.1D:2251 D-2.1E:2265 D-2.1G:2190 D-2.1H:2269 D-2.2D:2280 D-2.2E:2258 D-2.2G:2186 D-2.2H:2205 D-2.3E:2200 D-2.3G:2145 D-2.3H:2231
+
+From each zone back to the station, in the zone order above:
+D-2.1D:2213 D-2.1E:2255 D-2.1G:2141 D-2.1H:2252 D-2.2D:2240 D-2.2E:2207 D-2.2G:2123 D-2.2H:2193 D-2.3E:2135 D-2.3G:2107 D-2.3H:2215
+
+Zone-to-zone matrix. Row = from, column = to; columns are in the zone order above. The diagonal is the mean time between stops inside the same zone.
+D-2.1D | 90 167 192 248 93 221 151 252 150 180 302
+D-2.1E | 158 115 264 323 164 208 218 316 187 235 367
+D-2.1G | 217 273 82 148 161 316 110 142 235 179 197
+D-2.1H | 248 324 142 66 189 378 167 143 295 268 124
+D-2.2D | 97 161 185 224 58 230 149 228 180 223 288
+D-2.2E | 203 125 321 382 235 65 269 383 145 209 427
+D-2.2G | 214 261 108 179 157 280 66 157 196 142 204
+D-2.2H | 266 337 142 139 207 400 146 70 326 265 102
+D-2.3E | 138 155 241 291 158 136 192 310 49 120 345
+D-2.3G | 122 145 191 242 127 160 148 259 70 42 297
+D-2.3H | 303 373 191 111 245 430 195 104 348 298 68
+
+History of this station: 13 past routes driven by this station's drivers. Each past route was reduced to the zones of THIS route that it visits, kept in its driver's order.
+
+Usual FIRST zone (how many past routes started with each of this route's zones):
+D-2.3H (5), D-2.2D (3), D-2.1G (2), D-2.2G (1), D-2.1D (1)
+
+Usual NEXT zone. For each zone of this route: the zones its drivers most often went to next, with counts ("seen in N past routes" = how many past routes visited it).
+D-2.1D: seen in 7; next: D-2.1E (6), D-2.2D (1)
+D-2.1E: seen in 7; next: D-2.2E (7)
+D-2.1G: seen in 8; next: D-2.1H (8)
+D-2.1H: seen in 8; next: D-2.2H (8)
+D-2.2D: seen in 6; next: D-2.1D (4), D-2.1E (1)
+D-2.2E: seen in 7; next: D-2.3E (5), D-2.3G (1)
+D-2.2G: seen in 7; next: D-2.1G (6), D-2.3G (1)
+D-2.2H: seen in 8; next: D-2.3H (3), D-2.2D (2)
+D-2.3E: seen in 7; next: D-2.3G (5), D-2.1D (2)
+D-2.3G: seen in 7; next: D-2.2G (5), D-2.3E (1)
+D-2.3H: seen in 8; next: D-2.2G (1)
+
+The 8 most similar past routes (most zones in common with this route), reduced to this route's zones in driver order:
+2018-08-24: shares 11 of 11 zones: D-2.3E D-2.1D D-2.2D D-2.1E D-2.2E D-2.3G D-2.2G D-2.1G D-2.1H D-2.2H D-2.3H
+2018-08-13: shares 10 of 11 zones: D-2.1G D-2.1H D-2.2H D-2.3H D-2.2G D-2.3G D-2.3E D-2.1D D-2.1E D-2.2E
+2018-08-25: shares 10 of 11 zones: D-2.2G D-2.1G D-2.1H D-2.2H D-2.2D D-2.1D D-2.1E D-2.2E D-2.3E D-2.3G
+2018-08-11: shares 10 of 11 zones: D-2.2D D-2.1D D-2.1E D-2.2E D-2.3E D-2.3G D-2.2G D-2.1G D-2.1H D-2.2H
+2018-08-10: shares 10 of 11 zones: D-2.2D D-2.1D D-2.1E D-2.2E D-2.3E D-2.3G D-2.2G D-2.1G D-2.1H D-2.2H
+2018-08-06: shares 10 of 11 zones: D-2.2D D-2.1D D-2.1E D-2.2E D-2.3E D-2.3G D-2.2G D-2.1G D-2.1H D-2.2H
+2018-08-03: shares 10 of 11 zones: D-2.1D D-2.1E D-2.2E D-2.3E D-2.3G D-2.2G D-2.1G D-2.1H D-2.2H D-2.2D
+2018-08-04: shares 4 of 11 zones: D-2.1G D-2.1H D-2.2H D-2.3H
+
+Output the order in which to visit the zones as a JSON list of zone IDs, starting with the first zone after leaving the station. Include each of the 11 zones exactly once and nothing else. Do not include the station.

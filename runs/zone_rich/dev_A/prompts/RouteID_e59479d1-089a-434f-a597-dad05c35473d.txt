@@ -1,0 +1,85 @@
+A delivery van leaves the station and must deliver to every zone below. All stops in a zone are delivered together, so you only choose the order of the zones. The order of stops inside each zone is decided separately.
+
+Station: DBO2 at 42.233353 -71.141617
+
+Zones (18). Each line: zone ID, centroid latitude, centroid longitude, number of stops. Lines are sorted by zone ID.
+A-2.1D 42.336635 -71.028143 4
+A-2.1E 42.337439 -71.027366 6
+A-2.1G 42.337183 -71.038812 5
+A-2.1H 42.337357 -71.035230 7
+A-2.1J 42.337275 -71.040819 4
+A-2.1K 42.336422 -71.042640 9
+A-2.2D 42.336780 -71.030440 7
+A-2.2E 42.337995 -71.028563 3
+A-2.2G 42.338035 -71.038153 4
+A-2.2H 42.336610 -71.034582 5
+A-2.2J 42.336243 -71.039470 7
+A-2.2K 42.336584 -71.043511 5
+A-2.3D 42.335743 -71.029282 8
+A-2.3E 42.338189 -71.032869 3
+A-2.3G 42.339295 -71.036876 3
+A-2.3H 42.335607 -71.034529 12
+A-2.3J 42.336428 -71.036944 4
+A-2.3K 42.337325 -71.043032 6
+
+Travel times in seconds. Each number is the mean driving time over all pairs of stops (one stop in the first zone, one in the second).
+
+From the station to each zone, in the zone order above:
+A-2.1D:2450 A-2.1E:2443 A-2.1G:2436 A-2.1H:2428 A-2.1J:2400 A-2.1K:2349 A-2.2D:2400 A-2.2E:2439 A-2.2G:2424 A-2.2H:2393 A-2.2J:2414 A-2.2K:2339 A-2.3D:2384 A-2.3E:2438 A-2.3G:2482 A-2.3H:2386 A-2.3J:2419 A-2.3K:2365
+
+From each zone back to the station, in the zone order above:
+A-2.1D:2296 A-2.1E:2311 A-2.1G:2294 A-2.1H:2302 A-2.1J:2248 A-2.1K:2253 A-2.2D:2315 A-2.2E:2313 A-2.2G:2342 A-2.2H:2276 A-2.2J:2249 A-2.2K:2231 A-2.3D:2277 A-2.3E:2324 A-2.3G:2337 A-2.3H:2260 A-2.3J:2293 A-2.3K:2286
+
+Zone-to-zone matrix. Row = from, column = to; columns are in the zone order above. The diagonal is the mean time between stops inside the same zone.
+A-2.1D | 41 92 277 197 308 305 70 82 224 167 271 320 59 132 240 129 214 319
+A-2.1E | 66 39 313 233 296 339 93 80 232 203 305 355 90 130 240 165 250 344
+A-2.1G | 265 259 19 88 81 132 269 214 108 138 91 149 226 158 122 164 147 103
+A-2.1H | 187 180 90 48 150 203 189 134 88 95 140 216 180 86 109 130 113 173
+A-2.1J | 296 289 76 152 57 96 289 244 108 164 68 91 246 189 159 182 153 73
+A-2.1K | 304 297 115 196 90 57 304 252 123 198 102 60 309 197 195 228 187 72
+A-2.2D | 61 84 264 184 291 290 34 80 212 153 256 306 83 124 240 115 201 312
+A-2.2E | 70 55 232 194 212 286 99 23 165 191 248 285 98 63 172 166 211 263
+A-2.2G | 200 193 128 123 73 189 202 148 40 130 125 164 229 94 71 173 155 115
+A-2.2H | 186 178 133 75 192 172 188 133 110 20 115 187 202 86 131 107 78 210
+A-2.2J | 293 310 112 172 128 92 258 268 143 158 57 109 203 209 195 136 120 130
+A-2.2K | 300 293 126 208 86 69 302 247 125 223 135 19 325 193 174 250 215 50
+A-2.3D | 86 115 224 146 279 256 66 106 208 116 219 269 13 154 228 78 163 286
+A-2.3E | 107 99 153 122 141 217 108 54 100 128 164 208 134 21 108 164 147 179
+A-2.3G | 212 205 144 117 137 218 214 160 90 124 160 201 224 105 21 162 150 184
+A-2.3H | 150 183 151 113 206 188 112 169 146 94 148 198 79 133 161 42 98 215
+A-2.3J | 242 235 87 85 155 151 232 190 83 76 95 166 186 131 112 118 57 172
+A-2.3K | 288 281 99 182 70 129 290 236 108 208 120 93 309 181 175 233 201 39
+
+History of this station: 5 past routes driven by this station's drivers. Each past route was reduced to the zones of THIS route that it visits, kept in its driver's order.
+
+Usual FIRST zone (how many past routes started with each of this route's zones):
+A-2.3K (2), A-2.1E (2), A-2.2D (1)
+
+Usual NEXT zone. For each zone of this route: the zones its drivers most often went to next, with counts ("seen in N past routes" = how many past routes visited it).
+A-2.1D: seen in 4; next: A-2.2D (2), A-2.3D (1), A-2.3H (1)
+A-2.1E: seen in 4; next: A-2.1D (4)
+A-2.1G: seen in 2; next: A-2.1H (1), A-2.2G (1)
+A-2.1H: seen in 2; next: A-2.3H (1), A-2.1G (1)
+A-2.1J: seen in 2; next: A-2.2J (1), A-2.3G (1)
+A-2.1K: seen in 2; next: A-2.1J (2)
+A-2.2D: seen in 4; next: A-2.3D (3), A-2.2H (1)
+A-2.2E: seen in 2; next: A-2.1E (2)
+A-2.2G: seen in 2; next: A-2.3G (1), A-2.2J (1)
+A-2.2H: seen in 2; next: A-2.1H (1)
+A-2.2J: seen in 2; next: A-2.1G (1), A-2.3J (1)
+A-2.2K: seen in 2; next: A-2.1K (2)
+A-2.3D: seen in 4; next: A-2.2D (1)
+A-2.3E: seen in 2; next: A-2.2E (2)
+A-2.3G: seen in 2; next: A-2.3E (2)
+A-2.3H: seen in 2; next: A-2.3J (1), A-2.2H (1)
+A-2.3J: seen in 2; next: A-2.2G (1)
+A-2.3K: seen in 2; next: A-2.2K (2)
+
+The 5 most similar past routes (most zones in common with this route), reduced to this route's zones in driver order:
+2018-08-16: shares 18 of 18 zones: A-2.3K A-2.2K A-2.1K A-2.1J A-2.2J A-2.1G A-2.1H A-2.3H A-2.3J A-2.2G A-2.3G A-2.3E A-2.2E A-2.1E A-2.1D A-2.3D A-2.2D A-2.2H
+2018-08-03: shares 16 of 18 zones: A-2.3K A-2.2K A-2.1K A-2.1J A-2.3G A-2.3E A-2.2E A-2.1E A-2.1D A-2.3H A-2.2H A-2.1H A-2.1G A-2.2G A-2.2J A-2.3J
+2018-08-01: shares 4 of 18 zones: A-2.1E A-2.1D A-2.2D A-2.3D
+2018-07-28: shares 4 of 18 zones: A-2.1E A-2.1D A-2.2D A-2.3D
+2018-08-03: shares 2 of 18 zones: A-2.2D A-2.3D
+
+Output the order in which to visit the zones as a JSON list of zone IDs, starting with the first zone after leaving the station. Include each of the 18 zones exactly once and nothing else. Do not include the station.

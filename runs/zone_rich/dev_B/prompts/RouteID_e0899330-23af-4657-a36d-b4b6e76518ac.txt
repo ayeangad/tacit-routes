@@ -1,0 +1,105 @@
+A delivery van leaves the station and must deliver to every zone below. All stops in a zone are delivered together, so you only choose the order of the zones. The order of stops inside each zone is decided separately.
+
+How to read this: drivers at a station are creatures of habit. The history below counts what this station's drivers actually did with these same zones, and it is the strongest evidence you have: follow the usual first zone and the usual next-zone moves wherever they are consistent, and use the most similar past routes to settle the overall sweep. Zone IDs are hierarchical (e.g. `A-2.3B` = area A-2, row 3, column B); drivers usually finish one area before moving to the next and sweep neighbouring rows and columns in order. Fall back on travel times only where the history is silent or contradictory.
+
+Station: DLA7 at 33.965477 -117.653303
+
+Zones (23). Each line: zone ID, centroid latitude, centroid longitude, number of stops. Lines are sorted by zone ID.
+B-1.1J 33.883167 -117.831192 14
+C-1.1A 33.878598 -117.831812 10
+C-1.1B 33.880601 -117.840529 9
+C-1.1C 33.881455 -117.836574 5
+C-1.1D 33.881556 -117.845123 5
+C-1.1E 33.880827 -117.849121 6
+C-1.1G 33.890954 -117.845879 9
+C-1.1H 33.891015 -117.848050 5
+C-1.2A 33.876279 -117.829880 9
+C-1.2B 33.878472 -117.838608 9
+C-1.2C 33.884920 -117.836151 8
+C-1.2D 33.885211 -117.845249 7
+C-1.2E 33.881447 -117.850283 6
+C-1.2G 33.886826 -117.850611 7
+C-1.2H 33.894649 -117.850880 8
+C-1.3A 33.875899 -117.834657 10
+C-1.3B 33.878231 -117.835831 10
+C-1.3C 33.886050 -117.839835 4
+C-1.3D 33.884326 -117.840267 9
+C-1.3E 33.886350 -117.853385 4
+C-1.3G 33.886652 -117.847763 12
+C-1.3H 33.893997 -117.847069 4
+C-1.3J 33.897009 -117.847533 7
+
+Travel times in seconds. Each number is the mean driving time over all pairs of stops (one stop in the first zone, one in the second).
+
+From the station to each zone, in the zone order above:
+B-1.1J:2114 C-1.1A:2149 C-1.1B:2162 C-1.1C:2122 C-1.1D:2255 C-1.1E:2375 C-1.1G:2210 C-1.1H:2216 C-1.2A:2148 C-1.2B:2147 C-1.2C:2156 C-1.2D:2259 C-1.2E:2328 C-1.2G:2258 C-1.2H:2270 C-1.3A:2154 C-1.3B:2160 C-1.3C:2132 C-1.3D:2223 C-1.3E:2328 C-1.3G:2307 C-1.3H:2245 C-1.3J:2202
+
+From each zone back to the station, in the zone order above:
+B-1.1J:2259 C-1.1A:2295 C-1.1B:2276 C-1.1C:2304 C-1.1D:2234 C-1.1E:2354 C-1.1G:2410 C-1.1H:2395 C-1.2A:2283 C-1.2B:2313 C-1.2C:2261 C-1.2D:2323 C-1.2E:2306 C-1.2G:2347 C-1.2H:2358 C-1.3A:2315 C-1.3B:2342 C-1.3C:2290 C-1.3D:2335 C-1.3E:2346 C-1.3G:2308 C-1.3H:2435 C-1.3J:2382
+
+Zone-to-zone matrix. Row = from, column = to; columns are in the zone order above. The diagonal is the mean time between stops inside the same zone.
+B-1.1J | 71 162 201 155 294 414 361 367 170 240 226 380 367 382 443 241 209 276 260 382 346 410 458
+C-1.1A | 157 75 221 180 314 434 455 462 115 231 252 406 385 411 537 205 223 296 282 403 366 505 552
+C-1.1B | 217 221 81 112 197 316 342 348 229 175 170 293 267 294 423 279 183 199 193 285 248 391 439
+C-1.1C | 170 181 114 38 221 341 330 336 189 172 95 308 293 318 411 251 150 147 125 310 273 379 427
+C-1.1D | 283 271 168 212 68 240 273 285 279 225 246 219 191 217 350 296 233 168 215 209 172 331 383
+C-1.1E | 386 391 283 314 235 39 370 324 400 345 371 328 71 219 357 416 353 279 331 199 188 388 415
+C-1.1G | 362 449 343 333 303 378 58 143 457 406 298 231 330 182 218 477 414 264 303 247 250 153 234
+C-1.1H | 369 461 354 338 313 327 177 67 469 412 303 235 278 151 125 495 420 258 305 216 218 108 147
+C-1.2A | 162 121 226 185 319 439 460 467 46 225 257 411 391 416 542 197 225 301 287 408 371 510 557
+C-1.2B | 237 238 173 165 265 384 410 417 228 58 229 357 335 362 491 173 178 267 257 353 317 459 507
+C-1.2C | 221 260 178 107 291 416 302 302 268 245 51 319 367 357 377 327 227 126 117 383 347 347 393
+C-1.2D | 353 364 255 289 212 295 232 232 372 316 293 101 247 259 302 389 324 199 243 263 226 278 324
+C-1.2E | 338 343 235 266 187 77 322 277 351 297 324 279 31 171 309 368 305 231 283 151 140 340 367
+C-1.2G | 377 384 287 326 227 219 199 154 391 338 326 239 172 41 194 409 345 266 318 97 117 218 251
+C-1.2H | 428 521 408 398 357 347 237 134 529 468 364 290 299 175 48 553 475 318 366 240 241 139 130
+C-1.3A | 258 232 289 257 339 458 484 490 204 163 327 431 410 436 565 89 170 355 349 427 390 533 581
+C-1.3B | 204 210 183 147 277 396 422 428 214 180 215 369 349 374 503 170 59 259 244 365 328 471 519
+C-1.3C | 256 291 201 132 225 314 238 245 298 270 114 246 265 283 320 357 252 46 144 283 246 288 336
+C-1.3D | 277 282 192 123 271 366 297 298 289 261 125 247 318 343 373 347 243 148 66 334 298 342 389
+C-1.3E | 398 385 277 319 229 204 266 220 393 339 383 296 154 102 257 410 346 289 336 48 178 286 315
+C-1.3G | 356 345 237 275 189 189 245 200 353 299 335 273 142 109 239 370 307 235 292 153 62 264 297
+C-1.3H | 410 500 394 379 362 405 180 111 508 452 344 278 357 230 142 532 460 302 347 295 295 46 88
+C-1.3J | 459 547 442 429 407 437 297 154 555 505 394 340 390 261 135 580 512 341 405 326 327 94 52
+
+History of this station: 14 past routes driven by this station's drivers. Each past route was reduced to the zones of THIS route that it visits, kept in its driver's order.
+
+Usual FIRST zone (how many past routes started with each of this route's zones):
+B-1.1J (10), C-1.1D (1), C-1.1G (1), C-1.3E (1), C-1.3H (1)
+
+Usual NEXT zone. For each zone of this route: the zones its drivers most often went to next, with counts ("seen in N past routes" = how many past routes visited it).
+B-1.1J: seen in 10; next: C-1.1A (9), C-1.2C (1)
+C-1.1A: seen in 10; next: C-1.2A (10)
+C-1.1B: seen in 8; next: C-1.1C (7)
+C-1.1C: seen in 7; next: C-1.2C (6), C-1.1A (1)
+C-1.1D: seen in 5; next: C-1.1E (5)
+C-1.1E: seen in 5; next: C-1.2E (5)
+C-1.1G: seen in 6; next: C-1.1H (3), C-1.2D (1)
+C-1.1H: seen in 4; next: C-1.2H (3), C-1.3H (1)
+C-1.2A: seen in 10; next: C-1.3A (10)
+C-1.2B: seen in 10; next: C-1.1B (7), C-1.1D (1)
+C-1.2C: seen in 7; next: C-1.3C (5), C-1.3D (1)
+C-1.2D: seen in 5; next: C-1.1D (3), C-1.1B (1)
+C-1.2E: seen in 5; next: C-1.3E (4), C-1.1H (1)
+C-1.2G: seen in 5; next: C-1.1G (4)
+C-1.2H: seen in 4; next: C-1.3H (3)
+C-1.3A: seen in 10; next: C-1.3B (10)
+C-1.3B: seen in 10; next: C-1.2B (10)
+C-1.3C: seen in 6; next: C-1.3D (5), C-1.1G (1)
+C-1.3D: seen in 6; next: C-1.2D (4), C-1.3C (1)
+C-1.3E: seen in 6; next: C-1.3G (5)
+C-1.3G: seen in 5; next: C-1.2G (5)
+C-1.3H: seen in 5; next: C-1.3J (4), C-1.2H (1)
+C-1.3J: seen in 4; next: C-1.3E (1)
+
+The 8 most similar past routes (most zones in common with this route), reduced to this route's zones in driver order:
+2018-08-16: shares 22 of 23 zones: B-1.1J C-1.1A C-1.2A C-1.3A C-1.3B C-1.2B C-1.1B C-1.1C C-1.2C C-1.3C C-1.3D C-1.2D C-1.1D C-1.1E C-1.2E C-1.3E C-1.3G C-1.2G C-1.1G C-1.1H C-1.3H C-1.2H
+2018-08-10: shares 19 of 23 zones: B-1.1J C-1.1A C-1.2A C-1.3A C-1.3B C-1.2B C-1.1B C-1.1C C-1.2C C-1.3D C-1.3C C-1.1G C-1.2D C-1.1D C-1.1E C-1.2E C-1.3E C-1.3G C-1.2G
+2018-07-23: shares 19 of 23 zones: B-1.1J C-1.2C C-1.3C C-1.3D C-1.2D C-1.1B C-1.1C C-1.1A C-1.2A C-1.3A C-1.3B C-1.2B C-1.1D C-1.1E C-1.2E C-1.3E C-1.3G C-1.2G C-1.1G
+2018-07-28: shares 16 of 23 zones: B-1.1J C-1.1A C-1.2A C-1.3A C-1.3B C-1.2B C-1.1B C-1.1C C-1.2C C-1.3C C-1.3D C-1.2D C-1.1D C-1.1E C-1.2E C-1.3E
+2018-07-26: shares 12 of 23 zones: B-1.1J C-1.1A C-1.2A C-1.3A C-1.3B C-1.2B C-1.1B C-1.1C C-1.2C C-1.3C C-1.3D C-1.2D
+2018-07-26: shares 11 of 23 zones: C-1.1D C-1.1E C-1.2E C-1.1H C-1.2H C-1.3H C-1.3J C-1.3E C-1.3G C-1.2G C-1.1G
+2018-07-21: shares 11 of 23 zones: B-1.1J C-1.1A C-1.2A C-1.3A C-1.3B C-1.2B C-1.1B C-1.1C C-1.2C C-1.3C C-1.3D
+2018-08-02: shares 9 of 23 zones: B-1.1J C-1.1A C-1.2A C-1.3A C-1.3B C-1.2B C-1.1B C-1.1C C-1.2C
+
+Output the order in which to visit the zones as a JSON list of zone IDs, starting with the first zone after leaving the station. Include each of the 23 zones exactly once and nothing else. Do not include the station.

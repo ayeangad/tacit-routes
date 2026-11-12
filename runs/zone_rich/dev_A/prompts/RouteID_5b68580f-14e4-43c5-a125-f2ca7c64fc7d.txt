@@ -1,0 +1,102 @@
+A delivery van leaves the station and must deliver to every zone below. All stops in a zone are delivered together, so you only choose the order of the zones. The order of stops inside each zone is decided separately.
+
+Station: DLA9 at 33.688122 -117.847178
+
+Zones (23). Each line: zone ID, centroid latitude, centroid longitude, number of stops. Lines are sorted by zone ID.
+D-29.1A 33.725760 -118.047565 7
+D-29.1B 33.728503 -118.039941 6
+D-29.1C 33.731538 -118.038671 6
+D-29.2A 33.725979 -118.043082 5
+D-29.2B 33.728331 -118.035192 9
+D-29.3A 33.725533 -118.040255 10
+D-29.3B 33.728017 -118.039790 9
+D-30.1A 33.728365 -118.048863 7
+D-30.1B 33.726035 -118.068270 8
+D-30.1C 33.728463 -118.065547 5
+D-30.1D 33.724178 -118.060958 8
+D-30.1E 33.721880 -118.061578 12
+D-30.2B 33.724126 -118.065789 7
+D-30.2C 33.726330 -118.072739 1
+D-30.2D 33.724152 -118.057141 4
+D-30.2E 33.722540 -118.056297 9
+D-30.2G 33.720114 -118.055190 4
+D-30.3A 33.726722 -118.052768 16
+D-30.3B 33.725649 -118.064458 5
+D-30.3C 33.728176 -118.061995 5
+D-30.3D 33.728063 -118.056055 5
+D-30.3E 33.720600 -118.052541 2
+D-30.3G 33.717687 -118.054179 4
+
+Travel times in seconds. Each number is the mean driving time over all pairs of stops (one stop in the first zone, one in the second).
+
+From the station to each zone, in the zone order above:
+D-29.1A:1833 D-29.1B:1696 D-29.1C:1783 D-29.2A:1797 D-29.2B:1702 D-29.3A:1811 D-29.3B:1766 D-30.1A:1802 D-30.1B:2030 D-30.1C:1918 D-30.1D:2005 D-30.1E:2011 D-30.2B:2052 D-30.2C:2014 D-30.2D:1961 D-30.2E:1959 D-30.2G:1955 D-30.3A:1892 D-30.3B:1993 D-30.3C:1909 D-30.3D:1898 D-30.3E:1977 D-30.3G:1952
+
+From each zone back to the station, in the zone order above:
+D-29.1A:1754 D-29.1B:1604 D-29.1C:1672 D-29.2A:1709 D-29.2B:1585 D-29.3A:1682 D-29.3B:1647 D-30.1A:1707 D-30.1B:1955 D-30.1C:1853 D-30.1D:1928 D-30.1E:1925 D-30.2B:1969 D-30.2C:1921 D-30.2D:1869 D-30.2E:1869 D-30.2G:1866 D-30.3A:1788 D-30.3B:1902 D-30.3C:1827 D-30.3D:1792 D-30.3E:1905 D-30.3G:1913
+
+Zone-to-zone matrix. Row = from, column = to; columns are in the zone order above. The diagonal is the mean time between stops inside the same zone.
+D-29.1A | 75 193 297 124 266 229 246 108 401 289 376 382 423 385 332 330 327 235 365 281 269 373 388
+D-29.1B | 184 78 188 138 122 156 125 168 396 285 371 377 419 381 327 319 313 259 360 276 264 359 371
+D-29.1C | 284 187 44 256 242 248 245 243 471 359 445 452 493 456 402 400 396 333 435 351 338 443 457
+D-29.2A | 118 134 249 56 219 170 194 180 421 308 396 402 443 406 351 343 335 278 385 301 289 382 397
+D-29.2B | 256 124 229 219 52 207 149 233 462 351 436 442 484 446 391 380 368 324 425 342 329 415 428
+D-29.3A | 219 140 225 164 173 91 140 241 470 359 431 436 492 453 375 346 314 331 433 350 337 360 373
+D-29.3B | 236 118 227 186 152 161 50 238 466 355 441 447 489 451 392 371 348 328 430 346 334 395 409
+D-30.1A | 120 170 263 174 239 264 252 45 348 237 323 329 370 333 279 277 274 189 312 228 216 320 333
+D-30.1B | 405 418 510 434 487 512 499 352 63 184 463 470 143 329 420 418 414 382 102 253 312 461 476
+D-30.1C | 303 316 409 333 385 410 398 250 157 58 362 367 179 220 318 316 312 280 120 151 210 359 373
+D-30.1D | 379 391 483 408 460 466 473 326 482 368 49 92 504 467 130 224 249 295 446 362 268 295 308
+D-30.1E | 375 387 480 404 457 462 469 322 479 367 99 62 501 463 137 220 245 291 442 358 265 291 306
+D-30.2B | 419 432 524 448 501 526 513 366 144 199 477 484 65 343 434 431 429 396 103 268 325 475 488
+D-30.2C | 372 383 476 400 453 478 465 318 284 171 430 435 307 0 386 385 380 349 248 220 276 427 437
+D-30.2D | 320 332 425 348 402 407 414 267 423 312 125 140 445 408 103 173 187 236 387 303 209 233 247
+D-30.2E | 319 331 424 348 394 371 392 266 423 312 230 236 445 408 184 116 120 235 387 302 209 173 185
+D-30.2G | 316 329 422 345 386 339 371 264 420 310 254 261 443 404 199 138 30 234 383 301 207 94 98
+D-30.3A | 210 250 343 255 320 343 332 166 379 267 271 277 401 363 228 225 222 136 342 258 186 269 283
+D-30.3B | 353 365 457 381 434 458 447 299 105 130 411 417 95 276 367 365 361 328 40 200 259 408 423
+D-30.3C | 276 290 383 306 360 386 372 225 266 154 335 342 288 251 292 289 287 255 229 68 184 333 346
+D-30.3D | 241 255 347 271 324 350 337 189 365 252 237 244 387 349 195 192 189 184 328 244 31 236 250
+D-30.3E | 355 368 461 384 425 377 410 303 459 349 294 300 481 444 238 186 104 272 423 338 246 4 146
+D-30.3G | 363 375 469 392 433 385 418 311 467 354 302 308 489 451 246 193 98 280 430 347 254 116 51
+
+History of this station: 7 past routes driven by this station's drivers. Each past route was reduced to the zones of THIS route that it visits, kept in its driver's order.
+
+Usual FIRST zone (how many past routes started with each of this route's zones):
+D-30.2G (3), D-30.3G (3), D-29.2B (1)
+
+Usual NEXT zone. For each zone of this route: the zones its drivers most often went to next, with counts ("seen in N past routes" = how many past routes visited it).
+D-29.1A: seen in 1; next: D-29.2A (1)
+D-29.1B: seen in 1; next: D-30.2C (1)
+D-29.1C: seen in 1; next: it was always the last of these zones
+D-29.2A: seen in 1; next: D-29.3A (1)
+D-29.2B: seen in 1; next: D-29.1B (1)
+D-29.3A: seen in 1; next: D-29.3B (1)
+D-29.3B: seen in 1; next: D-29.1C (1)
+D-30.1A: seen in 1; next: D-29.1A (1)
+D-30.1B: seen in 1; next: D-30.2B (1)
+D-30.1C: seen in 2; next: D-30.3B (1), D-30.2C (1)
+D-30.1D: seen in 5; next: D-30.2D (4)
+D-30.1E: seen in 6; next: D-30.1D (5), D-30.2G (1)
+D-30.2B: seen in 1; next: D-30.3A (1)
+D-30.2C: seen in 2; next: D-30.1C (1)
+D-30.2D: seen in 4; next: D-30.3D (3), D-30.2G (1)
+D-30.2E: seen in 6; next: D-30.1E (6)
+D-30.2G: seen in 6; next: D-30.3G (3), D-30.2E (1)
+D-30.3A: seen in 1; next: D-30.1A (1)
+D-30.3B: seen in 1; next: D-30.1B (1)
+D-30.3C: seen in 1; next: D-30.1C (1)
+D-30.3D: seen in 3; next: D-30.3C (1)
+D-30.3E: seen in 6; next: D-30.2E (5), D-30.2G (1)
+D-30.3G: seen in 6; next: D-30.3E (6)
+
+The 7 most similar past routes (most zones in common with this route), reduced to this route's zones in driver order:
+2018-08-18: shares 14 of 23 zones: D-29.2B D-29.1B D-30.2C D-30.1C D-30.3B D-30.1B D-30.2B D-30.3A D-30.1A D-29.1A D-29.2A D-29.3A D-29.3B D-29.1C
+2018-08-16: shares 11 of 23 zones: D-30.3G D-30.3E D-30.2G D-30.2E D-30.1E D-30.1D D-30.2D D-30.3D D-30.3C D-30.1C D-30.2C
+2018-07-23: shares 8 of 23 zones: D-30.2G D-30.3G D-30.3E D-30.2E D-30.1E D-30.1D D-30.2D D-30.3D
+2018-08-14: shares 8 of 23 zones: D-30.2G D-30.3G D-30.3E D-30.2E D-30.1E D-30.1D D-30.2D D-30.3D
+2018-08-08: shares 7 of 23 zones: D-30.3G D-30.3E D-30.2E D-30.1E D-30.1D D-30.2D D-30.2G
+2018-08-11: shares 6 of 23 zones: D-30.2G D-30.3G D-30.3E D-30.2E D-30.1E D-30.1D
+2018-08-26: shares 5 of 23 zones: D-30.3G D-30.3E D-30.2E D-30.1E D-30.2G
+
+Output the order in which to visit the zones as a JSON list of zone IDs, starting with the first zone after leaving the station. Include each of the 23 zones exactly once and nothing else. Do not include the station.

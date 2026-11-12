@@ -1,0 +1,81 @@
+A delivery van leaves the station and must deliver to every zone below. All stops in a zone are delivered together, so you only choose the order of the zones. The order of stops inside each zone is decided separately.
+
+How to read this: drivers at a station are creatures of habit. The history below counts what this station's drivers actually did with these same zones, and it is the strongest evidence you have: follow the usual first zone and the usual next-zone moves wherever they are consistent, and use the most similar past routes to settle the overall sweep. Zone IDs are hierarchical (e.g. `A-2.3B` = area A-2, row 3, column B); drivers usually finish one area before moving to the next and sweep neighbouring rows and columns in order. Fall back on travel times only where the history is silent or contradictory.
+
+Station: DLA7 at 33.965477 -117.653303
+
+Zones (15). Each line: zone ID, centroid latitude, centroid longitude, number of stops. Lines are sorted by zone ID.
+A-34.1A 33.985472 -117.555222 11
+A-34.1B 33.983279 -117.568900 9
+A-34.1C 33.981362 -117.568751 8
+A-34.2A 33.988158 -117.556491 13
+A-34.2B 33.984728 -117.564321 11
+A-34.2C 33.977450 -117.568459 13
+A-34.3A 33.981337 -117.553600 12
+A-34.3B 33.985342 -117.560386 6
+A-35.1A 33.985857 -117.550363 9
+A-35.1B 34.001128 -117.533409 6
+A-35.1C 33.999758 -117.533912 5
+A-35.2A 33.986795 -117.552878 9
+A-35.2B 34.003004 -117.531749 13
+A-35.3A 33.989053 -117.551602 12
+A-35.3B 33.993096 -117.539783 5
+
+Travel times in seconds. Each number is the mean driving time over all pairs of stops (one stop in the first zone, one in the second).
+
+From the station to each zone, in the zone order above:
+A-34.1A:1425 A-34.1B:1190 A-34.1C:1177 A-34.2A:1381 A-34.2B:1246 A-34.2C:1158 A-34.3A:1402 A-34.3B:1337 A-35.1A:1540 A-35.1B:1487 A-35.1C:1535 A-35.2A:1476 A-35.2B:1467 A-35.3A:1450 A-35.3B:1493
+
+From each zone back to the station, in the zone order above:
+A-34.1A:1380 A-34.1B:1250 A-34.1C:1228 A-34.2A:1361 A-34.2B:1304 A-34.2C:1130 A-34.3A:1389 A-34.3B:1345 A-35.1A:1545 A-35.1B:1484 A-35.1C:1532 A-35.2A:1544 A-35.2B:1481 A-35.3A:1494 A-35.3B:1463
+
+Zone-to-zone matrix. Row = from, column = to; columns are in the zone order above. The diagonal is the mean time between stops inside the same zone.
+A-34.1A | 95 308 347 131 262 416 347 190 229 490 487 260 515 284 387
+A-34.1B | 325 55 122 274 154 195 377 228 422 518 515 369 542 342 414
+A-34.1C | 353 125 78 321 197 147 402 259 473 566 563 417 591 391 463
+A-34.2A | 156 286 327 111 254 404 364 185 292 421 421 280 443 255 325
+A-34.2B | 271 145 189 250 69 263 355 181 404 514 512 366 539 339 411
+A-34.2C | 408 189 141 378 251 70 457 311 532 625 622 476 650 450 522
+A-34.3A | 305 357 393 316 353 449 135 314 474 615 613 467 640 440 512
+A-34.3B | 193 206 244 185 167 318 309 80 346 518 516 365 543 341 415
+A-35.1A | 232 437 477 285 410 550 525 349 82 523 519 158 547 148 420
+A-35.1B | 489 494 540 409 499 615 623 476 505 64 103 449 160 422 260
+A-35.1C | 489 495 540 410 500 615 623 476 505 108 80 449 197 423 258
+A-35.2A | 245 397 437 289 405 512 528 362 154 475 473 75 500 164 372
+A-35.2B | 525 531 576 445 535 647 661 512 541 141 172 485 156 458 300
+A-35.3A | 301 342 387 268 348 462 471 340 149 425 422 171 450 75 322
+A-35.3B | 393 398 443 313 404 518 526 380 408 255 255 353 277 326 65
+
+History of this station: 13 past routes driven by this station's drivers. Each past route was reduced to the zones of THIS route that it visits, kept in its driver's order.
+
+Usual FIRST zone (how many past routes started with each of this route's zones):
+A-34.2C (9), A-35.2A (1), A-34.1B (1), A-34.2B (1), A-34.2A (1)
+
+Usual NEXT zone. For each zone of this route: the zones its drivers most often went to next, with counts ("seen in N past routes" = how many past routes visited it).
+A-34.1A: seen in 11; next: A-35.1A (8), A-35.3A (2), A-34.2A (1)
+A-34.1B: seen in 11; next: A-34.2B (9), A-34.2A (1)
+A-34.1C: seen in 10; next: A-34.1B (10)
+A-34.2A: seen in 11; next: A-34.1A (8), A-35.1A (1), A-34.2C (1)
+A-34.2B: seen in 12; next: A-34.3B (11), A-34.1C (1)
+A-34.2C: seen in 10; next: A-34.1C (9), A-34.2B (1)
+A-34.3A: seen in 11; next: A-34.2A (7), A-34.1A (3)
+A-34.3B: seen in 11; next: A-34.3A (10), A-34.2A (1)
+A-35.1A: seen in 11; next: A-35.2A (7)
+A-35.1B: seen in 5; next: A-35.1C (4)
+A-35.1C: seen in 4; next: A-34.2B (1)
+A-35.2A: seen in 9; next: A-35.3A (6), A-35.1A (1)
+A-35.2B: seen in 5; next: A-35.1B (5)
+A-35.3A: seen in 8; next: A-35.3B (5), A-35.1A (1), A-35.2A (1)
+A-35.3B: seen in 5; next: A-35.2B (5)
+
+The 8 most similar past routes (most zones in common with this route), reduced to this route's zones in driver order:
+2018-07-26: shares 15 of 15 zones: A-34.2C A-34.1C A-34.1B A-34.2A A-34.1A A-35.1A A-35.2A A-35.3A A-35.3B A-35.2B A-35.1B A-35.1C A-34.2B A-34.3B A-34.3A
+2018-07-21: shares 14 of 15 zones: A-34.2C A-34.1C A-34.1B A-34.2B A-34.3B A-34.3A A-34.1A A-34.2A A-35.1A A-35.2A A-35.3A A-35.3B A-35.2B A-35.1B
+2018-07-22: shares 13 of 15 zones: A-34.1B A-34.2B A-34.3B A-34.3A A-34.2A A-34.1A A-35.1A A-35.2A A-35.3A A-35.3B A-35.2B A-35.1B A-35.1C
+2018-07-29: shares 12 of 15 zones: A-34.2B A-34.3B A-34.3A A-34.2A A-34.1A A-35.1A A-35.2A A-35.3A A-35.3B A-35.2B A-35.1B A-35.1C
+2018-08-01: shares 11 of 15 zones: A-34.2C A-34.1C A-34.1B A-34.2B A-34.3B A-34.3A A-34.2A A-34.1A A-35.3A A-35.1A A-35.2A
+2018-07-30: shares 11 of 15 zones: A-34.2C A-34.1C A-34.1B A-34.2B A-34.3B A-34.3A A-34.2A A-34.1A A-35.3A A-35.2A A-35.1A
+2018-08-05: shares 11 of 15 zones: A-34.2C A-34.1C A-34.1B A-34.2B A-34.3B A-34.3A A-34.2A A-34.1A A-35.1A A-35.2A A-35.3A
+2018-08-02: shares 10 of 15 zones: A-34.2A A-34.2C A-34.1C A-34.1B A-34.2B A-34.3B A-34.3A A-34.1A A-35.1A A-35.2A
+
+Output the order in which to visit the zones as a JSON list of zone IDs, starting with the first zone after leaving the station. Include each of the 15 zones exactly once and nothing else. Do not include the station.

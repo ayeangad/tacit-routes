@@ -1,0 +1,111 @@
+A delivery van leaves the station and must deliver to every zone below. All stops in a zone are delivered together, so you only choose the order of the zones. The order of stops inside each zone is decided separately.
+
+How to read this: drivers at a station are creatures of habit. The history below counts what this station's drivers actually did with these same zones, and it is the strongest evidence you have: follow the usual first zone and the usual next-zone moves wherever they are consistent, and use the most similar past routes to settle the overall sweep. Zone IDs are hierarchical (e.g. `A-2.3B` = area A-2, row 3, column B); drivers usually finish one area before moving to the next and sweep neighbouring rows and columns in order. Fall back on travel times only where the history is silent or contradictory.
+
+Station: DLA7 at 33.965477 -117.653303
+
+Zones (25). Each line: zone ID, centroid latitude, centroid longitude, number of stops. Lines are sorted by zone ID.
+B-4.1G 33.906701 -117.761454 8
+B-4.1H 33.906163 -117.756514 7
+B-4.1J 33.889111 -117.771322 6
+B-4.2G 33.909436 -117.763346 6
+B-4.2H 33.901003 -117.764416 4
+B-4.2J 33.889634 -117.767493 5
+B-4.3E 33.900767 -117.774767 5
+B-4.3G 33.905891 -117.765268 8
+B-4.3H 33.897534 -117.765563 4
+B-4.3J 33.892445 -117.765306 7
+B-5.1D 33.876372 -117.781416 4
+B-5.1E 33.873695 -117.781332 4
+B-5.1G 33.886168 -117.774307 6
+B-5.1H 33.887662 -117.775994 5
+B-5.1J 33.893346 -117.769631 3
+B-5.2D 33.879923 -117.780858 9
+B-5.2E 33.873138 -117.775338 12
+B-5.2G 33.881425 -117.774789 9
+B-5.2H 33.889281 -117.777651 8
+B-5.2J 33.893040 -117.772630 5
+B-5.3D 33.882078 -117.784343 4
+B-5.3E 33.877127 -117.776958 7
+B-5.3G 33.877474 -117.774106 9
+B-5.3H 33.895997 -117.776164 3
+B-5.3J 33.894085 -117.778633 8
+
+Travel times in seconds. Each number is the mean driving time over all pairs of stops (one stop in the first zone, one in the second).
+
+From the station to each zone, in the zone order above:
+B-4.1G:1794 B-4.1H:1891 B-4.1J:1692 B-4.2G:1928 B-4.2H:1736 B-4.2J:1700 B-4.3E:1841 B-4.3G:1935 B-4.3H:1678 B-4.3J:1652 B-5.1D:1950 B-5.1E:1899 B-5.1G:1795 B-5.1H:1848 B-5.1J:1709 B-5.2D:1893 B-5.2E:1819 B-5.2G:1792 B-5.2H:1803 B-5.2J:1684 B-5.3D:1894 B-5.3E:1880 B-5.3G:1819 B-5.3H:1789 B-5.3J:1797
+
+From each zone back to the station, in the zone order above:
+B-4.1G:1924 B-4.1H:2029 B-4.1J:1803 B-4.2G:2032 B-4.2H:1872 B-4.2J:1809 B-4.3E:1963 B-4.3G:2099 B-4.3H:1806 B-4.3J:1782 B-5.1D:2019 B-5.1E:2051 B-5.1G:1917 B-5.1H:1916 B-5.1J:1842 B-5.2D:1976 B-5.2E:2015 B-5.2G:1885 B-5.2H:1916 B-5.2J:1814 B-5.3D:2006 B-5.3E:1978 B-5.3G:1942 B-5.3H:1937 B-5.3J:1924
+
+Zone-to-zone matrix. Row = from, column = to; columns are in the zone order above. The diagonal is the mean time between stops inside the same zone.
+B-4.1G | 35 169 336 133 127 344 298 213 149 263 617 605 439 492 352 560 608 436 446 328 538 535 511 412 400
+B-4.1H | 159 60 442 290 232 449 455 371 254 368 722 711 544 597 458 665 713 541 552 434 643 641 617 538 547
+B-4.1J | 342 440 49 443 284 140 313 407 221 189 410 395 232 286 192 352 387 228 291 156 336 314 297 261 270
+B-4.2G | 122 287 437 49 235 453 222 137 257 371 638 606 488 468 461 580 586 518 425 437 524 514 534 316 321
+B-4.2H | 123 221 285 248 40 293 413 328 98 211 566 554 387 441 300 508 556 384 395 277 487 484 460 381 390
+B-4.2J | 347 445 159 471 290 80 349 444 226 195 418 403 240 294 214 361 395 237 329 194 352 323 305 298 306
+B-4.3E | 289 454 299 234 403 335 51 193 380 349 491 460 340 321 339 433 439 371 278 287 378 367 386 170 175
+B-4.3G | 188 353 444 133 302 492 196 83 324 437 612 581 463 443 527 555 560 499 399 503 499 488 511 291 296
+B-4.3H | 155 253 212 280 98 220 360 370 47 138 493 481 315 368 228 435 483 311 322 204 414 411 387 308 317
+B-4.3J | 268 366 200 398 210 208 349 443 145 96 482 469 302 355 215 423 472 300 310 193 402 399 376 296 306
+B-5.1D | 558 656 360 587 500 348 452 546 437 405 59 100 284 340 425 159 222 252 313 401 214 226 285 400 408
+B-5.1E | 591 687 391 615 532 380 480 574 468 437 106 50 315 360 456 188 161 279 342 426 243 165 262 428 437
+B-5.1G | 463 554 249 455 398 247 320 414 335 303 330 314 57 102 309 272 304 132 161 260 248 232 208 268 277
+B-5.1H | 458 553 252 435 397 289 300 394 334 303 365 346 102 57 292 307 327 182 149 240 262 255 243 248 257
+B-5.1J | 391 478 192 459 323 214 324 418 259 228 486 461 309 337 70 429 447 306 286 105 384 375 365 272 281
+B-5.2D | 514 612 317 544 456 304 408 502 393 361 182 179 240 297 381 96 288 208 269 358 171 223 236 356 365
+B-5.2E | 561 652 351 565 496 344 430 524 433 402 230 157 276 303 417 312 81 237 305 370 323 154 189 378 387
+B-5.2G | 423 521 247 535 366 214 399 494 302 271 328 288 132 186 291 271 267 45 243 267 261 221 150 347 356
+B-5.2H | 457 552 251 434 396 292 299 393 333 302 357 338 171 161 291 299 331 244 107 239 226 259 272 247 256
+B-5.2J | 385 451 150 402 295 187 267 361 232 200 442 411 279 272 117 385 390 278 229 39 329 318 321 215 224
+B-5.3D | 543 643 339 550 487 335 415 509 424 392 233 230 261 271 412 175 348 239 233 358 77 253 267 363 372
+B-5.3E | 524 615 314 528 459 307 393 487 396 364 233 160 239 266 380 311 176 208 268 333 320 67 184 341 350
+B-5.3G | 485 579 287 519 423 271 384 478 360 328 302 229 196 235 345 285 207 143 259 309 276 176 91 332 341
+B-5.3H | 378 543 273 323 464 310 187 281 383 324 465 434 314 295 313 408 413 345 252 261 352 341 360 81 141
+B-5.3J | 393 558 259 338 405 296 202 297 341 310 452 420 301 282 300 394 400 331 239 247 338 328 347 141 43
+
+History of this station: 12 past routes driven by this station's drivers. Each past route was reduced to the zones of THIS route that it visits, kept in its driver's order.
+
+Usual FIRST zone (how many past routes started with each of this route's zones):
+B-5.3D (5), B-4.3E (2), B-5.2E (1), B-5.2D (1), B-5.3E (1)
+
+Usual NEXT zone. For each zone of this route: the zones its drivers most often went to next, with counts ("seen in N past routes" = how many past routes visited it).
+B-4.1G: seen in 5; next: B-4.2G (5)
+B-4.1H: seen in 5; next: B-4.1G (5)
+B-4.1J: seen in 7; next: B-4.2J (6), B-5.3H (1)
+B-4.2G: seen in 5; next: B-4.3G (5)
+B-4.2H: seen in 6; next: B-4.1H (4)
+B-4.2J: seen in 6; next: B-4.3J (6)
+B-4.3E: seen in 6; next: B-4.2H (1), B-4.3G (1)
+B-4.3G: seen in 6; next: B-4.3E (4)
+B-4.3H: seen in 6; next: B-4.2H (5), B-4.1H (1)
+B-4.3J: seen in 6; next: B-4.3H (6)
+B-5.1D: seen in 6; next: B-5.1E (6)
+B-5.1E: seen in 6; next: B-5.2E (5)
+B-5.1G: seen in 6; next: B-5.1H (5)
+B-5.1H: seen in 5; next: B-5.2H (5)
+B-5.1J: seen in 7; next: B-4.1J (7)
+B-5.2D: seen in 6; next: B-5.1D (6)
+B-5.2E: seen in 6; next: B-5.3E (5)
+B-5.2G: seen in 6; next: B-5.1G (6)
+B-5.2H: seen in 6; next: B-5.3H (5), B-5.2J (1)
+B-5.2J: seen in 7; next: B-5.1J (7)
+B-5.3D: seen in 5; next: B-5.2D (5)
+B-5.3E: seen in 6; next: B-5.3G (6)
+B-5.3G: seen in 6; next: B-5.2G (6)
+B-5.3H: seen in 6; next: B-5.3J (6)
+B-5.3J: seen in 7; next: B-5.2J (6)
+
+The 8 most similar past routes (most zones in common with this route), reduced to this route's zones in driver order:
+2018-07-27: shares 23 of 25 zones: B-5.2D B-5.1D B-5.1E B-5.2E B-5.3E B-5.3G B-5.2G B-5.1G B-5.1H B-5.2H B-5.3H B-5.3J B-5.2J B-5.1J B-4.1J B-4.2J B-4.3J B-4.3H B-4.2H B-4.1H B-4.1G B-4.2G B-4.3G
+2018-08-11: shares 21 of 25 zones: B-5.2E B-5.3E B-5.3G B-5.2G B-5.1G B-5.1H B-5.2H B-5.3H B-5.3J B-5.2J B-5.1J B-4.1J B-4.2J B-4.3J B-4.3H B-4.2H B-4.1H B-4.1G B-4.2G B-4.3G B-4.3E
+2018-08-06: shares 20 of 25 zones: B-5.3E B-5.3G B-5.2G B-5.1G B-5.1H B-5.2H B-5.3H B-5.3J B-5.2J B-5.1J B-4.1J B-4.2J B-4.3J B-4.3H B-4.1H B-4.1G B-4.2G B-4.3G B-4.3E B-4.2H
+2018-08-08: shares 20 of 25 zones: B-5.3D B-5.2D B-5.1D B-5.1E B-5.2E B-5.3E B-5.3G B-5.2G B-5.1G B-5.1H B-5.2H B-5.3H B-5.3J B-5.2J B-5.1J B-4.1J B-4.2J B-4.3J B-4.3H B-4.2H
+2018-07-26: shares 16 of 25 zones: B-5.3D B-5.2D B-5.1D B-5.1E B-5.2E B-5.3E B-5.3G B-5.2G B-5.1G B-5.1H B-5.2H B-5.2J B-5.1J B-4.1J B-5.3H B-5.3J
+2018-08-12: shares 15 of 25 zones: B-5.2H B-5.3H B-5.3J B-5.2J B-5.1J B-4.1J B-4.2J B-4.3J B-4.3H B-4.2H B-4.1H B-4.1G B-4.2G B-4.3G B-4.3E
+2018-08-05: shares 13 of 25 zones: B-5.3J B-5.2J B-5.1J B-4.1J B-4.2J B-4.3J B-4.3H B-4.2H B-4.1H B-4.1G B-4.2G B-4.3G B-4.3E
+2018-07-30: shares 9 of 25 zones: B-5.3D B-5.2D B-5.1D B-5.1E B-5.2E B-5.3E B-5.3G B-5.2G B-5.1G
+
+Output the order in which to visit the zones as a JSON list of zone IDs, starting with the first zone after leaving the station. Include each of the 25 zones exactly once and nothing else. Do not include the station.

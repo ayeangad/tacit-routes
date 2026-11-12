@@ -1,0 +1,94 @@
+A delivery van leaves the station and must deliver to every zone below. All stops in a zone are delivered together, so you only choose the order of the zones. The order of stops inside each zone is decided separately.
+
+How to read this: drivers at a station are creatures of habit. The history below counts what this station's drivers actually did with these same zones, and it is the strongest evidence you have: follow the usual first zone and the usual next-zone moves wherever they are consistent, and use the most similar past routes to settle the overall sweep. Zone IDs are hierarchical (e.g. `A-2.3B` = area A-2, row 3, column B); drivers usually finish one area before moving to the next and sweep neighbouring rows and columns in order. Fall back on travel times only where the history is silent or contradictory.
+
+Station: DCH1 at 41.840375 -87.683736
+
+Zones (21). Each line: zone ID, centroid latitude, centroid longitude, number of stops. Lines are sorted by zone ID.
+D-14.1A 41.930743 -87.700495 2
+D-14.1B 41.921861 -87.693109 7
+D-14.1C 41.922080 -87.694333 2
+D-14.2A 41.929639 -87.700831 3
+D-14.2B 41.924128 -87.695236 4
+D-14.2C 41.922605 -87.697137 7
+D-14.3A 41.926751 -87.699618 4
+D-14.3B 41.925382 -87.698297 6
+D-14.3C 41.922405 -87.699994 4
+D-14.3D 41.922362 -87.704544 4
+D-15.1A 41.933115 -87.700275 6
+D-15.1B 41.926530 -87.694831 4
+D-15.1C 41.925921 -87.696235 1
+D-15.2A 41.929891 -87.698787 3
+D-15.2B 41.929394 -87.694220 7
+D-15.2C 41.927226 -87.697397 3
+D-15.2D 41.928052 -87.705741 2
+D-15.3A 41.929569 -87.697309 4
+D-15.3B 41.930099 -87.695640 4
+D-15.3C 41.928034 -87.701252 7
+D-15.3D 41.926636 -87.702226 6
+
+Travel times in seconds. Each number is the mean driving time over all pairs of stops (one stop in the first zone, one in the second).
+
+From the station to each zone, in the zone order above:
+D-14.1A:1675 D-14.1B:1673 D-14.1C:1771 D-14.2A:1679 D-14.2B:1657 D-14.2C:1668 D-14.3A:1709 D-14.3B:1675 D-14.3C:1695 D-14.3D:1627 D-15.1A:1647 D-15.1B:1678 D-15.1C:1675 D-15.2A:1693 D-15.2B:1637 D-15.2C:1689 D-15.2D:1762 D-15.3A:1657 D-15.3B:1651 D-15.3C:1700 D-15.3D:1681
+
+From each zone back to the station, in the zone order above:
+D-14.1A:1530 D-14.1B:1596 D-14.1C:1551 D-14.2A:1542 D-14.2B:1511 D-14.2C:1579 D-14.3A:1590 D-14.3B:1541 D-14.3C:1627 D-14.3D:1786 D-15.1A:1478 D-15.1B:1526 D-15.1C:1588 D-15.2A:1538 D-15.2B:1523 D-15.2C:1520 D-15.2D:1592 D-15.3A:1503 D-15.3B:1510 D-15.3C:1574 D-15.3D:1616
+
+Zone-to-zone matrix. Row = from, column = to; columns are in the zone order above. The diagonal is the mean time between stops inside the same zone.
+D-14.1A | 36 334 381 80 272 297 128 226 352 330 131 249 240 192 277 168 208 221 277 125 169
+D-14.1B | 415 121 121 374 188 204 323 232 252 393 451 270 350 348 357 239 387 328 357 330 275
+D-14.1C | 389 170 55 345 133 156 284 165 220 365 417 200 314 296 276 193 347 272 259 299 248
+D-14.2A | 90 343 394 44 281 307 138 236 366 335 141 261 245 202 288 178 255 218 285 128 175
+D-14.2B | 350 147 202 296 72 161 255 121 225 336 363 154 240 254 235 141 314 223 218 272 222
+D-14.2C | 304 177 189 260 114 113 224 141 146 254 339 222 267 259 294 148 284 241 290 228 175
+D-14.3A | 248 231 282 202 165 200 99 121 248 277 294 210 253 208 275 139 242 222 275 183 151
+D-14.3B | 236 179 240 188 114 146 146 57 184 256 273 160 179 150 224 78 248 171 208 173 142
+D-14.3C | 321 307 350 300 262 259 259 216 110 138 369 336 376 353 377 286 290 353 380 244 214
+D-14.3D | 430 402 451 390 349 360 351 297 406 108 478 401 430 382 434 353 248 412 438 331 307
+D-15.1A | 94 374 424 150 301 334 203 268 376 387 60 306 281 231 316 199 277 198 326 186 230
+D-15.1B | 250 219 292 200 173 227 240 167 293 367 290 88 215 212 157 176 328 173 139 234 242
+D-15.1C | 252 241 330 206 176 226 236 153 252 352 283 94 0 195 190 100 340 166 171 229 230
+D-15.2A | 193 422 473 252 348 391 336 321 423 506 183 347 310 93 329 244 423 248 362 311 367
+D-15.2B | 223 282 368 176 224 274 217 211 312 386 241 176 165 164 88 163 299 108 70 190 220
+D-15.2C | 201 204 267 155 134 185 170 120 209 327 232 137 104 141 154 43 289 117 151 194 190
+D-15.2D | 170 302 339 139 250 265 131 216 311 251 233 234 204 170 209 143 81 193 221 96 90
+D-15.3A | 152 269 331 118 196 238 155 168 267 334 173 178 132 99 169 93 238 86 188 133 182
+D-15.3B | 197 299 375 162 226 273 214 205 301 374 211 178 139 149 162 147 287 82 71 180 210
+D-15.3C | 152 275 325 109 218 244 122 181 280 293 197 209 175 146 199 115 224 182 210 92 122
+D-15.3D | 179 241 286 142 197 209 104 155 247 219 225 226 205 183 217 152 162 196 221 113 58
+
+History of this station: 3 past routes driven by this station's drivers. Each past route was reduced to the zones of THIS route that it visits, kept in its driver's order.
+
+Usual FIRST zone (how many past routes started with each of this route's zones):
+D-15.2D (3)
+
+Usual NEXT zone. For each zone of this route: the zones its drivers most often went to next, with counts ("seen in N past routes" = how many past routes visited it).
+D-14.1A: never seen at this station; its group D-14.1 seen in 4; group next: D-14.2 (2)
+D-14.1B: never seen at this station; its group D-14.1 seen in 4; group next: D-14.2 (2)
+D-14.1C: never seen at this station; its group D-14.1 seen in 4; group next: D-14.2 (2)
+D-14.2A: never seen at this station; its group D-14.2 seen in 4; group next: D-14.1 (3), D-14.3 (2)
+D-14.2B: never seen at this station; its group D-14.2 seen in 4; group next: D-14.1 (3), D-14.3 (2)
+D-14.2C: never seen at this station; its group D-14.2 seen in 4; group next: D-14.1 (3), D-14.3 (2)
+D-14.3A: never seen at this station; its group D-14.3 seen in 3; group next: D-14.2 (3)
+D-14.3B: never seen at this station; its group D-14.3 seen in 3; group next: D-14.2 (3)
+D-14.3C: never seen at this station; its group D-14.3 seen in 3; group next: D-14.2 (3)
+D-14.3D: never seen at this station; its group D-14.3 seen in 3; group next: D-14.2 (3)
+D-15.1A: never seen at this station; its group D-15.1 seen in 3; group next: D-15.2 (10), D-15.3 (2)
+D-15.1B: seen in 3; next: D-15.2B (2), D-15.1C (1)
+D-15.1C: seen in 3; next: D-15.1B (2), D-15.2C (1)
+D-15.2A: never seen at this station; its group D-15.2 seen in 3; group next: D-15.1 (9), D-15.3 (9)
+D-15.2B: seen in 2; next: D-15.3C (1)
+D-15.2C: seen in 3; next: D-15.1C (2), D-15.3C (1)
+D-15.2D: seen in 3; next: D-15.3D (3)
+D-15.3A: never seen at this station; its group D-15.3 seen in 3; group next: D-15.2 (8), D-15.1 (2)
+D-15.3B: never seen at this station; its group D-15.3 seen in 3; group next: D-15.2 (8), D-15.1 (2)
+D-15.3C: seen in 3; next: D-15.2C (1)
+D-15.3D: seen in 3; next: D-15.3C (1), D-15.2C (1), D-15.1B (1)
+
+The 3 most similar past routes (most zones in common with this route), reduced to this route's zones in driver order:
+2018-08-11: shares 7 of 21 zones: D-15.2D D-15.3D D-15.3C D-15.2C D-15.1C D-15.1B D-15.2B
+2018-07-24: shares 7 of 21 zones: D-15.2D D-15.3D D-15.2C D-15.1C D-15.1B D-15.2B D-15.3C
+2018-08-17: shares 6 of 21 zones: D-15.2D D-15.3D D-15.1B D-15.1C D-15.2C D-15.3C
+
+Output the order in which to visit the zones as a JSON list of zone IDs, starting with the first zone after leaving the station. Include each of the 21 zones exactly once and nothing else. Do not include the station.

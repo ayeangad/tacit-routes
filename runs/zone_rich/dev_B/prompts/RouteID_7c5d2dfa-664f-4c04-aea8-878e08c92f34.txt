@@ -1,0 +1,81 @@
+A delivery van leaves the station and must deliver to every zone below. All stops in a zone are delivered together, so you only choose the order of the zones. The order of stops inside each zone is decided separately.
+
+How to read this: drivers at a station are creatures of habit. The history below counts what this station's drivers actually did with these same zones, and it is the strongest evidence you have: follow the usual first zone and the usual next-zone moves wherever they are consistent, and use the most similar past routes to settle the overall sweep. Zone IDs are hierarchical (e.g. `A-2.3B` = area A-2, row 3, column B); drivers usually finish one area before moving to the next and sweep neighbouring rows and columns in order. Fall back on travel times only where the history is silent or contradictory.
+
+Station: DLA8 at 33.918699 -118.324843
+
+Zones (17). Each line: zone ID, centroid latitude, centroid longitude, number of stops. Lines are sorted by zone ID.
+B-17.1H 33.736813 -118.295958 11
+B-17.1J 33.735986 -118.306677 13
+B-17.2H 33.733429 -118.296709 10
+B-17.2J 33.731748 -118.307477 9
+B-17.3H 33.731862 -118.300364 8
+B-17.3J 33.730920 -118.303451 8
+B-18.1G 33.742890 -118.305572 12
+B-18.1H 33.740419 -118.303320 5
+B-18.1J 33.738192 -118.308003 9
+B-18.2E 33.748563 -118.296252 9
+B-18.2G 33.745416 -118.305558 5
+B-18.2H 33.742329 -118.299670 10
+B-18.2J 33.735522 -118.303887 9
+B-18.3E 33.747328 -118.299801 9
+B-18.3G 33.748144 -118.303962 4
+B-18.3H 33.736730 -118.300166 10
+B-18.3J 33.733771 -118.301324 5
+
+Travel times in seconds. Each number is the mean driving time over all pairs of stops (one stop in the first zone, one in the second).
+
+From the station to each zone, in the zone order above:
+B-17.1H:1631 B-17.1J:1789 B-17.2H:1720 B-17.2J:1881 B-17.3H:1780 B-17.3J:1848 B-18.1G:1645 B-18.1H:1689 B-18.1J:1773 B-18.2E:1533 B-18.2G:1618 B-18.2H:1592 B-18.2J:1773 B-18.3E:1547 B-18.3G:1628 B-18.3H:1684 B-18.3J:1768
+
+From each zone back to the station, in the zone order above:
+B-17.1H:1713 B-17.1J:1870 B-17.2H:1803 B-17.2J:1959 B-17.3H:1870 B-17.3J:1925 B-18.1G:1740 B-18.1H:1767 B-18.1J:1844 B-18.2E:1758 B-18.2G:1777 B-18.2H:1697 B-18.2J:1848 B-18.3E:1746 B-18.3G:1820 B-18.3H:1770 B-18.3J:1849
+
+Zone-to-zone matrix. Row = from, column = to; columns are in the zone order above. The diagonal is the mean time between stops inside the same zone.
+B-17.1H | 60 192 117 282 178 242 281 268 215 333 328 204 168 301 375 95 157
+B-17.1J | 186 54 221 123 186 167 269 335 115 419 307 303 86 355 348 134 143
+B-17.2H | 120 224 55 227 112 172 343 329 269 396 392 266 180 361 437 136 120
+B-17.2J | 277 121 225 52 160 109 323 400 177 496 360 393 157 424 401 222 162
+B-17.3H | 175 191 113 161 67 97 352 345 241 412 390 295 147 376 442 125 87
+B-17.3J | 237 164 173 105 97 58 374 409 229 480 408 359 132 432 456 179 109
+B-18.1G | 272 332 334 378 337 397 73 126 263 266 120 152 331 196 177 244 324
+B-18.1H | 252 326 313 420 317 386 125 72 315 306 196 147 311 244 240 223 304
+B-18.1J | 208 108 268 174 240 231 222 289 85 377 260 270 147 311 302 158 207
+B-18.2E | 326 409 395 502 400 468 266 307 400 80 221 220 394 109 176 307 386
+B-18.2G | 329 348 390 399 394 432 126 209 284 215 76 192 388 145 130 305 380
+B-18.2H | 198 284 259 377 277 344 153 152 274 219 189 100 268 180 234 181 262
+B-18.2J | 164 89 179 158 143 131 311 332 156 399 344 280 50 359 395 108 94
+B-18.3E | 282 354 341 439 345 414 194 243 335 103 149 165 339 62 118 252 332
+B-18.3G | 368 417 427 446 431 489 175 250 326 179 129 229 424 113 74 338 417
+B-18.3H | 93 134 137 222 124 176 261 247 166 317 308 198 108 283 357 49 97
+B-18.3J | 153 151 119 165 89 112 335 326 213 394 375 277 95 358 427 97 45
+
+History of this station: 2 past routes driven by this station's drivers. Each past route was reduced to the zones of THIS route that it visits, kept in its driver's order.
+
+Usual FIRST zone (how many past routes started with each of this route's zones):
+B-17.1H (1), B-18.1G (1)
+
+Usual NEXT zone. For each zone of this route: the zones its drivers most often went to next, with counts ("seen in N past routes" = how many past routes visited it).
+B-17.1H: seen in 1; next: B-17.2H (1)
+B-17.1J: seen in 1; next: B-18.1J (1)
+B-17.2H: seen in 1; next: B-17.3H (1)
+B-17.2J: seen in 1; next: B-17.1J (1)
+B-17.3H: seen in 1; next: B-17.3J (1)
+B-17.3J: seen in 1; next: B-17.2J (1)
+B-18.1G: seen in 2; next: B-18.2G (2)
+B-18.1H: seen in 1; next: B-18.1G (1)
+B-18.1J: seen in 1; next: B-18.2J (1)
+B-18.2E: seen in 1; next: it was always the last of these zones
+B-18.2G: seen in 2; next: B-18.3G (2)
+B-18.2H: seen in 1; next: B-18.1H (1)
+B-18.2J: seen in 1; next: B-18.3J (1)
+B-18.3E: seen in 2; next: B-18.2E (1)
+B-18.3G: seen in 2; next: B-18.3E (2)
+B-18.3H: seen in 1; next: B-18.2H (1)
+B-18.3J: seen in 1; next: B-18.3H (1)
+
+The 2 most similar past routes (most zones in common with this route), reduced to this route's zones in driver order:
+2018-07-28: shares 16 of 17 zones: B-17.1H B-17.2H B-17.3H B-17.3J B-17.2J B-17.1J B-18.1J B-18.2J B-18.3J B-18.3H B-18.2H B-18.1H B-18.1G B-18.2G B-18.3G B-18.3E
+2018-08-02: shares 5 of 17 zones: B-18.1G B-18.2G B-18.3G B-18.3E B-18.2E
+
+Output the order in which to visit the zones as a JSON list of zone IDs, starting with the first zone after leaving the station. Include each of the 17 zones exactly once and nothing else. Do not include the station.

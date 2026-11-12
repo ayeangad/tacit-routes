@@ -1,0 +1,118 @@
+A delivery van leaves the station and must deliver to every zone below. All stops in a zone are delivered together, so you only choose the order of the zones. The order of stops inside each zone is decided separately.
+
+How to read this: drivers at a station are creatures of habit. The history below counts what this station's drivers actually did with these same zones, and it is the strongest evidence you have: follow the usual first zone and the usual next-zone moves wherever they are consistent, and use the most similar past routes to settle the overall sweep. Zone IDs are hierarchical (e.g. `A-2.3B` = area A-2, row 3, column B); drivers usually finish one area before moving to the next and sweep neighbouring rows and columns in order. Fall back on travel times only where the history is silent or contradictory.
+
+Station: DLA8 at 33.918699 -118.324843
+
+Zones (29). Each line: zone ID, centroid latitude, centroid longitude, number of stops. Lines are sorted by zone ID.
+G-24.1A 34.028728 -118.489520 2
+G-24.1B 34.023029 -118.482632 2
+G-24.1C 34.024095 -118.482017 4
+G-24.1D 34.025877 -118.482586 4
+G-24.2A 34.025850 -118.487769 2
+G-24.2B 34.024204 -118.484002 2
+G-24.2D 34.024991 -118.479980 3
+G-24.3A 34.024890 -118.486658 2
+G-24.3D 34.026303 -118.479073 2
+G-25.1A 34.029534 -118.488098 5
+G-25.1B 34.031018 -118.489909 6
+G-25.1C 34.031216 -118.491922 4
+G-25.1D 34.027478 -118.490857 2
+G-25.1E 34.027128 -118.492416 4
+G-25.1G 34.023205 -118.487750 3
+G-25.1H 34.023223 -118.489278 3
+G-25.2A 34.030926 -118.488175 4
+G-25.2B 34.032230 -118.489416 2
+G-25.2C 34.032736 -118.493937 3
+G-25.2D 34.028526 -118.491040 4
+G-25.2E 34.026127 -118.491780 4
+G-25.2G 34.025202 -118.488847 1
+G-25.2H 34.023672 -118.490758 2
+G-25.3A 34.030869 -118.486471 3
+G-25.3B 34.031869 -118.487437 2
+G-25.3C 34.031158 -118.493870 4
+G-25.3D 34.030221 -118.492901 3
+G-25.3E 34.024379 -118.489724 3
+G-25.3H 34.025056 -118.492384 2
+
+Travel times in seconds. Each number is the mean driving time over all pairs of stops (one stop in the first zone, one in the second).
+
+From the station to each zone, in the zone order above:
+G-24.1A:1886 G-24.1B:1750 G-24.1C:1727 G-24.1D:1691 G-24.2A:1800 G-24.2B:1759 G-24.2D:1671 G-24.3A:1782 G-24.3D:1654 G-25.1A:1844 G-25.1B:1901 G-25.1C:1939 G-25.1D:1848 G-25.1E:1836 G-25.1G:1741 G-25.1H:1744 G-25.2A:1814 G-25.2B:1848 G-25.2C:1986 G-25.2D:1867 G-25.2E:1822 G-25.2G:1800 G-25.2H:1751 G-25.3A:1813 G-25.3B:1836 G-25.3C:1940 G-25.3D:1905 G-25.3E:1764 G-25.3H:1792
+
+From each zone back to the station, in the zone order above:
+G-24.1A:2111 G-24.1B:1963 G-24.1C:1968 G-24.1D:1913 G-24.2A:2053 G-24.2B:1974 G-24.2D:1907 G-24.3A:2029 G-24.3D:1881 G-25.1A:2062 G-25.1B:2090 G-25.1C:2131 G-25.1D:2138 G-25.1E:2154 G-25.1G:2032 G-25.1H:2036 G-25.2A:2036 G-25.2B:2097 G-25.2C:2183 G-25.2D:2124 G-25.2E:2138 G-25.2G:2086 G-25.2H:2037 G-25.3A:2067 G-25.3B:2086 G-25.3C:2181 G-25.3D:2160 G-25.3E:2087 G-25.3H:2078
+
+Zone-to-zone matrix. Row = from, column = to; columns are in the zone order above. The diagonal is the mean time between stops inside the same zone.
+G-24.1A | 17 217 232 193 112 178 268 129 277 63 95 134 62 91 186 185 85 125 181 72 112 144 175 92 117 128 88 157 139
+G-24.1B | 208 8 70 88 134 38 103 109 110 245 285 300 230 277 140 179 220 255 346 218 258 168 200 241 276 293 253 194 244
+G-24.1C | 237 82 34 86 161 87 106 139 115 219 256 310 256 301 163 199 220 252 359 246 282 210 217 236 270 318 281 219 260
+G-24.1D | 181 92 79 32 135 83 75 119 87 163 193 237 214 248 149 173 134 167 283 209 241 169 199 153 182 272 244 178 235
+G-24.2A | 106 136 152 130 4 99 193 24 200 136 164 166 109 143 94 93 173 189 212 86 136 64 102 175 200 159 119 72 143
+G-24.2B | 171 39 75 92 122 5 112 100 121 207 249 288 217 260 130 164 211 246 332 208 233 159 191 243 273 281 241 170 233
+G-24.2D | 264 115 104 82 197 120 40 173 72 238 266 307 294 336 204 242 204 238 353 281 318 242 264 197 218 347 316 256 307
+G-24.3A | 126 113 126 118 24 94 169 4 176 164 189 190 126 165 93 89 196 213 236 110 147 68 114 198 225 183 143 84 156
+G-24.3D | 268 131 117 88 198 120 84 173 4 241 269 313 292 340 204 245 210 244 360 283 322 232 264 204 225 351 317 259 307
+G-25.1A | 66 240 201 164 139 209 236 157 251 27 55 112 97 125 212 209 60 87 164 101 142 161 206 65 90 154 122 185 165
+G-25.1B | 86 277 237 194 158 246 269 182 275 60 28 69 114 133 245 236 61 56 118 95 162 196 221 94 82 115 88 213 179
+G-25.1C | 134 294 287 234 154 294 311 178 316 106 66 22 122 137 242 231 100 82 58 84 161 196 218 140 116 66 63 213 175
+G-25.1D | 50 221 236 214 86 222 279 111 285 93 119 126 17 51 140 143 119 145 175 51 72 73 136 123 148 118 85 118 96
+G-25.1E | 89 258 272 250 122 256 314 146 321 128 134 139 49 28 157 138 142 157 185 71 45 113 117 158 168 128 96 96 75
+G-25.1G | 175 139 157 148 97 134 195 84 203 215 236 244 136 168 55 72 245 266 298 169 136 96 82 250 278 238 207 88 123
+G-25.1H | 180 173 187 177 95 154 229 86 239 217 241 244 143 134 60 32 244 264 292 166 112 74 37 253 278 236 207 52 79
+G-25.2A | 79 230 210 139 159 219 207 181 224 58 64 105 111 138 216 233 14 34 150 113 159 184 225 53 63 149 120 208 183
+G-25.2B | 115 270 248 176 184 262 242 208 263 87 51 79 143 158 268 261 38 15 125 114 186 220 246 75 54 126 98 237 203
+G-25.2C | 186 332 340 287 195 347 363 219 369 157 113 53 161 179 282 273 153 124 25 124 203 230 259 192 167 69 89 253 216
+G-25.2D | 64 209 226 205 72 171 264 95 272 96 88 89 59 80 165 159 108 109 135 28 99 118 159 128 129 83 44 136 125
+G-25.2E | 95 240 255 241 129 228 297 138 304 136 154 161 56 36 137 119 160 180 213 87 9 113 113 164 191 155 126 52 75
+G-25.2G | 121 170 189 185 70 161 231 72 233 162 188 190 75 124 66 74 182 209 247 120 108 0 84 190 223 188 162 59 135
+G-25.2H | 162 192 202 189 119 159 249 106 256 193 215 219 125 112 73 41 224 238 271 152 107 84 5 232 256 213 186 68 42
+G-25.3A | 101 257 235 168 180 243 201 200 215 77 96 146 131 159 228 247 55 79 197 138 180 209 245 14 33 188 156 225 202
+G-25.3B | 107 285 262 189 185 268 218 208 233 83 85 122 138 165 254 265 61 59 175 134 186 211 249 26 4 169 141 237 207
+G-25.3C | 130 280 295 269 143 256 327 167 337 148 107 59 113 127 230 226 140 120 74 77 159 191 220 182 160 30 36 207 174
+G-25.3D | 89 242 259 246 107 206 299 130 306 127 91 63 76 93 198 195 125 106 92 42 125 153 191 158 138 39 6 171 144
+G-25.3E | 159 189 204 194 96 177 243 88 252 194 218 224 121 99 78 68 223 243 274 151 62 70 65 228 253 218 190 8 106
+G-25.3H | 122 236 246 242 152 201 290 148 298 160 172 175 80 70 142 84 183 195 228 108 65 131 43 188 216 173 143 96 4
+
+History of this station: 3 past routes driven by this station's drivers. Each past route was reduced to the zones of THIS route that it visits, kept in its driver's order.
+
+Usual FIRST zone (how many past routes started with each of this route's zones):
+G-25.3E (1), G-24.2D (1), G-24.1C (1)
+
+Usual NEXT zone. For each zone of this route: the zones its drivers most often went to next, with counts ("seen in N past routes" = how many past routes visited it).
+G-24.1A: seen in 1; next: G-25.1A (1)
+G-24.1B: seen in 2; next: G-24.2B (2)
+G-24.1C: seen in 2; next: G-24.1B (2)
+G-24.1D: seen in 1; next: G-24.1C (1)
+G-24.2A: seen in 1; next: G-24.1A (1)
+G-24.2B: seen in 2; next: G-24.3A (1)
+G-24.2D: seen in 1; next: G-24.3D (1)
+G-24.3A: seen in 1; next: G-25.1G (1)
+G-24.3D: seen in 1; next: G-24.1D (1)
+G-25.1A: seen in 1; next: G-25.2A (1)
+G-25.1B: seen in 1; next: G-25.1C (1)
+G-25.1C: seen in 1; next: G-25.2C (1)
+G-25.1D: seen in 2; next: G-25.1E (1)
+G-25.1E: seen in 2; next: G-25.2E (2)
+G-25.1G: seen in 2; next: G-25.1H (1), G-25.2G (1)
+G-25.1H: seen in 2; next: G-25.2H (1)
+G-25.2A: seen in 1; next: G-25.3A (1)
+G-25.2B: seen in 1; next: G-25.1B (1)
+G-25.2C: seen in 1; next: G-25.3C (1)
+G-25.2D: seen in 2; next: G-25.1D (2)
+G-25.2E: seen in 2; next: G-25.3D (1), G-25.3E (1)
+G-25.2G: seen in 2; next: G-25.1G (1), G-24.2A (1)
+G-25.2H: seen in 1; next: G-25.3H (1)
+G-25.3A: seen in 1; next: G-25.3B (1)
+G-25.3B: seen in 1; next: G-25.2B (1)
+G-25.3C: seen in 1; next: G-25.3D (1)
+G-25.3D: seen in 2; next: G-25.2D (2)
+G-25.3E: seen in 2; next: G-25.2G (1), G-25.1H (1)
+G-25.3H: seen in 1; next: G-25.1E (1)
+
+The 3 most similar past routes (most zones in common with this route), reduced to this route's zones in driver order:
+2018-07-30: shares 24 of 29 zones: G-24.1C G-24.1B G-24.2B G-24.3A G-25.1G G-25.2G G-24.2A G-24.1A G-25.1A G-25.2A G-25.3A G-25.3B G-25.2B G-25.1B G-25.1C G-25.2C G-25.3C G-25.3D G-25.2D G-25.1D G-25.1E G-25.2E G-25.3E G-25.1H
+2018-07-23: shares 11 of 29 zones: G-25.3E G-25.2G G-25.1G G-25.1H G-25.2H G-25.3H G-25.1E G-25.2E G-25.3D G-25.2D G-25.1D
+2018-07-21: shares 6 of 29 zones: G-24.2D G-24.3D G-24.1D G-24.1C G-24.1B G-24.2B
+
+Output the order in which to visit the zones as a JSON list of zone IDs, starting with the first zone after leaving the station. Include each of the 29 zones exactly once and nothing else. Do not include the station.
