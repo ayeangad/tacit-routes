@@ -18,7 +18,7 @@ The test was pre-registered, locked by hash, and scored once. Each difference be
 
 Mean scores: mine 0.0259, Opus as the model 0.0284 (0.0324 at default effort), Opus's programs 0.0240–0.0281, 2021 winner 0.0248.
 
-So a model with about 147k weights beats a frontier model used directly on this task, at a fraction of the cost. A frontier model given time to write its own program beats it.
+So a model with about 147k weights beats a frontier model used directly on this task, at a fraction of the cost.
 
 **Cost assumptions.** Opus's $0.51 is the per-call cost reported by the `claude` CLI at list price, for the answering call only; it is $0.52 with retries. Mine is inference only, priced at $0.10 per CPU-hour. Training is extra and happens once: about 2.4 CPU-hours across 5 seeds. Each Opus engineer run cost $2.74 (run 5) and $3.47 (run 6), also once.
 
@@ -27,14 +27,6 @@ Two post-hoc checks. They are descriptive and were computed after the test (`scr
 - **The size of the win depends on a few routes; its direction doesn't.** About half the mean gap comes from my 5 biggest wins, and without them the mean is −0.0012. Dropping the 25 most negative and the 25 most positive differences still leaves −0.0017 [−0.0025, −0.0009].
 
 Full tables: `results/final_test.md`. Breakdowns, which are descriptive only (no claims): `results/final_descriptive.md`.
-
-## Why the programs Opus wrote beat mine
-
-A route's stops are grouped into zones. My model decides the zone order, then a solver orders the stops inside each zone.
-
-To find which half the gap came from, I took each Opus program's zone order and ran it through my in-zone solver. With my solver, every Opus zone order still beat mine, by +0.0010 to +0.0023. Opus's own in-zone ordering was never better than mine. **The gap is entirely in the zone order.**
-
-My model picks the next zone one step at a time, using a beam search. All five Opus programs do it differently, according to their own design notes (`APPROACH.md` in each sandbox). They score every pair of zones (run 2 with a 513-weight network) and then solve for the best tour over all zones at once with an ATSP solver (Held–Karp or OR-Tools). Run 3's notes say it tried a sequential model with beam search, like mine, and dropped it because it was worse. Run 5, the strongest, adds a step-by-step re-ranking on top of the tour. Many of my worst routes are ones where my zone order runs the driver's route backwards (15% of routes, against 11–13% for Opus's programs). That is the kind of error that choosing the whole tour at once should prevent. This is the next thing I'd build. It hasn't been tested.
 
 ## Caveats
 
@@ -93,6 +85,14 @@ python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
 ```
 
 Each script's docstring gives its exact command. The Opus arms need the `claude` CLI and a subscription. The calls cost about $0.51 per route at max effort.
+
+## Why the programs Opus wrote beat mine
+
+A route's stops are grouped into zones. My model decides the zone order, then a solver orders the stops inside each zone.
+
+To find which half the gap came from, I took each Opus program's zone order and ran it through my in-zone solver. With my solver, every Opus zone order still beat mine, by +0.0010 to +0.0023. Opus's own in-zone ordering was never better than mine. **The gap is entirely in the zone order.**
+
+My model picks the next zone one step at a time, using a beam search. All five Opus programs do it differently, according to their own design notes (`APPROACH.md` in each sandbox). They score every pair of zones (run 2 with a 513-weight network) and then solve for the best tour over all zones at once with an ATSP solver (Held–Karp or OR-Tools). Run 3's notes say it tried a sequential model with beam search, like mine, and dropped it because it was worse. Run 5, the strongest, adds a step-by-step re-ranking on top of the tour. Many of my worst routes are ones where my zone order runs the driver's route backwards (15% of routes, against 11–13% for Opus's programs). That is the kind of error that choosing the whole tour at once should prevent. This is the next thing I'd build. It hasn't been tested.
 
 ## Licence
 
