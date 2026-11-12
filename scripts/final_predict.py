@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """FINAL TEST, STAGE 1: predictions on the 3,052 frozen evaluation routes. NO ANSWERS ARE READ.
 
-Plan of record: docs/plan.md (+ amendments), DECISION_LOG.md, and the
+Plan of record: docs/plan.md (+ amendments) and the
 harness amendments (review 5). Reads only apply-side inputs
 (data/eval_frozen/routes/*.npz, data/eval_frozen/raw/apply/) plus train-side models and history.
 Never opens data/eval_frozen/raw/score/. Writes runs/final/predictions/<arm>.json + MANIFEST.json

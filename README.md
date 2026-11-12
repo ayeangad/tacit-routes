@@ -62,7 +62,6 @@ python3 -c "import json,hashlib; r=json.load(open('runs/final/LOCK_RECORD.json')
 
 ```
 PREREGISTRATION.md      locked test plan
-DECISION_LOG.md         why each choice was made
 docs/plan.md            final-test plan and amendments, written before scoring
 scripts/                data pipeline, models, baselines, Opus harnesses, scoring
 results/                every reported number (.md for reading, .json for the numbers)
