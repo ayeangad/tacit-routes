@@ -1,0 +1,251 @@
+{
+ "locked": true,
+ "preregistration_sha256": "a8eccd3f611bdb89e05a65a53a0fa889fdc9d3b3f9b0f605f5b477b3b7c4c9b6",
+ "NOTE": "TEMPLATE (harness). Filled when PREREGISTRATION.md is locked; final_score.py refuses until locked=true and the sha256 matches. Arm names = files in runs/final/predictions/. 'mean:a+b' = per-route mean of the two sandbox repeats of one Opus system (each repeat is also reported, with their spread). FINAL model = v1_exact iff results/exact_solver_gate.json verdict is ADOPT, else v1 (and the OPUS-MODEL arm then uses the same solver: opus_model_*_exact or *_greedy). Win for a = mean diff < 0 AND bootstrap CI upper < 0 AND (secondary only) Holm-adjusted sign-test p < 0.05. Every comparison is also reported excluding DBO6. OPTION B (chosen 2026-11-11 ~23:55 IST): each Opus system is scored on its repeat 1 over all routes; repeat 2 runs on the 500 sample only and is used for the solver-noise spread. FIXES 2026-11-12 ~02:00 IST (before the lock, runs/final/incidents.log): (1) a win needs BOTH views (all routes AND excluding DBO6), each with its own Holm; (2) non-inferiority is computed by final_score.py from 'non_inferiority'; (3) OPUS-MODEL default effort is collected as opus_model_default_* (optional, descriptive) so it can no longer overwrite the max-effort primary arm. PRE-LOCK REVIEW (2026-11-12 ~11:50 IST, before the lock): added samesolver_run2..6 (PREREGISTRATION section 6.3, built by scripts/final_samesolver.py from inputs only) and their reference comparisons; descriptive, no claim.",
+ "primary_sample_file": "runs/final/primary_sample_500.json",
+ "sample_only_arms": [
+  "opus_model_repaired_exact",
+  "opus_model_repaired_greedy",
+  "opus_model_strict_exact",
+  "opus_model_strict_greedy",
+  "opus_run2_rep2",
+  "opus_run3_rep2",
+  "opus_run4_rep2",
+  "opus_run5_rep2",
+  "opus_run6_rep2"
+ ],
+ "arms": [
+  "v1_exact",
+  "v1",
+  "v0hist",
+  "v0past",
+  "opus_model_repaired_exact",
+  "opus_model_strict_exact",
+  "opus_run2_rep1",
+  "opus_run2_rep2",
+  "opus_run3_rep1",
+  "opus_run3_rep2",
+  "opus_run4_rep1",
+  "opus_run4_rep2",
+  "opus_run5_rep1",
+  "opus_run5_rep2",
+  "opus_run6_rep1",
+  "opus_run6_rep2",
+  "jpt",
+  "rules_R2",
+  "rules_R4",
+  "rules_S3",
+  "samesolver_run2",
+  "samesolver_run3",
+  "samesolver_run4",
+  "samesolver_run5",
+  "samesolver_run6"
+ ],
+ "comparisons": [
+  {
+   "name": "PRIMARY",
+   "role": "primary",
+   "routes": "sample",
+   "a": "v1_exact",
+   "b": "opus_model_repaired_exact"
+  },
+  {
+   "name": "PRIMARY_strict_view",
+   "role": "reference",
+   "routes": "sample",
+   "a": "v1_exact",
+   "b": "opus_model_strict_exact"
+  },
+  {
+   "name": "B_vs_run5",
+   "role": "secondary",
+   "routes": "all",
+   "a": "v1_exact",
+   "b": "opus_run5_rep1"
+  },
+  {
+   "name": "B_vs_run6",
+   "role": "secondary",
+   "routes": "all",
+   "a": "v1_exact",
+   "b": "opus_run6_rep1"
+  },
+  {
+   "name": "A_vs_run2",
+   "role": "secondary",
+   "routes": "all",
+   "a": "v0hist",
+   "b": "opus_run2_rep1"
+  },
+  {
+   "name": "A_vs_run3",
+   "role": "secondary",
+   "routes": "all",
+   "a": "v0hist",
+   "b": "opus_run3_rep1"
+  },
+  {
+   "name": "A_vs_run4",
+   "role": "secondary",
+   "routes": "all",
+   "a": "v0hist",
+   "b": "opus_run4_rep1"
+  },
+  {
+   "name": "ref_jpt",
+   "role": "reference",
+   "routes": "all",
+   "a": "v1_exact",
+   "b": "jpt"
+  },
+  {
+   "name": "ref_R2",
+   "role": "reference",
+   "routes": "all",
+   "a": "v1_exact",
+   "b": "rules_R2"
+  },
+  {
+   "name": "ref_R4",
+   "role": "reference",
+   "routes": "all",
+   "a": "v1_exact",
+   "b": "rules_R4"
+  },
+  {
+   "name": "exact_vs_greedy",
+   "role": "reference",
+   "routes": "all",
+   "a": "v1_exact",
+   "b": "v1"
+  },
+  {
+   "name": "past_only",
+   "role": "reference",
+   "routes": "all",
+   "a": "v0past",
+   "b": "v0hist"
+  },
+  {
+   "name": "ref_shortest_3s",
+   "role": "reference",
+   "routes": "all",
+   "a": "v1_exact",
+   "b": "rules_S3"
+  },
+  {
+   "name": "ref_opus_model_default",
+   "role": "reference",
+   "routes": "sample",
+   "optional": true,
+   "a": "v1_exact",
+   "b": "opus_model_default_repaired_exact"
+  },
+  {
+   "name": "samesolver_zone_run2",
+   "role": "reference",
+   "routes": "all",
+   "a": "v1_exact",
+   "b": "samesolver_run2"
+  },
+  {
+   "name": "opus_own_solver_run2",
+   "role": "reference",
+   "routes": "all",
+   "a": "opus_run2_rep1",
+   "b": "samesolver_run2"
+  },
+  {
+   "name": "samesolver_zone_run3",
+   "role": "reference",
+   "routes": "all",
+   "a": "v1_exact",
+   "b": "samesolver_run3"
+  },
+  {
+   "name": "opus_own_solver_run3",
+   "role": "reference",
+   "routes": "all",
+   "a": "opus_run3_rep1",
+   "b": "samesolver_run3"
+  },
+  {
+   "name": "samesolver_zone_run4",
+   "role": "reference",
+   "routes": "all",
+   "a": "v1_exact",
+   "b": "samesolver_run4"
+  },
+  {
+   "name": "opus_own_solver_run4",
+   "role": "reference",
+   "routes": "all",
+   "a": "opus_run4_rep1",
+   "b": "samesolver_run4"
+  },
+  {
+   "name": "samesolver_zone_run5",
+   "role": "reference",
+   "routes": "all",
+   "a": "v1_exact",
+   "b": "samesolver_run5"
+  },
+  {
+   "name": "opus_own_solver_run5",
+   "role": "reference",
+   "routes": "all",
+   "a": "opus_run5_rep1",
+   "b": "samesolver_run5"
+  },
+  {
+   "name": "samesolver_zone_run6",
+   "role": "reference",
+   "routes": "all",
+   "a": "v1_exact",
+   "b": "samesolver_run6"
+  },
+  {
+   "name": "opus_own_solver_run6",
+   "role": "reference",
+   "routes": "all",
+   "a": "opus_run6_rep1",
+   "b": "samesolver_run6"
+  }
+ ],
+ "claims": {
+  "PRIMARY_beats_opus_as_model": {
+   "members": [
+    "PRIMARY"
+   ],
+   "rule": "all"
+  },
+  "DESIGN_B_beats_engineer": {
+   "members": [
+    "B_vs_run5",
+    "B_vs_run6"
+   ],
+   "rule": "all"
+  },
+  "DESIGN_A_beats_engineer": {
+   "members": [
+    "A_vs_run2",
+    "A_vs_run3",
+    "A_vs_run4"
+   ],
+   "rule": "all"
+  }
+ },
+ "optional_arms": [
+  "opus_model_default_repaired_exact",
+  "opus_model_default_strict_exact"
+ ],
+ "non_inferiority": {
+  "comparison": "PRIMARY",
+  "margin": 0.002,
+  "min_cost_ratio": 100,
+  "a_cost_arm": "v1_exact",
+  "b_cost_arm": "opus_model_repaired_exact",
+  "cpu_usd_per_hour": 0.1,
+  "cpu_price_note": "deliberately high rate for one CPU core; FINAL's marginal cost on the laptop is $0"
+ }
+}
