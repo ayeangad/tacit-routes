@@ -1,0 +1,2515 @@
+{
+ "description": "2021 Amazon Last Mile winner (jpt-amz: Cook, Held, Helsgaun) run locally on the 300 val routes",
+ "code": {
+  "repo": "https://github.com/heldstephan/jpt-amz",
+  "commit": "dc4ebc0aa091d4d1eb7dc7d9b9b2d8f8c19664ce",
+  "licence": "MIT",
+  "local_changes": "Local changes to jpt-amz at commit dc4ebc0aa091d4d1eb7dc7d9b9b2d8f8c19664ce (full diff: runs/jpt/local_changes.diff).\nNone of them touches the method (zone rules, history, constraints, LKH search).\n1. LKH-AMZ/Makefile: make -j 16 -> -j 3 (3-thread limit on this laptop).\n2. LKH-AMZ/solve and LKH-AMZ/merge: THREADS=16 -> 3 (at most 3 LKH processes at once).\n3. model_apply.sh: gawk -> awk (gawk is not installed; the call only prints field 1 or 2).\n4. model_apply.sh: optional env vars JPT_TIME_LIMIT_1 / JPT_TIME_LIMIT_2 override the per-route LKH\n   time limits that manage_running_time.py would otherwise derive from a 4 h, 16-core budget.\nDependency: natsort 8.4.0 (the only non-stdlib Python import, used by build_TSPLIB.py), installed with\npip --target into runs/jpt/pydeps and put on PYTHONPATH; nothing installed system-wide.\nBuild: LKH-AMZ (not -oldgcc) compiled with the system gcc 13.3.0, no warnings, no source edits.\nmodel_build_outputs/ and model_apply_outputs/ created by hand: in rc-cli's Docker image they already exist, and model_build.sh only empties them\n"
+ },
+ "data": {
+  "build": "5,762 train routes (route_data, actual_sequences, package_data, travel_times)",
+  "apply": "300 val routes (route_data without route_score, package_data, travel_times); no sequences",
+  "pilot_routes_used": 0,
+  "eval_frozen_touched": false,
+  "stops_min_mean_max": [
+   38,
+   140.59666666666666,
+   202
+  ]
+ },
+ "metric": {
+  "scorer": "official rc-cli score.py, unmodified (scripts/official_rc_cli)",
+  "direction": "lower is better; 0 = driver's exact order"
+ },
+ "primary_tag": "t1_1",
+ "runs": {
+  "t1_1": {
+   "time_limits_s": [
+    1,
+    1
+   ],
+   "score": {
+    "n": 300,
+    "mean": 0.02127777865613873,
+    "median": 0.010454330218469726,
+    "min": 0.0006543220635690595,
+    "max": 0.26153962823760146,
+    "bootstrap_95_ci": [
+     0.018319420348846455,
+     0.02456093268843684
+    ]
+   },
+   "valid_routes": 300,
+   "apply_wall_seconds": 570.0295243263245,
+   "apply_cpu_seconds_total": 809.68026,
+   "apply_cpu_seconds_per_route": 2.6989342,
+   "lkh_instances": 600,
+   "lkh_cpu_seconds_per_instance": {
+    "mean": 1.0,
+    "median": 1.0,
+    "max": 1.0
+   },
+   "lkh_cpu_seconds_per_route_both_passes_mean": 2.0,
+   "peak_tree_rss_mb_sampled": 1905.0625
+  }
+ },
+ "build": {
+  "wall_seconds": 313.19242429733276,
+  "cpu_seconds_user": 149.119693,
+  "cpu_seconds_sys": 1.941852,
+  "peak_tree_rss_mb_sampled": 574.60546875,
+  "exit_code": 0
+ },
+ "shortest_on_val": {
+  "source": "orders from results/v0_shortest_val.json (OR-Tools GLS, 10 s/route, as run_plain_baseline.py), re-scored here; max |diff| vs stored scores = 8.33e-17",
+  "score": {
+   "n": 300,
+   "mean": 0.08978003823073662,
+   "median": 0.07662857819229184,
+   "min": 0.008730235674154332,
+   "max": 0.40945109007383756,
+   "bootstrap_95_ci": [
+    0.08395514548985893,
+    0.09585796649137464
+   ]
+  }
+ },
+ "comparisons": {
+  "jpt_minus_shortest": {
+   "difference": "jpt minus shortest (negative = jpt better)",
+   "n": 300,
+   "mean_difference": -0.06850225957459788,
+   "median_difference": -0.059465195598584354,
+   "bootstrap_95_ci": [
+    -0.07323506562615861,
+    -0.06390040841733333
+   ],
+   "jpt_better": 294,
+   "jpt_worse": 6,
+   "tied": 0,
+   "sign_test_p_two_sided": 9.648734603640909e-79
+  },
+  "jpt_minus_best_v0_variant": "not run: v0.json did not exist when this was scored",
+  "jpt_minus_best_rules_arm": "not run: rules_baseline.json did not exist when this was scored"
+ },
+ "published_reference": {
+  "evaluation_side": {
+   "jpt_official_hidden_evaluation_score": 0.0248,
+   "second_place": 0.0353,
+   "third_place": 0.0391,
+   "source": "team page https://www.math.uwaterloo.ca/tsp/amz/index.html (confirmed)",
+   "note": "hidden evaluation set, ~3,000 routes, contest time limits; not our val set"
+  },
+  "training_side": {
+   "best_mean": 0.01978,
+   "best_median": 0.00732,
+   "routes": "1,107 High, fully delivered training routes",
+   "time_limits": "1 s + 1 s per route",
+   "source": "Cook, Held, Helsgaun arXiv 2112.15192 (from a summary, not read verbatim here)",
+   "note": "their training routes are also their history pool's neighbours; our val routes are held out from the build data"
+  }
+ },
+ "bootstrap": "10000 percentile resamples of routes, seed 20261111",
+ "per_route": [
+  {
+   "route_id": "RouteID_001b4ee3-c4f2-467f-932b-c85524d1021f",
+   "station_code": "DLA9",
+   "n_stops": 142,
+   "shortest_score": 0.09371004727858873,
+   "jpt_t1_1_score": 0.050316020614161565,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_00575ca4-8a63-49d2-96c8-9b347be5ba6c",
+   "station_code": "DLA3",
+   "n_stops": 59,
+   "shortest_score": 0.05995974140671636,
+   "jpt_t1_1_score": 0.011460849214439964,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_0127b134-186b-4897-8dd8-56afec626082",
+   "station_code": "DLA3",
+   "n_stops": 91,
+   "shortest_score": 0.09239463141189194,
+   "jpt_t1_1_score": 0.00816099831152132,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_077c0404-88b2-4abd-af5e-588f986b49a5",
+   "station_code": "DSE2",
+   "n_stops": 151,
+   "shortest_score": 0.19604198544299958,
+   "jpt_t1_1_score": 0.04163357172223285,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_07d56536-0262-446f-a671-9d14be955be4",
+   "station_code": "DLA9",
+   "n_stops": 131,
+   "shortest_score": 0.06317779911394783,
+   "jpt_t1_1_score": 0.02644178333064593,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_0814e8d7-b1fe-4d7c-a3b5-8c9fe9925136",
+   "station_code": "DLA7",
+   "n_stops": 186,
+   "shortest_score": 0.04576557178743603,
+   "jpt_t1_1_score": 0.0019147694752083319,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_08424eaf-ced6-4025-938e-0e7f25fb9f13",
+   "station_code": "DLA9",
+   "n_stops": 96,
+   "shortest_score": 0.07455941724936377,
+   "jpt_t1_1_score": 0.03175926983861395,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_08d62dfb-b7a1-4248-ae10-3c101e8191b3",
+   "station_code": "DLA7",
+   "n_stops": 146,
+   "shortest_score": 0.05577184938285674,
+   "jpt_t1_1_score": 0.0041632580351293295,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_09cbff70-3e09-4f9d-825e-3148b3930a4c",
+   "station_code": "DSE4",
+   "n_stops": 118,
+   "shortest_score": 0.04642388885152639,
+   "jpt_t1_1_score": 0.006135798241848525,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_0a1a1cfe-a5da-4463-b3ac-f2bb3a01718f",
+   "station_code": "DSE2",
+   "n_stops": 80,
+   "shortest_score": 0.2417003012591737,
+   "jpt_t1_1_score": 0.046879434588261916,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_0ae21c35-5e33-4c25-92bc-61eae9c30b7b",
+   "station_code": "DSE4",
+   "n_stops": 168,
+   "shortest_score": 0.05061305895452004,
+   "jpt_t1_1_score": 0.001887396740745186,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_0e13b867-bfbf-4698-8347-560bbfcdba9b",
+   "station_code": "DCH3",
+   "n_stops": 160,
+   "shortest_score": 0.06624133849569883,
+   "jpt_t1_1_score": 0.01319359752321967,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_0e5d65a8-587c-48b0-86d7-226e83a1a5f4",
+   "station_code": "DLA9",
+   "n_stops": 109,
+   "shortest_score": 0.15930778714994326,
+   "jpt_t1_1_score": 0.012130439528691977,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_0e8a5182-d742-4c4f-adf3-abb60ece3239",
+   "station_code": "DLA5",
+   "n_stops": 170,
+   "shortest_score": 0.07142680668115027,
+   "jpt_t1_1_score": 0.004595253320034287,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_0e986992-bd2d-4f6b-bfd0-1038abd90bae",
+   "station_code": "DLA8",
+   "n_stops": 157,
+   "shortest_score": 0.07224728493119248,
+   "jpt_t1_1_score": 0.0033173658856771905,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_0fd331f1-2f86-4287-8f9e-86cccc4817d2",
+   "station_code": "DLA7",
+   "n_stops": 142,
+   "shortest_score": 0.11102756133504597,
+   "jpt_t1_1_score": 0.015496363083055508,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_103806a2-ef80-4814-888d-7ecc9180e6c6",
+   "station_code": "DBO1",
+   "n_stops": 99,
+   "shortest_score": 0.0948243668926744,
+   "jpt_t1_1_score": 0.04129873149588999,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_109fc056-8065-42c9-b262-d735b8e68e92",
+   "station_code": "DCH1",
+   "n_stops": 192,
+   "shortest_score": 0.06188998459947088,
+   "jpt_t1_1_score": 0.0046796813388135655,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_10d3035b-c1ad-40ec-989d-621de5c09bde",
+   "station_code": "DLA8",
+   "n_stops": 120,
+   "shortest_score": 0.0940279281278184,
+   "jpt_t1_1_score": 0.03477236488911597,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_13049cb4-e67d-468b-9b10-25c0180e5e98",
+   "station_code": "DAU1",
+   "n_stops": 109,
+   "shortest_score": 0.07547143682384369,
+   "jpt_t1_1_score": 0.028631648576998694,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_158a381b-2bb3-4b6c-b2ca-9c6d9667e078",
+   "station_code": "DBO2",
+   "n_stops": 132,
+   "shortest_score": 0.0720606197649209,
+   "jpt_t1_1_score": 0.0018435058581255839,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_15c93521-26e8-42ed-8057-82b9fb200335",
+   "station_code": "DSE4",
+   "n_stops": 170,
+   "shortest_score": 0.05591383696640343,
+   "jpt_t1_1_score": 0.010733845679750482,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_168bfe56-6dee-4032-ba12-e0f50dadc3c4",
+   "station_code": "DSE4",
+   "n_stops": 147,
+   "shortest_score": 0.07648710703493622,
+   "jpt_t1_1_score": 0.004828367813990942,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_1811c85b-eb2e-47dc-a634-27229ecd64fa",
+   "station_code": "DBO3",
+   "n_stops": 156,
+   "shortest_score": 0.054462755345636986,
+   "jpt_t1_1_score": 0.0017824623820310338,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_1adcd5b6-0ad8-4349-8acb-6fa7b4e04fbf",
+   "station_code": "DLA7",
+   "n_stops": 178,
+   "shortest_score": 0.05954092228519813,
+   "jpt_t1_1_score": 0.0019884428068660844,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_1c1779ec-f46f-4ece-a647-da835f52ec85",
+   "station_code": "DLA5",
+   "n_stops": 185,
+   "shortest_score": 0.11402274925244925,
+   "jpt_t1_1_score": 0.031112413472212073,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_1f5a2cf1-c0c2-4b49-aefd-36180307a928",
+   "station_code": "DLA5",
+   "n_stops": 187,
+   "shortest_score": 0.13101793119722893,
+   "jpt_t1_1_score": 0.0480378992002431,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_20a66e8d-4f4b-461f-88d0-c02c7e9a49de",
+   "station_code": "DLA8",
+   "n_stops": 134,
+   "shortest_score": 0.14861193788331623,
+   "jpt_t1_1_score": 0.019845801485023466,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_219766f7-4cbc-4a00-8b91-e4e571ddafd6",
+   "station_code": "DLA4",
+   "n_stops": 173,
+   "shortest_score": 0.08031785778107596,
+   "jpt_t1_1_score": 0.005552581035161266,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_21e13e3e-ea4a-4556-8b7f-3ddd7c20b1a9",
+   "station_code": "DCH2",
+   "n_stops": 155,
+   "shortest_score": 0.32142257549231157,
+   "jpt_t1_1_score": 0.08936209183481092,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_231a5734-7e28-417a-920b-8e9d6a92f3f2",
+   "station_code": "DAU1",
+   "n_stops": 166,
+   "shortest_score": 0.09917099889627501,
+   "jpt_t1_1_score": 0.002862506650120558,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_24fde177-b328-4bdc-951d-8adf46fe5885",
+   "station_code": "DLA8",
+   "n_stops": 53,
+   "shortest_score": 0.06928193373173946,
+   "jpt_t1_1_score": 0.011299518133653562,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_2564c0ae-34c2-4a7d-b2b8-bf72e58bb454",
+   "station_code": "DLA9",
+   "n_stops": 169,
+   "shortest_score": 0.12149855760120323,
+   "jpt_t1_1_score": 0.055825368834470666,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_25ff6914-caaa-453a-8f1e-7ff12b86845a",
+   "station_code": "DLA8",
+   "n_stops": 71,
+   "shortest_score": 0.0326035127669609,
+   "jpt_t1_1_score": 0.002776586503765155,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_261881f3-9a40-41c2-9ad6-b39b026be2ea",
+   "station_code": "DLA8",
+   "n_stops": 129,
+   "shortest_score": 0.045136894835983335,
+   "jpt_t1_1_score": 0.007299592521059189,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_26e8b143-7eb9-4636-8fb9-7698e28038d4",
+   "station_code": "DCH2",
+   "n_stops": 180,
+   "shortest_score": 0.12489893631747734,
+   "jpt_t1_1_score": 0.0554683394939716,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_286b7da2-196a-4ff1-9c2a-168cc6c7846a",
+   "station_code": "DLA4",
+   "n_stops": 147,
+   "shortest_score": 0.2158135640180501,
+   "jpt_t1_1_score": 0.055139572169937076,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_28704a32-2025-49c6-8a0d-694dba171b5b",
+   "station_code": "DLA3",
+   "n_stops": 109,
+   "shortest_score": 0.055636794969263915,
+   "jpt_t1_1_score": 0.01117171915139338,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_2a725e0e-2294-4fd3-85d1-f9530d041185",
+   "station_code": "DCH3",
+   "n_stops": 184,
+   "shortest_score": 0.09983011626685019,
+   "jpt_t1_1_score": 0.012024816799560236,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_2a769750-b77d-48a2-ac37-0996bf4c7ee9",
+   "station_code": "DBO3",
+   "n_stops": 136,
+   "shortest_score": 0.11568649591817114,
+   "jpt_t1_1_score": 0.014375679296390756,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_2b185eb8-39d1-4f3f-8444-0018ddc61f88",
+   "station_code": "DLA4",
+   "n_stops": 131,
+   "shortest_score": 0.09100667895127826,
+   "jpt_t1_1_score": 0.005279618212428301,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_2e5db3b7-b648-48d1-a5b1-82f7ed561297",
+   "station_code": "DLA7",
+   "n_stops": 139,
+   "shortest_score": 0.041906067182154255,
+   "jpt_t1_1_score": 0.04634845470510043,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_2ef536c3-69e5-4636-a791-2551a97a1b40",
+   "station_code": "DBO3",
+   "n_stops": 132,
+   "shortest_score": 0.08888017389337231,
+   "jpt_t1_1_score": 0.035269391815720114,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_2f3cad2a-ddf1-4a3d-97ed-397ec19af444",
+   "station_code": "DLA9",
+   "n_stops": 126,
+   "shortest_score": 0.14344577066268283,
+   "jpt_t1_1_score": 0.020713063930081266,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_2f9817b1-57c7-415d-ae23-d45febd826ea",
+   "station_code": "DLA7",
+   "n_stops": 162,
+   "shortest_score": 0.06362426979391543,
+   "jpt_t1_1_score": 0.0037903774641960997,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_2fb063a3-024f-4023-adc0-6cafbbdfd9ab",
+   "station_code": "DLA7",
+   "n_stops": 164,
+   "shortest_score": 0.0739341310937949,
+   "jpt_t1_1_score": 0.03742840438191811,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_3007fbad-e3e0-4c16-9f05-d710912b1560",
+   "station_code": "DLA7",
+   "n_stops": 157,
+   "shortest_score": 0.04762107300682843,
+   "jpt_t1_1_score": 0.0032862595079282296,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_30e05636-ae2c-44cc-bc73-b40592a5c72d",
+   "station_code": "DSE4",
+   "n_stops": 113,
+   "shortest_score": 0.026344428945262646,
+   "jpt_t1_1_score": 0.0022966422030969934,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_32b617fa-11d1-4b08-a0ee-5271d30895f7",
+   "station_code": "DAU1",
+   "n_stops": 171,
+   "shortest_score": 0.062380851724023925,
+   "jpt_t1_1_score": 0.018495380027536725,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_3311502c-0d0a-4ae7-becf-f71dd6b2a390",
+   "station_code": "DCH4",
+   "n_stops": 135,
+   "shortest_score": 0.04954930021604699,
+   "jpt_t1_1_score": 0.005802256511590029,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_332f33d1-7d73-413b-8be3-a90bb7440865",
+   "station_code": "DBO2",
+   "n_stops": 78,
+   "shortest_score": 0.13555199012141592,
+   "jpt_t1_1_score": 0.014045931850543513,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_349fe1a3-b174-415c-bf90-d3218c0afc30",
+   "station_code": "DSE4",
+   "n_stops": 106,
+   "shortest_score": 0.04621646061615359,
+   "jpt_t1_1_score": 0.006682079565422781,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_354c6325-aede-4546-90e4-867a3f17c0ae",
+   "station_code": "DLA9",
+   "n_stops": 174,
+   "shortest_score": 0.059709778534693544,
+   "jpt_t1_1_score": 0.012648483251015174,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_363306e9-cc27-4d14-996e-4a674ef0523a",
+   "station_code": "DBO3",
+   "n_stops": 114,
+   "shortest_score": 0.11996262381169549,
+   "jpt_t1_1_score": 0.005946613433970785,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_365dcd65-1bcd-4089-a25f-5d63767c66a8",
+   "station_code": "DAU1",
+   "n_stops": 160,
+   "shortest_score": 0.1273024836829064,
+   "jpt_t1_1_score": 0.11328784243255857,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_36e2ac14-d135-4292-8095-c25ec5a7d54a",
+   "station_code": "DLA7",
+   "n_stops": 148,
+   "shortest_score": 0.07061786236681382,
+   "jpt_t1_1_score": 0.019464842512420706,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_3836378f-6f01-413a-85b6-36fa805bf264",
+   "station_code": "DSE2",
+   "n_stops": 117,
+   "shortest_score": 0.13291094061101583,
+   "jpt_t1_1_score": 0.011515603498332383,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_388b572f-65b1-4b9e-9028-aaceffa962c6",
+   "station_code": "DCH4",
+   "n_stops": 196,
+   "shortest_score": 0.08318092193022762,
+   "jpt_t1_1_score": 0.005079238382457303,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_39629297-3e4d-4935-95c4-19a2d5336a3b",
+   "station_code": "DLA9",
+   "n_stops": 189,
+   "shortest_score": 0.05936609849051488,
+   "jpt_t1_1_score": 0.042181881690950856,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_397abf35-8191-4a3d-9243-7f3465fb77a8",
+   "station_code": "DLA7",
+   "n_stops": 144,
+   "shortest_score": 0.046988608734663366,
+   "jpt_t1_1_score": 0.008491137934512146,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_39be76ca-2025-488a-8005-f31281d0cb06",
+   "station_code": "DLA9",
+   "n_stops": 159,
+   "shortest_score": 0.07655538999564325,
+   "jpt_t1_1_score": 0.02192858105203585,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_3a915225-afab-4414-bfee-438aac3ce2cc",
+   "station_code": "DLA9",
+   "n_stops": 106,
+   "shortest_score": 0.11855779295356661,
+   "jpt_t1_1_score": 0.03874266298231136,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_3b0cca24-6065-4f44-be1f-68ffb7d410ec",
+   "station_code": "DLA9",
+   "n_stops": 108,
+   "shortest_score": 0.050173952235544196,
+   "jpt_t1_1_score": 0.03220079413107283,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_3b9f3471-7f84-4452-864f-81340bd2387b",
+   "station_code": "DCH4",
+   "n_stops": 180,
+   "shortest_score": 0.07294617089642018,
+   "jpt_t1_1_score": 0.012988211808321298,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_3c07276d-c213-4278-94fc-33046f48bcbf",
+   "station_code": "DCH2",
+   "n_stops": 186,
+   "shortest_score": 0.08892008618678268,
+   "jpt_t1_1_score": 0.006229184887040313,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_3c3df004-7eb4-428a-9c02-09cb71481e94",
+   "station_code": "DLA7",
+   "n_stops": 145,
+   "shortest_score": 0.04080174057593514,
+   "jpt_t1_1_score": 0.0015186627194048096,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_3c731ed4-b932-474a-ad41-2710b4389698",
+   "station_code": "DLA7",
+   "n_stops": 175,
+   "shortest_score": 0.04874311792816574,
+   "jpt_t1_1_score": 0.002530065038010385,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_3da25600-25c9-4afb-89cc-68793362f25d",
+   "station_code": "DLA7",
+   "n_stops": 165,
+   "shortest_score": 0.07443476723728357,
+   "jpt_t1_1_score": 0.016531046005621556,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_3e9d4e48-228f-4a28-a4a4-1b3e39ae1bf5",
+   "station_code": "DSE5",
+   "n_stops": 177,
+   "shortest_score": 0.18580369507326613,
+   "jpt_t1_1_score": 0.03143406786365006,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_3febb400-6c60-4c51-a760-9dc0802bec0a",
+   "station_code": "DLA7",
+   "n_stops": 160,
+   "shortest_score": 0.059564345543096635,
+   "jpt_t1_1_score": 0.006454436775730791,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_3fff6288-f601-4eba-84c5-ab72e0ad7f03",
+   "station_code": "DLA9",
+   "n_stops": 150,
+   "shortest_score": 0.0668660902210138,
+   "jpt_t1_1_score": 0.004657079060487492,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_4066d91f-514c-4950-bc53-d92022929fa3",
+   "station_code": "DBO3",
+   "n_stops": 152,
+   "shortest_score": 0.09148743253808908,
+   "jpt_t1_1_score": 0.008264295927174653,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_407500ae-03f2-4d5f-a233-435f0a8235cd",
+   "station_code": "DBO2",
+   "n_stops": 162,
+   "shortest_score": 0.17148968674289916,
+   "jpt_t1_1_score": 0.0258202967771962,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_409c10cd-2609-4624-957a-bf606cd1b8e6",
+   "station_code": "DLA7",
+   "n_stops": 173,
+   "shortest_score": 0.08433058690881746,
+   "jpt_t1_1_score": 0.0156497880574858,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_416d50cc-81c3-47b5-8638-c4cad5764df2",
+   "station_code": "DSE5",
+   "n_stops": 147,
+   "shortest_score": 0.0856713747258829,
+   "jpt_t1_1_score": 0.0030065514140714595,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_424259ee-6890-466d-9dd2-76b0f17c2202",
+   "station_code": "DSE5",
+   "n_stops": 123,
+   "shortest_score": 0.1251327324370466,
+   "jpt_t1_1_score": 0.004808110946224344,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_424d1707-3799-4d20-a7df-01fbd107d483",
+   "station_code": "DLA9",
+   "n_stops": 139,
+   "shortest_score": 0.06441678437825626,
+   "jpt_t1_1_score": 0.011227013088971302,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_42b3561b-d2f6-47c2-9e19-0810688239ee",
+   "station_code": "DLA7",
+   "n_stops": 141,
+   "shortest_score": 0.026194182321810543,
+   "jpt_t1_1_score": 0.0019160184379163393,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_42d19e98-851e-4d5e-9fca-8060c1c12ed7",
+   "station_code": "DSE2",
+   "n_stops": 118,
+   "shortest_score": 0.14670100861112223,
+   "jpt_t1_1_score": 0.0060890836820438575,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_4430db80-e89c-4a32-8791-25f785fd05f4",
+   "station_code": "DSE5",
+   "n_stops": 163,
+   "shortest_score": 0.12279359351888443,
+   "jpt_t1_1_score": 0.002734386795676149,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_4497ac23-a8f7-4717-b598-47c2a72e6617",
+   "station_code": "DLA7",
+   "n_stops": 148,
+   "shortest_score": 0.04899806457815141,
+   "jpt_t1_1_score": 0.004324809613399436,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_46032303-ab9b-45de-8ebb-10596e261b3b",
+   "station_code": "DLA7",
+   "n_stops": 141,
+   "shortest_score": 0.03632804040071243,
+   "jpt_t1_1_score": 0.0034148102103865054,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_46aa4a73-b48b-4d87-a5f6-1ee4614c64d6",
+   "station_code": "DLA3",
+   "n_stops": 169,
+   "shortest_score": 0.055902654074650164,
+   "jpt_t1_1_score": 0.004319354884476171,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_4774356d-68a9-4ec9-931e-7da95882fafe",
+   "station_code": "DCH1",
+   "n_stops": 144,
+   "shortest_score": 0.07399723744332679,
+   "jpt_t1_1_score": 0.004320816777937842,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_487471cb-b4c2-4f71-a9c1-b11d7a8e8970",
+   "station_code": "DSE2",
+   "n_stops": 87,
+   "shortest_score": 0.1866091180212434,
+   "jpt_t1_1_score": 0.028710749848293898,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_48b81b0b-4502-40c8-8a0a-0e67178f1bb3",
+   "station_code": "DCH1",
+   "n_stops": 91,
+   "shortest_score": 0.06844987798328803,
+   "jpt_t1_1_score": 0.00491669650202657,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_49df3871-c437-47a2-aa71-658abcba5f9c",
+   "station_code": "DLA9",
+   "n_stops": 150,
+   "shortest_score": 0.07780492669108209,
+   "jpt_t1_1_score": 0.0098029355167348,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_4a17ea28-88d4-4437-9fd8-69b7d5c9fc9b",
+   "station_code": "DSE4",
+   "n_stops": 100,
+   "shortest_score": 0.06048735593866675,
+   "jpt_t1_1_score": 0.012211257956690178,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_4cb01a85-ffa0-45e6-b3c0-0d3dfd3374cd",
+   "station_code": "DLA3",
+   "n_stops": 66,
+   "shortest_score": 0.03632092453130148,
+   "jpt_t1_1_score": 0.0006543220635690595,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_4d258d43-b053-4f00-96ef-55bb58cca10a",
+   "station_code": "DCH4",
+   "n_stops": 162,
+   "shortest_score": 0.06696573188681654,
+   "jpt_t1_1_score": 0.006061992621533373,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_4eaa27f5-8816-4888-a7db-addf9f5d3ee0",
+   "station_code": "DLA9",
+   "n_stops": 106,
+   "shortest_score": 0.08354806184879664,
+   "jpt_t1_1_score": 0.012946112955288825,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_4fc4a782-3b1a-47d6-b512-ed239066207d",
+   "station_code": "DBO3",
+   "n_stops": 149,
+   "shortest_score": 0.05573583530874212,
+   "jpt_t1_1_score": 0.01758759822840195,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_50f8492b-1989-4643-b9cc-738ce27d791c",
+   "station_code": "DLA9",
+   "n_stops": 122,
+   "shortest_score": 0.19610167751479282,
+   "jpt_t1_1_score": 0.0409628895848977,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_50f8cb54-c9a4-470c-8e6d-634b1fea2403",
+   "station_code": "DLA9",
+   "n_stops": 152,
+   "shortest_score": 0.11667586013093535,
+   "jpt_t1_1_score": 0.0076115544863106874,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_51839f70-714c-4fe7-a1bc-73b2170c65af",
+   "station_code": "DLA9",
+   "n_stops": 117,
+   "shortest_score": 0.08081691132057665,
+   "jpt_t1_1_score": 0.004967301915185776,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_51c446dd-1dba-422c-b79c-222077f8c84a",
+   "station_code": "DSE2",
+   "n_stops": 123,
+   "shortest_score": 0.12412782604558756,
+   "jpt_t1_1_score": 0.006735799604900416,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_539bdbc0-be18-4c91-83ac-2a50726555c2",
+   "station_code": "DLA8",
+   "n_stops": 51,
+   "shortest_score": 0.06367043838286364,
+   "jpt_t1_1_score": 0.0034654852689157923,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_53c0e0a6-63af-42e1-8e18-e5d923c24a27",
+   "station_code": "DSE5",
+   "n_stops": 164,
+   "shortest_score": 0.1100284494900934,
+   "jpt_t1_1_score": 0.039849190505854996,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_554fc365-f78e-4224-8ad1-72c1bfb2e910",
+   "station_code": "DBO2",
+   "n_stops": 99,
+   "shortest_score": 0.07574429848387415,
+   "jpt_t1_1_score": 0.003061987242498595,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_55da9f43-0e5f-4d06-bdfb-9f440534fd3b",
+   "station_code": "DLA9",
+   "n_stops": 134,
+   "shortest_score": 0.12768538007362412,
+   "jpt_t1_1_score": 0.010503723201132872,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_570da705-c87e-48e4-a788-29cb7063b74d",
+   "station_code": "DLA8",
+   "n_stops": 113,
+   "shortest_score": 0.15566772085359015,
+   "jpt_t1_1_score": 0.04813558437164192,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_5737dfd0-a878-4065-96cf-fda8f6672005",
+   "station_code": "DLA7",
+   "n_stops": 192,
+   "shortest_score": 0.08531130692840685,
+   "jpt_t1_1_score": 0.0073012043296634245,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_58a6906b-aa93-4225-941e-8512c1e15aec",
+   "station_code": "DLA7",
+   "n_stops": 135,
+   "shortest_score": 0.07261719233362629,
+   "jpt_t1_1_score": 0.01188406202653112,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_59f3a83d-63b5-42fe-a18e-9eb145ef1ca1",
+   "station_code": "DAU1",
+   "n_stops": 166,
+   "shortest_score": 0.039163742277122805,
+   "jpt_t1_1_score": 0.0018480865216185536,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_5a774ce5-87f6-4a79-90dc-d89aa39ab18d",
+   "station_code": "DLA3",
+   "n_stops": 84,
+   "shortest_score": 0.08063611361790013,
+   "jpt_t1_1_score": 0.04571771530025935,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_5b0122f2-b384-4c27-adcc-8d7eb50f347f",
+   "station_code": "DSE5",
+   "n_stops": 156,
+   "shortest_score": 0.1318490827648574,
+   "jpt_t1_1_score": 0.0539689828177106,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_5b0cb784-87d6-4821-8d44-6b1807fae6e6",
+   "station_code": "DLA9",
+   "n_stops": 114,
+   "shortest_score": 0.13720444437567889,
+   "jpt_t1_1_score": 0.017350025970610316,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_5b68580f-14e4-43c5-a125-f2ca7c64fc7d",
+   "station_code": "DLA9",
+   "n_stops": 155,
+   "shortest_score": 0.08341854998815915,
+   "jpt_t1_1_score": 0.006372293895374285,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_5b7266a6-79f7-400c-b64b-111ce858665e",
+   "station_code": "DCH1",
+   "n_stops": 98,
+   "shortest_score": 0.12421837381066053,
+   "jpt_t1_1_score": 0.10369824568965248,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_5c3ebb31-030b-4c7a-8b58-8e15c5d46840",
+   "station_code": "DSE5",
+   "n_stops": 197,
+   "shortest_score": 0.14494962959379934,
+   "jpt_t1_1_score": 0.01039482225461334,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_5c41535e-faa9-4225-a030-c0221910e81d",
+   "station_code": "DLA8",
+   "n_stops": 73,
+   "shortest_score": 0.18552628091769083,
+   "jpt_t1_1_score": 0.06919776380935985,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_5dba9b23-f96d-43e7-8299-faf9036ba619",
+   "station_code": "DCH2",
+   "n_stops": 138,
+   "shortest_score": 0.16582021047109033,
+   "jpt_t1_1_score": 0.03864325198638834,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_5f5e1105-a11b-4071-8942-f16fa2e23c6b",
+   "station_code": "DLA7",
+   "n_stops": 170,
+   "shortest_score": 0.04047934442902485,
+   "jpt_t1_1_score": 0.002480771033461811,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_6017f7e8-369e-44e5-bd52-7e71e2aeb570",
+   "station_code": "DLA9",
+   "n_stops": 172,
+   "shortest_score": 0.09591480332428452,
+   "jpt_t1_1_score": 0.001423293423685613,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_603c0c32-083f-46c6-8fb1-6912811af9d0",
+   "station_code": "DLA5",
+   "n_stops": 158,
+   "shortest_score": 0.057123035540256765,
+   "jpt_t1_1_score": 0.005682713546041517,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_60a8e1b4-21a4-4dac-831b-8648ec597412",
+   "station_code": "DSE5",
+   "n_stops": 109,
+   "shortest_score": 0.0690456452925763,
+   "jpt_t1_1_score": 0.00901811614479085,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_60dfcbc6-212b-43d8-86f2-a1aeb3cb5224",
+   "station_code": "DSE4",
+   "n_stops": 98,
+   "shortest_score": 0.0474152517981908,
+   "jpt_t1_1_score": 0.04636751813856323,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_614f11dc-46cf-4c52-821d-5b65f480a87b",
+   "station_code": "DLA8",
+   "n_stops": 186,
+   "shortest_score": 0.1498993770167363,
+   "jpt_t1_1_score": 0.09928468414337704,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_6189a279-1ff6-4b08-93c3-abc0a756142f",
+   "station_code": "DLA7",
+   "n_stops": 162,
+   "shortest_score": 0.07439364824273745,
+   "jpt_t1_1_score": 0.0015593257059951986,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_6279c544-812a-41ce-bca6-18533ec9fd21",
+   "station_code": "DBO3",
+   "n_stops": 123,
+   "shortest_score": 0.04906770264443037,
+   "jpt_t1_1_score": 0.002864285147945462,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_62fe4dc5-985a-4549-8daf-61f793a5a977",
+   "station_code": "DLA9",
+   "n_stops": 167,
+   "shortest_score": 0.09695407091870652,
+   "jpt_t1_1_score": 0.003829026560418829,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_632016d6-8c03-4763-83f1-88a844b90435",
+   "station_code": "DBO2",
+   "n_stops": 177,
+   "shortest_score": 0.062403431384250516,
+   "jpt_t1_1_score": 0.0034167350224889753,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_632b4060-1b32-4b22-992f-37c6ecfb64e6",
+   "station_code": "DSE4",
+   "n_stops": 107,
+   "shortest_score": 0.03667123333520659,
+   "jpt_t1_1_score": 0.0028832959161826524,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_639c9d7e-52d4-4d01-bb56-f0b3bd81310d",
+   "station_code": "DLA7",
+   "n_stops": 175,
+   "shortest_score": 0.042214727147455555,
+   "jpt_t1_1_score": 0.02695226995487726,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_655348b1-861c-476d-9816-611f68b6bf33",
+   "station_code": "DSE4",
+   "n_stops": 137,
+   "shortest_score": 0.05702794540586276,
+   "jpt_t1_1_score": 0.009106677572354269,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_668be283-2e93-488e-9184-94c144c4a6fb",
+   "station_code": "DBO2",
+   "n_stops": 166,
+   "shortest_score": 0.04756894566779877,
+   "jpt_t1_1_score": 0.012467590374440694,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_6766813c-0c78-4cca-b196-d828aae5c20d",
+   "station_code": "DLA3",
+   "n_stops": 65,
+   "shortest_score": 0.07127309279117588,
+   "jpt_t1_1_score": 0.09138191827470903,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_68a10d5b-cee8-4b55-9dab-18492bf8e95f",
+   "station_code": "DLA8",
+   "n_stops": 88,
+   "shortest_score": 0.061808754099024046,
+   "jpt_t1_1_score": 0.002312320878872837,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_68ca27a6-7523-42af-91da-4a9376520b7d",
+   "station_code": "DLA9",
+   "n_stops": 93,
+   "shortest_score": 0.03188538868954525,
+   "jpt_t1_1_score": 0.008689647484879234,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_68ed90ff-0d3a-483f-9ac7-748340ff0f53",
+   "station_code": "DAU1",
+   "n_stops": 169,
+   "shortest_score": 0.09662458357261076,
+   "jpt_t1_1_score": 0.008491829354834047,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_6a22aca7-1631-4be6-9577-50e3ce2b0dce",
+   "station_code": "DLA9",
+   "n_stops": 126,
+   "shortest_score": 0.06923952365497427,
+   "jpt_t1_1_score": 0.02307667325004192,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_6a374555-42e8-4218-b5a5-f9abecf1caf5",
+   "station_code": "DLA7",
+   "n_stops": 160,
+   "shortest_score": 0.04700259147532535,
+   "jpt_t1_1_score": 0.004136791397600585,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_6a4796d6-8bf6-4768-95e1-98531a41b133",
+   "station_code": "DBO1",
+   "n_stops": 162,
+   "shortest_score": 0.3446026170253097,
+   "jpt_t1_1_score": 0.0604361475100545,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_6c9228bd-aa41-41b7-82fa-2b07a887feb0",
+   "station_code": "DCH3",
+   "n_stops": 176,
+   "shortest_score": 0.13612972273007504,
+   "jpt_t1_1_score": 0.03610497657571623,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_6cb9b8e2-22ed-48d1-afca-f6780757ed2c",
+   "station_code": "DSE2",
+   "n_stops": 116,
+   "shortest_score": 0.08020570137736587,
+   "jpt_t1_1_score": 0.021579454052141664,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_6cebaf24-0a39-4a6b-825e-df5e9002a1b1",
+   "station_code": "DLA8",
+   "n_stops": 49,
+   "shortest_score": 0.07240627158368368,
+   "jpt_t1_1_score": 0.04815331665006718,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_6d44a315-5559-4358-a544-cb66318f5af2",
+   "station_code": "DLA3",
+   "n_stops": 112,
+   "shortest_score": 0.09371216609008917,
+   "jpt_t1_1_score": 0.00909025218195859,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_6d725309-c249-4106-bdc1-4efcbc019f1a",
+   "station_code": "DLA7",
+   "n_stops": 143,
+   "shortest_score": 0.010372672854070114,
+   "jpt_t1_1_score": 0.006754256622804589,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_6d7ee647-cf03-41d7-aca0-4544c35f3dfe",
+   "station_code": "DLA4",
+   "n_stops": 180,
+   "shortest_score": 0.03116825595257869,
+   "jpt_t1_1_score": 0.003197110556986984,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_6d890156-0b28-4cce-bcee-560413da1678",
+   "station_code": "DBO3",
+   "n_stops": 129,
+   "shortest_score": 0.17096348243821488,
+   "jpt_t1_1_score": 0.05409227365591441,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_6e3cd387-ebc3-44bc-9b09-8f928bf36b91",
+   "station_code": "DLA8",
+   "n_stops": 109,
+   "shortest_score": 0.08880115077074933,
+   "jpt_t1_1_score": 0.053303089677672846,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_706decfb-7c3a-4b94-828e-b9116a474e2f",
+   "station_code": "DSE5",
+   "n_stops": 133,
+   "shortest_score": 0.05816888481212573,
+   "jpt_t1_1_score": 0.009330387566893444,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_70784950-d1f4-4ed0-9a77-98065c99b44a",
+   "station_code": "DLA8",
+   "n_stops": 132,
+   "shortest_score": 0.04960946037785744,
+   "jpt_t1_1_score": 0.012926984070987281,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_71d03c02-5086-4e6b-8b3d-5a6fc85e3c5e",
+   "station_code": "DSE5",
+   "n_stops": 127,
+   "shortest_score": 0.05164327181212285,
+   "jpt_t1_1_score": 0.010062867247289524,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_72e32b69-0cd1-4ca9-b784-e5c0ee6b89ca",
+   "station_code": "DCH4",
+   "n_stops": 132,
+   "shortest_score": 0.1337911299363051,
+   "jpt_t1_1_score": 0.054984915124807264,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_73ce9c8d-8fa2-4b52-87d0-632729d1cd9f",
+   "station_code": "DSE4",
+   "n_stops": 118,
+   "shortest_score": 0.052491646262105215,
+   "jpt_t1_1_score": 0.006752638759051616,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_742d9d90-6474-461e-bf35-767ca23150ff",
+   "station_code": "DLA7",
+   "n_stops": 179,
+   "shortest_score": 0.08127471091445126,
+   "jpt_t1_1_score": 0.003537243234180233,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_743d07a3-2d21-4650-ac0a-ab67069a9a5e",
+   "station_code": "DBO3",
+   "n_stops": 161,
+   "shortest_score": 0.0855418333385418,
+   "jpt_t1_1_score": 0.018150062519688856,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_7636a515-d0e8-49fa-88ee-b3f6b4c8955c",
+   "station_code": "DLA7",
+   "n_stops": 160,
+   "shortest_score": 0.02290865690735481,
+   "jpt_t1_1_score": 0.0016700723508913382,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_76a373ae-3fc3-4d8c-ad78-eb7c3a700f32",
+   "station_code": "DLA4",
+   "n_stops": 171,
+   "shortest_score": 0.0549271241755958,
+   "jpt_t1_1_score": 0.058070898304007745,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_780fa781-189d-42c7-ab4b-bc3ac946e54d",
+   "station_code": "DLA3",
+   "n_stops": 77,
+   "shortest_score": 0.06222041936292009,
+   "jpt_t1_1_score": 0.014595753864329038,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_7969ac51-06d2-4b83-8b92-cf4dbf33f529",
+   "station_code": "DAU1",
+   "n_stops": 157,
+   "shortest_score": 0.2261003737678453,
+   "jpt_t1_1_score": 0.08290388495563725,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_7a4d2ae5-8861-4f9d-a2dd-90d9c36baa3a",
+   "station_code": "DSE2",
+   "n_stops": 72,
+   "shortest_score": 0.14245842117500213,
+   "jpt_t1_1_score": 0.11105450626823438,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_7a892398-6e85-4d14-8b8b-1d1b947a6934",
+   "station_code": "DLA8",
+   "n_stops": 85,
+   "shortest_score": 0.07036072152270559,
+   "jpt_t1_1_score": 0.01352859684096796,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_7b56265a-562b-4f2b-9d70-54cbdd13df19",
+   "station_code": "DLA8",
+   "n_stops": 130,
+   "shortest_score": 0.11300971482200885,
+   "jpt_t1_1_score": 0.058190850732286845,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_7c5d2dfa-664f-4c04-aea8-878e08c92f34",
+   "station_code": "DLA8",
+   "n_stops": 147,
+   "shortest_score": 0.13833693217553977,
+   "jpt_t1_1_score": 0.007856401176405296,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_7f11ac39-2869-4017-a4dc-6757e108f1a3",
+   "station_code": "DLA9",
+   "n_stops": 124,
+   "shortest_score": 0.12250064527827836,
+   "jpt_t1_1_score": 0.033523178034368176,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_7fdfbbb9-570a-48e1-a357-401d7d059f31",
+   "station_code": "DBO3",
+   "n_stops": 127,
+   "shortest_score": 0.03513950907492665,
+   "jpt_t1_1_score": 0.0017780327502290281,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_8046007d-6606-4154-836d-9d12e5d885cf",
+   "station_code": "DBO2",
+   "n_stops": 146,
+   "shortest_score": 0.03295820107491381,
+   "jpt_t1_1_score": 0.003378957789475971,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_807d471f-2c6d-4604-9502-1636196528bc",
+   "station_code": "DLA8",
+   "n_stops": 150,
+   "shortest_score": 0.13456353890159578,
+   "jpt_t1_1_score": 0.016092943781017555,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_80b697ae-840b-4d3c-91a4-f87703fa9526",
+   "station_code": "DCH1",
+   "n_stops": 106,
+   "shortest_score": 0.023044139633403387,
+   "jpt_t1_1_score": 0.007430906637558406,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_823bedf1-e167-439e-ad35-2b526542e44c",
+   "station_code": "DLA8",
+   "n_stops": 136,
+   "shortest_score": 0.17401378750159255,
+   "jpt_t1_1_score": 0.005900127041190535,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_83d25694-9998-46f4-9a8c-c4996d6e9c83",
+   "station_code": "DBO3",
+   "n_stops": 183,
+   "shortest_score": 0.07864055730077119,
+   "jpt_t1_1_score": 0.0035964765953693423,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_84da7266-60d5-41b7-8eff-2d76b046d77f",
+   "station_code": "DCH2",
+   "n_stops": 202,
+   "shortest_score": 0.12497424193635541,
+   "jpt_t1_1_score": 0.0030347257388415056,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_8593ec14-106f-4007-8122-35f3c208ef9d",
+   "station_code": "DLA9",
+   "n_stops": 153,
+   "shortest_score": 0.09503551866152744,
+   "jpt_t1_1_score": 0.02052313855969434,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_862d7bd5-c634-412f-bc54-d701e43a978a",
+   "station_code": "DSE4",
+   "n_stops": 116,
+   "shortest_score": 0.08554419622801605,
+   "jpt_t1_1_score": 0.012741871216847942,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_86db3f92-c88d-42fc-b67b-2a67f3a5b7bc",
+   "station_code": "DLA7",
+   "n_stops": 177,
+   "shortest_score": 0.07837130855265256,
+   "jpt_t1_1_score": 0.006877034900926328,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_88c1ade9-7157-479c-9af7-b496e5fbc6f1",
+   "station_code": "DCH4",
+   "n_stops": 161,
+   "shortest_score": 0.03292562687155629,
+   "jpt_t1_1_score": 0.005968158480657971,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_893699a6-83e4-4f5d-877d-8a42767946af",
+   "station_code": "DCH3",
+   "n_stops": 194,
+   "shortest_score": 0.10063076098849925,
+   "jpt_t1_1_score": 0.002710628421790807,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_8a2245b0-5630-41fa-813c-ccae7393c460",
+   "station_code": "DSE4",
+   "n_stops": 106,
+   "shortest_score": 0.06258303930521335,
+   "jpt_t1_1_score": 0.01734448684450579,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_8a4e878d-dba9-4ca4-bbcf-2d70752ed51a",
+   "station_code": "DLA8",
+   "n_stops": 119,
+   "shortest_score": 0.155076612170717,
+   "jpt_t1_1_score": 0.003076818981566939,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_8d945c9f-bfbb-438b-9a96-c31821f28ba5",
+   "station_code": "DLA9",
+   "n_stops": 140,
+   "shortest_score": 0.07974689189295778,
+   "jpt_t1_1_score": 0.014420153672425462,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_8de6b935-071c-44c2-8b74-da0615b97e13",
+   "station_code": "DLA7",
+   "n_stops": 165,
+   "shortest_score": 0.06015294663939784,
+   "jpt_t1_1_score": 0.0021845462097003702,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_8fbd3bec-c3f6-4dfa-abf2-e9690cd9bb0c",
+   "station_code": "DLA8",
+   "n_stops": 100,
+   "shortest_score": 0.10345247930184508,
+   "jpt_t1_1_score": 0.05918325994124717,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_903821b9-3d78-4eca-a8ea-d8f6828bb194",
+   "station_code": "DCH1",
+   "n_stops": 91,
+   "shortest_score": 0.24424159618406258,
+   "jpt_t1_1_score": 0.13216587375848965,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_90b41ee2-81e3-40b1-b344-3b91a94a205a",
+   "station_code": "DLA7",
+   "n_stops": 155,
+   "shortest_score": 0.06822916930030228,
+   "jpt_t1_1_score": 0.032343680460545046,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_929e8231-a5e7-4a32-b1fd-4354cd2c0652",
+   "station_code": "DLA3",
+   "n_stops": 127,
+   "shortest_score": 0.08138342597852731,
+   "jpt_t1_1_score": 0.016305183246758524,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_934cbf65-12fa-4a3a-8b31-235cb3619d21",
+   "station_code": "DBO3",
+   "n_stops": 149,
+   "shortest_score": 0.04385514543007425,
+   "jpt_t1_1_score": 0.0016083940966277247,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_93f62547-6430-47ff-87a0-b57b819aecc7",
+   "station_code": "DLA7",
+   "n_stops": 158,
+   "shortest_score": 0.12745264774840964,
+   "jpt_t1_1_score": 0.05110979585156747,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_94ba73e6-a9fa-4f8f-a156-b939c81bd5f0",
+   "station_code": "DBO3",
+   "n_stops": 150,
+   "shortest_score": 0.043159867342735074,
+   "jpt_t1_1_score": 0.003052675477269059,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_94ce2e91-4ad9-4626-8cdc-b57b086e80a8",
+   "station_code": "DCH4",
+   "n_stops": 156,
+   "shortest_score": 0.04597816990844036,
+   "jpt_t1_1_score": 0.021564966674792845,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_9503e8df-e3ce-439a-90d2-c32719e8f1b5",
+   "station_code": "DLA7",
+   "n_stops": 143,
+   "shortest_score": 0.07371676493617471,
+   "jpt_t1_1_score": 0.008413337470269905,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_96db02dd-1036-4e8c-8e56-23bc192329f3",
+   "station_code": "DLA8",
+   "n_stops": 188,
+   "shortest_score": 0.07477974693545814,
+   "jpt_t1_1_score": 0.00155932119679228,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_98a83cb8-2498-421a-a5be-b4ccca04ac71",
+   "station_code": "DSE4",
+   "n_stops": 117,
+   "shortest_score": 0.06580226656618693,
+   "jpt_t1_1_score": 0.026773442172803443,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_99494287-3d51-424b-85da-1e7e1e92d26b",
+   "station_code": "DCH4",
+   "n_stops": 157,
+   "shortest_score": 0.04231305229345709,
+   "jpt_t1_1_score": 0.005258789978475183,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_9a036d58-5f8a-41aa-8747-d252c14783ae",
+   "station_code": "DAU1",
+   "n_stops": 115,
+   "shortest_score": 0.10484980258230417,
+   "jpt_t1_1_score": 0.09496368377656138,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_9a70b345-e627-4849-a86e-8f735c9fcbde",
+   "station_code": "DLA4",
+   "n_stops": 75,
+   "shortest_score": 0.03490001796333047,
+   "jpt_t1_1_score": 0.003105620848416662,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_9b0eadbd-5e75-4250-bc31-c3761f68baaa",
+   "station_code": "DCH3",
+   "n_stops": 184,
+   "shortest_score": 0.130030675661555,
+   "jpt_t1_1_score": 0.006470106417670381,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_9b6376d4-5875-44bb-903d-848102933439",
+   "station_code": "DSE5",
+   "n_stops": 188,
+   "shortest_score": 0.08321001041926061,
+   "jpt_t1_1_score": 0.024697617624603593,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_9de74a55-5a73-42b5-a6cc-f68ecb4cb1eb",
+   "station_code": "DLA9",
+   "n_stops": 155,
+   "shortest_score": 0.09474014802696924,
+   "jpt_t1_1_score": 0.010404937235806582,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_9e2ef94c-c40e-4107-8522-5896fe7d0bf7",
+   "station_code": "DLA7",
+   "n_stops": 142,
+   "shortest_score": 0.07670176638894043,
+   "jpt_t1_1_score": 0.008126243335377316,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_9e308b0e-9ffc-4c70-adbb-dc6c533fee0b",
+   "station_code": "DLA9",
+   "n_stops": 158,
+   "shortest_score": 0.029353954846182282,
+   "jpt_t1_1_score": 0.0029694549893506264,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_9ea87ee2-867b-4cc0-ab72-f76d8389182a",
+   "station_code": "DAU1",
+   "n_stops": 155,
+   "shortest_score": 0.05713703130551436,
+   "jpt_t1_1_score": 0.006829318478536741,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_a25e894c-ca13-4250-a074-73eaf74b86a6",
+   "station_code": "DCH3",
+   "n_stops": 182,
+   "shortest_score": 0.11824109197882719,
+   "jpt_t1_1_score": 0.06872335669907423,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_a2acb342-0937-4097-b6bc-b73e0853c4f0",
+   "station_code": "DSE4",
+   "n_stops": 149,
+   "shortest_score": 0.14242698749566868,
+   "jpt_t1_1_score": 0.016567626859640184,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_a2b555c0-3b82-4253-8f57-8bdfe9615587",
+   "station_code": "DLA3",
+   "n_stops": 100,
+   "shortest_score": 0.10423587354280592,
+   "jpt_t1_1_score": 0.03516933447499443,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_a35309e7-0b78-4837-b0e0-9da95476bc1b",
+   "station_code": "DLA8",
+   "n_stops": 142,
+   "shortest_score": 0.08424996523118303,
+   "jpt_t1_1_score": 0.023049810957385453,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_a364d61d-3b1a-4f1a-a94a-eb351a010ba3",
+   "station_code": "DCH1",
+   "n_stops": 103,
+   "shortest_score": 0.11842337865708928,
+   "jpt_t1_1_score": 0.004049252791875167,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_a42a61cc-e70f-47a1-ab7d-58c1449171a7",
+   "station_code": "DSE4",
+   "n_stops": 93,
+   "shortest_score": 0.09711976671863215,
+   "jpt_t1_1_score": 0.022475376950322888,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_a42b8fd4-4204-4095-8edb-d17d2461ce5f",
+   "station_code": "DSE5",
+   "n_stops": 84,
+   "shortest_score": 0.01591034352105783,
+   "jpt_t1_1_score": 0.005605951265723046,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_a50d3864-6dc5-468a-ac48-4242403c115d",
+   "station_code": "DLA3",
+   "n_stops": 141,
+   "shortest_score": 0.09231472511174257,
+   "jpt_t1_1_score": 0.003008572025007394,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_a5a17fad-206a-4b64-b8a0-5569aef1a587",
+   "station_code": "DLA7",
+   "n_stops": 125,
+   "shortest_score": 0.049366855488015456,
+   "jpt_t1_1_score": 0.022785503287891713,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_a6f03f03-816f-469d-b2e2-77ba2696a3ab",
+   "station_code": "DLA7",
+   "n_stops": 174,
+   "shortest_score": 0.030387630158348576,
+   "jpt_t1_1_score": 0.0030685016148807517,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_a70dc8c9-25c3-4d6b-bba7-3f27c382eb92",
+   "station_code": "DSE5",
+   "n_stops": 98,
+   "shortest_score": 0.0683712130114857,
+   "jpt_t1_1_score": 0.016248116710277836,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_a7962cc4-dc16-4cd5-bb6a-4ba6ecce0891",
+   "station_code": "DBO1",
+   "n_stops": 38,
+   "shortest_score": 0.40945109007383756,
+   "jpt_t1_1_score": 0.26153962823760146,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_a9146121-cad0-48ad-94c6-282e3866e06d",
+   "station_code": "DBO3",
+   "n_stops": 169,
+   "shortest_score": 0.06426573709797234,
+   "jpt_t1_1_score": 0.00429624699929046,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_aa0780c0-796a-4b83-a935-ccde4f1b7bff",
+   "station_code": "DBO3",
+   "n_stops": 188,
+   "shortest_score": 0.06551620299128898,
+   "jpt_t1_1_score": 0.0011772460716153155,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_ac30fdb7-71d5-4e47-a374-ac20aad7595a",
+   "station_code": "DLA7",
+   "n_stops": 182,
+   "shortest_score": 0.04450894894655713,
+   "jpt_t1_1_score": 0.002092628059867836,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_ad6d42eb-1802-4f31-97d8-ac62ecef53bc",
+   "station_code": "DLA9",
+   "n_stops": 114,
+   "shortest_score": 0.02164232820736281,
+   "jpt_t1_1_score": 0.004788191328446947,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_b2458a6c-0a7e-40c5-9645-24b4dc32e577",
+   "station_code": "DSE5",
+   "n_stops": 182,
+   "shortest_score": 0.05869576555287367,
+   "jpt_t1_1_score": 0.002597877305173905,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_b2b7bd66-04ea-410a-9d84-a0f1601ccc42",
+   "station_code": "DLA7",
+   "n_stops": 155,
+   "shortest_score": 0.04579722080772874,
+   "jpt_t1_1_score": 0.0033909746844799893,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_b461278a-5ab7-4341-9287-38a2736898c5",
+   "station_code": "DLA9",
+   "n_stops": 151,
+   "shortest_score": 0.14331262450856055,
+   "jpt_t1_1_score": 0.023912015713073293,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_b4fe359a-896c-4d0a-a5c5-32a72b35e19b",
+   "station_code": "DSE2",
+   "n_stops": 114,
+   "shortest_score": 0.09131903391274775,
+   "jpt_t1_1_score": 0.0021003767757552063,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_b6f25e23-d167-4eff-be7f-559c14f19bfb",
+   "station_code": "DLA5",
+   "n_stops": 191,
+   "shortest_score": 0.06548124061051602,
+   "jpt_t1_1_score": 0.00804718859174438,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_b8551689-1e36-46d5-a873-16c18fa4fcb8",
+   "station_code": "DLA8",
+   "n_stops": 126,
+   "shortest_score": 0.0426735726427938,
+   "jpt_t1_1_score": 0.0034329591379507578,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_b859826a-8a31-49de-9d19-95eee56595fc",
+   "station_code": "DSE4",
+   "n_stops": 79,
+   "shortest_score": 0.09519511424779963,
+   "jpt_t1_1_score": 0.02093649447278184,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_b8b4aff5-edef-4e56-8e25-c09cc6a4292b",
+   "station_code": "DBO2",
+   "n_stops": 161,
+   "shortest_score": 0.04455453134929371,
+   "jpt_t1_1_score": 0.0032208705674556097,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_b9f811b7-ae6a-428c-b8c1-1ef4a7bb0157",
+   "station_code": "DBO3",
+   "n_stops": 153,
+   "shortest_score": 0.09151003576273765,
+   "jpt_t1_1_score": 0.0017642578622758301,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_bad72dc5-6429-4772-91ab-757da8b3a43e",
+   "station_code": "DLA7",
+   "n_stops": 167,
+   "shortest_score": 0.05624433079999139,
+   "jpt_t1_1_score": 0.006485459615148171,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_bb5a6479-69f4-463f-9c1c-c3ffe79637da",
+   "station_code": "DBO3",
+   "n_stops": 159,
+   "shortest_score": 0.06551806006501548,
+   "jpt_t1_1_score": 0.016228571478632624,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_bcac0be6-69fc-4225-9e4b-a69c64019387",
+   "station_code": "DLA9",
+   "n_stops": 122,
+   "shortest_score": 0.1923204801540755,
+   "jpt_t1_1_score": 0.061418313454010144,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_bcd9cdd4-e1d0-4389-a9c2-fc95f806c3c2",
+   "station_code": "DSE4",
+   "n_stops": 109,
+   "shortest_score": 0.11842607478178427,
+   "jpt_t1_1_score": 0.038621519990583934,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_c081aa9c-dae4-43b8-93d9-45f0bdefd93e",
+   "station_code": "DSE4",
+   "n_stops": 85,
+   "shortest_score": 0.08127451741098084,
+   "jpt_t1_1_score": 0.022944659009410923,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_c1c2246c-e2b1-47fa-91a4-870cf3ab9741",
+   "station_code": "DSE4",
+   "n_stops": 155,
+   "shortest_score": 0.06183834975341628,
+   "jpt_t1_1_score": 0.0021571774765078745,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_c2673b26-e324-4aa1-8fdc-8fd3906554be",
+   "station_code": "DLA9",
+   "n_stops": 137,
+   "shortest_score": 0.11750364066560484,
+   "jpt_t1_1_score": 0.06700267989096512,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_c36c040b-43ec-41e3-aeb9-13c89132d697",
+   "station_code": "DSE4",
+   "n_stops": 166,
+   "shortest_score": 0.15541754808443267,
+   "jpt_t1_1_score": 0.04742642082022023,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_c55ec7d4-442a-44f3-9208-2881244063d8",
+   "station_code": "DLA4",
+   "n_stops": 128,
+   "shortest_score": 0.08131759890809068,
+   "jpt_t1_1_score": 0.03869883390780024,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_c58a0478-612b-46a7-9531-2802e3de5c90",
+   "station_code": "DLA3",
+   "n_stops": 168,
+   "shortest_score": 0.07849682347005309,
+   "jpt_t1_1_score": 0.002807916836278343,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_c652d0d2-1602-4c1c-aae2-88e82c41308e",
+   "station_code": "DSE5",
+   "n_stops": 110,
+   "shortest_score": 0.05897331165788124,
+   "jpt_t1_1_score": 0.010117288152126043,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_c6e3ad2f-4304-47bc-b796-c51c87836d5c",
+   "station_code": "DBO3",
+   "n_stops": 128,
+   "shortest_score": 0.07064992988972377,
+   "jpt_t1_1_score": 0.030512505668287473,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_c82b1c2f-552a-4106-adad-6f4faa0b8ebf",
+   "station_code": "DLA9",
+   "n_stops": 143,
+   "shortest_score": 0.09200922385593467,
+   "jpt_t1_1_score": 0.007318608020380433,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_c8a64c12-a2de-4915-a39c-a410d7280791",
+   "station_code": "DLA5",
+   "n_stops": 154,
+   "shortest_score": 0.09956565824789997,
+   "jpt_t1_1_score": 0.04110435311121966,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_c8a6bb25-32bd-424a-93eb-46e9261ae1e9",
+   "station_code": "DAU1",
+   "n_stops": 174,
+   "shortest_score": 0.03140187423600764,
+   "jpt_t1_1_score": 0.0613231225276371,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_ca1d3fd1-9c29-4e57-9fb7-021a548d6c5b",
+   "station_code": "DBO2",
+   "n_stops": 101,
+   "shortest_score": 0.09301105823292417,
+   "jpt_t1_1_score": 0.01523808129694836,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_cb70ef37-a11e-4c0b-9076-df5774150cc6",
+   "station_code": "DSE5",
+   "n_stops": 139,
+   "shortest_score": 0.13584298929074734,
+   "jpt_t1_1_score": 0.008763647013635495,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_cc5d533e-cfe1-4103-83ef-a8a22e28fa58",
+   "station_code": "DCH3",
+   "n_stops": 196,
+   "shortest_score": 0.055308934268302565,
+   "jpt_t1_1_score": 0.006215577980060383,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_cf0ca059-aedd-4b50-8d91-570f84f7f24d",
+   "station_code": "DBO2",
+   "n_stops": 144,
+   "shortest_score": 0.06358329961964512,
+   "jpt_t1_1_score": 0.007046128464995507,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_cfa2b03a-62d4-4bd8-844c-ac0bc7a6c374",
+   "station_code": "DLA7",
+   "n_stops": 150,
+   "shortest_score": 0.029315617659847554,
+   "jpt_t1_1_score": 0.0032143255675206404,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_d06d0524-7d44-4c08-a8f8-425ebb689dc2",
+   "station_code": "DSE4",
+   "n_stops": 161,
+   "shortest_score": 0.1066291991518584,
+   "jpt_t1_1_score": 0.002474733974322343,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_d0ac5274-5a70-41fb-a8ed-a87174714507",
+   "station_code": "DLA9",
+   "n_stops": 118,
+   "shortest_score": 0.04556370180249679,
+   "jpt_t1_1_score": 0.017812789999639724,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_d1d42acb-6707-4ee7-94fe-a976f995dad8",
+   "station_code": "DCH1",
+   "n_stops": 142,
+   "shortest_score": 0.06759101121739199,
+   "jpt_t1_1_score": 0.00903168980983992,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_d1dbf5e3-f2f5-46ec-af5e-a1c78a25c9fe",
+   "station_code": "DLA3",
+   "n_stops": 112,
+   "shortest_score": 0.08006126418669168,
+   "jpt_t1_1_score": 0.0024106089000165915,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_d4f29f26-b6a8-4d59-8bd7-3381a44fb7e7",
+   "station_code": "DCH1",
+   "n_stops": 164,
+   "shortest_score": 0.19616832366420062,
+   "jpt_t1_1_score": 0.059481284361471674,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_d535e450-b8fc-494d-8c0a-a58cd2fc511e",
+   "station_code": "DCH4",
+   "n_stops": 134,
+   "shortest_score": 0.04392716827972963,
+   "jpt_t1_1_score": 0.001251375742783764,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_d581217b-4e2d-4c71-a5b1-a636dd7d2671",
+   "station_code": "DCH4",
+   "n_stops": 144,
+   "shortest_score": 0.07726540223804762,
+   "jpt_t1_1_score": 0.026147416551818497,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_d69d964b-4932-4265-a29b-347ab098cfc3",
+   "station_code": "DLA7",
+   "n_stops": 181,
+   "shortest_score": 0.04936402058392903,
+   "jpt_t1_1_score": 0.00547156638742776,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_d6bc0daa-3c35-47d2-b87e-f72231d63921",
+   "station_code": "DLA8",
+   "n_stops": 110,
+   "shortest_score": 0.07553762042083628,
+   "jpt_t1_1_score": 0.03713702006248334,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_d77822a2-ac0f-4c1e-971a-b385e965c105",
+   "station_code": "DLA9",
+   "n_stops": 180,
+   "shortest_score": 0.06887421288561812,
+   "jpt_t1_1_score": 0.022341479231436142,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_d9187d64-1774-49f8-9427-770fe9980f96",
+   "station_code": "DCH4",
+   "n_stops": 154,
+   "shortest_score": 0.04499514009383525,
+   "jpt_t1_1_score": 0.01369482119814765,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_d9e8d1a2-f9f7-412f-a7de-db5c98c6829a",
+   "station_code": "DSE5",
+   "n_stops": 154,
+   "shortest_score": 0.1564258492262243,
+   "jpt_t1_1_score": 0.05800199829574876,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_da782367-0c28-47e1-a4fb-cf07a06a5a63",
+   "station_code": "DCH2",
+   "n_stops": 180,
+   "shortest_score": 0.03666721189184979,
+   "jpt_t1_1_score": 0.003986930065178962,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_db2fabad-18fe-4b98-a91d-dc5a0d515ad0",
+   "station_code": "DLA9",
+   "n_stops": 106,
+   "shortest_score": 0.08601351810763352,
+   "jpt_t1_1_score": 0.012518031793820359,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_dc53c3cb-27bc-4677-98cc-153fccb04bb8",
+   "station_code": "DBO2",
+   "n_stops": 108,
+   "shortest_score": 0.04335288844922229,
+   "jpt_t1_1_score": 0.0029188515057392136,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_dd5e7d77-e7d7-4e5c-b288-b3cdafcbf15e",
+   "station_code": "DSE4",
+   "n_stops": 170,
+   "shortest_score": 0.06869843688875289,
+   "jpt_t1_1_score": 0.009264478911735395,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_dd98d4f4-f0c1-4d0f-84ff-6bcfc58c55af",
+   "station_code": "DSE4",
+   "n_stops": 116,
+   "shortest_score": 0.09797672638828689,
+   "jpt_t1_1_score": 0.025323667266114746,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_de4e7693-b0a7-4ae0-9264-20448c4b1fcb",
+   "station_code": "DLA7",
+   "n_stops": 132,
+   "shortest_score": 0.137054363274396,
+   "jpt_t1_1_score": 0.03452829205498676,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_dfd8bfd6-9207-4ac6-bdb6-a197f73aac48",
+   "station_code": "DLA4",
+   "n_stops": 127,
+   "shortest_score": 0.05047752567739405,
+   "jpt_t1_1_score": 0.03671732122095436,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_e07ba9b7-5815-4e55-970e-3fec231b0c42",
+   "station_code": "DAU1",
+   "n_stops": 156,
+   "shortest_score": 0.19904417277612324,
+   "jpt_t1_1_score": 0.044625213430442144,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_e0899330-23af-4657-a36d-b4b6e76518ac",
+   "station_code": "DLA7",
+   "n_stops": 178,
+   "shortest_score": 0.039373410366332996,
+   "jpt_t1_1_score": 0.007570558927561487,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_e1265986-0d54-4398-abad-5552e64b52d7",
+   "station_code": "DCH3",
+   "n_stops": 201,
+   "shortest_score": 0.02125914216352928,
+   "jpt_t1_1_score": 0.007005338690719923,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_e164e0c7-979e-4645-83df-ea3f213578de",
+   "station_code": "DLA3",
+   "n_stops": 167,
+   "shortest_score": 0.06336414738760103,
+   "jpt_t1_1_score": 0.005386359460265615,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_e18f4d42-a31f-4b0f-b056-ecb8dae9b311",
+   "station_code": "DLA3",
+   "n_stops": 121,
+   "shortest_score": 0.15054657130410212,
+   "jpt_t1_1_score": 0.0027620606624179397,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_e2716c28-8167-45fe-9785-aa69265959e3",
+   "station_code": "DLA9",
+   "n_stops": 180,
+   "shortest_score": 0.10370541102457739,
+   "jpt_t1_1_score": 0.04153475998969312,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_e2e88910-6f84-4ee4-9738-949b5ca2f779",
+   "station_code": "DSE2",
+   "n_stops": 88,
+   "shortest_score": 0.1220436427287293,
+   "jpt_t1_1_score": 0.052397585450118654,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_e3018a84-0c6f-40c2-916c-857455e1ad90",
+   "station_code": "DSE5",
+   "n_stops": 179,
+   "shortest_score": 0.1070186093432751,
+   "jpt_t1_1_score": 0.012100991095665972,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_e5371102-1269-4302-8479-8eea3ed88694",
+   "station_code": "DLA4",
+   "n_stops": 158,
+   "shortest_score": 0.12805498953981853,
+   "jpt_t1_1_score": 0.05665129171062339,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_e59479d1-089a-434f-a597-dad05c35473d",
+   "station_code": "DBO2",
+   "n_stops": 103,
+   "shortest_score": 0.0472322049930154,
+   "jpt_t1_1_score": 0.006623224744837755,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_e5f30169-3e58-409c-bd39-25cfccfb2066",
+   "station_code": "DSE2",
+   "n_stops": 111,
+   "shortest_score": 0.09980421821147256,
+   "jpt_t1_1_score": 0.022640824280199444,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_e62f605b-2610-4e8a-add6-1c8c98f3c654",
+   "station_code": "DSE4",
+   "n_stops": 161,
+   "shortest_score": 0.1222344467235416,
+   "jpt_t1_1_score": 0.037309131162848994,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_e669cae4-1bb3-42c4-a031-49bb2c656195",
+   "station_code": "DCH2",
+   "n_stops": 186,
+   "shortest_score": 0.2035340422983395,
+   "jpt_t1_1_score": 0.024695820314800665,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_e7407307-44d1-493f-9ff0-0d9614dd31a7",
+   "station_code": "DLA9",
+   "n_stops": 156,
+   "shortest_score": 0.04697618888098248,
+   "jpt_t1_1_score": 0.0012037486847926771,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_e8344812-c989-4853-9620-8e0913229dbe",
+   "station_code": "DLA9",
+   "n_stops": 166,
+   "shortest_score": 0.10253761093902422,
+   "jpt_t1_1_score": 0.005295415477284413,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_e97b9afc-7b6d-4139-8d09-be696884e30c",
+   "station_code": "DLA8",
+   "n_stops": 144,
+   "shortest_score": 0.08728611193147724,
+   "jpt_t1_1_score": 0.007108386756961206,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_e9de5a97-feb0-406f-8e5e-b2d46307f639",
+   "station_code": "DLA3",
+   "n_stops": 172,
+   "shortest_score": 0.06271196203543666,
+   "jpt_t1_1_score": 0.005429308657085207,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_ec593c47-5eff-41f0-8083-3ca1969a111c",
+   "station_code": "DLA7",
+   "n_stops": 142,
+   "shortest_score": 0.057311628438501114,
+   "jpt_t1_1_score": 0.011820214482379198,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_ed095378-bdc1-41d3-bf83-973ae2478be0",
+   "station_code": "DLA7",
+   "n_stops": 159,
+   "shortest_score": 0.11072397416377407,
+   "jpt_t1_1_score": 0.006500998675077828,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_ed87eeb4-5688-444b-9f28-6807f8c11644",
+   "station_code": "DLA7",
+   "n_stops": 190,
+   "shortest_score": 0.13566086697824306,
+   "jpt_t1_1_score": 0.05656775291724305,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_ee701ca4-4b94-463b-98f7-383291c95d4f",
+   "station_code": "DLA3",
+   "n_stops": 131,
+   "shortest_score": 0.1277023849378969,
+   "jpt_t1_1_score": 0.0125089574561018,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_ef484716-eb04-4885-a9f9-aa23607815f0",
+   "station_code": "DLA8",
+   "n_stops": 71,
+   "shortest_score": 0.05950230998970936,
+   "jpt_t1_1_score": 0.010776395682537458,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_f15bf4dd-a792-40a5-8e05-5b7da27e68a9",
+   "station_code": "DSE4",
+   "n_stops": 193,
+   "shortest_score": 0.18645004265880247,
+   "jpt_t1_1_score": 0.05098735524498565,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_f15ead61-715c-433b-ac02-597ce9d4d537",
+   "station_code": "DSE5",
+   "n_stops": 161,
+   "shortest_score": 0.11612348507057088,
+   "jpt_t1_1_score": 0.02109849560674715,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_f2ecc08b-ec7c-4b07-96c8-7ef4db420f3d",
+   "station_code": "DCH1",
+   "n_stops": 115,
+   "shortest_score": 0.10341272940985448,
+   "jpt_t1_1_score": 0.012327899288869895,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_f3201960-b426-4c04-b0d4-05b31264a235",
+   "station_code": "DCH1",
+   "n_stops": 48,
+   "shortest_score": 0.03815053652532422,
+   "jpt_t1_1_score": 0.03256808518774325,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_f40abfd6-ca80-4f31-89ad-ba8e0f7edd38",
+   "station_code": "DSE4",
+   "n_stops": 109,
+   "shortest_score": 0.08411339465536678,
+   "jpt_t1_1_score": 0.007403709578282563,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_f545904b-087a-421f-987c-5992ca4ebbfc",
+   "station_code": "DLA8",
+   "n_stops": 135,
+   "shortest_score": 0.05274483455223899,
+   "jpt_t1_1_score": 0.004337320854617446,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_f5adea36-6273-46a5-b2d5-28cbf0f2a470",
+   "station_code": "DSE5",
+   "n_stops": 125,
+   "shortest_score": 0.008730235674154332,
+   "jpt_t1_1_score": 0.009435277460712573,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_f698c039-b7a1-4489-9638-a73f56d0f237",
+   "station_code": "DCH4",
+   "n_stops": 180,
+   "shortest_score": 0.2575573409202195,
+   "jpt_t1_1_score": 0.15493961200609968,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_f6f5d46e-5f57-4cf0-9e42-cccedfe1a1f5",
+   "station_code": "DLA8",
+   "n_stops": 159,
+   "shortest_score": 0.10927118138046835,
+   "jpt_t1_1_score": 0.006268706498686005,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_f7322384-7a5d-4379-8bff-95ad58895df0",
+   "station_code": "DCH1",
+   "n_stops": 84,
+   "shortest_score": 0.18879697336291054,
+   "jpt_t1_1_score": 0.03408169651503001,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_f8455888-f3d5-41b5-a2b3-c45715179055",
+   "station_code": "DLA7",
+   "n_stops": 156,
+   "shortest_score": 0.08059061411372763,
+   "jpt_t1_1_score": 0.007473460860527834,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_fa4a3fcc-68e7-4acd-80de-6ca4bf1b0a9f",
+   "station_code": "DLA7",
+   "n_stops": 134,
+   "shortest_score": 0.06952474009027791,
+   "jpt_t1_1_score": 0.01674131381152236,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_fa6120df-eadb-4af3-b8c8-5e887ee5d014",
+   "station_code": "DSE5",
+   "n_stops": 158,
+   "shortest_score": 0.057920603320011046,
+   "jpt_t1_1_score": 0.0029264477321879665,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_fa6abeff-7afa-44ab-a0cf-3fdbb164146c",
+   "station_code": "DCH3",
+   "n_stops": 175,
+   "shortest_score": 0.03145332834922809,
+   "jpt_t1_1_score": 0.030087641177709176,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_faaf69b7-d9da-4147-a56d-abac94a7bfba",
+   "station_code": "DCH3",
+   "n_stops": 195,
+   "shortest_score": 0.22290844329912615,
+   "jpt_t1_1_score": 0.0718544118846541,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_fb3735ff-b5e0-4936-adf2-16cde695ce45",
+   "station_code": "DLA8",
+   "n_stops": 128,
+   "shortest_score": 0.10449031460622477,
+   "jpt_t1_1_score": 0.02598973959512815,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_fb8dbc04-db2b-4ea8-a450-c3fdc8b4c906",
+   "station_code": "DBO2",
+   "n_stops": 180,
+   "shortest_score": 0.11156336102793954,
+   "jpt_t1_1_score": 0.0015141449128298894,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_fde603ec-096a-471a-802f-99ffbc9d0f41",
+   "station_code": "DCH3",
+   "n_stops": 192,
+   "shortest_score": 0.0323629766000948,
+   "jpt_t1_1_score": 0.0027416485177528508,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_fe0a61a3-1eb2-4d56-811e-cdb8168fba37",
+   "station_code": "DLA7",
+   "n_stops": 162,
+   "shortest_score": 0.05840722599717571,
+   "jpt_t1_1_score": 0.005497070904017172,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_ff6ac730-578d-4cf8-97c1-7337992e298b",
+   "station_code": "DLA7",
+   "n_stops": 172,
+   "shortest_score": 0.08311217334983861,
+   "jpt_t1_1_score": 0.009360862479187241,
+   "jpt_t1_1_feasible": true
+  },
+  {
+   "route_id": "RouteID_fff2548c-1069-4340-8e50-08420efe435d",
+   "station_code": "DLA8",
+   "n_stops": 75,
+   "shortest_score": 0.04219175526533861,
+   "jpt_t1_1_score": 0.052811162840456456,
+   "jpt_t1_1_feasible": true
+  }
+ ]
+}
