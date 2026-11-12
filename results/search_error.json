@@ -1,0 +1,2374 @@
+{
+ "targets": 234,
+ "model": "hist_high_medium",
+ "history": "full (leave-one-out)",
+ "decoders": {
+  "beam5_lambda0.5": {
+   "beam_found_driver_order": 81,
+   "search_error": 2,
+   "model_error": 151,
+   "share_search_error_of_wrong": 0.013071895424836602,
+   "share_of_total_score_on_search_error_routes": 0.011403985126631341,
+   "share_of_total_score_on_model_error_routes": 0.908700156209794,
+   "mean_score_search_error_routes": 0.038920386851552746,
+   "mean_score_model_error_routes": 0.04107656862381992,
+   "median_J_gap_search_error": 0.6245639284341005,
+   "per_route": {
+    "RouteID_00ace8b4-30c6-4a20-a723-74ece636a0da": {
+     "J_beam": -11.779769252498934,
+     "J_driver": -27.665594709420006,
+     "beam_is_driver": false
+    },
+    "RouteID_01a602f2-f834-4fd0-89b5-6835f049b19e": {
+     "J_beam": -8.153765119097267,
+     "J_driver": -8.153765119097267,
+     "beam_is_driver": true
+    },
+    "RouteID_023c04c1-4b54-46f7-8db1-f6dc945d4ead": {
+     "J_beam": -6.604466725170688,
+     "J_driver": -17.533537676671784,
+     "beam_is_driver": false
+    },
+    "RouteID_03939724-efdf-4543-aa72-4aa962860d98": {
+     "J_beam": -10.66492599213851,
+     "J_driver": -10.66492599213851,
+     "beam_is_driver": true
+    },
+    "RouteID_041cfbe9-363a-4a9f-a372-c487ca78b385": {
+     "J_beam": -7.708113199953266,
+     "J_driver": -7.708113199953266,
+     "beam_is_driver": true
+    },
+    "RouteID_05ef4a8e-61a0-4709-ac5b-fa9759c218dc": {
+     "J_beam": -10.950954335524386,
+     "J_driver": -20.429840992274972,
+     "beam_is_driver": false
+    },
+    "RouteID_05fba5e1-c96b-42af-ab1a-393d3cb31338": {
+     "J_beam": -14.169352625891795,
+     "J_driver": -26.78713110190947,
+     "beam_is_driver": false
+    },
+    "RouteID_06484cf1-d5b8-4092-831d-d2fedc88ebcd": {
+     "J_beam": -11.92763552222095,
+     "J_driver": -19.900234909776817,
+     "beam_is_driver": false
+    },
+    "RouteID_072e6491-e89f-4574-9edc-2447f558cfc7": {
+     "J_beam": -7.375389726145951,
+     "J_driver": -24.86399795559641,
+     "beam_is_driver": false
+    },
+    "RouteID_07cb4afc-be0e-4f46-afe0-aa81d527c40d": {
+     "J_beam": -7.499578381862869,
+     "J_driver": -7.499578381862869,
+     "beam_is_driver": true
+    },
+    "RouteID_087e7f16-0b04-4a0a-9799-1302a8312186": {
+     "J_beam": -5.362003417618212,
+     "J_driver": -14.856231652163213,
+     "beam_is_driver": false
+    },
+    "RouteID_08a53481-3de6-4688-ab69-b88fc2cc1d9c": {
+     "J_beam": -12.92509877501646,
+     "J_driver": -20.480257542776524,
+     "beam_is_driver": false
+    },
+    "RouteID_0ceccda6-0964-412c-a24c-6a37db035d17": {
+     "J_beam": -6.80754352815195,
+     "J_driver": -14.798507554876435,
+     "beam_is_driver": false
+    },
+    "RouteID_0e51e9ca-53a4-49cf-b5a1-93302533f2a6": {
+     "J_beam": -8.55589298595744,
+     "J_driver": -15.517082692952785,
+     "beam_is_driver": false
+    },
+    "RouteID_0e7eb7e0-86be-44a7-9c29-be110ee8bcd5": {
+     "J_beam": -13.640946528731726,
+     "J_driver": -13.640946528731726,
+     "beam_is_driver": true
+    },
+    "RouteID_0ea7aa41-f026-4aee-8379-8099b94aff6b": {
+     "J_beam": -13.335739360564471,
+     "J_driver": -28.74379678237391,
+     "beam_is_driver": false
+    },
+    "RouteID_0ea8ffd3-673d-473e-8219-382f2a88c999": {
+     "J_beam": -8.412150887085854,
+     "J_driver": -13.328360549293354,
+     "beam_is_driver": false
+    },
+    "RouteID_0f9d12ce-b419-497a-8207-ca58f7ad8771": {
+     "J_beam": -7.873410536440112,
+     "J_driver": -7.873410536440112,
+     "beam_is_driver": true
+    },
+    "RouteID_11fcf1bc-dbc0-4451-9646-009cd91672ba": {
+     "J_beam": -13.035282057645514,
+     "J_driver": -14.752376818129132,
+     "beam_is_driver": false
+    },
+    "RouteID_12e7c960-79ac-4183-96a9-23f968eb6c32": {
+     "J_beam": -9.191006649247399,
+     "J_driver": -9.191006649247399,
+     "beam_is_driver": true
+    },
+    "RouteID_13194db7-a1a0-4054-a1bc-6d586cd1eace": {
+     "J_beam": -11.78084615580959,
+     "J_driver": -12.677446213140742,
+     "beam_is_driver": false
+    },
+    "RouteID_1364e8b4-de89-475b-9e38-3486ca12934e": {
+     "J_beam": -12.399291308347397,
+     "J_driver": -12.887656895652503,
+     "beam_is_driver": false
+    },
+    "RouteID_13b3222c-93df-473e-a4bb-f46317bb9865": {
+     "J_beam": -8.507474930867442,
+     "J_driver": -9.342416044387582,
+     "beam_is_driver": false
+    },
+    "RouteID_1462e47a-5f19-48c6-8dae-965a7647f79f": {
+     "J_beam": -6.299921077973088,
+     "J_driver": -6.299921077973088,
+     "beam_is_driver": true
+    },
+    "RouteID_14e79e59-1113-4434-9211-466665e5c28b": {
+     "J_beam": -11.804335941953047,
+     "J_driver": -31.874969398754374,
+     "beam_is_driver": false
+    },
+    "RouteID_17778105-3f00-4941-8532-6b37c9eb462a": {
+     "J_beam": -10.74666019076516,
+     "J_driver": -10.74666019076516,
+     "beam_is_driver": true
+    },
+    "RouteID_17890409-6249-4e49-96e2-d42ed10444aa": {
+     "J_beam": -8.61559139559421,
+     "J_driver": -16.6400001247235,
+     "beam_is_driver": false
+    },
+    "RouteID_1978b59e-63bf-4965-99e6-2885c88b2d00": {
+     "J_beam": -8.834311557296555,
+     "J_driver": -15.575045563625544,
+     "beam_is_driver": false
+    },
+    "RouteID_19db8fb3-607f-49a0-82ae-99815d5f99bd": {
+     "J_beam": -13.34887500906238,
+     "J_driver": -16.395872982061068,
+     "beam_is_driver": false
+    },
+    "RouteID_1d25e26b-3dc3-49e7-9997-2e528cd0b234": {
+     "J_beam": -9.841789314395342,
+     "J_driver": -9.841789314395342,
+     "beam_is_driver": true
+    },
+    "RouteID_235d19db-3c94-4c84-9c5a-eb68d02db745": {
+     "J_beam": -13.901124652017279,
+     "J_driver": -20.795229764043754,
+     "beam_is_driver": false
+    },
+    "RouteID_23701972-4472-417b-b765-f179365dcda4": {
+     "J_beam": -12.863168514830415,
+     "J_driver": -18.28150277083925,
+     "beam_is_driver": false
+    },
+    "RouteID_23f8540b-c32c-40a9-81f7-dc5d00a61853": {
+     "J_beam": -5.455569064255807,
+     "J_driver": -5.455569064255807,
+     "beam_is_driver": true
+    },
+    "RouteID_252e3640-9a9e-4979-aa9d-37346d872352": {
+     "J_beam": -8.54679596904014,
+     "J_driver": -8.54679596904014,
+     "beam_is_driver": true
+    },
+    "RouteID_26982664-0e33-4ac8-97e0-d1bac514c109": {
+     "J_beam": -7.313850782860365,
+     "J_driver": -17.923417844990897,
+     "beam_is_driver": false
+    },
+    "RouteID_280ce5c1-9aec-481a-a318-9171b0283ec7": {
+     "J_beam": -9.843736056580594,
+     "J_driver": -38.54244645631247,
+     "beam_is_driver": false
+    },
+    "RouteID_28b8c8d6-e3fb-4e42-82d9-fbca52be6548": {
+     "J_beam": -18.43177525316045,
+     "J_driver": -23.565142285837897,
+     "beam_is_driver": false
+    },
+    "RouteID_29965a6e-db89-4ecb-a264-93446766664d": {
+     "J_beam": -21.06324007693291,
+     "J_driver": -38.84280083938645,
+     "beam_is_driver": false
+    },
+    "RouteID_2a68954f-aeb1-4351-94a3-2237f19f1ac9": {
+     "J_beam": -8.196680895848795,
+     "J_driver": -12.590617999075,
+     "beam_is_driver": false
+    },
+    "RouteID_2a8ca95a-19c2-4f43-a2aa-8ccc01db4745": {
+     "J_beam": -10.718736899687851,
+     "J_driver": -18.732101345959606,
+     "beam_is_driver": false
+    },
+    "RouteID_2b066fae-9bd4-4dfb-8d31-ade73671bc50": {
+     "J_beam": -14.378021227346558,
+     "J_driver": -16.599237155444566,
+     "beam_is_driver": false
+    },
+    "RouteID_2b242e5d-aedf-400e-8cf8-f9ac000c1f29": {
+     "J_beam": -5.224773758822678,
+     "J_driver": -11.760568692615767,
+     "beam_is_driver": false
+    },
+    "RouteID_2b52633e-6b57-431f-9213-c8614105b120": {
+     "J_beam": -10.591407419593084,
+     "J_driver": -11.863398387289848,
+     "beam_is_driver": false
+    },
+    "RouteID_2d9ca2fc-5720-4cba-9997-c912b7c85c74": {
+     "J_beam": -12.522777820770798,
+     "J_driver": -17.49574880532589,
+     "beam_is_driver": false
+    },
+    "RouteID_2daf76cc-2b1a-4c42-86a0-e0b9ff042959": {
+     "J_beam": -12.260818190084064,
+     "J_driver": -18.799423804911733,
+     "beam_is_driver": false
+    },
+    "RouteID_2f76393e-948c-4fd3-94d8-3b0179aca9a4": {
+     "J_beam": -10.462200785741592,
+     "J_driver": -43.228521908674836,
+     "beam_is_driver": false
+    },
+    "RouteID_2f88e172-2bcb-42e4-8a3f-b41e6b5f1b1f": {
+     "J_beam": -7.3034163674549735,
+     "J_driver": -7.3034163674549735,
+     "beam_is_driver": true
+    },
+    "RouteID_30425aa3-2cb4-4e6c-afa8-0c67ee3f48cb": {
+     "J_beam": -8.196889216122814,
+     "J_driver": -9.168202251297942,
+     "beam_is_driver": false
+    },
+    "RouteID_30da62e8-2411-4b93-a707-6f7e2ad804b3": {
+     "J_beam": -9.050845422405942,
+     "J_driver": -9.050845422405942,
+     "beam_is_driver": true
+    },
+    "RouteID_312a4874-8c6d-48ee-b3f9-2d1138d04bcf": {
+     "J_beam": -10.145677732350983,
+     "J_driver": -17.207485660347537,
+     "beam_is_driver": false
+    },
+    "RouteID_31903cb5-e21e-41a2-9232-b6462f1f9d23": {
+     "J_beam": -9.622775310942185,
+     "J_driver": -9.622775310942185,
+     "beam_is_driver": true
+    },
+    "RouteID_3371790e-acf0-44d7-9291-787cb67b499f": {
+     "J_beam": -6.581047731977153,
+     "J_driver": -6.581047731977153,
+     "beam_is_driver": true
+    },
+    "RouteID_34261e1b-03b5-4ac0-81b1-bee1e06c035d": {
+     "J_beam": -8.768687340092413,
+     "J_driver": -8.768687340092413,
+     "beam_is_driver": true
+    },
+    "RouteID_35648cd4-4a82-440a-8183-70da74410ddf": {
+     "J_beam": -7.787638092001696,
+     "J_driver": -7.787638092001696,
+     "beam_is_driver": true
+    },
+    "RouteID_36cc3e07-cc8e-432b-9f63-85d0bc23ac79": {
+     "J_beam": -10.980016157889938,
+     "J_driver": -11.377875306433358,
+     "beam_is_driver": false
+    },
+    "RouteID_3705a456-1cd9-49de-9651-bed8bf6ae7e9": {
+     "J_beam": -8.56051156715546,
+     "J_driver": -10.537752026168162,
+     "beam_is_driver": false
+    },
+    "RouteID_390f5c8d-b355-45bf-a3d5-202ad6481475": {
+     "J_beam": -15.006237491486544,
+     "J_driver": -35.6008485233864,
+     "beam_is_driver": false
+    },
+    "RouteID_3a6f0f3d-5e1a-49a3-acf7-3b5f92d93c96": {
+     "J_beam": -8.554924291561422,
+     "J_driver": -20.626630147180954,
+     "beam_is_driver": false
+    },
+    "RouteID_3c896b9d-349b-4324-a32d-c8c4d8dff7e7": {
+     "J_beam": -13.864354189772191,
+     "J_driver": -29.03452657524704,
+     "beam_is_driver": false
+    },
+    "RouteID_3c983c94-8f7f-4f13-b516-2a75947e8781": {
+     "J_beam": -10.488412655348094,
+     "J_driver": -16.21671866459221,
+     "beam_is_driver": false
+    },
+    "RouteID_3d5834b5-0ab7-4c67-9522-a287b478370c": {
+     "J_beam": -11.329441967187575,
+     "J_driver": -15.021435944792012,
+     "beam_is_driver": false
+    },
+    "RouteID_3d5ccabe-26ed-48b9-91d3-d0358b46f348": {
+     "J_beam": -8.998393363453864,
+     "J_driver": -11.808632666066874,
+     "beam_is_driver": false
+    },
+    "RouteID_3e75fb55-5471-4c9e-a709-e09b279d9ad9": {
+     "J_beam": -5.987762098805532,
+     "J_driver": -14.255827178038423,
+     "beam_is_driver": false
+    },
+    "RouteID_3eaab78f-ddcd-4738-9991-0210ffbaedf9": {
+     "J_beam": -8.972027455995875,
+     "J_driver": -8.972027455995875,
+     "beam_is_driver": true
+    },
+    "RouteID_3eda9108-78a6-44f9-9f72-d3344b45f5c0": {
+     "J_beam": -8.581966338597153,
+     "J_driver": -8.581966338597153,
+     "beam_is_driver": true
+    },
+    "RouteID_416921e2-b706-47e7-9de8-c2ada3fea9b7": {
+     "J_beam": -19.02594681710173,
+     "J_driver": -33.89832949916632,
+     "beam_is_driver": false
+    },
+    "RouteID_416dc2f1-1697-4443-ab4a-755a89b78499": {
+     "J_beam": -21.499927568011604,
+     "J_driver": -35.676989725875075,
+     "beam_is_driver": false
+    },
+    "RouteID_4295ab5a-c8ab-4823-9115-f5f409368705": {
+     "J_beam": -7.861224044684919,
+     "J_driver": -7.861224044684919,
+     "beam_is_driver": true
+    },
+    "RouteID_43ddc48b-f428-44aa-8c4e-a68545d0bb6d": {
+     "J_beam": -10.837307212588424,
+     "J_driver": -23.241322771038774,
+     "beam_is_driver": false
+    },
+    "RouteID_447e725b-f364-4292-8e11-fc3c5f2bf86f": {
+     "J_beam": -7.957338583339661,
+     "J_driver": -8.86072826122541,
+     "beam_is_driver": false
+    },
+    "RouteID_450e7d9a-fa77-40e5-ac6c-4971f79e7ab4": {
+     "J_beam": -6.950064126742896,
+     "J_driver": -22.838036311582925,
+     "beam_is_driver": false
+    },
+    "RouteID_47805220-642f-4293-bc20-bf3a1c4f5b24": {
+     "J_beam": -9.960018534791459,
+     "J_driver": -9.960018534791459,
+     "beam_is_driver": true
+    },
+    "RouteID_47bfbc99-9703-4e42-9e6e-ed6164522653": {
+     "J_beam": -5.947993535931163,
+     "J_driver": -5.947993535931163,
+     "beam_is_driver": true
+    },
+    "RouteID_4876274c-ac2a-4d5f-a1d3-e0879352ccf1": {
+     "J_beam": -10.093166784409227,
+     "J_driver": -10.093166784409227,
+     "beam_is_driver": true
+    },
+    "RouteID_4893f932-c8d5-4f01-80d9-b3e4c0e16fdc": {
+     "J_beam": -11.133178661983578,
+     "J_driver": -16.445204846687876,
+     "beam_is_driver": false
+    },
+    "RouteID_48e08959-987e-4746-bf10-3eb08ca299d5": {
+     "J_beam": -7.506602856174732,
+     "J_driver": -7.506602856174732,
+     "beam_is_driver": true
+    },
+    "RouteID_4b2c6211-0573-4c7e-840d-c2e8b1db468f": {
+     "J_beam": -10.348503388553079,
+     "J_driver": -12.872194148302253,
+     "beam_is_driver": false
+    },
+    "RouteID_4c7ff8bc-4533-448b-a253-0c502571ec76": {
+     "J_beam": -5.034947721725839,
+     "J_driver": -5.034947721725839,
+     "beam_is_driver": true
+    },
+    "RouteID_4d5d2a1d-dbf2-421c-81be-577e95c723b9": {
+     "J_beam": -12.301346874059782,
+     "J_driver": -17.262711428417564,
+     "beam_is_driver": false
+    },
+    "RouteID_4de283f3-bf15-4b42-b48c-52cf20d11db8": {
+     "J_beam": -11.71506988163765,
+     "J_driver": -18.15586629532323,
+     "beam_is_driver": false
+    },
+    "RouteID_4e52b964-70f4-4f90-a388-24ec1fc89c54": {
+     "J_beam": -14.318813821557596,
+     "J_driver": -17.52433865199252,
+     "beam_is_driver": false
+    },
+    "RouteID_4e52e108-9f9f-4c23-ad03-de78121daa38": {
+     "J_beam": -12.599235682299897,
+     "J_driver": -12.599235682299897,
+     "beam_is_driver": true
+    },
+    "RouteID_5331cad2-f5bb-4a38-a174-fc11d3078ca0": {
+     "J_beam": -10.247603632937095,
+     "J_driver": -10.247603632937095,
+     "beam_is_driver": true
+    },
+    "RouteID_54bce2b9-20bc-42eb-85da-391874835204": {
+     "J_beam": -11.762547582947176,
+     "J_driver": -11.762547582947176,
+     "beam_is_driver": true
+    },
+    "RouteID_559b59f7-ca9e-46b3-ab04-28c7c2007740": {
+     "J_beam": -9.137717340005215,
+     "J_driver": -9.137717340005215,
+     "beam_is_driver": true
+    },
+    "RouteID_57a142df-26e1-481d-8f99-2c43808c161e": {
+     "J_beam": -7.956642458703537,
+     "J_driver": -7.956642458703537,
+     "beam_is_driver": true
+    },
+    "RouteID_57cccf5b-1467-4c71-830c-7343c2098224": {
+     "J_beam": -8.165224215090108,
+     "J_driver": -18.108987087937997,
+     "beam_is_driver": false
+    },
+    "RouteID_59abfaad-3d5b-46f0-a8b7-6e2889b17235": {
+     "J_beam": -6.6918422572237555,
+     "J_driver": -6.6918422572237555,
+     "beam_is_driver": true
+    },
+    "RouteID_5a6f3943-d3c0-4b2e-9717-03a32d8a89be": {
+     "J_beam": -11.840452698372953,
+     "J_driver": -11.840452698372953,
+     "beam_is_driver": true
+    },
+    "RouteID_5ac1990e-8811-4228-87bc-0be7abb764ca": {
+     "J_beam": -12.900512551100332,
+     "J_driver": -19.96815080251426,
+     "beam_is_driver": false
+    },
+    "RouteID_5d3893c7-c410-486c-8f51-42f70942c376": {
+     "J_beam": -12.430985733584825,
+     "J_driver": -40.13837065506381,
+     "beam_is_driver": false
+    },
+    "RouteID_5ee528fb-5046-4f84-9d0a-f7cc827c87fa": {
+     "J_beam": -7.480884971334845,
+     "J_driver": -15.457330461999913,
+     "beam_is_driver": false
+    },
+    "RouteID_5f33ca96-22df-479a-a48b-6935b7349b88": {
+     "J_beam": -9.176914261181322,
+     "J_driver": -9.176914261181322,
+     "beam_is_driver": true
+    },
+    "RouteID_5f8d9c67-df02-453d-93d2-429a2c21a2c1": {
+     "J_beam": -7.722255514628507,
+     "J_driver": -9.44048860570035,
+     "beam_is_driver": false
+    },
+    "RouteID_5ff865d3-ccd5-4764-ace6-cbc794511d89": {
+     "J_beam": -14.18114283028338,
+     "J_driver": -30.06087120749588,
+     "beam_is_driver": false
+    },
+    "RouteID_603e83cc-2971-47a7-8595-ad2b14c394b4": {
+     "J_beam": -4.393252407003778,
+     "J_driver": -4.393252407003778,
+     "beam_is_driver": true
+    },
+    "RouteID_6077d00f-3b0c-4ba9-827f-fd279d2994ea": {
+     "J_beam": -12.044906062782267,
+     "J_driver": -15.331877002818974,
+     "beam_is_driver": false
+    },
+    "RouteID_6151ed34-9a5b-401e-9317-305862a35a23": {
+     "J_beam": -12.054891171278271,
+     "J_driver": -12.054891171278271,
+     "beam_is_driver": true
+    },
+    "RouteID_619e93e8-a889-41c1-86ae-d74142fcb685": {
+     "J_beam": -11.656825512385112,
+     "J_driver": -13.0931007205686,
+     "beam_is_driver": false
+    },
+    "RouteID_62b58454-1885-49b5-b70a-2108768f7969": {
+     "J_beam": -10.689580446642024,
+     "J_driver": -20.288425427054946,
+     "beam_is_driver": false
+    },
+    "RouteID_646519c0-65f0-4026-9462-803f10a307ab": {
+     "J_beam": -11.431853450269317,
+     "J_driver": -21.41312401939607,
+     "beam_is_driver": false
+    },
+    "RouteID_65a336ab-f388-4cdb-9d5a-23bbd388553e": {
+     "J_beam": -7.609385094867958,
+     "J_driver": -9.867421120778312,
+     "beam_is_driver": false
+    },
+    "RouteID_6626f3dd-d391-4fa7-8313-687ac7b86524": {
+     "J_beam": -7.659869251647867,
+     "J_driver": -13.258671145216644,
+     "beam_is_driver": false
+    },
+    "RouteID_66bb397a-ddb9-47cf-a641-099c0aeff0d1": {
+     "J_beam": -11.776688529231475,
+     "J_driver": -11.776688529231475,
+     "beam_is_driver": true
+    },
+    "RouteID_673568ec-249b-434a-9826-1ad7aa20964f": {
+     "J_beam": -11.487206013662464,
+     "J_driver": -21.307796287500345,
+     "beam_is_driver": false
+    },
+    "RouteID_67a8f48a-12e8-49e2-bac5-543f30c0eb7e": {
+     "J_beam": -8.938622201447162,
+     "J_driver": -8.938622201447162,
+     "beam_is_driver": true
+    },
+    "RouteID_685d8874-3d43-44d6-916b-e4609357ecef": {
+     "J_beam": -9.224528129973464,
+     "J_driver": -12.143600547067777,
+     "beam_is_driver": false
+    },
+    "RouteID_694eaff2-fdf7-41f4-b321-02d6914e8ef6": {
+     "J_beam": -12.70471107190041,
+     "J_driver": -12.70471107190041,
+     "beam_is_driver": true
+    },
+    "RouteID_6a109849-1503-4d1d-9c19-1178be36e33f": {
+     "J_beam": -4.9828521547048865,
+     "J_driver": -4.9828521547048865,
+     "beam_is_driver": true
+    },
+    "RouteID_6a9c1f38-804e-4808-a5bf-284ad5fd3997": {
+     "J_beam": -9.517992028472205,
+     "J_driver": -9.517992028472205,
+     "beam_is_driver": true
+    },
+    "RouteID_6ad84afa-b546-4ca1-a749-6373d5fc5fd2": {
+     "J_beam": -11.726216679121233,
+     "J_driver": -11.726216679121233,
+     "beam_is_driver": true
+    },
+    "RouteID_6b308348-39e6-45d8-8621-7cf8efaeae0f": {
+     "J_beam": -5.986559410752534,
+     "J_driver": -5.986559410752534,
+     "beam_is_driver": true
+    },
+    "RouteID_6c52ac4e-f0c3-4719-8350-a095dc382381": {
+     "J_beam": -11.532111854875014,
+     "J_driver": -22.697741563085096,
+     "beam_is_driver": false
+    },
+    "RouteID_6c816d5b-4c14-44f1-9857-910f657011a4": {
+     "J_beam": -12.853776804118835,
+     "J_driver": -40.89128376481955,
+     "beam_is_driver": false
+    },
+    "RouteID_6db9f2fd-6d04-4c84-bfd5-10756d15b3ec": {
+     "J_beam": -18.40925076425986,
+     "J_driver": -26.57341939760897,
+     "beam_is_driver": false
+    },
+    "RouteID_6ff94b76-44d6-4888-9bbd-64fb2bc870e8": {
+     "J_beam": -8.616597937056758,
+     "J_driver": -8.616597937056758,
+     "beam_is_driver": true
+    },
+    "RouteID_71333e16-54d5-439e-8cb3-a1873a73d5ea": {
+     "J_beam": -7.139415824102194,
+     "J_driver": -7.139415824102194,
+     "beam_is_driver": true
+    },
+    "RouteID_7253629e-46d5-4dbb-a9dc-6c8b4ccb0213": {
+     "J_beam": -12.067063674260098,
+     "J_driver": -12.968362040205522,
+     "beam_is_driver": false
+    },
+    "RouteID_7397c9e0-398f-4b82-9c13-d109db3f5002": {
+     "J_beam": -10.193243933088445,
+     "J_driver": -10.193243933088445,
+     "beam_is_driver": true
+    },
+    "RouteID_7520b1df-2c96-4f31-b9c5-92aa7384cf3f": {
+     "J_beam": -8.54739383476199,
+     "J_driver": -8.54739383476199,
+     "beam_is_driver": true
+    },
+    "RouteID_76b89367-4e74-4dbf-8478-0f6558bacfab": {
+     "J_beam": -9.108365348238033,
+     "J_driver": -14.123856136363496,
+     "beam_is_driver": false
+    },
+    "RouteID_77628ff3-0743-4d71-9dda-9cc81b6ffd76": {
+     "J_beam": -6.230087458489542,
+     "J_driver": -6.230087458489542,
+     "beam_is_driver": true
+    },
+    "RouteID_79e529ac-83b8-4ef2-8d48-2f76ced3838a": {
+     "J_beam": -9.719814103678658,
+     "J_driver": -17.937753526908498,
+     "beam_is_driver": false
+    },
+    "RouteID_7a392304-fabd-403f-9932-9eb6416472cf": {
+     "J_beam": -5.926359134574555,
+     "J_driver": -5.926359134574555,
+     "beam_is_driver": true
+    },
+    "RouteID_7a8bcea6-0797-4053-a3a9-c22118f43ec7": {
+     "J_beam": -9.565792795765951,
+     "J_driver": -9.565792795765951,
+     "beam_is_driver": true
+    },
+    "RouteID_7b0d7185-1024-4504-b2ec-75dbd37f162f": {
+     "J_beam": -7.118352405636665,
+     "J_driver": -7.118352405636665,
+     "beam_is_driver": true
+    },
+    "RouteID_7bc86110-9ac0-4998-99b2-89e4ed99c43d": {
+     "J_beam": -8.205266387338181,
+     "J_driver": -8.246997808146658,
+     "beam_is_driver": false
+    },
+    "RouteID_7be1baab-d4d0-4d74-aec3-4292ee38c71f": {
+     "J_beam": -10.791990148298357,
+     "J_driver": -11.753879870372462,
+     "beam_is_driver": false
+    },
+    "RouteID_7c97d3b1-499f-47da-adb9-7ec57b0758d4": {
+     "J_beam": -8.505163751431118,
+     "J_driver": -8.505163751431118,
+     "beam_is_driver": true
+    },
+    "RouteID_7cb2c8fc-51c1-4b47-a0e2-fa100742453b": {
+     "J_beam": -11.379141222428208,
+     "J_driver": -11.379141222428208,
+     "beam_is_driver": true
+    },
+    "RouteID_7e6adb6c-46f9-4cc3-af29-f711e487993c": {
+     "J_beam": -8.822160590785629,
+     "J_driver": -9.629912771395052,
+     "beam_is_driver": false
+    },
+    "RouteID_802f4be2-5eb9-462f-bd37-d8fbe088208a": {
+     "J_beam": -9.358233097098385,
+     "J_driver": -9.358233097098385,
+     "beam_is_driver": true
+    },
+    "RouteID_80891d87-8dcc-48d0-85cb-b4c14073b29f": {
+     "J_beam": -17.33987555885561,
+     "J_driver": -41.54623968152178,
+     "beam_is_driver": false
+    },
+    "RouteID_813f7d17-603b-4492-8bed-043629e4811b": {
+     "J_beam": -12.20772193036871,
+     "J_driver": -21.564587888483587,
+     "beam_is_driver": false
+    },
+    "RouteID_82802535-0704-4244-8b3c-af7fa10d2727": {
+     "J_beam": -9.25553362423492,
+     "J_driver": -11.447728076563173,
+     "beam_is_driver": false
+    },
+    "RouteID_845480b2-b2f9-4953-9c39-5f856ef1e523": {
+     "J_beam": -9.637867361257058,
+     "J_driver": -13.57406815812936,
+     "beam_is_driver": false
+    },
+    "RouteID_86b98121-d379-4018-8aa9-2332d77c0b61": {
+     "J_beam": -10.382231757608944,
+     "J_driver": -25.72189104795334,
+     "beam_is_driver": false
+    },
+    "RouteID_8b1ac997-8fb4-4db3-a8fe-c7ec5acbbbfd": {
+     "J_beam": -6.8893064795422685,
+     "J_driver": -23.9412146347174,
+     "beam_is_driver": false
+    },
+    "RouteID_8b8d8f6e-5912-43cd-85f5-3c83910e1b45": {
+     "J_beam": -6.125069025283093,
+     "J_driver": -6.125069025283093,
+     "beam_is_driver": true
+    },
+    "RouteID_8d46bdb6-ea28-4404-a127-3b6fd77a3a74": {
+     "J_beam": -12.150291565647816,
+     "J_driver": -12.150291565647816,
+     "beam_is_driver": true
+    },
+    "RouteID_8fbf3282-5e52-4cc0-80c9-29c0e9d533c3": {
+     "J_beam": -9.25174510718911,
+     "J_driver": -16.9139391689105,
+     "beam_is_driver": false
+    },
+    "RouteID_9104c499-6c84-4709-8bdc-3ca9be8acd88": {
+     "J_beam": -8.597026785789204,
+     "J_driver": -8.597026785789204,
+     "beam_is_driver": true
+    },
+    "RouteID_9149675b-2385-4661-a810-7563f1b9cfbb": {
+     "J_beam": -12.900305228847111,
+     "J_driver": -22.57186045613916,
+     "beam_is_driver": false
+    },
+    "RouteID_93ccb968-fe5f-45ab-9dab-2962643af1c4": {
+     "J_beam": -12.667758618526838,
+     "J_driver": -14.08547540770137,
+     "beam_is_driver": false
+    },
+    "RouteID_99120b29-3e26-4f27-8e1e-9f250a83765f": {
+     "J_beam": -10.710054001620893,
+     "J_driver": -18.743463831015237,
+     "beam_is_driver": false
+    },
+    "RouteID_99822dcb-a1a2-421b-93e6-5387a43f71aa": {
+     "J_beam": -12.286782214824688,
+     "J_driver": -22.814539327436304,
+     "beam_is_driver": false
+    },
+    "RouteID_9ad313b6-a47d-4df1-8117-b1dce631923c": {
+     "J_beam": -10.78851698652409,
+     "J_driver": -24.19542187672912,
+     "beam_is_driver": false
+    },
+    "RouteID_9b80b40b-9428-46ec-9af7-1ffca3fc8b3f": {
+     "J_beam": -14.684276354154864,
+     "J_driver": -34.84842074360151,
+     "beam_is_driver": false
+    },
+    "RouteID_9cfa02c6-2d81-42ec-9448-b7696f54cf39": {
+     "J_beam": -14.078321287842542,
+     "J_driver": -22.47579189349363,
+     "beam_is_driver": false
+    },
+    "RouteID_9d2f6607-a587-4c79-80ce-a533e442c17d": {
+     "J_beam": -8.83860579402448,
+     "J_driver": -8.83860579402448,
+     "beam_is_driver": true
+    },
+    "RouteID_9d32cf08-04c0-4105-8d71-081fa5066e06": {
+     "J_beam": -9.188963678369122,
+     "J_driver": -27.66728702773128,
+     "beam_is_driver": false
+    },
+    "RouteID_9dbeee2b-07a9-4cbc-8a38-df0b916ceae8": {
+     "J_beam": -8.104369339760241,
+     "J_driver": -8.104369339760241,
+     "beam_is_driver": true
+    },
+    "RouteID_a0cc48df-4770-4eb9-8062-c1fd0882ce17": {
+     "J_beam": -11.379179810714202,
+     "J_driver": -37.168950295116765,
+     "beam_is_driver": false
+    },
+    "RouteID_a4272688-1fb9-4e59-bf27-281a6cfae1f8": {
+     "J_beam": -7.324078648085237,
+     "J_driver": -14.701509815912933,
+     "beam_is_driver": false
+    },
+    "RouteID_a52fd1b0-ca6c-4c30-abeb-e799f4e595b8": {
+     "J_beam": -12.187343846744387,
+     "J_driver": -25.986724126427085,
+     "beam_is_driver": false
+    },
+    "RouteID_a662b5a7-35ce-44ea-865e-7fde403073cf": {
+     "J_beam": -9.373436959005023,
+     "J_driver": -12.506592295391377,
+     "beam_is_driver": false
+    },
+    "RouteID_a71855e0-a9d2-4814-8228-81183022973a": {
+     "J_beam": -7.154092703313089,
+     "J_driver": -8.898223215367302,
+     "beam_is_driver": false
+    },
+    "RouteID_a9269af9-2698-4ff0-b768-4992a5df3056": {
+     "J_beam": -8.558620225459109,
+     "J_driver": -14.83733577381344,
+     "beam_is_driver": false
+    },
+    "RouteID_a9e7a704-4d21-483a-a475-db5a6ccb4e71": {
+     "J_beam": -10.617805784349274,
+     "J_driver": -17.922870576096344,
+     "beam_is_driver": false
+    },
+    "RouteID_aa3115a8-f9b9-4bcf-8f68-7b3f5d2383a1": {
+     "J_beam": -12.21607478540187,
+     "J_driver": -24.4372042352225,
+     "beam_is_driver": false
+    },
+    "RouteID_ab5a6947-06f4-4ea1-b4a4-ceaf94f1f3e2": {
+     "J_beam": -9.388290519703633,
+     "J_driver": -9.994127179776077,
+     "beam_is_driver": false
+    },
+    "RouteID_ae280908-b8e6-4116-a611-e08105eb4539": {
+     "J_beam": -9.918298234237021,
+     "J_driver": -9.918298234237021,
+     "beam_is_driver": true
+    },
+    "RouteID_af05f0fe-5be9-47e4-8280-c1c94d3e58b2": {
+     "J_beam": -10.326935922336995,
+     "J_driver": -10.237040195762452,
+     "beam_is_driver": false
+    },
+    "RouteID_b2621a10-ff30-47fc-a516-fd87f9986f29": {
+     "J_beam": -14.815953934504563,
+     "J_driver": -38.627182503969884,
+     "beam_is_driver": false
+    },
+    "RouteID_b290fc65-b37a-4c7a-b5b4-1c0b8b5a3a52": {
+     "J_beam": -10.522447103156932,
+     "J_driver": -22.460183141244997,
+     "beam_is_driver": false
+    },
+    "RouteID_b3d7c595-bb83-4e23-a4b2-7318b23429f5": {
+     "J_beam": -10.0315063379912,
+     "J_driver": -10.0315063379912,
+     "beam_is_driver": true
+    },
+    "RouteID_b3f46cf2-5257-49ac-84bb-744a4a52d2b7": {
+     "J_beam": -16.036375320045,
+     "J_driver": -48.822104069143286,
+     "beam_is_driver": false
+    },
+    "RouteID_b4e3992d-6211-415f-b416-94ec8810bcd9": {
+     "J_beam": -9.750470088733314,
+     "J_driver": -19.934171688771457,
+     "beam_is_driver": false
+    },
+    "RouteID_b747ad9e-58bb-4bb4-9cc1-d846de9c086b": {
+     "J_beam": -8.038286364229535,
+     "J_driver": -8.038286364229535,
+     "beam_is_driver": true
+    },
+    "RouteID_b8e412d2-4825-42b1-95aa-4023a696e060": {
+     "J_beam": -10.963124211710044,
+     "J_driver": -10.963124211710044,
+     "beam_is_driver": true
+    },
+    "RouteID_b96d085c-9a67-45dc-bd54-26cca0df29d0": {
+     "J_beam": -12.16942752639505,
+     "J_driver": -12.16942752639505,
+     "beam_is_driver": true
+    },
+    "RouteID_b9713e55-1c18-49e1-86ca-6d0222c12cd2": {
+     "J_beam": -9.26012829223334,
+     "J_driver": -13.125064524703346,
+     "beam_is_driver": false
+    },
+    "RouteID_bc1abca2-b71d-4f7d-acc4-c558535d9da7": {
+     "J_beam": -8.052372346058215,
+     "J_driver": -16.862032206054014,
+     "beam_is_driver": false
+    },
+    "RouteID_bcdecdc9-5580-4cd2-90d0-f06c1062692c": {
+     "J_beam": -9.807936008983567,
+     "J_driver": -14.966155517955984,
+     "beam_is_driver": false
+    },
+    "RouteID_bf0bbf2a-46e8-46f2-b68b-1fa591f636e7": {
+     "J_beam": -6.031286654669949,
+     "J_driver": -13.641685768671492,
+     "beam_is_driver": false
+    },
+    "RouteID_bfe4ee11-d28b-4289-a2aa-ea3709504c1e": {
+     "J_beam": -5.823566672042475,
+     "J_driver": -5.823566672042475,
+     "beam_is_driver": true
+    },
+    "RouteID_c0538d99-05d1-436b-b0aa-efe26603d606": {
+     "J_beam": -10.758763875972345,
+     "J_driver": -13.41021461750571,
+     "beam_is_driver": false
+    },
+    "RouteID_c0ececde-1d42-4427-ae43-b7e8508a9f4c": {
+     "J_beam": -15.099658361676198,
+     "J_driver": -22.535391655396467,
+     "beam_is_driver": false
+    },
+    "RouteID_c21a80c8-3bf6-479e-88a3-a17981b1fb16": {
+     "J_beam": -10.262441439190608,
+     "J_driver": -10.262441439190608,
+     "beam_is_driver": true
+    },
+    "RouteID_c24b572b-b38e-48db-a231-3058e99e8e11": {
+     "J_beam": -11.137521804232644,
+     "J_driver": -14.224969843786921,
+     "beam_is_driver": false
+    },
+    "RouteID_c374064c-6676-4db8-a70b-8841d3b4f057": {
+     "J_beam": -10.046479141078573,
+     "J_driver": -15.81060829968593,
+     "beam_is_driver": false
+    },
+    "RouteID_c4b29f6e-d532-4805-953e-62d505de6b78": {
+     "J_beam": -17.23338491209513,
+     "J_driver": -19.919417131390357,
+     "beam_is_driver": false
+    },
+    "RouteID_c73a16da-a41b-4a20-a433-9e756bd1a9a3": {
+     "J_beam": -11.16210145500886,
+     "J_driver": -11.16210145500886,
+     "beam_is_driver": true
+    },
+    "RouteID_c81ab95e-f33a-43dd-be23-2a202f48382b": {
+     "J_beam": -7.424852409869161,
+     "J_driver": -11.974736428299785,
+     "beam_is_driver": false
+    },
+    "RouteID_c8a94543-d538-476f-8a7a-38e62a3d94f3": {
+     "J_beam": -16.928635029862743,
+     "J_driver": -45.00250198291764,
+     "beam_is_driver": false
+    },
+    "RouteID_c979a9f2-4667-4141-bf71-10f33cce4102": {
+     "J_beam": -9.945640613151442,
+     "J_driver": -9.945640613151442,
+     "beam_is_driver": true
+    },
+    "RouteID_c999990f-ab6a-4e3a-aa09-406ddf2ec384": {
+     "J_beam": -5.914976635016452,
+     "J_driver": -5.914976635016452,
+     "beam_is_driver": true
+    },
+    "RouteID_cac3ae3c-69d9-403d-9d72-92d108aee229": {
+     "J_beam": -9.79743616147574,
+     "J_driver": -18.53966534066193,
+     "beam_is_driver": false
+    },
+    "RouteID_cadd6fc3-c1ea-4c0c-9b45-849ae631b324": {
+     "J_beam": -8.846700783457644,
+     "J_driver": -27.168850085190716,
+     "beam_is_driver": false
+    },
+    "RouteID_cae13fa5-a5bc-4e8c-a455-b9a71fd18ee8": {
+     "J_beam": -9.149115007933732,
+     "J_driver": -22.12799169788626,
+     "beam_is_driver": false
+    },
+    "RouteID_cb812ff3-06a2-42ea-a114-b747c2824a66": {
+     "J_beam": -12.845244644369677,
+     "J_driver": -17.117354878353613,
+     "beam_is_driver": false
+    },
+    "RouteID_ccafc994-05f1-41fb-9400-82ba02f758e3": {
+     "J_beam": -5.598249804088499,
+     "J_driver": -13.012283048384514,
+     "beam_is_driver": false
+    },
+    "RouteID_cf19c20a-93a3-4687-970e-af43b8ba09fc": {
+     "J_beam": -9.090924152022762,
+     "J_driver": -9.090924152022762,
+     "beam_is_driver": true
+    },
+    "RouteID_d1390cd0-5f7c-4127-9ba9-448d9d1a4ead": {
+     "J_beam": -11.585220249349494,
+     "J_driver": -21.00752315373849,
+     "beam_is_driver": false
+    },
+    "RouteID_d1a8c3dd-fa67-455c-a68d-af2fd6aa5d91": {
+     "J_beam": -11.9044753558849,
+     "J_driver": -34.26620498465072,
+     "beam_is_driver": false
+    },
+    "RouteID_d4301882-99f6-420e-8513-e9a5e41c7b10": {
+     "J_beam": -7.535787405980165,
+     "J_driver": -7.878321719927244,
+     "beam_is_driver": false
+    },
+    "RouteID_d4e12cdc-063d-42b3-8b2f-76a6e362fd2c": {
+     "J_beam": -11.341267404331377,
+     "J_driver": -21.191295068244276,
+     "beam_is_driver": false
+    },
+    "RouteID_d54efb27-1db9-4a1a-a9c0-b879fffb523b": {
+     "J_beam": -10.738565327154555,
+     "J_driver": -33.05074530414794,
+     "beam_is_driver": false
+    },
+    "RouteID_d5cb817f-2298-4748-89fd-23a17d2a76ea": {
+     "J_beam": -11.856292509952159,
+     "J_driver": -18.228881310265415,
+     "beam_is_driver": false
+    },
+    "RouteID_d87cabbe-3de5-46ed-9f91-801c2f409456": {
+     "J_beam": -14.289643927778375,
+     "J_driver": -42.5846127365122,
+     "beam_is_driver": false
+    },
+    "RouteID_d933d55b-1988-421b-861e-073d1b0c5974": {
+     "J_beam": -11.925832421182488,
+     "J_driver": -37.59186383646972,
+     "beam_is_driver": false
+    },
+    "RouteID_d98ceac1-91b5-458f-b82c-f336da91d6c4": {
+     "J_beam": -12.0080705127721,
+     "J_driver": -32.52228929112189,
+     "beam_is_driver": false
+    },
+    "RouteID_da3597bd-3f24-44a4-a646-90d5034b4b25": {
+     "J_beam": -6.248233012918998,
+     "J_driver": -16.06378048335286,
+     "beam_is_driver": false
+    },
+    "RouteID_da806f65-7536-4097-95a1-458a5e33dc7c": {
+     "J_beam": -11.962946336443327,
+     "J_driver": -22.007465066706366,
+     "beam_is_driver": false
+    },
+    "RouteID_da8894e9-dd88-4ba6-9922-d0f31082af81": {
+     "J_beam": -10.089693703942247,
+     "J_driver": -19.035517913541206,
+     "beam_is_driver": false
+    },
+    "RouteID_da90b76c-6986-4197-81fa-0e33aa51dd44": {
+     "J_beam": -6.831696643102816,
+     "J_driver": -6.831696643102816,
+     "beam_is_driver": true
+    },
+    "RouteID_db3c0395-e7bd-43fc-9ec1-7fe9a4e8cc30": {
+     "J_beam": -8.674818535305821,
+     "J_driver": -10.702102446951496,
+     "beam_is_driver": false
+    },
+    "RouteID_dc733acb-6074-4397-8bb6-a3f4c341e489": {
+     "J_beam": -14.897165105362333,
+     "J_driver": -18.433284099048084,
+     "beam_is_driver": false
+    },
+    "RouteID_de7f692c-5ded-4a3f-a07a-fc7bfcca29d4": {
+     "J_beam": -10.917922559997614,
+     "J_driver": -27.973201327424967,
+     "beam_is_driver": false
+    },
+    "RouteID_decf8ed4-f574-4348-a750-f6bd095c23a6": {
+     "J_beam": -9.743752560434906,
+     "J_driver": -9.743752560434906,
+     "beam_is_driver": true
+    },
+    "RouteID_df426646-69fa-4bf8-8160-86dd53824eaf": {
+     "J_beam": -11.331446399634224,
+     "J_driver": -12.241343906466316,
+     "beam_is_driver": false
+    },
+    "RouteID_df8170fa-2d78-4edd-ba06-d49e6bee4622": {
+     "J_beam": -8.716534286768091,
+     "J_driver": -24.23248395732281,
+     "beam_is_driver": false
+    },
+    "RouteID_dfaac97b-424c-4787-8651-825ed11f070d": {
+     "J_beam": -10.575654838482778,
+     "J_driver": -10.575654838482778,
+     "beam_is_driver": true
+    },
+    "RouteID_e39ea4ce-c0bd-4661-a34a-ec77218270e1": {
+     "J_beam": -6.569857639759028,
+     "J_driver": -15.13006960793155,
+     "beam_is_driver": false
+    },
+    "RouteID_e3d097f0-523f-45b5-8328-95688a3b2d4a": {
+     "J_beam": -9.273626344538863,
+     "J_driver": -9.273626344538863,
+     "beam_is_driver": true
+    },
+    "RouteID_e431316a-d4d4-4715-a71c-17c3fdd31f64": {
+     "J_beam": -6.31401479244455,
+     "J_driver": -6.31401479244455,
+     "beam_is_driver": true
+    },
+    "RouteID_e71e3c25-0652-4647-9eb1-1a8218de6619": {
+     "J_beam": -9.462200819286911,
+     "J_driver": -9.462200819286911,
+     "beam_is_driver": true
+    },
+    "RouteID_e77b696c-867e-439a-9591-62250e7c8951": {
+     "J_beam": -9.17573444522232,
+     "J_driver": -18.256192674007394,
+     "beam_is_driver": false
+    },
+    "RouteID_ed0dfe15-9cce-4e56-a4d2-c51c52d296a8": {
+     "J_beam": -6.741129931070609,
+     "J_driver": -6.741129931070609,
+     "beam_is_driver": true
+    },
+    "RouteID_ed9e9b18-c25c-41e7-902c-635c0d6938f2": {
+     "J_beam": -11.606884797934901,
+     "J_driver": -17.45510865387082,
+     "beam_is_driver": false
+    },
+    "RouteID_eda0f6bf-6402-43a7-968b-662e9ae3aa1b": {
+     "J_beam": -13.20361798658662,
+     "J_driver": -17.083593602576766,
+     "beam_is_driver": false
+    },
+    "RouteID_f1566ecc-d1f9-4bbd-a8c2-c184e35229e4": {
+     "J_beam": -12.5070142811856,
+     "J_driver": -19.387128593168587,
+     "beam_is_driver": false
+    },
+    "RouteID_f2191eca-9fab-4b77-9085-94bf46450651": {
+     "J_beam": -13.009263731516587,
+     "J_driver": -25.91350090811416,
+     "beam_is_driver": false
+    },
+    "RouteID_f3ab9177-b525-4e78-868a-7a98abc65e91": {
+     "J_beam": -4.339356103569152,
+     "J_driver": -4.339356103569152,
+     "beam_is_driver": true
+    },
+    "RouteID_f41295cd-c7ee-43d8-9a4c-4fdbbd16a182": {
+     "J_beam": -14.555682036201503,
+     "J_driver": -14.555682036201503,
+     "beam_is_driver": true
+    },
+    "RouteID_f53d09f3-721d-456d-aa62-5b9469ea63ba": {
+     "J_beam": -9.676171604502889,
+     "J_driver": -15.26264730505107,
+     "beam_is_driver": false
+    },
+    "RouteID_f6ce3ad1-71ba-4e54-b811-1cedd0e0a81b": {
+     "J_beam": -12.282950663818216,
+     "J_driver": -24.05399806649763,
+     "beam_is_driver": false
+    },
+    "RouteID_f7c7980c-84a1-4820-806a-798646d20534": {
+     "J_beam": -12.773357695862172,
+     "J_driver": -38.65515448758639,
+     "beam_is_driver": false
+    },
+    "RouteID_f829cf04-4723-406f-86a4-cce57bd0e5ee": {
+     "J_beam": -10.470964690567662,
+     "J_driver": -16.393921660688303,
+     "beam_is_driver": false
+    },
+    "RouteID_fadece5d-2666-4e97-9bc0-e9f8d931509a": {
+     "J_beam": -9.214340118391203,
+     "J_driver": -9.214340118391203,
+     "beam_is_driver": true
+    },
+    "RouteID_fc8b8a53-8355-4e21-98f7-1bebfef3de87": {
+     "J_beam": -6.254348489396814,
+     "J_driver": -15.96520733882346,
+     "beam_is_driver": false
+    },
+    "RouteID_fcf4528e-633a-47f8-8274-feea8be3222a": {
+     "J_beam": -6.373787640612559,
+     "J_driver": -10.09957256453023,
+     "beam_is_driver": false
+    },
+    "RouteID_fd1ac099-0363-41c1-9645-c16b57c3fb55": {
+     "J_beam": -14.429228001367399,
+     "J_driver": -14.429228001367399,
+     "beam_is_driver": true
+    },
+    "RouteID_fd7f757b-abb6-436a-a9e6-0d96129eb95e": {
+     "J_beam": -13.181293546730132,
+     "J_driver": -12.022061416436474,
+     "beam_is_driver": false
+    }
+   }
+  },
+  "beam5_lambda0": {
+   "beam_found_driver_order": 79,
+   "search_error": 1,
+   "model_error": 154,
+   "share_search_error_of_wrong": 0.0064516129032258064,
+   "share_of_total_score_on_search_error_routes": 0.008988829894257849,
+   "share_of_total_score_on_model_error_routes": 0.9170541836946953,
+   "mean_score_search_error_routes": 0.06251868367840822,
+   "mean_score_model_error_routes": 0.0414172194613222,
+   "median_J_gap_search_error": 1.515099843032658,
+   "per_route": {
+    "RouteID_00ace8b4-30c6-4a20-a723-74ece636a0da": {
+     "J_beam": -3.5888850893825293,
+     "J_driver": -18.918668365105987,
+     "beam_is_driver": false
+    },
+    "RouteID_01a602f2-f834-4fd0-89b5-6835f049b19e": {
+     "J_beam": -0.5099945913534611,
+     "J_driver": -0.5099945913534611,
+     "beam_is_driver": true
+    },
+    "RouteID_023c04c1-4b54-46f7-8db1-f6dc945d4ead": {
+     "J_beam": -0.9550362547161058,
+     "J_driver": -11.586316081811674,
+     "beam_is_driver": false
+    },
+    "RouteID_03939724-efdf-4543-aa72-4aa962860d98": {
+     "J_beam": -0.33799722883850336,
+     "J_driver": -0.33799722883850336,
+     "beam_is_driver": true
+    },
+    "RouteID_041cfbe9-363a-4a9f-a372-c487ca78b385": {
+     "J_beam": -0.9701404764782637,
+     "J_driver": -0.9701404764782637,
+     "beam_is_driver": true
+    },
+    "RouteID_05ef4a8e-61a0-4709-ac5b-fa9759c218dc": {
+     "J_beam": -4.456524085253477,
+     "J_driver": -12.754254914354533,
+     "beam_is_driver": false
+    },
+    "RouteID_05fba5e1-c96b-42af-ab1a-393d3cb31338": {
+     "J_beam": -2.8820989336818457,
+     "J_driver": -15.201178196817636,
+     "beam_is_driver": false
+    },
+    "RouteID_06484cf1-d5b8-4092-831d-d2fedc88ebcd": {
+     "J_beam": -4.36494600167498,
+     "J_driver": -12.006504628807306,
+     "beam_is_driver": false
+    },
+    "RouteID_072e6491-e89f-4574-9edc-2447f558cfc7": {
+     "J_beam": -0.98084522690624,
+     "J_driver": -17.638309345114976,
+     "beam_is_driver": false
+    },
+    "RouteID_07cb4afc-be0e-4f46-afe0-aa81d527c40d": {
+     "J_beam": -1.030591696035117,
+     "J_driver": -1.030591696035117,
+     "beam_is_driver": true
+    },
+    "RouteID_087e7f16-0b04-4a0a-9799-1302a8312186": {
+     "J_beam": -0.8762193301226944,
+     "J_driver": -9.478111847536638,
+     "beam_is_driver": false
+    },
+    "RouteID_08a53481-3de6-4688-ab69-b88fc2cc1d9c": {
+     "J_beam": -2.9585221556480974,
+     "J_driver": -10.186860133660957,
+     "beam_is_driver": false
+    },
+    "RouteID_0ceccda6-0964-412c-a24c-6a37db035d17": {
+     "J_beam": -0.5926156772766262,
+     "J_driver": -8.468476859852672,
+     "beam_is_driver": false
+    },
+    "RouteID_0e51e9ca-53a4-49cf-b5a1-93302533f2a6": {
+     "J_beam": -2.755120424553752,
+     "J_driver": -9.623561962507665,
+     "beam_is_driver": false
+    },
+    "RouteID_0e7eb7e0-86be-44a7-9c29-be110ee8bcd5": {
+     "J_beam": -2.0038490317529067,
+     "J_driver": -2.0038490317529067,
+     "beam_is_driver": true
+    },
+    "RouteID_0ea7aa41-f026-4aee-8379-8099b94aff6b": {
+     "J_beam": -3.977241635322571,
+     "J_driver": -19.364396632183343,
+     "beam_is_driver": false
+    },
+    "RouteID_0ea8ffd3-673d-473e-8219-382f2a88c999": {
+     "J_beam": -0.6703112446703017,
+     "J_driver": -5.457055971492082,
+     "beam_is_driver": false
+    },
+    "RouteID_0f9d12ce-b419-497a-8207-ca58f7ad8771": {
+     "J_beam": -0.5371006107889116,
+     "J_driver": -0.5371006107889116,
+     "beam_is_driver": true
+    },
+    "RouteID_11fcf1bc-dbc0-4451-9646-009cd91672ba": {
+     "J_beam": -4.997455793432891,
+     "J_driver": -6.438265807926655,
+     "beam_is_driver": false
+    },
+    "RouteID_12e7c960-79ac-4183-96a9-23f968eb6c32": {
+     "J_beam": -1.0841989424079657,
+     "J_driver": -1.0841989424079657,
+     "beam_is_driver": true
+    },
+    "RouteID_13194db7-a1a0-4054-a1bc-6d586cd1eace": {
+     "J_beam": -2.416743377223611,
+     "J_driver": -3.6581629905849695,
+     "beam_is_driver": false
+    },
+    "RouteID_1364e8b4-de89-475b-9e38-3486ca12934e": {
+     "J_beam": -4.403815120458603,
+     "J_driver": -4.833498619496822,
+     "beam_is_driver": false
+    },
+    "RouteID_13b3222c-93df-473e-a4bb-f46317bb9865": {
+     "J_beam": -1.2082025296986103,
+     "J_driver": -1.5193526046350598,
+     "beam_is_driver": false
+    },
+    "RouteID_1462e47a-5f19-48c6-8dae-965a7647f79f": {
+     "J_beam": -0.22837361818528734,
+     "J_driver": -0.22837361818528734,
+     "beam_is_driver": true
+    },
+    "RouteID_14e79e59-1113-4434-9211-466665e5c28b": {
+     "J_beam": -5.362212331965566,
+     "J_driver": -24.585721544921398,
+     "beam_is_driver": false
+    },
+    "RouteID_17778105-3f00-4941-8532-6b37c9eb462a": {
+     "J_beam": -1.2944074952974916,
+     "J_driver": -1.2944074952974916,
+     "beam_is_driver": true
+    },
+    "RouteID_17890409-6249-4e49-96e2-d42ed10444aa": {
+     "J_beam": -1.2344682903494686,
+     "J_driver": -9.086451939539984,
+     "beam_is_driver": false
+    },
+    "RouteID_1978b59e-63bf-4965-99e6-2885c88b2d00": {
+     "J_beam": -1.6570914667099714,
+     "J_driver": -8.372805688530207,
+     "beam_is_driver": false
+    },
+    "RouteID_19db8fb3-607f-49a0-82ae-99815d5f99bd": {
+     "J_beam": -3.9239923348650336,
+     "J_driver": -6.803839526837692,
+     "beam_is_driver": false
+    },
+    "RouteID_1d25e26b-3dc3-49e7-9997-2e528cd0b234": {
+     "J_beam": -0.6756632096366957,
+     "J_driver": -0.6756632096366957,
+     "beam_is_driver": true
+    },
+    "RouteID_235d19db-3c94-4c84-9c5a-eb68d02db745": {
+     "J_beam": -6.1046322141774,
+     "J_driver": -12.764537055976689,
+     "beam_is_driver": false
+    },
+    "RouteID_23701972-4472-417b-b765-f179365dcda4": {
+     "J_beam": -5.4426711816340685,
+     "J_driver": -10.767088176682591,
+     "beam_is_driver": false
+    },
+    "RouteID_23f8540b-c32c-40a9-81f7-dc5d00a61853": {
+     "J_beam": -2.7142212642356753,
+     "J_driver": -2.7142212642356753,
+     "beam_is_driver": true
+    },
+    "RouteID_252e3640-9a9e-4979-aa9d-37346d872352": {
+     "J_beam": -1.542061384767294,
+     "J_driver": -1.542061384767294,
+     "beam_is_driver": true
+    },
+    "RouteID_26982664-0e33-4ac8-97e0-d1bac514c109": {
+     "J_beam": -1.8307061253581196,
+     "J_driver": -12.232211869210005,
+     "beam_is_driver": false
+    },
+    "RouteID_280ce5c1-9aec-481a-a318-9171b0283ec7": {
+     "J_beam": -3.0150645934045315,
+     "J_driver": -30.84279682300985,
+     "beam_is_driver": false
+    },
+    "RouteID_28b8c8d6-e3fb-4e42-82d9-fbca52be6548": {
+     "J_beam": -9.350604257546365,
+     "J_driver": -13.974238239461556,
+     "beam_is_driver": false
+    },
+    "RouteID_29965a6e-db89-4ecb-a264-93446766664d": {
+     "J_beam": -13.19031247543171,
+     "J_driver": -30.603309381753206,
+     "beam_is_driver": false
+    },
+    "RouteID_2a68954f-aeb1-4351-94a3-2237f19f1ac9": {
+     "J_beam": -1.4869571906747296,
+     "J_driver": -5.405070832464844,
+     "beam_is_driver": false
+    },
+    "RouteID_2a8ca95a-19c2-4f43-a2aa-8ccc01db4745": {
+     "J_beam": -2.7314998474903405,
+     "J_driver": -10.541202424326912,
+     "beam_is_driver": false
+    },
+    "RouteID_2b066fae-9bd4-4dfb-8d31-ade73671bc50": {
+     "J_beam": -7.46174457995221,
+     "J_driver": -10.205950209870934,
+     "beam_is_driver": false
+    },
+    "RouteID_2b242e5d-aedf-400e-8cf8-f9ac000c1f29": {
+     "J_beam": -0.18004168389597908,
+     "J_driver": -6.145932204715791,
+     "beam_is_driver": false
+    },
+    "RouteID_2b52633e-6b57-431f-9213-c8614105b120": {
+     "J_beam": -2.247028300538659,
+     "J_driver": -3.401546547189355,
+     "beam_is_driver": false
+    },
+    "RouteID_2d9ca2fc-5720-4cba-9997-c912b7c85c74": {
+     "J_beam": -3.789356606081128,
+     "J_driver": -8.415949865244329,
+     "beam_is_driver": false
+    },
+    "RouteID_2daf76cc-2b1a-4c42-86a0-e0b9ff042959": {
+     "J_beam": -4.362392610870302,
+     "J_driver": -10.707863540388644,
+     "beam_is_driver": false
+    },
+    "RouteID_2f76393e-948c-4fd3-94d8-3b0179aca9a4": {
+     "J_beam": -2.7445758061949164,
+     "J_driver": -33.85994145274162,
+     "beam_is_driver": false
+    },
+    "RouteID_2f88e172-2bcb-42e4-8a3f-b41e6b5f1b1f": {
+     "J_beam": -0.5859899010974914,
+     "J_driver": -0.5859899010974914,
+     "beam_is_driver": true
+    },
+    "RouteID_30425aa3-2cb4-4e6c-afa8-0c67ee3f48cb": {
+     "J_beam": -2.269273798679933,
+     "J_driver": -3.8675933703780174,
+     "beam_is_driver": false
+    },
+    "RouteID_30da62e8-2411-4b93-a707-6f7e2ad804b3": {
+     "J_beam": -1.388632994145155,
+     "J_driver": -1.388632994145155,
+     "beam_is_driver": true
+    },
+    "RouteID_312a4874-8c6d-48ee-b3f9-2d1138d04bcf": {
+     "J_beam": -2.7078526355326176,
+     "J_driver": -9.745357959531248,
+     "beam_is_driver": false
+    },
+    "RouteID_31903cb5-e21e-41a2-9232-b6462f1f9d23": {
+     "J_beam": -2.100518806837499,
+     "J_driver": -2.100518806837499,
+     "beam_is_driver": true
+    },
+    "RouteID_3371790e-acf0-44d7-9291-787cb67b499f": {
+     "J_beam": -0.6501640172209591,
+     "J_driver": -0.6501640172209591,
+     "beam_is_driver": true
+    },
+    "RouteID_34261e1b-03b5-4ac0-81b1-bee1e06c035d": {
+     "J_beam": -0.6407570084556937,
+     "J_driver": -0.6407570084556937,
+     "beam_is_driver": true
+    },
+    "RouteID_35648cd4-4a82-440a-8183-70da74410ddf": {
+     "J_beam": -0.31200542917940766,
+     "J_driver": -0.31200542917940766,
+     "beam_is_driver": true
+    },
+    "RouteID_36cc3e07-cc8e-432b-9f63-85d0bc23ac79": {
+     "J_beam": -3.1169214956462383,
+     "J_driver": -3.2131697982549667,
+     "beam_is_driver": false
+    },
+    "RouteID_3705a456-1cd9-49de-9651-bed8bf6ae7e9": {
+     "J_beam": -1.9673927063122392,
+     "J_driver": -3.857562999241054,
+     "beam_is_driver": false
+    },
+    "RouteID_390f5c8d-b355-45bf-a3d5-202ad6481475": {
+     "J_beam": -5.076518537476659,
+     "J_driver": -24.56224239617586,
+     "beam_is_driver": false
+    },
+    "RouteID_3a6f0f3d-5e1a-49a3-acf7-3b5f92d93c96": {
+     "J_beam": -3.6558226756751537,
+     "J_driver": -15.40254251472652,
+     "beam_is_driver": false
+    },
+    "RouteID_3c896b9d-349b-4324-a32d-c8c4d8dff7e7": {
+     "J_beam": -5.669968640431762,
+     "J_driver": -21.47142980620265,
+     "beam_is_driver": false
+    },
+    "RouteID_3c983c94-8f7f-4f13-b516-2a75947e8781": {
+     "J_beam": -2.6980059230700135,
+     "J_driver": -8.234120740555227,
+     "beam_is_driver": false
+    },
+    "RouteID_3d5834b5-0ab7-4c67-9522-a287b478370c": {
+     "J_beam": -0.5212097559124231,
+     "J_driver": -4.065204848535359,
+     "beam_is_driver": false
+    },
+    "RouteID_3d5ccabe-26ed-48b9-91d3-d0358b46f348": {
+     "J_beam": -3.12446765974164,
+     "J_driver": -6.009904531762004,
+     "beam_is_driver": false
+    },
+    "RouteID_3e75fb55-5471-4c9e-a709-e09b279d9ad9": {
+     "J_beam": -1.3233355551492423,
+     "J_driver": -9.204702677670866,
+     "beam_is_driver": false
+    },
+    "RouteID_3eaab78f-ddcd-4738-9991-0210ffbaedf9": {
+     "J_beam": -2.3000826600473374,
+     "J_driver": -2.575814980198629,
+     "beam_is_driver": false
+    },
+    "RouteID_3eda9108-78a6-44f9-9f72-d3344b45f5c0": {
+     "J_beam": -0.9650039779953659,
+     "J_driver": -0.9650039779953659,
+     "beam_is_driver": true
+    },
+    "RouteID_416921e2-b706-47e7-9de8-c2ada3fea9b7": {
+     "J_beam": -6.619420791976154,
+     "J_driver": -21.41152262687683,
+     "beam_is_driver": false
+    },
+    "RouteID_416dc2f1-1697-4443-ab4a-755a89b78499": {
+     "J_beam": -12.604852973949164,
+     "J_driver": -27.196825662627816,
+     "beam_is_driver": false
+    },
+    "RouteID_4295ab5a-c8ab-4823-9115-f5f409368705": {
+     "J_beam": -0.13698471803218126,
+     "J_driver": -0.13698471803218126,
+     "beam_is_driver": true
+    },
+    "RouteID_43ddc48b-f428-44aa-8c4e-a68545d0bb6d": {
+     "J_beam": -3.127910491079092,
+     "J_driver": -15.686975344084203,
+     "beam_is_driver": false
+    },
+    "RouteID_447e725b-f364-4292-8e11-fc3c5f2bf86f": {
+     "J_beam": -1.5568601675331593,
+     "J_driver": -2.2662406065501273,
+     "beam_is_driver": false
+    },
+    "RouteID_450e7d9a-fa77-40e5-ac6c-4971f79e7ab4": {
+     "J_beam": -1.0970226710196584,
+     "J_driver": -15.72100388398394,
+     "beam_is_driver": false
+    },
+    "RouteID_47805220-642f-4293-bc20-bf3a1c4f5b24": {
+     "J_beam": -1.3143843712750822,
+     "J_driver": -1.3143843712750822,
+     "beam_is_driver": true
+    },
+    "RouteID_47bfbc99-9703-4e42-9e6e-ed6164522653": {
+     "J_beam": -0.9265319216647185,
+     "J_driver": -0.9265319216647185,
+     "beam_is_driver": true
+    },
+    "RouteID_4876274c-ac2a-4d5f-a1d3-e0879352ccf1": {
+     "J_beam": -2.1161009739153087,
+     "J_driver": -2.382583675906062,
+     "beam_is_driver": false
+    },
+    "RouteID_4893f932-c8d5-4f01-80d9-b3e4c0e16fdc": {
+     "J_beam": -1.1982096964493394,
+     "J_driver": -6.433359447866678,
+     "beam_is_driver": false
+    },
+    "RouteID_48e08959-987e-4746-bf10-3eb08ca299d5": {
+     "J_beam": -1.9480747265042737,
+     "J_driver": -1.9480747265042737,
+     "beam_is_driver": true
+    },
+    "RouteID_4b2c6211-0573-4c7e-840d-c2e8b1db468f": {
+     "J_beam": -0.5045027830637991,
+     "J_driver": -3.1327370502986014,
+     "beam_is_driver": false
+    },
+    "RouteID_4c7ff8bc-4533-448b-a253-0c502571ec76": {
+     "J_beam": -0.3620058579836041,
+     "J_driver": -0.3620058579836041,
+     "beam_is_driver": true
+    },
+    "RouteID_4d5d2a1d-dbf2-421c-81be-577e95c723b9": {
+     "J_beam": -4.1272991434670985,
+     "J_driver": -9.26699994399678,
+     "beam_is_driver": false
+    },
+    "RouteID_4de283f3-bf15-4b42-b48c-52cf20d11db8": {
+     "J_beam": -3.873560530366376,
+     "J_driver": -10.554278863593936,
+     "beam_is_driver": false
+    },
+    "RouteID_4e52b964-70f4-4f90-a388-24ec1fc89c54": {
+     "J_beam": -4.96045090444386,
+     "J_driver": -8.164153647609055,
+     "beam_is_driver": false
+    },
+    "RouteID_4e52e108-9f9f-4c23-ad03-de78121daa38": {
+     "J_beam": -4.133161962032318,
+     "J_driver": -4.133161962032318,
+     "beam_is_driver": true
+    },
+    "RouteID_5331cad2-f5bb-4a38-a174-fc11d3078ca0": {
+     "J_beam": -1.4347595684230328,
+     "J_driver": -1.4347595684230328,
+     "beam_is_driver": true
+    },
+    "RouteID_54bce2b9-20bc-42eb-85da-391874835204": {
+     "J_beam": -0.8751403235364705,
+     "J_driver": -0.8751403235364705,
+     "beam_is_driver": true
+    },
+    "RouteID_559b59f7-ca9e-46b3-ab04-28c7c2007740": {
+     "J_beam": -1.288358438294381,
+     "J_driver": -1.288358438294381,
+     "beam_is_driver": true
+    },
+    "RouteID_57a142df-26e1-481d-8f99-2c43808c161e": {
+     "J_beam": -2.1026335800997913,
+     "J_driver": -2.1026335800997913,
+     "beam_is_driver": true
+    },
+    "RouteID_57cccf5b-1467-4c71-830c-7343c2098224": {
+     "J_beam": -2.7936397184967063,
+     "J_driver": -11.854684575344436,
+     "beam_is_driver": false
+    },
+    "RouteID_59abfaad-3d5b-46f0-a8b7-6e2889b17235": {
+     "J_beam": -0.3564026125241071,
+     "J_driver": -0.3564026125241071,
+     "beam_is_driver": true
+    },
+    "RouteID_5a6f3943-d3c0-4b2e-9717-03a32d8a89be": {
+     "J_beam": -2.3233968690037727,
+     "J_driver": -2.3233968690037727,
+     "beam_is_driver": true
+    },
+    "RouteID_5ac1990e-8811-4228-87bc-0be7abb764ca": {
+     "J_beam": -1.7000996377319098,
+     "J_driver": -9.080555364256725,
+     "beam_is_driver": false
+    },
+    "RouteID_5d3893c7-c410-486c-8f51-42f70942c376": {
+     "J_beam": -4.503213919699192,
+     "J_driver": -32.09021740662865,
+     "beam_is_driver": false
+    },
+    "RouteID_5ee528fb-5046-4f84-9d0a-f7cc827c87fa": {
+     "J_beam": -1.0852776216343045,
+     "J_driver": -8.750857684761286,
+     "beam_is_driver": false
+    },
+    "RouteID_5f33ca96-22df-479a-a48b-6935b7349b88": {
+     "J_beam": -0.2063684316817671,
+     "J_driver": -0.2063684316817671,
+     "beam_is_driver": true
+    },
+    "RouteID_5f8d9c67-df02-453d-93d2-429a2c21a2c1": {
+     "J_beam": -3.241095870733261,
+     "J_driver": -4.707078190520406,
+     "beam_is_driver": false
+    },
+    "RouteID_5ff865d3-ccd5-4764-ace6-cbc794511d89": {
+     "J_beam": -6.69445163756609,
+     "J_driver": -22.161307549104095,
+     "beam_is_driver": false
+    },
+    "RouteID_603e83cc-2971-47a7-8595-ad2b14c394b4": {
+     "J_beam": -0.18801376945339143,
+     "J_driver": -0.18801376945339143,
+     "beam_is_driver": true
+    },
+    "RouteID_6077d00f-3b0c-4ba9-827f-fd279d2994ea": {
+     "J_beam": -1.331140844617039,
+     "J_driver": -4.871311891707592,
+     "beam_is_driver": false
+    },
+    "RouteID_6151ed34-9a5b-401e-9317-305862a35a23": {
+     "J_beam": -1.1355151338502765,
+     "J_driver": -1.1355151338502765,
+     "beam_is_driver": true
+    },
+    "RouteID_619e93e8-a889-41c1-86ae-d74142fcb685": {
+     "J_beam": -2.3245772160589695,
+     "J_driver": -3.871739544905722,
+     "beam_is_driver": false
+    },
+    "RouteID_62b58454-1885-49b5-b70a-2108768f7969": {
+     "J_beam": -3.614701323211193,
+     "J_driver": -13.019550768658519,
+     "beam_is_driver": false
+    },
+    "RouteID_646519c0-65f0-4026-9462-803f10a307ab": {
+     "J_beam": -1.2517040719394572,
+     "J_driver": -11.112433628528379,
+     "beam_is_driver": false
+    },
+    "RouteID_65a336ab-f388-4cdb-9d5a-23bbd388553e": {
+     "J_beam": -1.268863270059228,
+     "J_driver": -3.8410163009539247,
+     "beam_is_driver": false
+    },
+    "RouteID_6626f3dd-d391-4fa7-8313-687ac7b86524": {
+     "J_beam": -0.5302716868463904,
+     "J_driver": -6.055822108173743,
+     "beam_is_driver": false
+    },
+    "RouteID_66bb397a-ddb9-47cf-a641-099c0aeff0d1": {
+     "J_beam": -3.1210354804061353,
+     "J_driver": -3.1210354804061353,
+     "beam_is_driver": true
+    },
+    "RouteID_673568ec-249b-434a-9826-1ad7aa20964f": {
+     "J_beam": -3.7401109728962183,
+     "J_driver": -13.288786099758,
+     "beam_is_driver": false
+    },
+    "RouteID_67a8f48a-12e8-49e2-bac5-543f30c0eb7e": {
+     "J_beam": -0.941722092917189,
+     "J_driver": -0.941722092917189,
+     "beam_is_driver": true
+    },
+    "RouteID_685d8874-3d43-44d6-916b-e4609357ecef": {
+     "J_beam": -2.572009138762951,
+     "J_driver": -5.398159075528383,
+     "beam_is_driver": false
+    },
+    "RouteID_694eaff2-fdf7-41f4-b321-02d6914e8ef6": {
+     "J_beam": -2.909739906899631,
+     "J_driver": -2.909739906899631,
+     "beam_is_driver": true
+    },
+    "RouteID_6a109849-1503-4d1d-9c19-1178be36e33f": {
+     "J_beam": -0.8229392180219293,
+     "J_driver": -0.8229392180219293,
+     "beam_is_driver": true
+    },
+    "RouteID_6a9c1f38-804e-4808-a5bf-284ad5fd3997": {
+     "J_beam": -0.8765528094954789,
+     "J_driver": -0.8765528094954789,
+     "beam_is_driver": true
+    },
+    "RouteID_6ad84afa-b546-4ca1-a749-6373d5fc5fd2": {
+     "J_beam": -0.6974836220033467,
+     "J_driver": -0.6974836220033467,
+     "beam_is_driver": true
+    },
+    "RouteID_6b308348-39e6-45d8-8621-7cf8efaeae0f": {
+     "J_beam": -0.33331168349832296,
+     "J_driver": -0.33331168349832296,
+     "beam_is_driver": true
+    },
+    "RouteID_6c52ac4e-f0c3-4719-8350-a095dc382381": {
+     "J_beam": -5.165813298895955,
+     "J_driver": -16.888841593638062,
+     "beam_is_driver": false
+    },
+    "RouteID_6c816d5b-4c14-44f1-9857-910f657011a4": {
+     "J_beam": -5.036970113404095,
+     "J_driver": -32.04927193373442,
+     "beam_is_driver": false
+    },
+    "RouteID_6db9f2fd-6d04-4c84-bfd5-10756d15b3ec": {
+     "J_beam": -7.661998339230195,
+     "J_driver": -16.448574165580794,
+     "beam_is_driver": false
+    },
+    "RouteID_6ff94b76-44d6-4888-9bbd-64fb2bc870e8": {
+     "J_beam": -1.648983767721802,
+     "J_driver": -1.648983767721802,
+     "beam_is_driver": true
+    },
+    "RouteID_71333e16-54d5-439e-8cb3-a1873a73d5ea": {
+     "J_beam": -0.9926370546454564,
+     "J_driver": -0.9926370546454564,
+     "beam_is_driver": true
+    },
+    "RouteID_7253629e-46d5-4dbb-a9dc-6c8b4ccb0213": {
+     "J_beam": -2.199849074240774,
+     "J_driver": -3.649652933701873,
+     "beam_is_driver": false
+    },
+    "RouteID_7397c9e0-398f-4b82-9c13-d109db3f5002": {
+     "J_beam": -1.564699374139309,
+     "J_driver": -1.564699374139309,
+     "beam_is_driver": true
+    },
+    "RouteID_7520b1df-2c96-4f31-b9c5-92aa7384cf3f": {
+     "J_beam": -0.38183101802133024,
+     "J_driver": -0.38183101802133024,
+     "beam_is_driver": true
+    },
+    "RouteID_76b89367-4e74-4dbf-8478-0f6558bacfab": {
+     "J_beam": -2.377865754882805,
+     "J_driver": -7.631804781442042,
+     "beam_is_driver": false
+    },
+    "RouteID_77628ff3-0743-4d71-9dda-9cc81b6ffd76": {
+     "J_beam": -0.8459728311136132,
+     "J_driver": -0.8459728311136132,
+     "beam_is_driver": true
+    },
+    "RouteID_79e529ac-83b8-4ef2-8d48-2f76ced3838a": {
+     "J_beam": -1.2324809050187469,
+     "J_driver": -9.34142451104708,
+     "beam_is_driver": false
+    },
+    "RouteID_7a392304-fabd-403f-9932-9eb6416472cf": {
+     "J_beam": -1.5949639491736889,
+     "J_driver": -1.5949639491736889,
+     "beam_is_driver": true
+    },
+    "RouteID_7a8bcea6-0797-4053-a3a9-c22118f43ec7": {
+     "J_beam": -1.2492264094762504,
+     "J_driver": -1.2492264094762504,
+     "beam_is_driver": true
+    },
+    "RouteID_7b0d7185-1024-4504-b2ec-75dbd37f162f": {
+     "J_beam": -0.4752203307580203,
+     "J_driver": -0.4752203307580203,
+     "beam_is_driver": true
+    },
+    "RouteID_7bc86110-9ac0-4998-99b2-89e4ed99c43d": {
+     "J_beam": -3.3260600343346596,
+     "J_driver": -3.677102131769061,
+     "beam_is_driver": false
+    },
+    "RouteID_7be1baab-d4d0-4d74-aec3-4292ee38c71f": {
+     "J_beam": -2.678043902851641,
+     "J_driver": -4.139570074155927,
+     "beam_is_driver": false
+    },
+    "RouteID_7c97d3b1-499f-47da-adb9-7ec57b0758d4": {
+     "J_beam": -0.13043467822717503,
+     "J_driver": -0.13043467822717503,
+     "beam_is_driver": true
+    },
+    "RouteID_7cb2c8fc-51c1-4b47-a0e2-fa100742453b": {
+     "J_beam": -3.692998068407178,
+     "J_driver": -3.692998068407178,
+     "beam_is_driver": true
+    },
+    "RouteID_7e6adb6c-46f9-4cc3-af29-f711e487993c": {
+     "J_beam": -2.874794135801494,
+     "J_driver": -3.7731435362948105,
+     "beam_is_driver": false
+    },
+    "RouteID_802f4be2-5eb9-462f-bd37-d8fbe088208a": {
+     "J_beam": -3.6130120577290654,
+     "J_driver": -3.6130120577290654,
+     "beam_is_driver": true
+    },
+    "RouteID_80891d87-8dcc-48d0-85cb-b4c14073b29f": {
+     "J_beam": -5.964903574436903,
+     "J_driver": -29.16535560786724,
+     "beam_is_driver": false
+    },
+    "RouteID_813f7d17-603b-4492-8bed-043629e4811b": {
+     "J_beam": -4.711682617664337,
+     "J_driver": -13.260892912745476,
+     "beam_is_driver": false
+    },
+    "RouteID_82802535-0704-4244-8b3c-af7fa10d2727": {
+     "J_beam": -3.198630030732602,
+     "J_driver": -5.399936971720308,
+     "beam_is_driver": false
+    },
+    "RouteID_845480b2-b2f9-4953-9c39-5f856ef1e523": {
+     "J_beam": -0.38629770395345986,
+     "J_driver": -4.445327311987057,
+     "beam_is_driver": false
+    },
+    "RouteID_86b98121-d379-4018-8aa9-2332d77c0b61": {
+     "J_beam": -3.7957923519425094,
+     "J_driver": -18.55734978429973,
+     "beam_is_driver": false
+    },
+    "RouteID_8b1ac997-8fb4-4db3-a8fe-c7ec5acbbbfd": {
+     "J_beam": -0.8774745175614953,
+     "J_driver": -17.171383833047003,
+     "beam_is_driver": false
+    },
+    "RouteID_8b8d8f6e-5912-43cd-85f5-3c83910e1b45": {
+     "J_beam": -0.5398704253602773,
+     "J_driver": -0.5398704253602773,
+     "beam_is_driver": true
+    },
+    "RouteID_8d46bdb6-ea28-4404-a127-3b6fd77a3a74": {
+     "J_beam": -1.141281803138554,
+     "J_driver": -1.141281803138554,
+     "beam_is_driver": true
+    },
+    "RouteID_8fbf3282-5e52-4cc0-80c9-29c0e9d533c3": {
+     "J_beam": -2.649830585345626,
+     "J_driver": -10.110348429530859,
+     "beam_is_driver": false
+    },
+    "RouteID_9104c499-6c84-4709-8bdc-3ca9be8acd88": {
+     "J_beam": -0.8267520690569654,
+     "J_driver": -0.8267520690569654,
+     "beam_is_driver": true
+    },
+    "RouteID_9149675b-2385-4661-a810-7563f1b9cfbb": {
+     "J_beam": -4.886858519632369,
+     "J_driver": -14.341879591345787,
+     "beam_is_driver": false
+    },
+    "RouteID_93ccb968-fe5f-45ab-9dab-2962643af1c4": {
+     "J_beam": -3.535200929036364,
+     "J_driver": -5.4509547939524055,
+     "beam_is_driver": false
+    },
+    "RouteID_99120b29-3e26-4f27-8e1e-9f250a83765f": {
+     "J_beam": -1.4157759458757937,
+     "J_driver": -9.067749611800537,
+     "beam_is_driver": false
+    },
+    "RouteID_99822dcb-a1a2-421b-93e6-5387a43f71aa": {
+     "J_beam": -2.9483519606292248,
+     "J_driver": -13.069879144895822,
+     "beam_is_driver": false
+    },
+    "RouteID_9ad313b6-a47d-4df1-8117-b1dce631923c": {
+     "J_beam": -3.4381629191339016,
+     "J_driver": -17.26665377896279,
+     "beam_is_driver": false
+    },
+    "RouteID_9b80b40b-9428-46ec-9af7-1ffca3fc8b3f": {
+     "J_beam": -6.671743673272431,
+     "J_driver": -26.838936135172844,
+     "beam_is_driver": false
+    },
+    "RouteID_9cfa02c6-2d81-42ec-9448-b7696f54cf39": {
+     "J_beam": -7.540329399285838,
+     "J_driver": -15.769472042098641,
+     "beam_is_driver": false
+    },
+    "RouteID_9d2f6607-a587-4c79-80ce-a533e442c17d": {
+     "J_beam": -0.4204575978219509,
+     "J_driver": -0.4204575978219509,
+     "beam_is_driver": true
+    },
+    "RouteID_9d32cf08-04c0-4105-8d71-081fa5066e06": {
+     "J_beam": -0.21357903809985146,
+     "J_driver": -18.514143162115943,
+     "beam_is_driver": false
+    },
+    "RouteID_9dbeee2b-07a9-4cbc-8a38-df0b916ceae8": {
+     "J_beam": -0.6135589038021863,
+     "J_driver": -0.6135589038021863,
+     "beam_is_driver": true
+    },
+    "RouteID_a0cc48df-4770-4eb9-8062-c1fd0882ce17": {
+     "J_beam": -4.997095322236419,
+     "J_driver": -30.36903047375381,
+     "beam_is_driver": false
+    },
+    "RouteID_a4272688-1fb9-4e59-bf27-281a6cfae1f8": {
+     "J_beam": -0.33775147306732833,
+     "J_driver": -7.6576419692719355,
+     "beam_is_driver": false
+    },
+    "RouteID_a52fd1b0-ca6c-4c30-abeb-e799f4e595b8": {
+     "J_beam": -4.30432032700628,
+     "J_driver": -17.126500761252828,
+     "beam_is_driver": false
+    },
+    "RouteID_a662b5a7-35ce-44ea-865e-7fde403073cf": {
+     "J_beam": -1.3983325932640582,
+     "J_driver": -4.585116748930886,
+     "beam_is_driver": false
+    },
+    "RouteID_a71855e0-a9d2-4814-8228-81183022973a": {
+     "J_beam": -1.82122155232355,
+     "J_driver": -3.44411016209051,
+     "beam_is_driver": false
+    },
+    "RouteID_a9269af9-2698-4ff0-b768-4992a5df3056": {
+     "J_beam": -1.80545444926247,
+     "J_driver": -8.101944083813578,
+     "beam_is_driver": false
+    },
+    "RouteID_a9e7a704-4d21-483a-a475-db5a6ccb4e71": {
+     "J_beam": -1.4150673679541796,
+     "J_driver": -8.149093197658658,
+     "beam_is_driver": false
+    },
+    "RouteID_aa3115a8-f9b9-4bcf-8f68-7b3f5d2383a1": {
+     "J_beam": -4.726489758817479,
+     "J_driver": -16.536412843503058,
+     "beam_is_driver": false
+    },
+    "RouteID_ab5a6947-06f4-4ea1-b4a4-ceaf94f1f3e2": {
+     "J_beam": -3.899638829752803,
+     "J_driver": -4.502472845837474,
+     "beam_is_driver": false
+    },
+    "RouteID_ae280908-b8e6-4116-a611-e08105eb4539": {
+     "J_beam": -1.6728576375171542,
+     "J_driver": -1.6728576375171542,
+     "beam_is_driver": true
+    },
+    "RouteID_af05f0fe-5be9-47e4-8280-c1c94d3e58b2": {
+     "J_beam": -4.390991888532881,
+     "J_driver": -4.57558508310467,
+     "beam_is_driver": false
+    },
+    "RouteID_b2621a10-ff30-47fc-a516-fd87f9986f29": {
+     "J_beam": -4.010975187178701,
+     "J_driver": -27.207999483915046,
+     "beam_is_driver": false
+    },
+    "RouteID_b290fc65-b37a-4c7a-b5b4-1c0b8b5a3a52": {
+     "J_beam": -1.7907387795858085,
+     "J_driver": -13.309785154648125,
+     "beam_is_driver": false
+    },
+    "RouteID_b3d7c595-bb83-4e23-a4b2-7318b23429f5": {
+     "J_beam": -0.3819172214716673,
+     "J_driver": -0.3819172214716673,
+     "beam_is_driver": true
+    },
+    "RouteID_b3f46cf2-5257-49ac-84bb-744a4a52d2b7": {
+     "J_beam": -8.055230474099517,
+     "J_driver": -37.717778980731964,
+     "beam_is_driver": false
+    },
+    "RouteID_b4e3992d-6211-415f-b416-94ec8810bcd9": {
+     "J_beam": -2.8819191849324852,
+     "J_driver": -12.479666818631813,
+     "beam_is_driver": false
+    },
+    "RouteID_b747ad9e-58bb-4bb4-9cc1-d846de9c086b": {
+     "J_beam": -0.606342832557857,
+     "J_driver": -0.606342832557857,
+     "beam_is_driver": true
+    },
+    "RouteID_b8e412d2-4825-42b1-95aa-4023a696e060": {
+     "J_beam": -3.7821322607342154,
+     "J_driver": -3.7821322607342154,
+     "beam_is_driver": true
+    },
+    "RouteID_b96d085c-9a67-45dc-bd54-26cca0df29d0": {
+     "J_beam": -2.1419790582731366,
+     "J_driver": -2.1419790582731366,
+     "beam_is_driver": true
+    },
+    "RouteID_b9713e55-1c18-49e1-86ca-6d0222c12cd2": {
+     "J_beam": -3.882793752476573,
+     "J_driver": -7.921117464080453,
+     "beam_is_driver": false
+    },
+    "RouteID_bc1abca2-b71d-4f7d-acc4-c558535d9da7": {
+     "J_beam": -1.38797449413687,
+     "J_driver": -9.746078305877745,
+     "beam_is_driver": false
+    },
+    "RouteID_bcdecdc9-5580-4cd2-90d0-f06c1062692c": {
+     "J_beam": -2.941084078513086,
+     "J_driver": -7.5697055159835145,
+     "beam_is_driver": false
+    },
+    "RouteID_bf0bbf2a-46e8-46f2-b68b-1fa591f636e7": {
+     "J_beam": -0.7800814255024306,
+     "J_driver": -7.759941338212229,
+     "beam_is_driver": false
+    },
+    "RouteID_bfe4ee11-d28b-4289-a2aa-ea3709504c1e": {
+     "J_beam": -0.36551489890553057,
+     "J_driver": -0.36551489890553057,
+     "beam_is_driver": true
+    },
+    "RouteID_c0538d99-05d1-436b-b0aa-efe26603d606": {
+     "J_beam": -3.3580323718488216,
+     "J_driver": -5.743157938122749,
+     "beam_is_driver": false
+    },
+    "RouteID_c0ececde-1d42-4427-ae43-b7e8508a9f4c": {
+     "J_beam": -7.016080556437373,
+     "J_driver": -15.070819935761392,
+     "beam_is_driver": false
+    },
+    "RouteID_c21a80c8-3bf6-479e-88a3-a17981b1fb16": {
+     "J_beam": -1.8398982188664377,
+     "J_driver": -1.8398982188664377,
+     "beam_is_driver": true
+    },
+    "RouteID_c24b572b-b38e-48db-a231-3058e99e8e11": {
+     "J_beam": -1.7463275901973248,
+     "J_driver": -4.8915911093354225,
+     "beam_is_driver": false
+    },
+    "RouteID_c374064c-6676-4db8-a70b-8841d3b4f057": {
+     "J_beam": -1.1151554211974144,
+     "J_driver": -6.881812417879701,
+     "beam_is_driver": false
+    },
+    "RouteID_c4b29f6e-d532-4805-953e-62d505de6b78": {
+     "J_beam": -9.801142273005098,
+     "J_driver": -12.200961560476571,
+     "beam_is_driver": false
+    },
+    "RouteID_c73a16da-a41b-4a20-a433-9e756bd1a9a3": {
+     "J_beam": -0.1220381713937968,
+     "J_driver": -0.1220381713937968,
+     "beam_is_driver": true
+    },
+    "RouteID_c81ab95e-f33a-43dd-be23-2a202f48382b": {
+     "J_beam": -0.6807130872039124,
+     "J_driver": -5.166457604966126,
+     "beam_is_driver": false
+    },
+    "RouteID_c8a94543-d538-476f-8a7a-38e62a3d94f3": {
+     "J_beam": -6.744895160198212,
+     "J_driver": -34.15627616364509,
+     "beam_is_driver": false
+    },
+    "RouteID_c979a9f2-4667-4141-bf71-10f33cce4102": {
+     "J_beam": -1.7123194350861013,
+     "J_driver": -1.7123194350861013,
+     "beam_is_driver": true
+    },
+    "RouteID_c999990f-ab6a-4e3a-aa09-406ddf2ec384": {
+     "J_beam": -0.45943705178797245,
+     "J_driver": -0.45943705178797245,
+     "beam_is_driver": true
+    },
+    "RouteID_cac3ae3c-69d9-403d-9d72-92d108aee229": {
+     "J_beam": -1.6265865634195507,
+     "J_driver": -9.570502778049558,
+     "beam_is_driver": false
+    },
+    "RouteID_cadd6fc3-c1ea-4c0c-9b45-849ae631b324": {
+     "J_beam": -1.6977327093482018,
+     "J_driver": -18.83288819110021,
+     "beam_is_driver": false
+    },
+    "RouteID_cae13fa5-a5bc-4e8c-a455-b9a71fd18ee8": {
+     "J_beam": -2.1917320881038904,
+     "J_driver": -14.8180264942348,
+     "beam_is_driver": false
+    },
+    "RouteID_cb812ff3-06a2-42ea-a114-b747c2824a66": {
+     "J_beam": -3.1626973738893867,
+     "J_driver": -7.27043910510838,
+     "beam_is_driver": false
+    },
+    "RouteID_ccafc994-05f1-41fb-9400-82ba02f758e3": {
+     "J_beam": -1.2746774095576257,
+     "J_driver": -7.961365694645792,
+     "beam_is_driver": false
+    },
+    "RouteID_cf19c20a-93a3-4687-970e-af43b8ba09fc": {
+     "J_beam": -1.519072585273534,
+     "J_driver": -1.519072585273534,
+     "beam_is_driver": true
+    },
+    "RouteID_d1390cd0-5f7c-4127-9ba9-448d9d1a4ead": {
+     "J_beam": -4.755537850782275,
+     "J_driver": -13.778236040845513,
+     "beam_is_driver": false
+    },
+    "RouteID_d1a8c3dd-fa67-455c-a68d-af2fd6aa5d91": {
+     "J_beam": -4.569520656950772,
+     "J_driver": -26.848994345404208,
+     "beam_is_driver": false
+    },
+    "RouteID_d4301882-99f6-420e-8513-e9a5e41c7b10": {
+     "J_beam": -1.2018819950753823,
+     "J_driver": -1.5866009384626523,
+     "beam_is_driver": false
+    },
+    "RouteID_d4e12cdc-063d-42b3-8b2f-76a6e362fd2c": {
+     "J_beam": -2.931560299359262,
+     "J_driver": -12.802735414588824,
+     "beam_is_driver": false
+    },
+    "RouteID_d54efb27-1db9-4a1a-a9c0-b879fffb523b": {
+     "J_beam": -1.623834299389273,
+     "J_driver": -24.04823343269527,
+     "beam_is_driver": false
+    },
+    "RouteID_d5cb817f-2298-4748-89fd-23a17d2a76ea": {
+     "J_beam": -2.6741672980133444,
+     "J_driver": -8.426342914579436,
+     "beam_is_driver": false
+    },
+    "RouteID_d87cabbe-3de5-46ed-9f91-801c2f409456": {
+     "J_beam": -5.594440449262038,
+     "J_driver": -32.46538876276463,
+     "beam_is_driver": false
+    },
+    "RouteID_d933d55b-1988-421b-861e-073d1b0c5974": {
+     "J_beam": -3.5472781234420836,
+     "J_driver": -28.864466344937682,
+     "beam_is_driver": false
+    },
+    "RouteID_d98ceac1-91b5-458f-b82c-f336da91d6c4": {
+     "J_beam": -3.7375232968479395,
+     "J_driver": -23.749962905421853,
+     "beam_is_driver": false
+    },
+    "RouteID_da3597bd-3f24-44a4-a646-90d5034b4b25": {
+     "J_beam": -0.5605253595858812,
+     "J_driver": -9.721865405328572,
+     "beam_is_driver": false
+    },
+    "RouteID_da806f65-7536-4097-95a1-458a5e33dc7c": {
+     "J_beam": -2.756678677164018,
+     "J_driver": -12.465695826336741,
+     "beam_is_driver": false
+    },
+    "RouteID_da8894e9-dd88-4ba6-9922-d0f31082af81": {
+     "J_beam": -0.6618112195283175,
+     "J_driver": -9.549096583155915,
+     "beam_is_driver": false
+    },
+    "RouteID_da90b76c-6986-4197-81fa-0e33aa51dd44": {
+     "J_beam": -0.12746994069311768,
+     "J_driver": -0.12746994069311768,
+     "beam_is_driver": true
+    },
+    "RouteID_db3c0395-e7bd-43fc-9ec1-7fe9a4e8cc30": {
+     "J_beam": -1.89426480489783,
+     "J_driver": -3.9014842256437987,
+     "beam_is_driver": false
+    },
+    "RouteID_dc733acb-6074-4397-8bb6-a3f4c341e489": {
+     "J_beam": -1.5927944134455174,
+     "J_driver": -5.429543916019611,
+     "beam_is_driver": false
+    },
+    "RouteID_de7f692c-5ded-4a3f-a07a-fc7bfcca29d4": {
+     "J_beam": -3.3774871844798326,
+     "J_driver": -20.283247935585678,
+     "beam_is_driver": false
+    },
+    "RouteID_decf8ed4-f574-4348-a750-f6bd095c23a6": {
+     "J_beam": -2.149316614260897,
+     "J_driver": -2.149316614260897,
+     "beam_is_driver": true
+    },
+    "RouteID_df426646-69fa-4bf8-8160-86dd53824eaf": {
+     "J_beam": -4.125072631635703,
+     "J_driver": -4.980214072973467,
+     "beam_is_driver": false
+    },
+    "RouteID_df8170fa-2d78-4edd-ba06-d49e6bee4622": {
+     "J_beam": -1.449069612659514,
+     "J_driver": -15.827196360565722,
+     "beam_is_driver": false
+    },
+    "RouteID_dfaac97b-424c-4787-8651-825ed11f070d": {
+     "J_beam": -0.4589986805804074,
+     "J_driver": -0.4589986805804074,
+     "beam_is_driver": true
+    },
+    "RouteID_e39ea4ce-c0bd-4661-a34a-ec77218270e1": {
+     "J_beam": -0.4659922362770885,
+     "J_driver": -8.473727852688171,
+     "beam_is_driver": false
+    },
+    "RouteID_e3d097f0-523f-45b5-8328-95688a3b2d4a": {
+     "J_beam": -0.15387323056347668,
+     "J_driver": -0.15387323056347668,
+     "beam_is_driver": true
+    },
+    "RouteID_e431316a-d4d4-4715-a71c-17c3fdd31f64": {
+     "J_beam": -0.3654476630035788,
+     "J_driver": -0.3654476630035788,
+     "beam_is_driver": true
+    },
+    "RouteID_e71e3c25-0652-4647-9eb1-1a8218de6619": {
+     "J_beam": -2.2029734337702394,
+     "J_driver": -2.2029734337702394,
+     "beam_is_driver": true
+    },
+    "RouteID_e77b696c-867e-439a-9591-62250e7c8951": {
+     "J_beam": -3.399431988596916,
+     "J_driver": -12.12345813959837,
+     "beam_is_driver": false
+    },
+    "RouteID_ed0dfe15-9cce-4e56-a4d2-c51c52d296a8": {
+     "J_beam": -1.3304913078900427,
+     "J_driver": -1.3304913078900427,
+     "beam_is_driver": true
+    },
+    "RouteID_ed9e9b18-c25c-41e7-902c-635c0d6938f2": {
+     "J_beam": -3.430885056965053,
+     "J_driver": -8.82496429886669,
+     "beam_is_driver": false
+    },
+    "RouteID_eda0f6bf-6402-43a7-968b-662e9ae3aa1b": {
+     "J_beam": -6.946075547486544,
+     "J_driver": -10.769846737384796,
+     "beam_is_driver": false
+    },
+    "RouteID_f1566ecc-d1f9-4bbd-a8c2-c184e35229e4": {
+     "J_beam": -1.9961907700635493,
+     "J_driver": -9.159461410250515,
+     "beam_is_driver": false
+    },
+    "RouteID_f2191eca-9fab-4b77-9085-94bf46450651": {
+     "J_beam": -5.60792232863605,
+     "J_driver": -16.733566401526332,
+     "beam_is_driver": false
+    },
+    "RouteID_f3ab9177-b525-4e78-868a-7a98abc65e91": {
+     "J_beam": -0.41348889088840224,
+     "J_driver": -0.41348889088840224,
+     "beam_is_driver": true
+    },
+    "RouteID_f41295cd-c7ee-43d8-9a4c-4fdbbd16a182": {
+     "J_beam": -5.022978335618973,
+     "J_driver": -5.022978335618973,
+     "beam_is_driver": true
+    },
+    "RouteID_f53d09f3-721d-456d-aa62-5b9469ea63ba": {
+     "J_beam": -0.9721550024114549,
+     "J_driver": -6.2511712848208845,
+     "beam_is_driver": false
+    },
+    "RouteID_f6ce3ad1-71ba-4e54-b811-1cedd0e0a81b": {
+     "J_beam": -5.053773065563291,
+     "J_driver": -17.357067732140422,
+     "beam_is_driver": false
+    },
+    "RouteID_f7c7980c-84a1-4820-806a-798646d20534": {
+     "J_beam": -4.150885619223118,
+     "J_driver": -29.353269590763375,
+     "beam_is_driver": false
+    },
+    "RouteID_f829cf04-4723-406f-86a4-cce57bd0e5ee": {
+     "J_beam": -1.7912257181014866,
+     "J_driver": -7.520128477131948,
+     "beam_is_driver": false
+    },
+    "RouteID_fadece5d-2666-4e97-9bc0-e9f8d931509a": {
+     "J_beam": -2.672543600667268,
+     "J_driver": -2.672543600667268,
+     "beam_is_driver": true
+    },
+    "RouteID_fc8b8a53-8355-4e21-98f7-1bebfef3de87": {
+     "J_beam": -0.6009407718665898,
+     "J_driver": -10.061611318029463,
+     "beam_is_driver": false
+    },
+    "RouteID_fcf4528e-633a-47f8-8274-feea8be3222a": {
+     "J_beam": -1.0749226389452815,
+     "J_driver": -4.3295390657149255,
+     "beam_is_driver": false
+    },
+    "RouteID_fd1ac099-0363-41c1-9645-c16b57c3fb55": {
+     "J_beam": -4.429388282820582,
+     "J_driver": -4.429388282820582,
+     "beam_is_driver": true
+    },
+    "RouteID_fd7f757b-abb6-436a-a9e6-0d96129eb95e": {
+     "J_beam": -6.155208792537451,
+     "J_driver": -4.640108949504793,
+     "beam_is_driver": false
+    }
+   }
+  }
+ },
+ "seconds": 28.840413093566895
+}
