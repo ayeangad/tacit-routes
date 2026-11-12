@@ -1,0 +1,4 @@
+numpy==2.5.4
+torch==2.15.0
+ortools==9.15.6755
+ijson==3.6.0
