@@ -99,7 +99,7 @@ My model picks the next zone one step at a time, using a beam search. All five O
 ## Licence
 
 - **Code:** MIT (`LICENSE`).
-- **Data:** Amazon's Last Mile Routing Research Challenge data is licensed CC BY-NC.
-- **Weights and history tables (`runs/v1/`):** derived from the challenge data, so they carry the same CC BY-NC terms (non-commercial). The MIT licence does not cover them. It isn't redistributed here. Predictions and results derived from it are shared for non-commercial research only.
+- **Data:** Amazon's Last Mile Routing Research Challenge data is licensed CC BY-NC 4.0 (per its AWS Open Data registry page).
+- **Weights and history tables (`runs/v1/`):** derived from the challenge data, so they carry the same CC BY-NC 4.0 terms (non-commercial). The MIT licence does not cover them. It isn't redistributed here. Predictions and results derived from it are shared for non-commercial research only.
 - **Official scorer:** `scripts/official_rc_cli/` is the challenge's own `score.py` (rc-cli, commit fdafa50). It is included unchanged so scores are comparable, and the upstream licence applies.
 - **2021 winner's code:** `jpt-amz` by Cook, Held and Helsgaun (MIT, commit dc4ebc0; paper arXiv 2112.15192). It was used for the reference arm and is not included here; `scripts/run_jpt.py` expects it in `vendor/jpt-amz`.
