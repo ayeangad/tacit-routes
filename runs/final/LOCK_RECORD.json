@@ -1,0 +1,15 @@
+{
+ "locked_utc": "2026-11-12T09:45:31+00:00",
+ "approved_by": "Angad ('lock it', 2026-11-12 ~11:58 IST, for sha256 a8eccd3f611b)",
+ "sha256": {
+  "PREREGISTRATION.md": "a8eccd3f611bdb89e05a65a53a0fa889fdc9d3b3f9b0f605f5b477b3b7c4c9b6",
+  "runs/final/PREREG_CONFIG.json": "e25cb0b6628980db1a352ca5d6ec29118be890b72b4bd0bd5c42a6fc749a5c4c",
+  "scripts/final_score.py": "fa2a52a59ddfa89a7986a7e4b44c59497d858c50307f3443705982d499dde6d9",
+  "scripts/final_common.py": "e53df83430fd222f6fd3acd02141cac1c4643c0f7c5b3fe2f2d7fe9a53370df7",
+  "scripts/final_descriptive.py": "b294a059352c46bf12db06724a54ad1dabb02fd268686dbeede4d4dcd62a49e9",
+  "scripts/final_pilot_score.py": "0cdde49045acbf9563c29c0f4aff7bfec5d38305f89481bbbf401796345af62e",
+  "runs/final/predictions/MANIFEST.json": "d04bfb107e848ec48fb42b4a431c53aeb765fd134c029edc959d2840ac443dce"
+ },
+ "final_test_json_sha256": "acc005ebc438452594252b24bbd0a0d692500888f514f0997d3bda5b09b3256f",
+ "final_test_written_utc": "2026-11-12T12:45:00+00:00"
+}
